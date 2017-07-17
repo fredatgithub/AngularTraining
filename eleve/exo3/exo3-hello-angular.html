@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html ng-app="formation">
+  <head>
+    <meta charset="UTF-8"/>
+    <title>hello Angular</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="angular.js"></script>
+  </head>
+  <body>
+    <h1>Hello Angular</h1>
+  <script>
+    //console.log(angular);
+    var autreApp = angular.module('dependanceGeniale', []);
+    var app = angular.module('formation', ['dependanceGeniale']);
+
+    app.run(function(){
+      //alert('run Forrest');
+      console.log('run app');
+    });
+    autreApp.run(function(){
+      //alert('run Forrest');
+      console.log('run autre app');
+    });
+
+    app.config(function(){
+      console.log('config app');
+    });
+
+    app.config(function(){
+      console.log('config autre app');
+    });
+    
+  </script>
+  </body>
+</html>

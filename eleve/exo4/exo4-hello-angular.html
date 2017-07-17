@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html ng-app="formation">
+  <head>
+    <meta charset="UTF-8"/>
+    <title>hello Angular</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="angular.js"></script>
+  </head>
+  <body>
+    <h1>Hello Angular</h1>
+    <div ng-controller="MonPremierController">
+      <p suis un paragraphe</p> </nb>
+     <p> {{proverbe}}</p>
+     <p> Compteur : {{counter}}</p>
+    </div>
+  <script>
+    //console.log(angular);
+    var autreApp = angular.module('dependanceGeniale', []);
+    var app = angular.module('formation', ['dependanceGeniale']);
+
+    app.run(function(){
+      //alert('run Forrest');
+      console.log('run app');
+    });
+
+    app.config(function(){
+      console.log('config app');
+    });
+
+    app.controller('MonPremierController', function($scope, $interval){
+      console.log('Lancement du premier controlleur');
+      console.log($scope);
+      $scope.proverbe = "mon super proverbe";
+      $scope.counter = 0;
+      $interval(function(){
+        $scope.counter += 1;
+      }, 1000);
+    });
+    
+  </script>
+  </body>
+</html>

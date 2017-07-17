@@ -1,0 +1,12 @@
+
+p {
+    color: black;
+}
+#intro {
+    font-style: italic;
+}
+.odd {
+    background-color: grey;
+    color: blue;
+}
+        
