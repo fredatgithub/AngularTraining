@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html ng-app="formation">
+  <head>
+    <meta charset="UTF-8"/>
+    <title>horloge</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="angular.js"></script>
+  </head>
+  <body>
+    <h1>two way binding</h1>
+      <div ng-controller="zecontroller">
+        <input ng-model="message">
+        <p>{{message}}</p>
+      </div>
+  <script>
+  
+    var app = angular.module('formation', []);
+    app.controller('zecontroller', function($scope, $interval){
+      $interval(function(){
+        console.log($scope.message);
+      }, 1000)
+    });
+  </script>
+  </body>
+</html>

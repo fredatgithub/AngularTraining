@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html ng-app="formation">
+  <head>
+    <title>Hello angular</title>
+    <meta charset="UTF-8">
+    <script src="angular.js"></script>
+  </head>
+  <body>
+
+    <script>
+
+        var autreApp = angular.module('dependanceGeniale', []);
+
+        var app = angular.module('formation', ['dependanceGeniale']);
+
+        app.run(function(){
+          console.log('Run app !');
+        });
+
+        autreApp.run(function(){
+          console.log('Run autreApp !');
+        });
+
+        app.config(function(){
+          console.log('Config app !');
+        });
+
+        autreApp.config(function(){
+          console.log('Config autreApp !');
+        });
+
+    </script>
+  
+  </body>
+</html>

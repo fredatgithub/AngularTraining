@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html ng-app="horloge">
+  <head>
+    <meta charset="UTF-8"/>
+    <title>horloge</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="angular.js"></script>
+  </head>
+  <body>
+    <h1>Horloge</h1>
+    <div ng-controller="controllerhorloge">
+      <p> Il est exactement : {{heures}}:{{minutes}}:{{secondes}}</p> 
+    </div>
+    <div>
+      Décallage : 
+      <input type="number" name="decallage" value=0>
+    </div>
+  <script>
+    //console.log(angular);
+    var AppHorloge = angular.module('horloge', []);
+    AppHorloge.run(function(){
+      console.log('run app horloge');
+    });
+
+    AppHorloge.config(function(){
+      console.log('config app horloge');
+    });
+
+    AppHorloge.controller('controllerhorloge', function($scope, $interval){
+      //console.log('Lancement du premier controlleur');
+      //console.log($scope);
+        d = new Date();
+        $scope.heures = d.getHours();
+        $scope.minutes = d.getMinutes();
+        $scope.secondes = d.getSeconds();
+      $interval(function(){
+        d = new Date();
+        $scope.heures = d.getHours();
+        $scope.minutes = d.getMinutes();
+        $scope.secondes = d.getSeconds();
+      }, 1000);
+    });
+
+    AppHorloge.controller('controllerdecallage', function($scope, $interval){
+      console.log('Lancement du controlleur decallage');
+      //console.log($scope);
+      
+        d = new Date();
+        var temps = d.getTime();
+        temps += 60*60*1000;
+        
+      $interval(function(){
+        d = new Date();
+        $scope.heures = d.getHours();
+        $scope.minutes = d.getMinutes();
+        $scope.secondes = d.getSeconds();
+      }, 1000);
+    });
+  </script>
+  </body>
+</html>
