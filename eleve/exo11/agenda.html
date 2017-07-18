@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="fr" ng-app="todo">
+    <head>
+        <title>Agenda without duplicate !</title>
+        <meta charset="UTF-8">
+    </head>
+    <body ng-controller="Controller">
+      <h1>Agenda sans duplicate with angular</h1>
+      <form ng-submit="processNewContact(newContact)" >
+        <p>
+          Nom : <input type="text" name="Contact" ng-model="newContactName">
+          Téléphone : <input type="number" name="telephone" min="0" ng-model="newContactTel">
+          <button ng-click="processNewContact($event)" type="submit" name="add">Add</button>
+        </p>
+         <!-- <ul id="Contacts">
+          <li ng-repeat="x in todo.contacts | orderBy:'-name'">{{x.name}} - téléphone : {{x.telephone}} </li>
+        </ul> -->
+
+         <table class="friends" border="1">
+          <tr>
+            <th>Nom</th>
+            <th>Téléphone</th>
+          </tr>
+          <tr ng-repeat="personne in todo.contacts | orderBy:'+name'">
+            <td>{{personne.name}}</td>
+            <td>{{personne.telephone}}</td>
+          </tr>
+        </table> 
+      </form>
+      <script src="angular.js"></script>
+      <script>
+        var app = angular.module('todo', []);
+
+        app.controller('Controller', function($scope, todo){ 
+          $scope.todo = todo;
+          $scope.triggerFilter = 0;
+          $scope.processNewContact = function(evt){
+            evt.preventDefault();
+            var newContact= {};
+            newContact.name = $scope.newContactName;
+            newContact.telephone = $scope.newContactTel;
+            if (!$scope.newContactName){return;}
+            if (!$scope.newContactTel){return;}
+            $scope.todo.addAgenda(newContact);
+            $scope.newContactName = "";
+            $scope.newContactTel = "";
+          }
+        });
+
+        app.filter('trier', function(){
+          "use strict";
+          return function(input){
+            return input;
+          }
+        });
+
+        app.filter('slicer', function(){
+          "use strict";
+          return function(input, from, to){
+            return input.slice(from, to);
+          }
+        });
+
+        app.config(function(todoProvider){
+          todoProvider.setduplicateMode(false);
+        });
+
+        app.provider("todo", function(){
+          var duplicateMode = true;
+          this.setduplicateMode = function(val){
+            duplicateMode = val;
+          };
+
+          this.$get = function(){
+            //debugger
+            return {
+              contacts: [
+                {name: 'Melinda', telephone: '123456789'},
+                {name: 'Kevin',   telephone: '911'},
+                {name: 'Billou',  telephone: '911911911'},
+                {name: 'zorro',  telephone: '123654987'},
+                {name: 'Alibaba',  telephone: '123654987'}
+              ],
+              addAgenda: function(contact){
+                if (duplicateMode){
+                  this.contacts.push(contact);
+                }
+                else{
+                  // check if phone number already exist
+                  var alreadyIn = false;
+                  this.contacts.forEach(function(element) {
+                    if (element.telephone === contact.telephone){
+                      alreadyIn = true;
+                    }
+                  }, this);
+
+                  if (!alreadyIn){
+                    this.contacts.push(contact);
+                  }
+                }
+              }
+            };
+          };
+        });
+        
+      </script>
+    </body>
+</html>
