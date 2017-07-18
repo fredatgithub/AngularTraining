@@ -47,13 +47,21 @@
           }
         });
 
-        app.filter('trier', function(){
-          "use strict";
+        app.filter('random', function(){
+          function remove_random_elements(array, n){
+            for(var i=0;i<n;i++){
+              array.splice(Math.floor(Math.random()*array.length), 1);
+            }
+          }
+
           return function(input){
-            return input;
+            console.log(input);
+            var copy = input.slice();
+            remove_random_elements(copy, 2);
+            return copy;
           }
         });
-
+      
         app.filter('slicer', function(){
           "use strict";
           return function(input, from, to){
