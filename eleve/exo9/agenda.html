@@ -10,27 +10,30 @@
         <p>
           Nom : <input type="text" name="Contact" ng-model="newContactName">
           Téléphone : <input type="text" name="telephone" ng-model="newContactTel">
-          <button ng-click="add($event)" type="submit" name="add">Add</button>
+          <button ng-click="processNewContact($event)" type="submit" name="add">Add</button>
         </p>
         <ul id="Contacts">
-          <li ng-repeat="x in Contacts">{{x}}</li>
+          <li ng-repeat="x in todo.contacts">{{x.name}} {{x.telephone}} </li>
         </ul>
       </form>
       <script src="angular.js"></script>
       <script>
         var app = angular.module('todo', []);
+
         app.controller('Controller', function($scope, todo){ 
           $scope.todo = todo;
-          $scope.newContact= {};
-          $scope.processNewContact = function(){
-            $scope.newContact.name = $scope.newContactName;
-            $scope.newContact.telephone = $scope.newContactTel;
-            
+          
+          $scope.processNewContact = function(e){
+            e.preventDefault();
+            var newContact= {};
+            newContact.name = $scope.newContactName;
+            newContact.telephone = $scope.newContactTel;
             if (!$scope.newContactName){return;}
             if (!$scope.newContactTel){return;}
-            $scope.todo.addAgenda($scope.newContact);
-            //$scope.newContactName = "";
-            //$scope.newContactTel = "";
+        
+            $scope.todo.addAgenda(newContact);
+            $scope.newContactName = "";
+            $scope.newContactTel = "";
           }
         });
 
