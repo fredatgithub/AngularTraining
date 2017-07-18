@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="fr" ng-app="todo">
+    <head>
+        <title>Todo !</title>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+      <h1>Todo list with angular</h1>
+      <form name="todoform" ng-controller="todocontroller">
+        <p>
+          <input type="text" name="task">
+          <button ng-click="add()" type="submit" name="add">Add</button>
+        </p>
+        <ul id="tasks">
+          <li ng-list="todolist"></li>
+        </ul>
+      </form>
+
+      <script>
+        var app = angular.module('todo', []);
+        app.controller('todocontroller', function($scope){
+          var monArray; 
+          $scope.add = function(e){
+              
+          }
+        });
+      </script>
+    </body>
+</html>
