@@ -47,7 +47,6 @@ function coucou(nom){
   alert('coucou ' + nom);
 }
 
-
 var compteur = 0; 
 // fonction anonyme == lambda
 setInterval(function (){
