@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="fr" ng-app="todo">
     <head>
-        <title>Agenda !</title>
+        <title>Agenda without duplicate !</title>
         <meta charset="UTF-8">
     </head>
     <body ng-controller="Controller">
-      <h1>Agenda with angular</h1>
+      <h1>Agenda sans duplicate with angular</h1>
       <form ng-submit="processNewContact(newContact)" >
         <p>
           Nom : <input type="text" name="Contact" ng-model="newContactName">
@@ -13,36 +13,61 @@
           <button ng-click="processNewContact($event)" type="submit" name="add">Add</button>
         </p>
         <ul id="Contacts">
-          <li ng-repeat="x in todo.contacts">{{x.name}} a comme téléphone : {{x.telephone}} </li>
+          <li ng-repeat="x in todo.contacts track by $index">{{x.name}} - téléphone : {{x.telephone}} </li>
         </ul>
       </form>
       <script src="angular.js"></script>
       <script>
         var app = angular.module('todo', []);
 
+
+
         app.controller('Controller', function($scope, todo){ 
           $scope.todo = todo;
-          
-          $scope.processNewContact = function(event){
-            event.preventDefault();
+          $scope.processNewContact = function(evt){
+            evt.preventDefault();
             var newContact= {};
             newContact.name = $scope.newContactName;
             newContact.telephone = $scope.newContactTel;
             if (!$scope.newContactName){return;}
             if (!$scope.newContactTel){return;}
-        
             $scope.todo.addAgenda(newContact);
             $scope.newContactName = "";
             $scope.newContactTel = "";
           }
         });
 
+        app.config(function(todoProvider){
+          todoProvider.setduplicateMode(false);
+        });
+
         app.provider("todo", function(){
+          var duplicateMode = true;
+          this.setduplicateMode = function(val){
+            duplicateMode = val;
+          };
+
           this.$get = function(){
+            //debugger
             return {
               contacts: [],
               addAgenda: function(contact){
-                this.contacts.push(contact);
+                if (duplicateMode){
+                  this.contacts.push(contact);
+                }
+                else{
+                  // check if phone number already exist
+                  var alreadyIn = false;
+                  this.contacts.forEach(function(element) {
+                    if (element.telephone === contact.telephone){
+                      alreadyIn = true;
+                    }
+                  }, this);
+
+                  if (!alreadyIn){
+                    this.contacts.push(contact);
+                    }
+                }
               }
             };
           };
