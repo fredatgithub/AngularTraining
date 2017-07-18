@@ -1,29 +1,32 @@
 <!DOCTYPE html>
 <html lang="fr" ng-app="todo">
     <head>
-        <title>Todo !</title>
+        <title>myApp !</title>
         <meta charset="UTF-8">
     </head>
-    <body>
+    <body ng-controller="todocontroller">
       <h1>Todo list with angular</h1>
-      <form name="todoform" ng-controller="todocontroller">
+      <form name="myCtrl" >
         <p>
-          <input type="text" name="task">
-          <button ng-click="add()" type="submit" name="add">Add</button>
+          <input type="text" name="task" ng-model="task">
+          <button ng-click="add($event)" type="submit" name="add">Add</button>
         </p>
         <ul id="tasks">
-          <li ng-list="todolist"></li>
+          <li ng-repeat="x in monArray">{{x}}</li>
         </ul>
       </form>
-
+      <script src="angular.js"></script>
       <script>
         var app = angular.module('todo', []);
-        app.controller('todocontroller', function($scope){
-          var monArray; 
+        app.controller('todocontroller', function($scope){ 
+          //$scope.monArray = ['item 1', 'item 2', 'item 3'];
+          $scope.monArray = [];
           $scope.add = function(e){
-              
+              e.preventDefault();
+              $scope.monArray.push($scope.task);
           }
         });
+        
       </script>
     </body>
 </html>

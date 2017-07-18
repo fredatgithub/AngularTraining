@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="fr" ng-app="todo">
+    <head>
+        <title>Agenda !</title>
+        <meta charset="UTF-8">
+    </head>
+    <body ng-controller="Controller">
+      <h1>Agenda with angular</h1>
+      <form ng-submit="processNewContact(newContact)" >
+        <p>
+          Nom : <input type="text" name="Contact" ng-model="newContactName">
+          Téléphone : <input type="text" name="telephone" ng-model="newContactTel">
+          <button ng-click="add($event)" type="submit" name="add">Add</button>
+        </p>
+        <ul id="Contacts">
+          <li ng-repeat="x in Contacts">{{x}}</li>
+        </ul>
+      </form>
+      <script src="angular.js"></script>
+      <script>
+        var app = angular.module('todo', []);
+        app.controller('Controller', function($scope, todo){ 
+          $scope.todo = todo;
+          $scope.newContact= {};
+          $scope.processNewContact = function(){
+            $scope.newContact.name = $scope.newContactName;
+            $scope.newContact.telephone = $scope.newContactTel;
+            
+            if (!$scope.newContactName){return;}
+            if (!$scope.newContactTel){return;}
+            $scope.todo.addAgenda($scope.newContact);
+            //$scope.newContactName = "";
+            //$scope.newContactTel = "";
+          }
+        });
+
+        app.provider("todo", function(){
+          this.$get = function(){
+            return {
+              contacts: [],
+              addAgenda: function(contact){
+                this.contacts.push(contact);
+              }
+            };
+          };
+        });
+        
+      </script>
+    </body>
+</html>
