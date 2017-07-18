@@ -9,11 +9,13 @@
       <form ng-submit="processNewContact(newContact)" >
         <p>
           Nom : <input type="text" name="Contact" ng-model="newContactName">
-          Téléphone : <input type="text" name="telephone" ng-model="newContactTel">
+          Téléphone : <input type="number" name="telephone" min="0" ng-model="newContactTel">
+          <!-- <input type="number" name="points" min="0" max="100" step="10" value="30"> -->
           <button ng-click="processNewContact($event)" type="submit" name="add">Add</button>
         </p>
         <ul id="Contacts">
-          <li ng-repeat="x in todo.contacts track by $index">{{x.name}} - téléphone : {{x.telephone}} </li>
+          <li ng-repeat="x in todo.contacts">{{x.name}} - téléphone : {{x.telephone}} </li>
+          <!-- <li ng-repeat="x in todo.contacts track by $index">{{x.name}} - téléphone : {{x.telephone}} </li> -->
         </ul>
       </form>
       <script src="angular.js"></script>
