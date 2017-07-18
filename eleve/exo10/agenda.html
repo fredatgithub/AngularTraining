@@ -20,8 +20,6 @@
       <script>
         var app = angular.module('todo', []);
 
-
-
         app.controller('Controller', function($scope, todo){ 
           $scope.todo = todo;
           $scope.processNewContact = function(evt){
@@ -66,7 +64,7 @@
 
                   if (!alreadyIn){
                     this.contacts.push(contact);
-                    }
+                  }
                 }
               }
             };
