@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html ng-app='myApp'>
+  <head>
+    <meta charset="utf-8" />
+    <title>
+        Closure
+    </title>
+</head>
+
+<body >
+
+<script>
+
+function additioneur(increment) {
+    // la variable "increment" est ici enfermé dans un espace de nom pourque
+    // chaque nouvelle fonction ainsi créée. Ce phénomène, qui implique la
+    // mémorisation de la variable et la liaison avec le scope de la fonction,
+    // s'appelle une closure.
+    return function(valeur) {
+        return valeur + increment;
+    }
+}
+
+var plus_cinq = additioneur(5);
+
+/* C'est la raison pour laquelle on peut utiliser une référence à une variable
+extérieur dans les fonctions anonymes utilisées par les outils type forEach
+d'angular ou jQuery. */
+
+
+</script>
+
+<p> <button onclick='alert(plus_cinq(2))'>Plus 5</button> </p>
+
+</html>
+
+</body>
+</html>
+

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html ng-app='myApp'>
+  <head>
+    <meta charset="utf-8" />
+    <title>
+        Directives
+    </title>
+    <script src="../js/angular.js"></script>
+
+    <script>
+
+    angular.module('myApp', [])
+
+    .controller('Controlleur', function($scope) {
+        "use strict";
+        $scope.afficher = true;
+        $scope.cacher = false;
+
+    });
+
+
+    </script>
+
+</head>
+
+<body  ng-controller="Controlleur">
+
+    <p>Le texte suivant apparaît : <span ng-show="afficher">Hello</span></p>
+    <p>Le texte suivant est masqué : <span ng-show="cacher">Hello</span></p>
+    <p>Le texte suivant est affiché : <span ng-show="afficher || cacher">Hello</span></p>
+    <p>Le texte suivant est masqué : <span ng-show="afficher && cacher">Hello</span></p>
+
+</body>
+
+</html>
+
+</body>
+</html>
+

@@ -1,0 +1,67 @@
+Programme :
+
+Javascript
+==========
+
+Scope
+
+Fonctions anonymes
+
+Callbacks
+
+Closure
+
+Promises
+
+Mode strict
+
+Objects :
+
+- Références
+- Singleton
+- Attachement de fonctions
+
+Angular
+========
+
+Le controlleur
+"As" pour les controlleurs
+Le scope
+Le modèle
+Les directives
+Quelques directives connues (show, hide, class, click)
+Les expressions dans les directives
+ng-repeat
+
+Video avec playlist
+
+Les filtres
+
+Rajouter un filtre à la playlist
+
+Voir ng-repeat start/end avec dl
+Voir ng-bind/ng-bind-template
+
+Les providers
+La différences entre les types providers
+Configuration d'un provider
+
+
+
+Révision de la veille
+
+Custom form validation
+
+Créer son propre filtre
+Créer sa propre directive
+
+Révision sur HTTP
+$http
+configuration du $httpProvider
+Les intercepteurs
+
+Les modèles REST
+Les transformers
+
+Les routes
+Les tests

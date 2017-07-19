@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html ng-app='myApp'>
+  <head>
+    <meta charset="utf-8" />
+    <title>
+        Services
+    </title>
+    <script src="../js/angular.js"></script>
+
+    <script>
+
+    angular.module('myApp', [])
+
+    .factory("arrayFilter", function(){
+        "use strict";
+
+        var service = {
+            filter: function(filtres, array) {
+                var res = [];
+                angular.forEach(array, function(elem, i){
+                    var found = false;
+                    angular.forEach(filtres, function(filtre, y){
+                        if (elem === filtre){
+                            found = true;
+                            return;
+                        }
+                    });
+                    if (!found){
+                        res.push(elem);
+                    }
+
+                });
+                return res;
+            },
+            alert_on_click: function(filters, array){
+                filters = filters ? filters.split(/\s+/) : [];
+                array = array ? array.split(/\s+/) : [];
+                alert(service.filter(filters, array));
+            }
+        };
+
+        return service;
+    })
+
+    .controller('Controlleur', function($scope, arrayFilter) {
+        $scope.arrayFilter = arrayFilter;
+    });
+
+
+    </script>
+
+</head>
+
+<body  ng-controller="Controlleur">
+
+
+<form>
+    <p>
+        <input type="text" ng-model="filters">
+        <input type="text" ng-model="array">
+        <button ng-click="arrayFilter.alert_on_click(filters, array)">Filter</button>
+    </p>
+</form>
+
+</body>
+
+</html>
+
+</body>
+</html>
+

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html ng-app='fdj'>
+  <head>
+    <meta charset="utf-8" />
+    <title>
+        Agenda
+    </title>
+    <script src="./js/angular.js"></script>
+    <script src="./js/lodash.js"></script>
+    <script src="./js/restangular.js"></script>
+
+    <script>
+
+    angular.module('fdj', ['restangular'])
+
+    .config(function(RestangularProvider){
+
+        RestangularProvider.addResponseInterceptor(function(data){
+            return data.results;
+        })
+
+    })
+
+    .filter('uniq', function() {
+        // exercice: ajouter un filtre uniq à la liste de lecture du player
+        "use strict";
+        return function(input, attr) {
+            var uniqueNames = [];
+            angular.forEach(input, function(elem){
+                var found = false;
+                angular.forEach(uniqueNames, function(uniqueElem){
+                    if (uniqueElem[attr] === elem[attr]){
+                        found = true;
+                        return;
+                    }
+                });
+                if (!found){
+                    uniqueNames.push(elem);
+                }
+            });
+            return uniqueNames;
+        };
+    })
+
+    .directive('onWheel', function() {
+    "use strict";
+
+      /* On définit sur quels attributs on va mettre les callbacks */
+      var directive = {
+          scope: {
+              'onWheel': '&',
+          }
+      };
+
+      /* On limite la directive aux attributs */
+      directive.restrict = 'A';
+
+      /* Le code qu'active la directive quand on la pose sur l'élément */
+      directive.link = function($scope, element, attrs) {
+
+          /* On attache un callback à tous les événements de scrolling */
+          element.bind('mousewheel wheel', function(e) {
+            $scope.onWheel();
+            /* On évite que la page scrolle */
+            e.preventDefault();
+          });
+      };
+
+      return directive;
+    })
+
+    .factory('fdj.agenda', function($rootScope, Restangular, $http){
+
+        var Contacts = Restangular.all('contacts');
+
+        var service = {
+            people: [],
+            addPerson: function(name, phone){
+                console.log('add personne')
+                var person = {
+                    'name':name,'phone': service.normalizePhone(phone)
+                };
+                console.log("add", person)
+                Contacts.post(person).then(function(){
+                    service.people.push(person);
+                });
+
+            },
+            normalizePhone: function(phone){
+                return phone.replace(/^\+/, "00").replace(/\D/g, "");
+            },
+            remove: function(person){
+                angular.forEach(service.people, function(pers, i){
+                    if (angular.equals(person, pers)){
+                        console.log("delete", person, 'stop')
+                        Contacts.one("delete").post(pers).then(function(){
+                            service.people.splice(i, 1);
+                        });
+
+                    }
+                });
+            }
+        };
+
+        service.people = Contacts.getList().$object;
+
+        return service;
+
+    })
+
+    .controller('AgendaCtrl', ["$scope", "fdj.agenda", function($scope, agenda) {
+        $scope.agenda = agenda;
+        $scope.submit = function(name, phone, e){
+            agenda.addPerson(name, phone);
+            e.target.reset();
+            $scope.addForm.$setPristine();
+        };
+    }]);
+
+    </script>
+
+</head>
+
+<body  ng-controller="AgendaCtrl">
+    <form novalidate name="addForm" ng-submit="addForm.$valid && submit(newPersonName, newPersonPhone, $event)">
+
+        <p ng-if="newPersonName && addForm.phone.$error.pattern">
+            Le numéro ne peut contenir que des espaces, des nombres, ou un de ces caractères suivant : + / . -
+            Il doit contenir au moins 2 chiffres.
+        </p>
+        <p>
+            <label>Add person</label>
+            <input name="name" ng-model="newPersonName" required>
+            <input name="phone" ng-model="newPersonPhone"
+                   required ng-pattern="/^\+?[\d\.\-\s\/]{2,}$/">
+            <button>Add</button>
+        </p>
+    </form>
+    <ul>
+        <li on-wheel="agenda.remove(person)"
+            ng-repeat='person in agenda.people|uniq:"phone"|filter:filterAgenda'>
+            <strong>{{ person.name}}</strong> : {{ person.phone }}
+        </li>
+    </ul>
+
+    <p>
+        <label>Filtrer</label> : <input ng-model="filterAgenda">
+    </p>
+
+</body>
+
+</html>
+
+</body>
+</html>
+

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html ng-app='myApp'>
+  <head>
+    <meta charset="utf-8" />
+    <title>
+        Services
+    </title>
+    <script src="../js/angular.js"></script>
+
+    <script>
+
+    angular.module('myApp', [])
+
+    .provider("arrayFilter", function(){
+        "use strict";
+
+        // on déclare les variable à configurer dans le corps du provider;
+        var filtresParDefault = [];
+
+        // on créer des setters et des getters pour chacune des variables
+        this.setFiltresParDefault = function(array){
+            filtresParDefault = array;
+        }
+
+        this.$get = function() {
+            var service  = {
+                filter: function(filtres, array) {
+                    var res = [];
+                    // grace à la closure, on a accès à la variable ici
+                    filtres = filtres.concat(filtresParDefault);
+                    angular.forEach(array, function(elem, i){
+                        var found = false;
+                        angular.forEach(filtres, function(filtre, y){
+                            if (elem === filtre){
+                                found = true;
+                                return;
+                            }
+                        });
+                        if (!found){
+                            res.push(elem);
+                        }
+
+                    });
+                    return res;
+                },
+                alert_on_click: function(filters, array){
+                    filters = filters ? filters.split(/\s+/) : [];
+                    array = array ? array.split(/\s+/) : [];
+                    alert(service.filter(filters, array));
+                }
+            };
+
+            return service;
+        }
+    })
+
+    // dans le bloc de configuration, on peut utiliser les setters et les
+    // getters. Notez que Angular met automatiquement le provider disponible
+    // en injection de dépendance sous le nom de "NomDuServiceProvider"
+    .config(function(arrayFilterProvider){
+        arrayFilterProvider.setFiltresParDefault(['test']);
+    })
+
+    .controller('Controlleur', function($scope, arrayFilter) {
+        $scope.arrayFilter = arrayFilter;
+    });
+
+
+    </script>
+
+</head>
+
+<body  ng-controller="Controlleur">
+
+
+<form>
+    <p>
+        <input type="text" ng-model="filters">
+        <input type="text" ng-model="array">
+        <button ng-click="arrayFilter.alert_on_click(filters, array)">Filter</button>
+    </p>
+</form>
+
+</body>
+
+</html>
+
+</body>
+</html>
+

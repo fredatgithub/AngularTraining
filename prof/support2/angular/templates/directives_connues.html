@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html ng-app='myApp'>
+  <head>
+    <meta charset="utf-8" />
+    <title>
+        Directives connues
+    </title>
+    <script src="../js/angular.js"></script>
+
+    <script>
+
+    angular.module('myApp', [])
+
+    .controller('Controlleur', function($scope) {
+        "use strict";
+        $scope.valeur = 1;
+        $scope.joueurs = [
+            {nom: "Lucy", score: 3},
+            {nom: "Marc", score: 1},
+            {nom: "Camille", score: 4}
+        ];
+
+        $scope.alert = function(text) {
+            alert(text);
+        };
+
+    });
+
+
+    </script>
+
+</head>
+
+<body  ng-controller="Controlleur">
+
+    <p>Ng-if ajoute/retire une balise  : <span ng-if="valeur - 1">Texte</span> </p>
+    <p>Ng-readonly met un texte en lecture seule : <input ng-readonly="valeur" value="Yop"> </p>
+
+    <p>Ng-repeat permet d'itérer sur un tableau</p>
+    <ul>
+        <li ng-repeat="joueur in joueurs">
+            <strong>{{joueur.nom}}</strong>: {{joueur.score}}
+        </li>
+    </ul>
+
+    <p>Ng-nom-evenement permet d'appeler une fonction pour un événement appliqué à ce élément.</p>
+    <input ng-copy="alert('Ce texte a été copié')" value="Copie moi !">
+
+</body>
+
+</html>
+
+</body>
+</html>
+

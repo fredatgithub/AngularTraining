@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html ng-app='myApp'>
+  <head>
+    <meta charset="utf-8" />
+    <title>
+        Directive de validation
+    </title>
+    <script src="../js/angular.js"></script>
+</head>
+
+<body ng-controller="FormCtrl" >
+
+<form name="myForm" >
+
+    <p>
+        <label>Language:</label>
+        <input type="text" name="language" ng-model="language"
+                moderate="['php', 'perl']">
+        <span class="error"
+              ng-show="myForm.$dirty && myForm.language.$error.moderate">
+            Pas de gros mots s'il vous plait
+        </span>
+    </p>
+
+</form>
+
+</body>
+
+<script>
+var app = angular.module('myApp', []);
+
+app.directive('moderate', function() {
+'use strict';
+
+return {
+    require: 'ngModel',
+    restrict: 'A',
+    link : function(scope, element, attr, modelCtrl) {
+        // récupération du contenu de l'attribut "moderate" et évaluation
+        // de l'expression javascript qu'il contient afin de récupérer un
+        // array et non la chaîne de caractères telle qu'écrite dans le HTML
+        var words = scope.$eval(attr.moderate);
+
+        // on rajoute une fonction à la liste des fonctions de validation
+        // du champ
+        modelCtrl.$parsers.unshift(function (input) {
+            var validity = true;
+            for (var i = 0;  i < words.length; i++) {
+                  if (words[i] === input){
+                    // si le mot saisi est interdit, on retourne que le champ
+                    // n'est pas valide
+                      modelCtrl.$setValidity('moderate', false);
+                      return undefined;
+                  }
+            }
+            modelCtrl.$setValidity('moderate', true);
+            return input;
+        });
+    }
+};
+
+});
+
+app.controller('FormCtrl', ['$scope', function($scope) {}]);
+</script>
+
+
+</html>
+
+
+
+
+
+
+
+</body>
+</html>
+

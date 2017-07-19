@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html ng-app='myApp'>
+  <head>
+    <meta charset="utf-8" />
+    <title>
+        Prendre une fonction en paramètre
+    </title>
+</head>
+
+<body>
+
+<script>
+
+var une_fonction = function(){
+    alert('hello');
+    return "Je suis une fonction ordinaire";
+};
+
+function fonction_qui_attend_une_autre_fonction_en_parametre(func){
+    alert("J'ai reçu une fonction en paramètre : " + func);
+}
+
+function fonction_avec_un_callback(callback){
+    var result = callback();
+    alert("J'ai appelé mon callback, il m'a retourné : " + result);
+}
+
+
+/*
+Souvent les fonctions qui attendent des callbacks sont appelées avec des
+fonctions anonymes, ce qui donne la syntaxe caractéristique de javascript :
+
+fonction_avec_un_callback(function(){
+    // contenu de la fonction anonyme
+})
+*/
+
+</script>
+
+<form>
+    <p> <button onclick='une_fonction()'>Une fonction</button> </p>
+    <p>
+        <button onclick='fonction_qui_attend_une_autre_fonction_en_parametre(une_fonction)'>
+            Fonction qui attend une autre fonction en parametre
+        </button>
+    </p>
+    <p>
+        <button onclick='fonction_avec_un_callback(une_fonction)'>
+            Fonction avec un callback
+        </button>
+    </p>
+</form>
+
+</html>
+
+</body>
+</html>
+

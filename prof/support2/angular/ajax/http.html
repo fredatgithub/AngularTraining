@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html ng-app='myApp'>
+  <head>
+    <meta charset="utf-8" />
+    <title>
+        Le service $http
+    </title>
+    <script src="/angular/js/angular.js"></script>
+
+    <script>
+
+    angular.module('myApp', [])
+
+    .controller('Controlleur', function($scope, $http) {
+        "use strict";
+        $scope.arrets = [];
+
+        $http.get("/example/servicehttp/")
+
+        .success(function(data, status, headers, config) {
+          $scope.arrets = data.arrets;
+        })
+
+        .error(function(data, status, headers, config) {
+          console.log(data, status, headers, config);
+        });
+
+    });
+
+
+    </script>
+
+</head>
+
+<body  ng-controller="Controlleur">
+
+    <p>Arrêts :</p>
+    <ul>
+        <li ng-repeat="arret in arrets">{{ arret }}</li>
+    </ul>
+
+</body>
+
+</html>
+
+</body>
+</html>
+

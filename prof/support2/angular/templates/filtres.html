@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html ng-app='myApp'>
+  <head>
+    <meta charset="utf-8" />
+    <title>
+        Filtre
+    </title>
+    <script src="../js/angular.js"></script>
+
+    <script>
+
+    angular.module('myApp', [])
+
+    .controller('Controlleur', function() {
+        "use strict";
+        var vm = this;
+        vm.frameworks = ['Amber', 'Backbone', "Spine", "Knockout", "Angular"];
+        vm.limit = vm.frameworks.length;
+    });
+
+    </script>
+
+</head>
+
+<body  ng-controller="Controlleur as vm">
+
+    <form>
+        <p><input type="number" ng-model="vm.limit" min="0" max="{{vm.frameworks.length}}"></p>
+        <ul>
+            <li ng-repeat="framework in vm.frameworks|limitTo:vm.limit|orderBy:'toString()'">
+                {{framework}}
+            </li>
+        </ul>
+    </form>
+
+</body>
+
+</html>
+
+</body>
+</html>
+

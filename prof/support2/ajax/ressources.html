@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html ng-app='myApp'>
+  <head>
+    <meta charset="utf-8" />
+    <title>
+        Ressources
+    </title>
+    <script src="/angular/js/angular.js"></script>
+    <script src="/angular/js/angular-resource.js"></script>
+
+    <script>
+
+    angular.module('myApp', ['ngResource'])
+
+
+    .controller('Controlleur', function($scope, $resource, $timeout) {
+        "use strict";
+
+        $scope.personne = {};
+        var Personne = $resource('http://localhost:8080/person/:id');
+        $scope.chargerPersonne = function(){
+            $scope.personne = Personne.get({id:666});
+
+            $timeout(function(){
+                $scope.personne = Personne.get({id:777}, function(){
+                    alert('Time out !');
+                });
+
+            }, 5000);
+        };
+
+    });
+
+
+    </script>
+
+</head>
+
+<body  ng-controller="Controlleur">
+
+    <form>
+        <p><button ng-click="chargerPersonne()">Charger personne</button></p>
+    </form>
+    <pre ng-show="personne.id">
+        {{personne}}
+    </pre>
+
+</body>
+
+</html>
+
+</body>
+</html>
+

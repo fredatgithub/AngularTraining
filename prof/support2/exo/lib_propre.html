@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html ng-app='myApp'>
+  <head>
+    <meta charset="utf-8" />
+    <title>
+        Exo lib propre
+    </title>
+    <script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
+</head>
+
+<body>
+
+<script>
+
+(function(){
+    "use strict";
+
+    window.lib_magique = {};
+
+    lib_magique.filter_array = function(filtres, array) {
+        var res = [];
+        $.each(array, function(i, elem){
+            var found = false;
+            $.each(filtres, function(y, filtre){
+                if (elem === filtre){
+                    found = true;
+                    return;
+                }
+            });
+            if (!found){
+                res.push(elem);
+            }
+
+        });
+        return res;
+    }
+
+    lib_magique.alert_on_click = function(input1, input2){
+        var filters = input1.split(/\s+/);
+        var array = input2.split(/\s+/);
+        alert(lib_magique.filter_array(filters, array));
+    }
+
+
+})()
+
+
+</script>
+
+<form>
+    <p>
+        <input type="text" id="filters">
+        <input type="text" id="array">
+        <button onclick="lib_magique.alert_on_click(document.forms[0].filters.value, document.forms[0].array.value)">Filter</button>
+    </p>
+</form>
+
+</html>
+
+</body>
+</html>
+

@@ -1,0 +1,888 @@
+<!DOCTYPE html>
+<html class="   " lang="en"><script id="bug.surrogate.1">var urchinTracker=function(){},_gaq={push:function(){try {if(arguments[0][0]=='_link')window.location.href=arguments[0][1]}catch(er){}}},_gat={_createTracker:function(){}, _getTracker:function(){return{__noSuchMethod__:function(){},_link:function(o){if(o)location.href=o;},_linkByPost:function(){return true;},_getLinkerUrl:function(o){return o;},_trackEvent:function(){}}}};</script><head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# object: http://ogp.me/ns/object# article: http://ogp.me/ns/article# profile: http://ogp.me/ns/profile#">
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Language" content="en">
+    
+    
+    <title>Home · angular-ui/ui-router Wiki · GitHub</title>
+    <link rel="search" type="application/opensearchdescription+xml" href="https://github.com/opensearch.xml" title="GitHub">
+    <link rel="fluid-icon" href="https://github.com/fluidicon.png" title="GitHub">
+    <link rel="apple-touch-icon" sizes="57x57" href="https://github.com/apple-touch-icon-114.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="https://github.com/apple-touch-icon-114.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="https://github.com/apple-touch-icon-144.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="https://github.com/apple-touch-icon-144.png">
+    <meta property="fb:app_id" content="1401488693436528">
+
+      <meta content="@github" name="twitter:site"><meta content="summary" name="twitter:card"><meta content="angular-ui/ui-router" name="twitter:title"><meta content="ui-router - The de-facto solution to flexible routing with nested views" name="twitter:description"><meta content="https://avatars0.githubusercontent.com/u/1530011?v=2&amp;s=400" name="twitter:image:src">
+<meta content="GitHub" property="og:site_name"><meta content="object" property="og:type"><meta content="https://avatars0.githubusercontent.com/u/1530011?v=2&amp;s=400" property="og:image"><meta content="angular-ui/ui-router" property="og:title"><meta content="https://github.com/angular-ui/ui-router" property="og:url"><meta content="ui-router - The de-facto solution to flexible routing with nested views" property="og:description">
+
+    <link rel="assets" href="https://assets-cdn.github.com/">
+    <link rel="conduit-xhr" href="https://ghconduit.com:25035/">
+    
+
+    <meta name="msapplication-TileImage" content="/windows-tile.png">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="selected-link" value="repo_wiki" data-pjax-transient="">
+      <meta name="google-analytics" content="UA-3769691-2">
+
+    <meta content="collector.githubapp.com" name="octolytics-host"><meta content="collector-cdn.github.com" name="octolytics-script-host"><meta content="github" name="octolytics-app-id"><meta content="58A893A7:7B5B:611F201:53F1A77A" name="octolytics-dimension-request_id">
+    
+
+    
+    
+    <link rel="icon" type="image/x-icon" href="https://assets-cdn.github.com/favicon.ico">
+
+
+    <meta content="authenticity_token" name="csrf-param">
+<meta content="sEjZ+kIZcRbJPpZk8EPSS00GHRfICsjFPuqjYKrSWEaYeuyHyoyMz+kbW2mh68yqfgvUm3KiafzrSgqOAUtAZw==" name="csrf-token">
+
+    <link href="Home%20%C2%B7%20angular-ui_ui-router%20Wiki%20%C2%B7%20GitHub_fichiers/github-5efa7b0b8a55ddcee56e5aee3fa56109d1d2781c.css" media="all" rel="stylesheet" type="text/css">
+    <link href="Home%20%C2%B7%20angular-ui_ui-router%20Wiki%20%C2%B7%20GitHub_fichiers/github2-97fd69f3a3771e25d14b434fa06478cc54fb9bf3.css" media="all" rel="stylesheet" type="text/css">
+    
+
+
+    <meta http-equiv="x-pjax-version" content="48f4828d889e064d2d5d273971fb3850">
+
+      
+  <meta name="description" content="ui-router - The de-facto solution to flexible routing with nested views">
+
+
+  <meta content="1530011" name="octolytics-dimension-user_id"><meta content="angular-ui" name="octolytics-dimension-user_login"><meta content="7693799" name="octolytics-dimension-repository_id"><meta content="angular-ui/ui-router" name="octolytics-dimension-repository_nwo"><meta content="true" name="octolytics-dimension-repository_public"><meta content="false" name="octolytics-dimension-repository_is_fork"><meta content="7693799" name="octolytics-dimension-repository_network_root_id"><meta content="angular-ui/ui-router" name="octolytics-dimension-repository_network_root_nwo">
+
+  <link href="https://github.com/angular-ui/ui-router/commits/master.atom" rel="alternate" title="Recent Commits to ui-router:master" type="application/atom+xml">
+
+  <script src="Home%20%C2%B7%20angular-ui_ui-router%20Wiki%20%C2%B7%20GitHub_fichiers/api.js" async="" type="text/javascript"></script><script>try {  for(var lastpass_iter=0; lastpass_iter < document.forms.length; lastpass_iter++){    var lastpass_f = document.forms[lastpass_iter];    if(typeof(lastpass_f.lpsubmitorig)=="undefined"){      if (typeof(lastpass_f.submit) == "function") {        lastpass_f.lpsubmitorig = lastpass_f.submit;        lastpass_f.submit = function(){          var form = this;          try {            if (document.documentElement && 'createEvent' in document)            {              var forms = document.getElementsByTagName('form');              for (var i=0 ; i<forms.length ; ++i)                if (forms[i]==form)                {                  var element = document.createElement('lpformsubmitdataelement');                  element.setAttribute('formnum',i);                  element.setAttribute('from','submithook');                  document.documentElement.appendChild(element);                  var evt = document.createEvent('Events');                  evt.initEvent('lpformsubmit',true,false);                  element.dispatchEvent(evt);                  break;                }            }          } catch (e) {}          try {            form.lpsubmitorig();          } catch (e) {}        }      }    }  }} catch (e) {}</script></head>
+
+
+  <body class="logged_out  env-production linux vis-public">
+    <a href="#start-of-content" tabindex="1" class="accessibility-aid js-skip-to-content">Skip to content</a>
+    <div class="wrapper">
+      
+      
+      
+      
+
+
+      
+      <div class="header header-logged-out">
+  <div class="container clearfix">
+
+    <a class="header-logo-wordmark" href="https://github.com/">
+      <span class="mega-octicon octicon-logo-github"></span>
+    </a>
+
+    <div class="header-actions">
+        <a class="button primary" href="https://github.com/join">Sign up</a>
+      <a class="button signin" href="https://github.com/login?return_to=%2Fangular-ui%2Fui-router%2Fwiki">Sign in</a>
+    </div>
+
+    <div class="command-bar js-command-bar  in-repository">
+
+      <ul class="top-nav">
+          <li class="explore"><a href="https://github.com/explore">Explore</a></li>
+          <li class="features"><a href="https://github.com/features">Features</a></li>
+          <li class="enterprise"><a href="https://enterprise.github.com/">Enterprise</a></li>
+          <li class="blog"><a href="https://github.com/blog">Blog</a></li>
+      </ul>
+        <form accept-charset="UTF-8" action="/search" class="command-bar-form" id="top_search_form" method="get">
+
+<div class="commandbar">
+  <span class="message"></span>
+  <input data-hotkey="s" name="q" id="js-command-bar-field" placeholder="Search or type a command" tabindex="1" autocapitalize="off" data-repo="angular-ui/ui-router" type="text">
+  <div class="display hidden"></div>
+</div>
+
+    <input name="nwo" value="angular-ui/ui-router" type="hidden">
+
+    <div class="select-menu js-menu-container js-select-menu search-context-select-menu">
+      <span class="minibutton select-menu-button js-menu-target" role="button" aria-haspopup="true">
+        <span class="js-select-button">This repository</span>
+      </span>
+
+      <div class="select-menu-modal-holder js-menu-content js-navigation-container" aria-hidden="true">
+        <div class="select-menu-modal">
+
+          <div class="select-menu-item js-navigation-item js-this-repository-navigation-item selected">
+            <span class="select-menu-item-icon octicon octicon-check"></span>
+            <input class="js-search-this-repository" name="search_target" value="repository" checked="checked" type="radio">
+            <div class="select-menu-item-text js-select-button-text">This repository</div>
+          </div> <!-- /.select-menu-item -->
+
+          <div class="select-menu-item js-navigation-item js-all-repositories-navigation-item">
+            <span class="select-menu-item-icon octicon octicon-check"></span>
+            <input name="search_target" value="global" type="radio">
+            <div class="select-menu-item-text js-select-button-text">All repositories</div>
+          </div> <!-- /.select-menu-item -->
+
+        </div>
+      </div>
+    </div>
+
+  <span class="help tooltipped tooltipped-s" aria-label="Show command bar help">
+    <span class="octicon octicon-question"></span>
+  </span>
+
+
+  <input name="ref" value="cmdform" type="hidden">
+
+</form>
+    </div>
+
+  </div>
+</div>
+
+
+
+      <div id="start-of-content" class="accessibility-aid"></div>
+          <div class="site" itemscope="" itemtype="http://schema.org/WebPage">
+    <div id="js-flash-container">
+      
+    </div>
+    <div class="pagehead repohead instapaper_ignore readability-menu">
+      <div class="container">
+        
+<ul class="pagehead-actions">
+
+
+  <li>
+      <a href="https://github.com/login?return_to=%2Fangular-ui%2Fui-router" class="minibutton with-count star-button tooltipped tooltipped-n" aria-label="You must be signed in to star a repository" rel="nofollow">
+    <span class="octicon octicon-star"></span>
+    Star
+  </a>
+
+    <a class="social-count js-social-count" href="https://github.com/angular-ui/ui-router/stargazers">
+      3,929
+    </a>
+
+  </li>
+
+    <li>
+      <a href="https://github.com/login?return_to=%2Fangular-ui%2Fui-router" class="minibutton with-count js-toggler-target fork-button tooltipped tooltipped-n" aria-label="You must be signed in to fork a repository" rel="nofollow">
+        <span class="octicon octicon-repo-forked"></span>
+        Fork
+      </a>
+      <a href="https://github.com/angular-ui/ui-router/network" class="social-count">
+        955
+      </a>
+    </li>
+</ul>
+
+        <h1 itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb" class="entry-title public">
+          <span class="mega-octicon octicon-repo"></span>
+          <span class="author"><a href="https://github.com/angular-ui" class="url fn" itemprop="url" rel="author"><span itemprop="title">angular-ui</span></a></span><!--
+       --><span class="path-divider">/</span><!--
+       --><strong><a href="https://github.com/angular-ui/ui-router" class="js-current-repository js-repo-home-link">ui-router</a></strong>
+
+          <span class="page-context-loader">
+            <img alt="" src="Home%20%C2%B7%20angular-ui_ui-router%20Wiki%20%C2%B7%20GitHub_fichiers/octocat-spinner-32.gif" height="16" width="16">
+          </span>
+
+        </h1>
+      </div><!-- /.container -->
+    </div><!-- /.repohead -->
+
+    <div class="container">
+      <div class="repository-with-sidebar repo-container new-discussion-timeline">
+        <div class="repository-sidebar clearfix">
+            
+
+<div class="sunken-menu vertical-right repo-nav js-repo-nav js-repository-container-pjax js-octicon-loaders" data-issue-count-url="/angular-ui/ui-router/issues/counts">
+  <div class="sunken-menu-contents">
+    <ul class="sunken-menu-group">
+      <li class="tooltipped tooltipped-w" aria-label="Code">
+        <a href="https://github.com/angular-ui/ui-router" aria-label="Code" class="js-selected-navigation-item sunken-menu-item" data-hotkey="g c" data-pjax="true" data-selected-links="repo_source repo_downloads repo_commits repo_releases repo_tags repo_branches /angular-ui/ui-router">
+          <span class="octicon octicon-code"></span> <span class="full-word">Code</span>
+          <img alt="" class="mini-loader" src="Home%20%C2%B7%20angular-ui_ui-router%20Wiki%20%C2%B7%20GitHub_fichiers/octocat-spinner-32.gif" height="16" width="16">
+</a>      </li>
+
+        <li class="tooltipped tooltipped-w" aria-label="Issues">
+          <a href="https://github.com/angular-ui/ui-router/issues" aria-label="Issues" class="js-selected-navigation-item sunken-menu-item js-disable-pjax" data-hotkey="g i" data-selected-links="repo_issues repo_labels repo_milestones /angular-ui/ui-router/issues">
+            <span class="octicon octicon-issue-opened"></span> <span class="full-word">Issues</span>
+            <span class="js-issue-replace-counter"></span>
+            <img alt="" class="mini-loader" src="Home%20%C2%B7%20angular-ui_ui-router%20Wiki%20%C2%B7%20GitHub_fichiers/octocat-spinner-32.gif" height="16" width="16">
+</a>        </li>
+
+      <li class="tooltipped tooltipped-w" aria-label="Pull Requests">
+        <a href="https://github.com/angular-ui/ui-router/pulls" aria-label="Pull Requests" class="js-selected-navigation-item sunken-menu-item js-disable-pjax" data-hotkey="g p" data-selected-links="repo_pulls /angular-ui/ui-router/pulls">
+            <span class="octicon octicon-git-pull-request"></span> <span class="full-word">Pull Requests</span>
+            <span class="js-pull-replace-counter"></span>
+            <img alt="" class="mini-loader" src="Home%20%C2%B7%20angular-ui_ui-router%20Wiki%20%C2%B7%20GitHub_fichiers/octocat-spinner-32.gif" height="16" width="16">
+</a>      </li>
+
+
+        <li class="tooltipped tooltipped-w" aria-label="Wiki">
+          <a href="https://github.com/angular-ui/ui-router/wiki" aria-label="Wiki" class="selected js-selected-navigation-item sunken-menu-item js-disable-pjax" data-hotkey="g w" data-selected-links="repo_wiki /angular-ui/ui-router/wiki">
+            <span class="octicon octicon-book"></span> <span class="full-word">Wiki</span>
+            <img alt="" class="mini-loader" src="Home%20%C2%B7%20angular-ui_ui-router%20Wiki%20%C2%B7%20GitHub_fichiers/octocat-spinner-32.gif" height="16" width="16">
+</a>        </li>
+    </ul>
+    <div class="sunken-menu-separator"></div>
+    <ul class="sunken-menu-group">
+
+      <li class="tooltipped tooltipped-w" aria-label="Pulse">
+        <a href="https://github.com/angular-ui/ui-router/pulse" aria-label="Pulse" class="js-selected-navigation-item sunken-menu-item" data-pjax="true" data-selected-links="pulse /angular-ui/ui-router/pulse">
+          <span class="octicon octicon-pulse"></span> <span class="full-word">Pulse</span>
+          <img alt="" class="mini-loader" src="Home%20%C2%B7%20angular-ui_ui-router%20Wiki%20%C2%B7%20GitHub_fichiers/octocat-spinner-32.gif" height="16" width="16">
+</a>      </li>
+
+      <li class="tooltipped tooltipped-w" aria-label="Graphs">
+        <a href="https://github.com/angular-ui/ui-router/graphs" aria-label="Graphs" class="js-selected-navigation-item sunken-menu-item" data-pjax="true" data-selected-links="repo_graphs repo_contributors /angular-ui/ui-router/graphs">
+          <span class="octicon octicon-graph"></span> <span class="full-word">Graphs</span>
+          <img alt="" class="mini-loader" src="Home%20%C2%B7%20angular-ui_ui-router%20Wiki%20%C2%B7%20GitHub_fichiers/octocat-spinner-32.gif" height="16" width="16">
+</a>      </li>
+    </ul>
+
+
+  </div>
+</div>
+
+              <div class="only-with-full-nav">
+                
+
+  
+
+<div class="clone-url open" data-protocol-type="http" data-url="/users/set_protocol?protocol_selector=http&amp;protocol_type=clone">
+  <h3><strong>HTTPS</strong> clone URL</h3>
+  <div class="input-group">
+    <input class="input-mini input-monospace js-url-field" value="https://github.com/angular-ui/ui-router.git" readonly="readonly" type="text">
+    <span class="input-group-button">
+      <button aria-label="Copy to clipboard" class="js-zeroclipboard minibutton zeroclipboard-button" data-clipboard-text="https://github.com/angular-ui/ui-router.git" data-copied-hint="Copied!" type="button"><span class="octicon octicon-clippy"></span></button>
+    </span>
+  </div>
+</div>
+
+  
+
+<div class="clone-url " data-protocol-type="subversion" data-url="/users/set_protocol?protocol_selector=subversion&amp;protocol_type=clone">
+  <h3><strong>Subversion</strong> checkout URL</h3>
+  <div class="input-group">
+    <input class="input-mini input-monospace js-url-field" value="https://github.com/angular-ui/ui-router" readonly="readonly" type="text">
+    <span class="input-group-button">
+      <button aria-label="Copy to clipboard" class="js-zeroclipboard minibutton zeroclipboard-button" data-clipboard-text="https://github.com/angular-ui/ui-router" data-copied-hint="Copied!" type="button"><span class="octicon octicon-clippy"></span></button>
+    </span>
+  </div>
+</div>
+
+
+<p class="clone-options">You can clone with
+      <a href="#" class="js-clone-selector" data-protocol="http">HTTPS</a>
+      or <a href="#" class="js-clone-selector" data-protocol="subversion">Subversion</a>.
+  <a href="https://help.github.com/articles/which-remote-url-should-i-use" class="help tooltipped tooltipped-n" aria-label="Get help on which URL is right for you.">
+    <span class="octicon octicon-question"></span>
+  </a>
+</p>
+
+
+
+                <a href="https://github.com/angular-ui/ui-router/archive/master.zip" class="minibutton sidebar-button" aria-label="Download angular-ui/ui-router as a zip file" title="Download angular-ui/ui-router as a zip file" rel="nofollow">
+                  <span class="octicon octicon-cloud-download"></span>
+                  Download ZIP
+                </a>
+              </div>
+        </div><!-- /.repository-sidebar -->
+
+        <div id="js-repo-pjax-container" class="repository-content context-loader-container" data-pjax-container="">
+          
+
+
+<div id="wiki-wrapper" class="wiki-wrapper page">
+<div class="gh-header">
+  <div class="gh-header-show">
+      <div class="gh-header-actions">
+      </div>
+    <h1 class="gh-header-title instapaper_title">Home&nbsp;</h1>
+      <div class="gh-header-meta">
+        <a href="https://github.com/datoulei" class="author">datoulei</a> edited this page <time title="14 août 2014 09:28 UTC+2" datetime="2014-08-14T00:28:00-07:00" is="relative-time">4 days ago</time>
+        ·
+        <a href="https://github.com/angular-ui/ui-router/wiki/Home/_history" class="history">
+          30 revisions
+        </a>
+      </div>
+  </div>
+</div>
+<div id="wiki-content">
+  <div class="wrap has-rightbar">
+
+  <div id="wiki-rightbar">
+    <div class="wiki-pages-box readability-sidebar boxed-group flush js-wiki-pages-box collapsed">
+      
+
+
+  <h3 class="js-wiki-toggle-collapse wiki-auxiliary-content">
+    <span class="octicon octicon-triangle-down caret-expanded"></span>
+    <span class="octicon octicon-triangle-right caret-collapsed"></span>
+    Pages <span class="counter">13</span>
+  </h3>
+  <div class="boxed-group-inner wiki-auxiliary-content wiki-auxiliary-content-no-bg">
+
+    <ul class="wiki-pages" data-filterable-for="wiki-pages-filter" data-filterable-type="substring">
+      <li>
+        <strong><a href="https://github.com/angular-ui/ui-router/wiki/Backwards-Compatibility">Backwards Compatibility</a></strong>
+      </li>
+      <li>
+        <strong><a href="https://github.com/angular-ui/ui-router/wiki/Blog-Posts-&amp;-Forks">Blog Posts &amp; Forks</a></strong>
+      </li>
+      <li>
+        <strong><a href="https://github.com/angular-ui/ui-router/wiki/Frequently-Asked-Questions">Frequently Asked Questions</a></strong>
+      </li>
+      <li>
+        <strong><a href="https://github.com/angular-ui/ui-router/wiki">Home</a></strong>
+      </li>
+      <li>
+        <strong><a href="https://github.com/angular-ui/ui-router/wiki/Important-Concepts">Important Concepts</a></strong>
+      </li>
+      <li>
+        <strong><a href="https://github.com/angular-ui/ui-router/wiki/Multiple-Named-Views">Multiple Named Views</a></strong>
+      </li>
+      <li>
+        <strong><a href="https://github.com/angular-ui/ui-router/wiki/Nested-States-&amp;-Nested-Views">Nested States &amp; Nested Views</a></strong>
+      </li>
+      <li>
+        <strong><a href="https://github.com/angular-ui/ui-router/wiki/Quick-Reference">Quick Reference</a></strong>
+      </li>
+      <li>
+        <strong><a href="https://github.com/angular-ui/ui-router/wiki/Roadmap">Roadmap</a></strong>
+      </li>
+      <li>
+        <strong><a href="https://github.com/angular-ui/ui-router/wiki/State-manager">State manager</a></strong>
+      </li>
+      <li>
+        <strong><a href="https://github.com/angular-ui/ui-router/wiki/The-Components">The Components</a></strong>
+      </li>
+      <li>
+        <strong><a href="https://github.com/angular-ui/ui-router/wiki/URL-Routing">URL Routing</a></strong>
+      </li>
+      <li>
+        <strong><a href="https://github.com/angular-ui/ui-router/wiki/Votes-on-Router-Specs-%28old%29">Votes on Router Specs (old)</a></strong>
+      </li>
+    </ul>
+  </div>
+
+    </div>
+
+      <div class="gollum-markdown-content readability-sidebar box box-small">
+        <div class="boxed-group flush wiki-custom-sidebar wiki-auxiliary-content wiki-auxiliary-content-no-bg  markdown-body">
+          <p><strong>In-Depth Guide</strong></p>
+
+<ul class="task-list">
+<li><a class="internal present" href="https://github.com/angular-ui/ui-router/wiki/Home">State Manager</a></li>
+<li><a class="internal present" href="https://github.com/angular-ui/ui-router/wiki/Nested-States-%26-Nested-Views">Nested States &amp; Nested Views</a></li>
+<li><a class="internal present" href="https://github.com/angular-ui/ui-router/wiki/Multiple-Named-Views">Multiple Named Views</a></li>
+<li><a class="internal present" href="https://github.com/angular-ui/ui-router/wiki/URL-Routing">URL Routing</a></li>
+<li><a class="internal present" href="https://github.com/angular-ui/ui-router/wiki/The-Components">The Components</a></li>
+</ul><p><strong>Reference Docs</strong></p>
+
+<ul class="task-list">
+<li><a href="http://angular-ui.github.io/ui-router/site">API Reference</a></li>
+<li><a href="http://angular-ui.github.io/ui-router/sample">Sample App</a></li>
+<li><a class="internal present" href="https://github.com/angular-ui/ui-router/wiki/Frequently-Asked-Questions">FAQ</a></li>
+<li><a class="internal present" href="https://github.com/angular-ui/ui-router/wiki/Blog-Posts-%26-Forks">Blog Posts &amp; Forks</a></li>
+</ul>
+        </div>
+      </div>
+
+    <div class="clone-url" data-protocol-type="" data-url="https://github.com/angular-ui/ui-router.wiki.git">
+      <h5>Clone this wiki locally</h5>
+      <div class="input-group">
+        <input class="input-mini input-monospace js-url-field" value="https://github.com/angular-ui/ui-router.wiki.git" readonly="readonly" type="text">
+        <span class="input-group-button">
+          <button aria-label="Copy to clipboard" class="js-zeroclipboard minibutton zeroclipboard-button" data-clipboard-text="https://github.com/angular-ui/ui-router.wiki.git" data-copied-hint="Copied!" type="button"><span class="octicon octicon-clippy"></span></button>
+        </span>
+      </div>
+
+
+    </div>
+  </div>
+
+  <div id="wiki-body" class="gollum-markdown-content instapaper_body">
+    <div class="markdown-body">
+      <p><a class="internal present" href="https://github.com/angular-ui/ui-router/wiki/Nested-States-%26-Nested-Views">Next (Nested States &amp; Nested Views) ►</a></p>
+
+<h5>
+<a name="user-content-this-in-depth-guide-will-take-you-through-all-aspects-of-the-ui-router-and-its-components-and-options-if-you-just-need-a-quick-reference-guide-visit-the-api-reference" class="anchor" href="#this-in-depth-guide-will-take-you-through-all-aspects-of-the-ui-router-and-its-components-and-options-if-you-just-need-a-quick-reference-guide-visit-the-api-reference" aria-hidden="true"><span class="octicon octicon-link"></span></a>This
+ In-Depth Guide will take you through all aspects of the UI-Router and 
+its components and options. If you just need a quick reference guide 
+visit the <a href="http://angular-ui.github.io/ui-router/site">API Reference</a>
+</h5>
+
+<h2>
+<a name="user-content-state-manager" class="anchor" href="#state-manager" aria-hidden="true"><span class="octicon octicon-link"></span></a>State Manager.</h2>
+
+<p>The new $stateProvider works similar to Angular's v1 router, but it focuses purely on state. </p>
+
+<ul class="task-list">
+<li>A state corresponds to a "place" in the application in terms of the overall UI and navigation. </li>
+<li>A state describes (via the controller / template / view properties) what the UI looks like and does at that place. </li>
+<li>States often have things in common, and the primary way of factoring
+ out these commonalities in this model is via the state hierarchy, i.e. 
+parent/child states aka nested states. </li>
+</ul><h3>
+<a name="user-content-the-simplest-form-of-state" class="anchor" href="#the-simplest-form-of-state" aria-hidden="true"><span class="octicon octicon-link"></span></a>The simplest form of state</h3>
+
+<p>A state in its simplest form can be added like this (typically within module.config):</p>
+
+<div class="highlight highlight-html"><pre><span class="c">&lt;!-- in index.html --&gt;</span>
+<span class="nt">&lt;body</span> <span class="na">ng-controller=</span><span class="s">"MainCtrl"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;section</span> <span class="na">ui-view</span><span class="nt">&gt;&lt;/section&gt;</span>
+<span class="nt">&lt;/body&gt;</span>
+</pre></div>
+
+<div class="highlight highlight-javascript"><pre><span class="c1">// in app-states.js (or whatever you want to name it)</span>
+<span class="nx">$stateProvider</span><span class="p">.</span><span class="nx">state</span><span class="p">(</span><span class="s1">'contacts'</span><span class="p">,</span> <span class="p">{</span>
+  <span class="nx">template</span><span class="o">:</span> <span class="s1">'&lt;h1&gt;My Contacts&lt;/h1&gt;'</span>
+<span class="p">})</span>
+</pre></div>
+
+<h4>
+<a name="user-content-where-does-the-template-get-inserted" class="anchor" href="#where-does-the-template-get-inserted" aria-hidden="true"><span class="octicon octicon-link"></span></a>Where does the template get inserted?</h4>
+
+<p>When a state is activated, its templates are automatically inserted into the <code>ui-view</code>
+ of its parent state's template. If it's a top-level state—which 
+'contacts' is because it has no parent state–then its parent template is
+ index.html.</p>
+
+<p>Right now, the 'contacts' state won't ever be activated. So let's see how we can activate a state. </p>
+
+<h4>
+<a name="user-content-activating-a-state" class="anchor" href="#activating-a-state" aria-hidden="true"><span class="octicon octicon-link"></span></a>Activating a state</h4>
+
+<p>There are three main ways to activate a state:</p>
+
+<ol class="task-list">
+<li>Call <code>$state.go()</code>. High-level convenience method. <a href="https://github.com/angular-ui/ui-router/wiki/Quick-Reference#stategoto--toparams--options">Learn More</a>
+</li>
+<li>Click a link containing the <code>ui-sref</code> directive. <a href="https://github.com/angular-ui/ui-router/wiki/Quick-Reference#ui-sref">Learn More</a>
+</li>
+<li>Navigate to the <code>url</code> associated with the state. <a class="internal present" href="https://github.com/angular-ui/ui-router/wiki/URL-Routing">Learn More</a>.</li>
+</ol><hr><h3>
+<a name="user-content-templates" class="anchor" href="#templates" aria-hidden="true"><span class="octicon octicon-link"></span></a>Templates</h3>
+
+<p>There are several methods for configuring a state's template.</p>
+
+<p>As seen above, the simplest way to set your template is via the <code>template</code> config property.</p>
+
+<div class="highlight highlight-javascript"><pre><span class="nx">$stateProvider</span><span class="p">.</span><span class="nx">state</span><span class="p">(</span><span class="s1">'contacts'</span><span class="p">,</span> <span class="p">{</span>
+  <span class="nx">template</span><span class="o">:</span> <span class="s1">'&lt;h1&gt;My Contacts&lt;/h1&gt;'</span>
+<span class="p">})</span>
+</pre></div>
+
+<p>Instead of writing the template inline you can load a partial. (This is probably how you'll set templates most of the time.)</p>
+
+<div class="highlight highlight-javascript"><pre><span class="nx">$stateProvider</span><span class="p">.</span><span class="nx">state</span><span class="p">(</span><span class="s1">'contacts'</span><span class="p">,</span> <span class="p">{</span>
+  <span class="nx">templateUrl</span><span class="o">:</span> <span class="s1">'contacts.html'</span>
+<span class="p">})</span>
+</pre></div>
+
+<p><code>templateUrl</code> can also be a function that returns a url. It takes one preset parameter, stateParams, which is not injected. </p>
+
+<div class="highlight highlight-javascript"><pre><span class="nx">$stateProvider</span><span class="p">.</span><span class="nx">state</span><span class="p">(</span><span class="s1">'contacts'</span><span class="p">,</span> <span class="p">{</span>
+  <span class="nx">templateUrl</span><span class="o">:</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">$stateParams</span><span class="p">){</span>
+    <span class="k">return</span> <span class="s1">'/partials/contacts.'</span> <span class="o">+</span> <span class="nx">$stateParams</span><span class="p">.</span><span class="nx">filterBy</span> <span class="o">+</span> <span class="s1">'.html'</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">})</span>
+</pre></div>
+
+<p>Or you can use a template provider function which can be injected, 
+has access to locals, and must return template HTML, like this:</p>
+
+<div class="highlight highlight-javascript"><pre><span class="nx">$stateProvider</span><span class="p">.</span><span class="nx">state</span><span class="p">(</span><span class="s1">'contacts'</span><span class="p">,</span> <span class="p">{</span>
+  <span class="nx">templateProvider</span><span class="o">:</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">$timeout</span><span class="p">,</span> <span class="nx">$stateParams</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">$timeout</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="s1">'&lt;h1&gt;'</span> <span class="o">+</span> <span class="nx">$stateParams</span><span class="p">.</span><span class="nx">contactId</span> <span class="o">+</span> <span class="s1">'&lt;/h1&gt;'</span>
+    <span class="p">},</span> <span class="mi">100</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">})</span>
+</pre></div>
+
+<p>If you'd like your <code>&lt;ui-view&gt;</code> to have some default 
+content before its populated by a state activation, you can do that as 
+well. The contents will be replaced as soon as a state is activated and 
+populates the ui-view with a template.</p>
+
+<div class="highlight highlight-html"><pre><span class="nt">&lt;body&gt;</span>
+    <span class="nt">&lt;ui-view&gt;</span>
+        <span class="nt">&lt;i&gt;</span>Some content will load here!<span class="nt">&lt;/i&gt;</span>
+    <span class="nt">&lt;/ui-view&gt;</span>
+<span class="nt">&lt;/body&gt;</span>
+</pre></div>
+
+<h3>
+<a name="user-content-controllers" class="anchor" href="#controllers" aria-hidden="true"><span class="octicon octicon-link"></span></a>Controllers</h3>
+
+<p>You can assign a controller to your template. <strong>Warning:</strong> The controller will <strong>not</strong> be instantiated if template is not defined. </p>
+
+<p>You set your <code>controller</code> like this:</p>
+
+<div class="highlight highlight-javascript"><pre><span class="nx">$stateProvider</span><span class="p">.</span><span class="nx">state</span><span class="p">(</span><span class="s1">'contacts'</span><span class="p">,</span> <span class="p">{</span>
+  <span class="nx">template</span><span class="o">:</span> <span class="s1">'&lt;h1&gt;{{title}}&lt;/h1&gt;'</span><span class="p">,</span>
+  <span class="nx">controller</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">$scope</span><span class="p">){</span>
+    <span class="nx">$scope</span><span class="p">.</span><span class="nx">title</span> <span class="o">=</span> <span class="s1">'My Contacts'</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">})</span>
+</pre></div>
+
+<p>Or if you already have a <code>controller</code> defined on the module, like this:</p>
+
+<div class="highlight highlight-javascript"><pre><span class="nx">$stateProvider</span><span class="p">.</span><span class="nx">state</span><span class="p">(</span><span class="s1">'contacts'</span><span class="p">,</span> <span class="p">{</span>
+  <span class="nx">template</span><span class="o">:</span> <span class="p">...,</span>
+  <span class="nx">controller</span><span class="o">:</span> <span class="s1">'ContactsCtrl'</span>
+<span class="p">})</span>
+</pre></div>
+
+<p>Or use controllerAs syntax if preferred:</p>
+
+<div class="highlight highlight-javascript"><pre><span class="nx">$stateProvider</span><span class="p">.</span><span class="nx">state</span><span class="p">(</span><span class="s1">'contacts'</span><span class="p">,</span> <span class="p">{</span>
+  <span class="nx">template</span><span class="o">:</span> <span class="p">...,</span>
+  <span class="nx">controller</span><span class="o">:</span> <span class="s1">'ContactsCtrl as contact'</span>
+<span class="p">})</span>
+</pre></div>
+
+<p>Or for more advanced needs you can use the <code>controllerProvider</code> to dynamically return a controller function or string for you:</p>
+
+<div class="highlight highlight-javascript"><pre><span class="nx">$stateProvider</span><span class="p">.</span><span class="nx">state</span><span class="p">(</span><span class="s1">'contacts'</span><span class="p">,</span> <span class="p">{</span>
+  <span class="nx">template</span><span class="o">:</span> <span class="p">...,</span>
+  <span class="nx">controllerProvider</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">$stateParams</span><span class="p">)</span> <span class="p">{</span>
+      <span class="kd">var</span> <span class="nx">ctrlName</span> <span class="o">=</span> <span class="nx">$stateParams</span><span class="p">.</span><span class="nx">type</span> <span class="o">+</span> <span class="s2">"Controller"</span><span class="p">;</span>
+      <span class="k">return</span> <span class="nx">ctrlName</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">})</span>
+</pre></div>
+
+<p>Controllers can use the $scope.on() method to listen for events fired by state transitions.</p>
+
+<p>Controllers are instantiated on an as-needed basis, when their 
+corresponding scopes are created, i.e. when the user manually navigates 
+to a state via a URL, $stateProvider will load the correct template into
+ the view, then bind the controller to the template's scope.</p>
+
+<h4>
+<a name="user-content-resolve" class="anchor" href="#resolve" aria-hidden="true"><span class="octicon octicon-link"></span></a>Resolve</h4>
+
+<p>You can use <code>resolve</code> to provide your controller with content or data that is custom to the state. <code>resolve</code> is an optional map of dependencies which should be injected into the controller. </p>
+
+<p>If any of these dependencies are promises, they will be resolved and converted to a value <strong>before</strong> the controller is instantiated and the $routeChangeSuccess event is fired. </p>
+
+<p>The <code>resolve</code> property is a map object. The map object contains key/value pairs of:</p>
+
+<ul class="task-list">
+<li>key – {string}: a name of a dependency to be injected into the controller.</li>
+<li>factory - {string|function}: 
+
+<ul class="task-list">
+<li>If string, then it is an alias for a service. </li>
+<li>Otherwise if function, then it is injected and the return value is 
+treated as the dependency. If the result is a promise, it is resolved 
+before the controller is instantiated and its value is injected into the
+ controller.</li>
+</ul>
+</li>
+</ul><p><strong>Examples:</strong></p>
+
+<p>Each of the objects in <code>resolve</code> below must be resolved (via <code>deferred.resolve()</code> if they are a promise) before the <code>controller</code> is instantiated. Notice how each resolve object is injected as a parameter into the controller.</p>
+
+<div class="highlight highlight-javascript"><pre><span class="nx">$stateProvider</span><span class="p">.</span><span class="nx">state</span><span class="p">(</span><span class="s1">'myState'</span><span class="p">,</span> <span class="p">{</span>
+      <span class="nx">resolve</span><span class="o">:</span><span class="p">{</span>
+
+         <span class="c1">// Example using function with simple return value.</span>
+         <span class="c1">// Since it's not a promise, it resolves immediately.</span>
+         <span class="nx">simpleObj</span><span class="o">:</span>  <span class="kd">function</span><span class="p">(){</span>
+            <span class="k">return</span> <span class="p">{</span><span class="nx">value</span><span class="o">:</span> <span class="s1">'simple!'</span><span class="p">};</span>
+         <span class="p">},</span>
+
+         <span class="c1">// Example using function with returned promise.</span>
+         <span class="c1">// This is the typical use case of resolve.</span>
+         <span class="c1">// You need to inject any services that you are</span>
+         <span class="c1">// using, e.g. $http in this example</span>
+         <span class="nx">promiseObj</span><span class="o">:</span>  <span class="kd">function</span><span class="p">(</span><span class="nx">$http</span><span class="p">){</span>
+            <span class="c1">// $http returns a promise for the url data</span>
+            <span class="k">return</span> <span class="nx">$http</span><span class="p">({</span><span class="nx">method</span><span class="o">:</span> <span class="s1">'GET'</span><span class="p">,</span> <span class="nx">url</span><span class="o">:</span> <span class="s1">'/someUrl'</span><span class="p">});</span>
+         <span class="p">},</span>
+
+         <span class="c1">// Another promise example. If you need to do some </span>
+         <span class="c1">// processing of the result, use .then, and your </span>
+         <span class="c1">// promise is chained in for free. This is another</span>
+         <span class="c1">// typical use case of resolve.</span>
+         <span class="nx">promiseObj2</span><span class="o">:</span>  <span class="kd">function</span><span class="p">(</span><span class="nx">$http</span><span class="p">){</span>
+            <span class="k">return</span> <span class="nx">$http</span><span class="p">({</span><span class="nx">method</span><span class="o">:</span> <span class="s1">'GET'</span><span class="p">,</span> <span class="nx">url</span><span class="o">:</span> <span class="s1">'/someUrl'</span><span class="p">})</span>
+               <span class="p">.</span><span class="nx">then</span> <span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+                   <span class="k">return</span> <span class="nx">doSomeStuffFirst</span><span class="p">(</span><span class="nx">data</span><span class="p">);</span>
+               <span class="p">});</span>
+         <span class="p">},</span>        
+
+         <span class="c1">// Example using a service by name as string.</span>
+         <span class="c1">// This would look for a 'translations' service</span>
+         <span class="c1">// within the module and return it.</span>
+         <span class="c1">// Note: The service could return a promise and</span>
+         <span class="c1">// it would work just like the example above</span>
+         <span class="nx">translations</span><span class="o">:</span> <span class="s2">"translations"</span><span class="p">,</span>
+
+         <span class="c1">// Example showing injection of service into</span>
+         <span class="c1">// resolve function. Service then returns a</span>
+         <span class="c1">// promise. Tip: Inject $stateParams to get</span>
+         <span class="c1">// access to url parameters.</span>
+         <span class="nx">translations2</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">translations</span><span class="p">,</span> <span class="nx">$stateParams</span><span class="p">){</span>
+             <span class="c1">// Assume that getLang is a service method</span>
+             <span class="c1">// that uses $http to fetch some translations.</span>
+             <span class="c1">// Also assume our url was "/:lang/home".</span>
+             <span class="k">return</span> <span class="nx">translations</span><span class="p">.</span><span class="nx">getLang</span><span class="p">(</span><span class="nx">$stateParams</span><span class="p">.</span><span class="nx">lang</span><span class="p">);</span>
+         <span class="p">},</span>
+
+         <span class="c1">// Example showing returning of custom made promise</span>
+         <span class="nx">greeting</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">$q</span><span class="p">,</span> <span class="nx">$timeout</span><span class="p">){</span>
+             <span class="kd">var</span> <span class="nx">deferred</span> <span class="o">=</span> <span class="nx">$q</span><span class="p">.</span><span class="nx">defer</span><span class="p">();</span>
+             <span class="nx">$timeout</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+                 <span class="nx">deferred</span><span class="p">.</span><span class="nx">resolve</span><span class="p">(</span><span class="s1">'Hello!'</span><span class="p">);</span>
+             <span class="p">},</span> <span class="mi">1000</span><span class="p">);</span>
+             <span class="k">return</span> <span class="nx">deferred</span><span class="p">.</span><span class="nx">promise</span><span class="p">;</span>
+         <span class="p">}</span>
+      <span class="p">},</span>
+
+      <span class="c1">// The controller waits for every one of the above items to be</span>
+      <span class="c1">// completely resolved before instantiation. For example, the</span>
+      <span class="c1">// controller will not instantiate until promiseObj's promise has </span>
+      <span class="c1">// been resolved. Then those objects are injected into the controller</span>
+      <span class="c1">// and available for use.  </span>
+      <span class="nx">controller</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">$scope</span><span class="p">,</span> <span class="nx">simpleObj</span><span class="p">,</span> <span class="nx">promiseObj</span><span class="p">,</span> <span class="nx">promiseObj2</span><span class="p">,</span> <span class="nx">translations</span><span class="p">,</span> <span class="nx">translations2</span><span class="p">,</span> <span class="nx">greeting</span><span class="p">){</span>
+          <span class="nx">$scope</span><span class="p">.</span><span class="nx">simple</span> <span class="o">=</span> <span class="nx">simpleObj</span><span class="p">.</span><span class="nx">value</span><span class="p">;</span>
+
+          <span class="c1">// You can be sure that promiseObj is ready to use!</span>
+          <span class="nx">$scope</span><span class="p">.</span><span class="nx">items</span> <span class="o">=</span> <span class="nx">promiseObj</span><span class="p">.</span><span class="nx">items</span><span class="p">;</span>
+          <span class="nx">$scope</span><span class="p">.</span><span class="nx">items</span> <span class="o">=</span> <span class="nx">promiseObj2</span><span class="p">.</span><span class="nx">items</span><span class="p">;</span>
+
+          <span class="nx">$scope</span><span class="p">.</span><span class="nx">title</span> <span class="o">=</span> <span class="nx">translations</span><span class="p">.</span><span class="nx">getLang</span><span class="p">(</span><span class="s2">"english"</span><span class="p">).</span><span class="nx">title</span><span class="p">;</span>
+          <span class="nx">$scope</span><span class="p">.</span><span class="nx">title</span> <span class="o">=</span> <span class="nx">translations2</span><span class="p">.</span><span class="nx">title</span><span class="p">;</span>
+
+          <span class="nx">$scope</span><span class="p">.</span><span class="nx">greeting</span> <span class="o">=</span> <span class="nx">greeting</span><span class="p">;</span>
+      <span class="p">}</span>
+   <span class="p">})</span>
+</pre></div>
+
+<p><a href="https://github.com/angular-ui/ui-router/wiki/Nested-States-%26-Nested-Views#inherited-resolved-dependencies">Learn more</a> about how resolved dependencies are inherited down to child states.</p>
+
+<h4>
+<a name="user-content-attach-custom-data-to-state-objects" class="anchor" href="#attach-custom-data-to-state-objects" aria-hidden="true"><span class="octicon octicon-link"></span></a>Attach Custom Data to State Objects</h4>
+
+<p>You can attach custom data to the state object (we recommend using a <code>data</code> property to avoid conflicts). </p>
+
+<div class="highlight highlight-javascript"><pre><span class="c1">// Example shows an object-based state and a string-based state</span>
+<span class="kd">var</span> <span class="nx">contacts</span> <span class="o">=</span> <span class="p">{</span> 
+    <span class="nx">name</span><span class="o">:</span> <span class="s1">'contacts'</span><span class="p">,</span>
+    <span class="nx">templateUrl</span><span class="o">:</span> <span class="s1">'contacts.html'</span><span class="p">,</span>
+    <span class="nx">data</span><span class="o">:</span> <span class="p">{</span>
+        <span class="nx">customData1</span><span class="o">:</span> <span class="mi">5</span><span class="p">,</span>
+        <span class="nx">customData2</span><span class="o">:</span> <span class="s2">"blue"</span>
+    <span class="p">}</span>  
+<span class="p">}</span>
+<span class="nx">$stateProvider</span>
+  <span class="p">.</span><span class="nx">state</span><span class="p">(</span><span class="nx">contacts</span><span class="p">)</span>
+  <span class="p">.</span><span class="nx">state</span><span class="p">(</span><span class="s1">'contacts.list'</span><span class="p">,</span> <span class="p">{</span>
+    <span class="nx">templateUrl</span><span class="o">:</span> <span class="s1">'contacts.list.html'</span><span class="p">,</span>
+    <span class="nx">data</span><span class="o">:</span> <span class="p">{</span>
+        <span class="nx">customData1</span><span class="o">:</span> <span class="mi">44</span><span class="p">,</span>
+        <span class="nx">customData2</span><span class="o">:</span> <span class="s2">"red"</span>
+    <span class="p">}</span> 
+  <span class="p">})</span>
+</pre></div>
+
+<p>With the above example states you could access the data like this:</p>
+
+<div class="highlight highlight-javascript"><pre><span class="kd">function</span> <span class="nx">Ctrl</span><span class="p">(</span><span class="nx">$state</span><span class="p">){</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">$state</span><span class="p">.</span><span class="nx">current</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">customData1</span><span class="p">)</span> <span class="c1">// outputs 5;</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">$state</span><span class="p">.</span><span class="nx">current</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">customData2</span><span class="p">)</span> <span class="c1">// outputs "blue";</span>
+<span class="p">}</span>
+</pre></div>
+
+<p><a href="https://github.com/angular-ui/ui-router/wiki/Nested-States-%26-Nested-Views#inherited-custom-data">Learn more</a> about how custom data properties are inherited down to child states.</p>
+
+<h3>
+<a name="user-content-onenter-and-onexit-callbacks" class="anchor" href="#onenter-and-onexit-callbacks" aria-hidden="true"><span class="octicon octicon-link"></span></a>onEnter and onExit callbacks</h3>
+
+<p>There are also optional 'onEnter' and 'onExit' callbacks that get 
+called when a state becomes active and inactive respectively. The 
+callbacks also have access to all the resolved dependencies.</p>
+
+<div class="highlight highlight-javascript"><pre><span class="nx">$stateProvider</span><span class="p">.</span><span class="nx">state</span><span class="p">(</span><span class="s2">"contacts"</span><span class="p">,</span> <span class="p">{</span>
+  <span class="nx">template</span><span class="o">:</span> <span class="s1">'&lt;h1&gt;{{title}}&lt;/h1&gt;'</span><span class="p">,</span>
+  <span class="nx">resolve</span><span class="o">:</span> <span class="p">{</span> <span class="nx">title</span><span class="o">:</span> <span class="s1">'My Contacts'</span> <span class="p">},</span>
+  <span class="nx">controller</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">$scope</span><span class="p">,</span> <span class="nx">title</span><span class="p">){</span>
+    <span class="nx">$scope</span><span class="p">.</span><span class="nx">title</span> <span class="o">=</span> <span class="s1">'My Contacts'</span><span class="p">;</span>
+  <span class="p">},</span>
+  <span class="nx">onEnter</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">title</span><span class="p">){</span>
+    <span class="k">if</span><span class="p">(</span><span class="nx">title</span><span class="p">){</span> <span class="p">...</span> <span class="k">do</span> <span class="nx">something</span> <span class="p">...</span> <span class="p">}</span>
+  <span class="p">},</span>
+  <span class="nx">onExit</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">title</span><span class="p">){</span>
+    <span class="k">if</span><span class="p">(</span><span class="nx">title</span><span class="p">){</span> <span class="p">...</span> <span class="k">do</span> <span class="nx">something</span> <span class="p">...</span> <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">})</span>
+</pre></div>
+
+<h3>
+<a name="user-content-state-change-events" class="anchor" href="#state-change-events" aria-hidden="true"><span class="octicon octicon-link"></span></a>State Change Events</h3>
+
+<p>All these events are fired at the <code>$rootScope</code> level.</p>
+
+<ul class="task-list">
+<li>
+<strong>$stateChangeStart</strong> - fired when the transition <strong>begins</strong>.</li>
+</ul><div class="highlight highlight-javascript"><pre><span class="nx">$rootScope</span><span class="p">.</span><span class="nx">$on</span><span class="p">(</span><span class="s1">'$stateChangeStart'</span><span class="p">,</span> 
+<span class="kd">function</span><span class="p">(</span><span class="nx">event</span><span class="p">,</span> <span class="nx">toState</span><span class="p">,</span> <span class="nx">toParams</span><span class="p">,</span> <span class="nx">fromState</span><span class="p">,</span> <span class="nx">fromParams</span><span class="p">){</span> <span class="p">...</span> <span class="p">})</span>
+</pre></div>
+
+<p><strong>Note:</strong> Use event.preventDefault() to prevent the transition from happening.</p>
+
+<div class="highlight highlight-javascript"><pre><span class="nx">$rootScope</span><span class="p">.</span><span class="nx">$on</span><span class="p">(</span><span class="s1">'$stateChangeStart'</span><span class="p">,</span> 
+<span class="kd">function</span><span class="p">(</span><span class="nx">event</span><span class="p">,</span> <span class="nx">toState</span><span class="p">,</span> <span class="nx">toParams</span><span class="p">,</span> <span class="nx">fromState</span><span class="p">,</span> <span class="nx">fromParams</span><span class="p">){</span> 
+    <span class="nx">event</span><span class="p">.</span><span class="nx">preventDefault</span><span class="p">();</span> 
+    <span class="c1">// transitionTo() promise will be rejected with </span>
+    <span class="c1">// a 'transition prevented' error</span>
+<span class="p">})</span>
+</pre></div>
+
+<ul class="task-list">
+<li>
+<strong>$stateNotFound</strong> - <code>v0.3.0</code> - fired when a requested state <strong>cannot be found</strong>
+ using the provided state name during transition. The event is broadcast
+ allowing any handlers a single chance to deal with the error (usually 
+by lazy-loading the unfound state). A special <code>unfoundState</code> object is passed to the listener handler, you can see its three properties in the example. Use <code>event.preventDefault()</code>
+ to abort the transition (transitionTo() promise will be rejected with a
+ 'transition aborted' error). For a more in-depth example on lazy 
+loading states, see <a href="https://github.com/angular-ui/ui-router/wiki/Frequently-Asked-Questions#how-to-lazy-load-states">How To: Lazy load states</a>
+</li>
+</ul><div class="highlight highlight-javascript"><pre><span class="c1">// somewhere, assume lazy.state has not been defined</span>
+<span class="nx">$state</span><span class="p">.</span><span class="nx">go</span><span class="p">(</span><span class="s2">"lazy.state"</span><span class="p">,</span> <span class="p">{</span><span class="nx">a</span><span class="o">:</span><span class="mi">1</span><span class="p">,</span> <span class="nx">b</span><span class="o">:</span><span class="mi">2</span><span class="p">},</span> <span class="p">{</span><span class="nx">inherit</span><span class="o">:</span><span class="kc">false</span><span class="p">});</span>
+
+<span class="c1">// somewhere else</span>
+<span class="nx">$rootScope</span><span class="p">.</span><span class="nx">$on</span><span class="p">(</span><span class="s1">'$stateNotFound'</span><span class="p">,</span> 
+<span class="kd">function</span><span class="p">(</span><span class="nx">event</span><span class="p">,</span> <span class="nx">unfoundState</span><span class="p">,</span> <span class="nx">fromState</span><span class="p">,</span> <span class="nx">fromParams</span><span class="p">){</span> 
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">unfoundState</span><span class="p">.</span><span class="nx">to</span><span class="p">);</span> <span class="c1">// "lazy.state"</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">unfoundState</span><span class="p">.</span><span class="nx">toParams</span><span class="p">);</span> <span class="c1">// {a:1, b:2}</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">unfoundState</span><span class="p">.</span><span class="nx">options</span><span class="p">);</span> <span class="c1">// {inherit:false} + default options</span>
+<span class="p">})</span>
+</pre></div>
+
+<ul class="task-list">
+<li>
+<strong>$stateChangeSuccess</strong> - fired once the state transition is <strong>complete</strong>. </li>
+</ul><div class="highlight highlight-javascript"><pre><span class="nx">$rootScope</span><span class="p">.</span><span class="nx">$on</span><span class="p">(</span><span class="s1">'$stateChangeSuccess'</span><span class="p">,</span> 
+<span class="kd">function</span><span class="p">(</span><span class="nx">event</span><span class="p">,</span> <span class="nx">toState</span><span class="p">,</span> <span class="nx">toParams</span><span class="p">,</span> <span class="nx">fromState</span><span class="p">,</span> <span class="nx">fromParams</span><span class="p">){</span> <span class="p">...</span> <span class="p">})</span>
+</pre></div>
+
+<ul class="task-list">
+<li>
+<strong>$stateChangeError</strong> - fired when an <strong>error occurs</strong> during transition. It's important to note that if you have any errors in your <code>resolve</code>
+ functions (javascript errors, non-existent services, etc) they will not
+ throw traditionally. You must listen for this $stateChangeError event 
+to catch ALL errors.</li>
+</ul><div class="highlight highlight-javascript"><pre><span class="nx">$rootScope</span><span class="p">.</span><span class="nx">$on</span><span class="p">(</span><span class="s1">'$stateChangeError'</span><span class="p">,</span> 
+<span class="kd">function</span><span class="p">(</span><span class="nx">event</span><span class="p">,</span> <span class="nx">toState</span><span class="p">,</span> <span class="nx">toParams</span><span class="p">,</span> <span class="nx">fromState</span><span class="p">,</span> <span class="nx">fromParams</span><span class="p">,</span> <span class="nx">error</span><span class="p">){</span> <span class="p">...</span> <span class="p">})</span>
+</pre></div>
+
+<h3>
+<a name="user-content-view-load-events" class="anchor" href="#view-load-events" aria-hidden="true"><span class="octicon octicon-link"></span></a>View Load Events</h3>
+
+<ul class="task-list">
+<li>
+<strong>$viewContentLoading</strong> - fired once the view <strong>begins</strong> loading, <strong>before</strong> the DOM is rendered. The '$scope' broadcasts the event.</li>
+</ul><div class="highlight highlight-javascript"><pre><span class="nx">$scope</span><span class="p">.</span><span class="nx">$on</span><span class="p">(</span><span class="s1">'$viewContentLoading'</span><span class="p">,</span> 
+<span class="kd">function</span><span class="p">(</span><span class="nx">event</span><span class="p">,</span> <span class="nx">viewConfig</span><span class="p">){</span> 
+    <span class="c1">// Access to all the view config properties.</span>
+    <span class="c1">// and one special property 'targetView'</span>
+    <span class="c1">// viewConfig.targetView </span>
+<span class="p">});</span>
+</pre></div>
+
+<ul class="task-list">
+<li>
+<strong>$viewContentLoaded</strong> - fired once the view is <strong>loaded</strong>, <strong>after</strong> the DOM is rendered. The '$scope' of the view emits the event.</li>
+</ul><div class="highlight highlight-javascript"><pre><span class="nx">$scope</span><span class="p">.</span><span class="nx">$on</span><span class="p">(</span><span class="s1">'$viewContentLoaded'</span><span class="p">,</span> 
+<span class="kd">function</span><span class="p">(</span><span class="nx">event</span><span class="p">){</span> <span class="p">...</span> <span class="p">});</span>
+</pre></div>
+
+<p><a class="internal present" href="https://github.com/angular-ui/ui-router/wiki/Nested-States-%26-Nested-Views">Next (Nested States &amp; Nested Views) ►</a></p>
+    </div>
+
+      <div id="wiki-footer" class="gollum-markdown-content boxed-group">
+        <div class="boxed-group-inner wiki-auxiliary-content  markdown-body">
+          <p>Use the table of contents to the top right to navigate to other wiki sections.</p>
+        </div>
+      </div>
+  </div>
+  </div>
+</div>
+</div>
+
+
+        </div>
+
+      </div><!-- /.repo-container -->
+      <div class="modal-backdrop"></div>
+    </div><!-- /.container -->
+  </div><!-- /.site -->
+
+
+    </div><!-- /.wrapper -->
+
+      <div class="container">
+  <div class="site-footer">
+    <ul class="site-footer-links right">
+      <li><a href="https://status.github.com/">Status</a></li>
+      <li><a href="http://developer.github.com/">API</a></li>
+      <li><a href="http://training.github.com/">Training</a></li>
+      <li><a href="http://shop.github.com/">Shop</a></li>
+      <li><a href="https://github.com/blog">Blog</a></li>
+      <li><a href="https://github.com/about">About</a></li>
+
+    </ul>
+
+    <a href="https://github.com/" aria-label="Homepage">
+      <span class="mega-octicon octicon-mark-github" title="GitHub"></span>
+    </a>
+
+    <ul class="site-footer-links">
+      <li>© 2014 <span title="0.07341s from github-fe137-cp1-prd.iad.github.net">GitHub</span>, Inc.</li>
+        <li><a href="https://github.com/site/terms">Terms</a></li>
+        <li><a href="https://github.com/site/privacy">Privacy</a></li>
+        <li><a href="https://github.com/security">Security</a></li>
+        <li><a href="https://github.com/contact">Contact</a></li>
+    </ul>
+  </div><!-- /.site-footer -->
+</div><!-- /.container -->
+
+
+    <div class="fullscreen-overlay js-fullscreen-overlay" id="fullscreen_overlay">
+  <div class="fullscreen-container js-suggester-container">
+    <div class="textarea-wrap">
+      <textarea name="fullscreen-contents" id="fullscreen-contents" class="fullscreen-contents js-fullscreen-contents js-suggester-field" placeholder=""></textarea>
+    </div>
+  </div>
+  <div class="fullscreen-sidebar">
+    <a href="#" class="exit-fullscreen js-exit-fullscreen tooltipped tooltipped-w" aria-label="Exit Zen Mode">
+      <span class="mega-octicon octicon-screen-normal"></span>
+    </a>
+    <a href="#" class="theme-switcher js-theme-switcher tooltipped tooltipped-w" aria-label="Switch themes">
+      <span class="octicon octicon-color-mode"></span>
+    </a>
+  </div>
+</div>
+
+
+
+    <div id="ajax-error-message" class="flash flash-error">
+      <span class="octicon octicon-alert"></span>
+      <a href="#" class="octicon octicon-x close js-ajax-error-dismiss" aria-label="Dismiss error"></a>
+      Something went wrong with that request. Please try again.
+    </div>
+
+
+      <script crossorigin="anonymous" src="Home%20%C2%B7%20angular-ui_ui-router%20Wiki%20%C2%B7%20GitHub_fichiers/frameworks-12d5fda141e78e513749dddbc56445fe172cbd9a.js" type="text/javascript"></script>
+      <script async="async" crossorigin="anonymous" src="Home%20%C2%B7%20angular-ui_ui-router%20Wiki%20%C2%B7%20GitHub_fichiers/github-f10c35fa6ed31fb604881f1bd1f36d8cafda2f66.js" type="text/javascript"></script>
+      
+        <script crossorigin="anonymous" src="Home%20%C2%B7%20angular-ui_ui-router%20Wiki%20%C2%B7%20GitHub_fichiers/wiki-b10d565822b64cd2cfc7f4b832b4b1177118461b.js" type="text/javascript"></script><div style="position: absolute; left: 0px; top: -9999px; width: 1px; height: 1px; z-index: 999999999;" class="global-zeroclipboard-container" id="global-zeroclipboard-html-bridge"><object id="global-zeroclipboard-flash-bridge" name="global-zeroclipboard-flash-bridge" type="application/x-shockwave-flash" data="Home%20%C2%B7%20angular-ui_ui-router%20Wiki%20%C2%B7%20GitHub_fichiers/ZeroClipboard.swf" height="100%" width="100%"><param name="allowScriptAccess" value="always"><param name="allowNetworking" value="all"><param name="menu" value="false"><param name="wmode" value="transparent"><param name="flashvars" value="trustedOrigins=github.com%2C%2F%2Fgithub.com%2Chttps%3A%2F%2Fgithub.com&amp;swfObjectId=global-zeroclipboard-flash-bridge"></object></div>
+
+        
+  
+
+
+</body></html>

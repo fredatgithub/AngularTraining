@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html ng-app='myApp'>
+  <head>
+    <meta charset="utf-8" />
+    <title>
+        Player simple
+    </title>
+
+    <style type="text/css" media="screen">
+        .warning {
+            border: 1px red solid;
+        }
+    </style>
+
+    <script src="../js/angular.1.4.js"></script>
+
+    <script>
+    function onYouTubePlayerReady(){
+        document.getElementById("ytplayer").playVideo();
+    };
+
+    angular.module('myApp', [])
+
+    .directive('embedSrc', function () {
+      return {
+        restrict: 'A',
+        link: function (scope, element, attrs) {
+          var current = element;
+          scope.$watch(function() { return attrs.embedSrc; }, function () {
+            var clone = element
+                          .clone()
+                          .attr('src', attrs.embedSrc);
+            current.replaceWith(clone);
+            current = clone;
+          });
+        }
+      };
+    })
+
+
+    .factory("playlist", function($sce){
+
+            var embedUrl = 'https://www.youtube.com/v/{{id}}?version=3&enablejsapi=1';
+
+           var service = {};
+           service.videos = [];
+           var currentVideo;
+           service.addVideo =  function(videoUrl){
+                var res = /youtube\.com\/watch\?v=([^&]+)/.exec(videoUrl);
+                var url = embedUrl.replace("{{id}}", res[1]);
+                service.videos.push(url);
+                if (service.videos.length == 1){
+                    service.currentVideo = $sce.trustAsResourceUrl(service.videos[0]);
+                }
+            };
+
+            service.playVideo = function(i){
+
+                service.currentVideo = $sce.trustAsResourceUrl(service.videos[i]);
+            }
+
+            return service;
+    })
+
+
+    .controller('Controlleur', function($scope, playlist) {
+        $scope.playlist = playlist;
+    });
+
+    </script>
+
+</head>
+
+<body  ng-controller="Controlleur">
+    <div>
+        <object width="640" height="360" ng-show="playlist.currentVideo" >
+          <param name="movie" value="https://www.youtube.com/v/M7lc1UVf-VE?version=3"></param>
+          <param name="allowFullScreen" value="true"></param>
+          <param name="allowScriptAccess" value="always"></param>
+          <embed embed-src="{{playlist.currentVideo}}" src="{{playlist.currentVideo}}" type="application/x-shockwave-flash" allowfullscreen="true" allowScriptAccess="always" width="640" height="360" id="ytplayer"></embed>
+        </object>
+    </div>
+    <div>
+        <form ng-submit="playlist.addVideo(playlist.addedVideo)">
+            <p><input type="text" ng-model="playlist.addedVideo"><button>Add</button></p>
+        </form>
+        <ul ng-class="{warning: playlist.videos.length < 2 }">
+            <li ng-repeat="video in playlist.videos">
+                <a href="#" ng-click="playlist.playVideo($index)">{{video}}</a>
+            </li>
+        </ul>
+    </div>
+
+</body>
+
+</html>
+
+</body>
+</html>
+

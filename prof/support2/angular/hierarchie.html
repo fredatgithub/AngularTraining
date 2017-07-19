@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html ng-app='myApp'>
+  <head>
+    <meta charset="utf-8" />
+    <title>
+        Hierarchie
+    </title>
+    <script src="./js/angular.js"></script>
+    <script>
+    angular.module('myApp', [])
+    .controller('TopCtrl', function($scope, $rootScope) {
+        "use strict";
+		$scope.top = true;
+		$rootScope.alert = alert;
+    })
+    .controller('MidCtrl', function($scope) {
+        "use strict";
+		$scope.mid = true;
+    })
+    .controller('BotCtrl', function($scope) {
+        "use strict";
+		$scope.bot = true;
+    })    
+	.controller('SideCtrl', function($scope, $rootScope) {
+        "use strict";
+		$scope.side = true;
+		$rootScope.root = true;
+    })
+	
+    .directive('topdirective', function() {
+        "use strict";
+		
+		return {
+		  restrict: 'A',
+		  link: function($scope){
+		  
+		    $scope.$on('click', function(event, data){
+				console.log('Top dir received:', data); 
+			});
+		  
+		    $scope.$on('dbclick', function(event, data){
+				console.log('Top dir received:', data); 
+			});
+		  
+		    $scope.topdir = true;
+		  }
+		};
+    })
+    .directive('middirective', function() {
+        "use strict";
+		return {
+		 
+		  restrict: 'A',
+		  link: function($scope){
+		     $scope.$on('click', function(event, data){
+				console.log('Mid dir received:', data); 
+			});
+		    $scope.$on('dbclick', function(event, data){
+				console.log('Mid dir received:', data); 
+			});
+		    $scope.middir = true;
+		  }
+		};
+    })
+    .directive('botdirective', function() {
+        "use strict";
+		return {
+		  restrict: 'A',
+		  link: function($scope){
+		     $scope.$on('click', function(event, data){
+				console.log('Bot dir received:', data); 
+			});
+		    $scope.$on('dbclick', function(event, data){
+				console.log('Bot dir received:', data); 
+			});
+		    $scope.botdir = true;
+		  }
+		};
+    });   
+
+	
+    </script>
+</head>
+<body >
+
+
+
+<div ng-controller="TopCtrl" 
+      ng-click="$broadcast('click', 'broadcast from top'); $event.stopPropagation();"
+	  ng-dblclick="$emit('dbclick', 'emit from top'); $event.stopPropagation();">
+
+	<dl>
+	  <dt>TopCtrl</dt>
+	  <dd>Root : {{ root }}<dd>
+	  <dd>Top : {{ top }}<dd>
+	  
+	  <dd>Mid : {{ mid }}<dd>
+	  <dd>Bot : {{ bot }}<dd>
+	  <dd>Side : {{ side }}<dd>
+	  
+	  <dt>TopDir</dt>
+	  <dd topdirective >TopDir : {{ topdir }}<dd>
+	  <dd topdirective >MidDir : {{ middir }}<dd>
+	  <dd topdirective >BotDir : {{ botdir }}<dd>
+	  
+	</dl>
+
+	<div ng-controller="MidCtrl" 
+      ng-click="$broadcast('click', 'broadcast from mid'); $event.stopPropagation();"
+	  ng-dblclick="$emit('dbclick', 'emit from mid'); $event.stopPropagation();">
+	
+		<dl>
+		  <dt>MidCtrl</dt>
+		  <dd>Root : {{ root }}<dd>
+		  <dd>Top : {{ top }}<dd>
+		  <dd>Mid : {{ mid }}<dd>
+		  <dd>Bot : {{ bot }}<dd>
+		  <dd>Side : {{ side }}<dd>
+		  
+		  <dt>MidDir</dt>
+		  <dd middirective >TopDir : {{ topdir }}<dd>
+		  <dd middirective >MidDir : {{ middir }}<dd>
+		  <dd middirective >BotDir : {{ botdir }}<dd>
+		</dl>
+	
+		<div ng-controller="BotCtrl"
+			  ng-click="$broadcast('click', 'broadcast from bot'); $event.stopPropagation();"
+			  ng-dblclick="$emit('dbclick', 'emit from bot'); $event.stopPropagation();">
+
+			<dl>
+			  <dt>BotCtrl</dt>
+			  <dd>Root : {{ root }}<dd>
+			  <dd>Top : {{ top }}<dd>
+			  <dd>Mid : {{ mid }}<dd>
+			  <dd>Bot : {{ bot }}<dd>
+			  <dd>Side : {{ side }}<dd>
+			  
+			  <dt>BotDir</dt>
+			  <dd botdirective >TopDir : {{ topdir }}<dd>
+			  <dd botdirective >MidDir : {{ middir }}<dd>
+			  <dd botdirective >BotDir : {{ botdir }}<dd>
+			</dl>		
+		
+         </div>
+	</div>
+</div>
+
+<div ng-controller="SideCtrl"
+	  ng-click="$broadcast('click', 'broadcast from side'); $event.stopPropagation();"
+	  ng-dblclick="$emit('dbclick', 'emit from side'); $event.stopPropagation();">
+
+
+	<dl>
+	  <dt>SideCtrl</dt>
+	  <dd>Root : {{ root }}<dd>
+	  <dd>Top : {{ top }}<dd>
+	  <dd>Mid : {{ mid }}<dd>
+	  <dd>Bot : {{ bot }}<dd>
+	  <dd>Side : {{ side }}<dd>
+	</dl>
+	
+</div>
+
+
+
+</body>
+
+</html>
+
+</body>
+</html>
+

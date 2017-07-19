@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html ng-app='myApp'>
+  <head>
+    <meta charset="utf-8" />
+    <title>
+        Provider
+    </title>
+    <script src="../js/angular.js"></script>
+
+    <script>
+
+    angular.module('myApp', [])
+
+    .provider("arrayFilter", function(){
+        "use strict";
+
+        // Un provider, au final, c'est juste une fonction anonyme qu'on relie
+        // à un nom
+        // Cette fonction DOIT avoir une méthode nommé "$get" attachée à son "this"
+        this.$get = function() {
+
+            // Et la méthode "$get" DOIT retourner l'objet qu'on veut créer.
+            var service  = {
+                filter: function(filtres, array) {
+                    var res = [];
+                    angular.forEach(array, function(elem, i){
+                        var found = false;
+                        angular.forEach(filtres, function(filtre, y){
+                            if (elem === filtre){
+                                found = true;
+                                return;
+                            }
+                        });
+                        if (!found){
+                            res.push(elem);
+                        }
+
+                    });
+                    return res;
+                },
+                alertOnClick: function(filters, array){
+                    filters = filters ? filters.split(/\s+/) : [];
+                    array = array ? array.split(/\s+/) : [];
+                    alert(service.filter(filters, array));
+                }
+            };
+
+            return service;
+        }
+    })
+
+    .controller('Controlleur', function($scope, arrayFilter) {
+        $scope.arrayFilter = arrayFilter;
+    });
+
+
+    </script>
+
+</head>
+
+<body  ng-controller="Controlleur">
+
+
+<form>
+    <p>
+        <label>
+            Entrez à gauche les mots à filtrer et à droite
+            la liste dont il faut retirer les mots filtrés.
+            Les mots doivent être séparés par des espaces.
+        </label>
+    </p>
+    <p>
+
+        <input type="text" ng-model="filters">
+        <input type="text" ng-model="array">
+        <button ng-click="arrayFilter.alertOnClick(filters, array)">Filter</button>
+    </p>
+</form>
+
+</body>
+
+</html>
+
+</body>
+</html>
+

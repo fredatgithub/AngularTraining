@@ -1,0 +1,807 @@
+<!DOCTYPE html>
+<html class="ng-scope" ng-app="docsApp" ng-controller="DocsController" lang="en"><script id="bug.surrogate.1">var urchinTracker=function(){},_gaq={push:function(){try {if(arguments[0][0]=='_link')window.location.href=arguments[0][1]}catch(er){}}},_gat={_createTracker:function(){}, _getTracker:function(){return{__noSuchMethod__:function(){},_link:function(o){if(o)location.href=o;},_linkByPost:function(){return true;},_getLinkerUrl:function(o){return o;},_trackEvent:function(){}}}};</script><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"><style type="text/css">@charset "UTF-8";[ng\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-animate){display:none !important;}ng\:form{display:block;}</style>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="Description" content="AngularJS is what HTML would have been, had it been designed for building web-apps.
+                 Declarative templates with data-binding, MVC, dependency injection and great
+                 testability story all implemented with pure client-side JavaScript!">
+  <meta name="fragment" content="!">
+  <title class="ng-binding" ng-bind-template="AngularJS: Developer Guide: Forms">AngularJS: Developer Guide: Forms</title>
+
+  <script type="text/javascript">
+    // dynamically add base tag as well as css and javascript files.
+    // we can't add css/js the usual way, because some browsers (FF) eagerly prefetch resources
+    // before the base attribute is added, causing 404 and terribly slow loading of the docs app.
+    (function() {
+      var indexFile = (location.pathname.match(/\/(index[^\.]*\.html)/) || ['', ''])[1],
+          rUrl = /(#!\/|api|guide|misc|tutorial|error|index[^\.]*\.html).*$/,
+          baseUrl = location.href.replace(rUrl, indexFile),
+          production = location.hostname === 'docs.angularjs.org',
+          headEl = document.getElementsByTagName('head')[0],
+          sync = true;
+
+      addTag('base', {href: baseUrl});
+
+
+      addTag('link', {rel: 'stylesheet', href: 'components/bootstrap-3.1.1/css/bootstrap.min.css', type: 'text/css'});
+      addTag('link', {rel: 'stylesheet', href: 'components/open-sans-fontface-1.0.4/open-sans.css', type: 'text/css'});
+      addTag('link', {rel: 'stylesheet', href: 'css/prettify-theme.css', type: 'text/css'});
+      addTag('link', {rel: 'stylesheet', href: 'css/docs.css', type: 'text/css'});
+      addTag('link', {rel: 'stylesheet', href: 'css/animations.css', type: 'text/css'});
+      
+
+      addTag('script', {src: '//ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.18/angular.min.js' }, sync);
+      addTag('script', {src: '//ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.18/angular-resource.min.js' }, sync);
+      addTag('script', {src: '//ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.18/angular-route.min.js' }, sync);
+      addTag('script', {src: '//ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.18/angular-cookies.min.js' }, sync);
+      addTag('script', {src: '//ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.18/angular-sanitize.min.js' }, sync);
+      addTag('script', {src: '//ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.18/angular-touch.min.js' }, sync);
+      addTag('script', {src: '//ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.18/angular-animate.min.js' }, sync);
+      addTag('script', {src: 'components/marked-0.3.1/lib/marked.js' }, sync);
+      addTag('script', {src: 'js/angular-bootstrap/bootstrap.js' }, sync);
+      addTag('script', {src: 'js/angular-bootstrap/bootstrap-prettify.js' }, sync);
+      addTag('script', {src: 'js/angular-bootstrap/dropdown-toggle.js' }, sync);
+      addTag('script', {src: 'components/lunr.js-0.4.2/lunr.min.js' }, sync);
+      addTag('script', {src: 'components/google-code-prettify-1.0.1/src/prettify.js' }, sync);
+      addTag('script', {src: 'components/google-code-prettify-1.0.1/src/lang-css.js' }, sync);
+      addTag('script', {src: 'js/versions-data.js' }, sync);
+      addTag('script', {src: 'js/pages-data.js' }, sync);
+      addTag('script', {src: 'js/docs.js' }, sync);
+      
+
+      function addTag(name, attributes, sync) {
+        var el = document.createElement(name),
+            attrName;
+
+        for (attrName in attributes) {
+          el.setAttribute(attrName, attributes[attrName]);
+        }
+
+        sync ? document.write(outerHTML(el)) : headEl.appendChild(el);
+      }
+
+      function outerHTML(node){
+        // if IE, Chrome take the internal method otherwise build one
+        return node.outerHTML || (
+            function(n){
+                var div = document.createElement('div'), h;
+                div.appendChild(n);
+                h = div.innerHTML;
+                div = null;
+                return h;
+            })(node);
+      }
+    })();
+
+
+    // force page reload when new update is available
+    window.applicationCache && window.applicationCache.addEventListener('updateready', function(e) {
+      if (window.applicationCache.status == window.applicationCache.UPDATEREADY) {
+        window.applicationCache.swapCache();
+        window.location.reload();
+      }
+    }, false);
+
+    // GA asynchronous tracker
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-8594346-3']);
+    _gaq.push(['_setDomainName', '.angularjs.org']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script><!-- base href="https://docs.angularjs.org/" --><link type="text/css" href="AngularJS:%20Developer%20Guide:%20Forms_fichiers/bootstrap.css" rel="stylesheet"><link type="text/css" href="AngularJS:%20Developer%20Guide:%20Forms_fichiers/open-sans.css" rel="stylesheet"><link type="text/css" href="AngularJS:%20Developer%20Guide:%20Forms_fichiers/prettify-theme.css" rel="stylesheet"><link type="text/css" href="AngularJS:%20Developer%20Guide:%20Forms_fichiers/docs.css" rel="stylesheet"><link type="text/css" href="AngularJS:%20Developer%20Guide:%20Forms_fichiers/animations.css" rel="stylesheet"><script src="AngularJS:%20Developer%20Guide:%20Forms_fichiers/angular.js"></script><script src="AngularJS:%20Developer%20Guide:%20Forms_fichiers/angular-resource.js"></script><script src="AngularJS:%20Developer%20Guide:%20Forms_fichiers/angular-route.js"></script><script src="AngularJS:%20Developer%20Guide:%20Forms_fichiers/angular-cookies.js"></script><script src="AngularJS:%20Developer%20Guide:%20Forms_fichiers/angular-sanitize.js"></script><script src="AngularJS:%20Developer%20Guide:%20Forms_fichiers/angular-touch.js"></script><script src="AngularJS:%20Developer%20Guide:%20Forms_fichiers/angular-animate.js"></script><script src="AngularJS:%20Developer%20Guide:%20Forms_fichiers/marked.js"></script><script src="AngularJS:%20Developer%20Guide:%20Forms_fichiers/bootstrap.js"></script><script src="AngularJS:%20Developer%20Guide:%20Forms_fichiers/bootstrap-prettify.js"></script><script src="AngularJS:%20Developer%20Guide:%20Forms_fichiers/dropdown-toggle.js"></script><script src="AngularJS:%20Developer%20Guide:%20Forms_fichiers/lunr.js"></script><script src="AngularJS:%20Developer%20Guide:%20Forms_fichiers/prettify.js"></script><script src="AngularJS:%20Developer%20Guide:%20Forms_fichiers/lang-css.js"></script><script src="AngularJS:%20Developer%20Guide:%20Forms_fichiers/versions-data.js"></script><script src="AngularJS:%20Developer%20Guide:%20Forms_fichiers/pages-data.js"></script><script src="AngularJS:%20Developer%20Guide:%20Forms_fichiers/docs.js"></script>
+<script>try {  for(var lastpass_iter=0; lastpass_iter < document.forms.length; lastpass_iter++){    var lastpass_f = document.forms[lastpass_iter];    if(typeof(lastpass_f.lpsubmitorig)=="undefined"){      if (typeof(lastpass_f.submit) == "function") {        lastpass_f.lpsubmitorig = lastpass_f.submit;        lastpass_f.submit = function(){          var form = this;          try {            if (document.documentElement && 'createEvent' in document)            {              var forms = document.getElementsByTagName('form');              for (var i=0 ; i<forms.length ; ++i)                if (forms[i]==form)                {                  var element = document.createElement('lpformsubmitdataelement');                  element.setAttribute('formnum',i);                  element.setAttribute('from','submithook');                  document.documentElement.appendChild(element);                  var evt = document.createEvent('Events');                  evt.initEvent('lpformsubmit',true,false);                  element.dispatchEvent(evt);                  break;                }            }          } catch (e) {}          try {            form.lpsubmitorig();          } catch (e) {}        }      }    }  }} catch (e) {}</script><style>@-webkit-keyframes popzvqdiovvbcjdjurwxazvdtuzjusvgakcnyjxr {50% {-webkit-transform:scale(1.2);}100% {-webkit-transform:scale(1);}}@keyframes popzvqdiovvbcjdjurwxazvdtuzjusvgakcnyjxr {50% {-webkit-transform:scale(1.2);transform:scale(1.2);}100% {-webkit-transform:scale(1);transform:scale(1);}}#zvqdiovvbcjdjurwxazvdtuzjusvgakcnyjxr{padding:0;margin:0;font:13px Arial,Helvetica;text-transform:none;font-size: 100%;vertical-align:baseline;line-height:normal;color:#fff;border:solid 2px #fff !important;color:#fff !important;display:block !important;height:auto !important;margin:0 !important;opacity:0.9 !important;padding:7px 10px !important;position:fixed !important;visibility:visible !important;width:auto !important;z-index:2147483647 !important;-moz-border-radius:5px !important;border-radius:5px !important;-moz-box-shadow:0px 0px 20px #000 !important;box-shadow:0px 0px 20px #000 !important;}.zvqdiovvbcjdjurwxazvdtuzjusvgakcnyjxr-blocked{padding:0;margin:0;font:13px Arial,Helvetica;text-transform:none;font-size: 100%;vertical-align:baseline;line-height:normal;color:#fff;color:#AAA !important;display:inline !important;text-decoration:line-through !important;}#zvqdiovvbcjdjurwxazvdtuzjusvgakcnyjxr br{display:block !important;padding:0;margin:0;font:13px Arial,Helvetica;text-transform:none;font-size: 100%;vertical-align:baseline;line-height:normal;color:#fff;}#zvqdiovvbcjdjurwxazvdtuzjusvgakcnyjxr span{background:transparent !important;padding:0;margin:0;font:13px Arial,Helvetica;text-transform:none;font-size: 100%;vertical-align:baseline;line-height:normal;color:#fff;}#zvqdiovvbcjdjurwxazvdtuzjusvgakcnyjxr div{padding:0;margin:0;font:13px Arial,Helvetica;text-transform:none;font-size: 100%;vertical-align:baseline;line-height:normal;color:#fff;border:0 !important;margin:0 !important;padding:0 !important;width:auto !important;letter-spacing:normal !important;font:13px Arial,Helvetica !important;text-align:left !important;text-shadow:none !important;text-transform:none !important;word-spacing:normal !important;}#zvqdiovvbcjdjurwxazvdtuzjusvgakcnyjxr a{padding:0;margin:0;font:13px Arial,Helvetica;text-transform:none;font-size: 100%;vertical-align:baseline;line-height:normal;color:#fff;font-weight:normal !important;background:none !important;text-decoration:underline !important;color:#fff !important;}a#zvqdiovvbcjdjurwxazvdtuzjusvgakcnyjxr-gear{padding:0;margin:0;font:13px Arial,Helvetica;text-transform:none;font-size: 100%;vertical-align:baseline;line-height:normal;color:#fff;text-decoration:none !important;position:absolute !important;display:none !important;font-size:20px !important;width:20px !important;height:20px !important;line-height:20px !important;text-align:center !important;background-color:rgba(255,255,255,.8) !important;background-image:url(resource://firefox-at-ghostery-dot-com/ghostery/data/images/gear.svg) !important;background-size:16px 16px !important;background-position:center center !important;background-repeat:no-repeat !important;text-decoration:none !important;}a#zvqdiovvbcjdjurwxazvdtuzjusvgakcnyjxr-gear:hover{-webkit-animation-name:popzvqdiovvbcjdjurwxazvdtuzjusvgakcnyjxr !important;animation-name:popzvqdiovvbcjdjurwxazvdtuzjusvgakcnyjxr !important;-webkit-animation-duration:0.3s !important;animation-duration:0.3s !important;}#zvqdiovvbcjdjurwxazvdtuzjusvgakcnyjxr:hover #zvqdiovvbcjdjurwxazvdtuzjusvgakcnyjxr-gear{text-decoration:none !important;display:inline-block !important;}#zvqdiovvbcjdjurwxazvdtuzjusvgakcnyjxr hr{visibility:hidden !important;padding:0;margin:0;font:13px Arial,Helvetica;text-transform:none;font-size: 100%;vertical-align:baseline;line-height:normal;color:#fff;height:1em;}@media print{#zvqdiovvbcjdjurwxazvdtuzjusvgakcnyjxr{display:none !important;}}</style></head>
+<body>
+  <div id="wrapper">
+    <header class="header header-fixed">
+      <section class="navbar navbar-inverse docs-navbar-primary ng-scope" ng-controller="DocsSearchCtrl">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-9 header-branding">
+              <a class="brand navbar-brand" href="http://angularjs.org/">
+                <img class="logo" src="AngularJS:%20Developer%20Guide:%20Forms_fichiers/angularjs-for-header-only.svg">
+              </a>
+              <ul class="nav navbar-nav">
+                <li class="divider-vertical"></li>
+                <li><a href="http://angularjs.org/"><i class="icon-home icon-white"></i> Home</a></li>
+                <li class="divider-vertical"></li>
+                <li class="dropdown ng-isolate-scope">
+                  <a aria-expanded="false" aria-haspopup="true" href="#" class="dropdown-toggle" data-toggle="dropdown">
+                    <i class="icon-eye-open icon-white"></i> Learn <b class="caret"></b>
+                  </a>
+                  <ul class="dropdown-menu">
+                    <li class="disabled"><a href="http://angularjs.org/">Why AngularJS?</a></li>
+                    <li><a href="http://www.youtube.com/user/angularjs">Watch</a></li>
+                    <li><a href="https://docs.angularjs.org/tutorial">Tutorial</a></li>
+                    <li><a href="http://builtwith.angularjs.org/">Case Studies</a></li>
+                    <li><a href="https://github.com/angular/angular-seed">Seed App project template</a></li>
+                    <li><a href="https://docs.angularjs.org/misc/faq">FAQ</a></li>
+                  </ul>
+                </li>
+                <li class="divider-vertical"></li>
+                <li class="dropdown active ng-isolate-scope">
+                  <a aria-expanded="false" aria-haspopup="true" href="#" class="dropdown-toggle" data-toggle="dropdown">
+                    <i class="icon-book icon-white"></i> Develop <b class="caret"></b>
+                  </a>
+                  <ul class="dropdown-menu">
+                    <li><a href="https://docs.angularjs.org/tutorial">Tutorial</a></li>
+                    <li><a href="https://docs.angularjs.org/guide">Developer Guide</a></li>
+                    <li><a href="https://docs.angularjs.org/api">API Reference</a></li>
+                    <li><a href="https://docs.angularjs.org/error">Error Reference</a></li>
+                    <li><a href="https://docs.angularjs.org/misc/contribute">Contribute</a></li>
+                    <li><a href="http://code.angularjs.org/">Download</a></li>
+                  </ul>
+                </li>
+                <li class="divider-vertical"></li>
+                <li class="dropdown ng-isolate-scope">
+                  <a aria-expanded="false" aria-haspopup="true" href="#" class="dropdown-toggle" data-toggle="dropdown">
+                    <i class="icon-comment icon-white"></i> Discuss <b class="caret"></b>
+                  </a>
+                  <ul class="dropdown-menu">
+                    <li><a href="http://blog.angularjs.org/">Blog</a></li>
+                    <li><a href="http://groups.google.com/group/angular">Mailing List</a></li>
+                    <li><a href="http://webchat.freenode.net/?channels=angularjs&amp;uio=d4">Chat Room</a></li>
+                    <li class="divider"></li>
+                    <li><a href="https://twitter.com/#%21/angularjs">Twitter</a></li>
+                    <li><a href="https://plus.google.com/110323587230527980117">Google+</a></li>
+                    <li class="divider"></li>
+                    <li><a href="https://github.com/angular/angular.js">GitHub</a></li>
+                    <li><a href="https://github.com/angular/angular.js/issues">Issue Tracker</a></li>
+                  </ul>
+                </li>
+                <li class="divider-vertical"></li>
+              </ul>
+            </div>
+            <form ng-class="{focus:focus}" class="navbar-search col-md-3 docs-search ng-pristine ng-valid" ng-submit="submit()">
+              <span class="glyphicon glyphicon-search search-icon"></span>
+              <input name="as_q" class="search-query ng-pristine ng-untouched ng-valid" placeholder="Click or press / to search" ng-focus="focus=true" ng-blur="focus=false" ng-change="search(q)" ng-model="q" docs-search-input="" autocomplete="off" type="text">
+            </form>
+          </div>
+        </div>
+        <div class="search-results-container ng-hide" ng-show="hasResults">
+          <div class="container">
+            <a href="" ng-click="hideResults()" class="search-close">
+              <span class="glyphicon glyphicon-remove search-close-icon"></span> Close
+            </a>
+            <div class="search-results-frame">
+              <!-- ngRepeat: (key, value) in results -->
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="sup-header">
+        <div class="container main-grid main-header-grid">
+          <div class="grid-left">
+            <div ng-controller="DocsVersionsCtrl" class="picker version-picker ng-scope">
+              <select ng-options="v as ('v' + v.version + (v.isSnapshot ? ' (snapshot)' : '')) group by getGroupName(v) for v in docs_versions" ng-model="docs_version" ng-change="jumpToDocsVersion(docs_version)" class="docs-version-jump ng-pristine ng-untouched ng-valid"><optgroup label="Latest"><option selected="selected" value="0">v1.3.0-build.3056 (snapshot)</option><option value="19">v1.2.22</option><option value="44">v1.1.5</option><option value="50">v1.0.8</option></optgroup><optgroup label="Unstable"><option value="1">v1.3.0-beta.18</option><option value="2">v1.3.0-beta.17</option><option value="3">v1.3.0-beta.16</option><option value="4">v1.3.0-beta.15</option><option value="5">v1.3.0-beta.14</option><option value="6">v1.3.0-beta.13</option><option value="7">v1.3.0-beta.12</option><option value="8">v1.3.0-beta.11</option><option value="9">v1.3.0-beta.10</option><option value="10">v1.3.0-beta.9</option><option value="11">v1.3.0-beta.8</option><option value="12">v1.3.0-beta.7</option><option value="13">v1.3.0-beta.6</option><option value="14">v1.3.0-beta.5</option><option value="15">v1.3.0-beta.4</option><option value="16">v1.3.0-beta.3</option><option value="17">v1.3.0-beta.2</option><option value="18">v1.3.0-beta.1</option><option value="42">v1.2.0-rc.3</option><option value="43">v1.2.0-rc.2</option><option value="45">v1.1.4</option><option value="46">v1.1.3</option><option value="47">v1.1.2</option><option value="48">v1.1.1</option><option value="49">v1.1.0</option><option value="59">v1.0.0-rc2</option></optgroup><optgroup label="Stable"><option value="20">v1.2.21</option><option value="21">v1.2.20</option><option value="22">v1.2.19</option><option value="23">v1.2.18</option><option value="24">v1.2.17</option><option value="25">v1.2.16</option><option value="26">v1.2.15</option><option value="27">v1.2.14</option><option value="28">v1.2.13</option><option value="29">v1.2.12</option><option value="30">v1.2.11</option><option value="31">v1.2.10</option><option value="32">v1.2.9</option><option value="33">v1.2.8</option><option value="34">v1.2.7</option><option value="35">v1.2.6</option><option value="36">v1.2.5</option><option value="37">v1.2.4</option><option value="38">v1.2.3</option><option value="39">v1.2.2</option><option value="40">v1.2.1</option><option value="41">v1.2.0</option><option value="51">v1.0.7</option><option value="52">v1.0.6</option><option value="53">v1.0.5</option><option value="54">v1.0.4</option><option value="55">v1.0.3</option><option value="56">v1.0.2</option><option value="57">v1.0.1</option><option value="58">v1.0.0</option></optgroup></select>
+            </div>
+          </div>
+          <div class="grid-right">
+            <ul class="nav-breadcrumb">
+              <!-- ngRepeat: crumb in breadcrumb --><li ng-repeat="crumb in breadcrumb" class="nav-breadcrumb-entry naked-list ng-scope">
+                <span class="divider"> /</span>
+                <a href="https://docs.angularjs.org/guide" class="ng-binding" ng-href="guide">Developer Guide</a>
+              </li><!-- end ngRepeat: crumb in breadcrumb --><li ng-repeat="crumb in breadcrumb" class="nav-breadcrumb-entry naked-list ng-scope">
+                <span class="divider"> /</span>
+                <a href="https://docs.angularjs.org/guide/forms" class="ng-binding" ng-href="guide/forms">Forms</a>
+              </li><!-- end ngRepeat: crumb in breadcrumb -->
+            </ul>
+          </div>
+        </div>
+      </section>
+    </header>
+
+    <section role="main" class="container main-body">
+      <div class="main-grid main-body-grid">
+        <div class="grid-left">
+          <a class="btn toc-toggle visible-xs" ng-click="toc=!toc">Show / Hide Table of Contents</a>
+          <div class="side-navigation ng-hide" ng-show="toc==true">
+            <ul class="nav-list naked-list">
+              <!-- ngRepeat: navGroup in currentArea.navGroups track by navGroup.name --><li ng-repeat="navGroup in currentArea.navGroups track by navGroup.name" class="nav-index-group ng-scope">
+                <a href="https://docs.angularjs.org/guide" ng-class="navClass(navGroup)" class="nav-index-group-heading ng-binding active">Developer Guide</a>
+                <ul class="aside-nav">
+                  <!-- ngRepeat: navItem in navGroup.navItems --><li ng-repeat="navItem in navGroup.navItems" ng-class="navClass(navItem)" class="nav-index-listing ng-scope active">
+                    <!-- ngIf: navItem.extra.href -->
+                    <a class="ng-binding" tabindex="2" ng-class="linkClass(navItem)" href="https://docs.angularjs.org/guide/$location">Using $location</a>
+                  </li><!-- end ngRepeat: navItem in navGroup.navItems --><li ng-repeat="navItem in navGroup.navItems" ng-class="navClass(navItem)" class="nav-index-listing ng-scope active">
+                    <!-- ngIf: navItem.extra.href -->
+                    <a class="ng-binding" tabindex="2" ng-class="linkClass(navItem)" href="https://docs.angularjs.org/guide/animations">Animations</a>
+                  </li><!-- end ngRepeat: navItem in navGroup.navItems --><li ng-repeat="navItem in navGroup.navItems" ng-class="navClass(navItem)" class="nav-index-listing ng-scope active">
+                    <!-- ngIf: navItem.extra.href -->
+                    <a class="ng-binding" tabindex="2" ng-class="linkClass(navItem)" href="https://docs.angularjs.org/guide/bootstrap">Bootstrap</a>
+                  </li><!-- end ngRepeat: navItem in navGroup.navItems --><li ng-repeat="navItem in navGroup.navItems" ng-class="navClass(navItem)" class="nav-index-listing ng-scope active">
+                    <!-- ngIf: navItem.extra.href -->
+                    <a class="ng-binding" tabindex="2" ng-class="linkClass(navItem)" href="https://docs.angularjs.org/guide/compiler">HTML Compiler</a>
+                  </li><!-- end ngRepeat: navItem in navGroup.navItems --><li ng-repeat="navItem in navGroup.navItems" ng-class="navClass(navItem)" class="nav-index-listing ng-scope active">
+                    <!-- ngIf: navItem.extra.href -->
+                    <a class="ng-binding" tabindex="2" ng-class="linkClass(navItem)" href="https://docs.angularjs.org/guide/concepts">Conceptual Overview</a>
+                  </li><!-- end ngRepeat: navItem in navGroup.navItems --><li ng-repeat="navItem in navGroup.navItems" ng-class="navClass(navItem)" class="nav-index-listing ng-scope active">
+                    <!-- ngIf: navItem.extra.href -->
+                    <a class="ng-binding" tabindex="2" ng-class="linkClass(navItem)" href="https://docs.angularjs.org/guide/controller">Controllers</a>
+                  </li><!-- end ngRepeat: navItem in navGroup.navItems --><li ng-repeat="navItem in navGroup.navItems" ng-class="navClass(navItem)" class="nav-index-listing ng-scope active">
+                    <!-- ngIf: navItem.extra.href -->
+                    <a class="ng-binding" tabindex="2" ng-class="linkClass(navItem)" href="https://docs.angularjs.org/guide/css-styling">Working With CSS</a>
+                  </li><!-- end ngRepeat: navItem in navGroup.navItems --><li ng-repeat="navItem in navGroup.navItems" ng-class="navClass(navItem)" class="nav-index-listing ng-scope active">
+                    <!-- ngIf: navItem.extra.href -->
+                    <a class="ng-binding" tabindex="2" ng-class="linkClass(navItem)" href="https://docs.angularjs.org/guide/databinding">Data Binding</a>
+                  </li><!-- end ngRepeat: navItem in navGroup.navItems --><li ng-repeat="navItem in navGroup.navItems" ng-class="navClass(navItem)" class="nav-index-listing ng-scope active">
+                    <!-- ngIf: navItem.extra.href -->
+                    <a class="ng-binding" tabindex="2" ng-class="linkClass(navItem)" href="https://docs.angularjs.org/guide/di">Dependency Injection</a>
+                  </li><!-- end ngRepeat: navItem in navGroup.navItems --><li ng-repeat="navItem in navGroup.navItems" ng-class="navClass(navItem)" class="nav-index-listing ng-scope active">
+                    <!-- ngIf: navItem.extra.href -->
+                    <a class="ng-binding" tabindex="2" ng-class="linkClass(navItem)" href="https://docs.angularjs.org/guide/directive">Directives</a>
+                  </li><!-- end ngRepeat: navItem in navGroup.navItems --><li ng-repeat="navItem in navGroup.navItems" ng-class="navClass(navItem)" class="nav-index-listing ng-scope active">
+                    <!-- ngIf: navItem.extra.href -->
+                    <a class="ng-binding" tabindex="2" ng-class="linkClass(navItem)" href="https://docs.angularjs.org/guide/e2e-testing">E2E Testing</a>
+                  </li><!-- end ngRepeat: navItem in navGroup.navItems --><li ng-repeat="navItem in navGroup.navItems" ng-class="navClass(navItem)" class="nav-index-listing ng-scope active">
+                    <!-- ngIf: navItem.extra.href -->
+                    <a class="ng-binding" tabindex="2" ng-class="linkClass(navItem)" href="https://docs.angularjs.org/guide/expression">Expressions</a>
+                  </li><!-- end ngRepeat: navItem in navGroup.navItems --><li ng-repeat="navItem in navGroup.navItems" ng-class="navClass(navItem)" class="nav-index-listing ng-scope active">
+                    <!-- ngIf: navItem.extra.href -->
+                    <a class="ng-binding" tabindex="2" ng-class="linkClass(navItem)" href="https://docs.angularjs.org/guide/filter">Filters</a>
+                  </li><!-- end ngRepeat: navItem in navGroup.navItems --><li ng-repeat="navItem in navGroup.navItems" ng-class="navClass(navItem)" class="nav-index-listing ng-scope active">
+                    <!-- ngIf: navItem.extra.href -->
+                    <a class="ng-binding" tabindex="2" ng-class="linkClass(navItem)" href="https://docs.angularjs.org/guide/forms">Forms</a>
+                  </li><!-- end ngRepeat: navItem in navGroup.navItems --><li ng-repeat="navItem in navGroup.navItems" ng-class="navClass(navItem)" class="nav-index-listing ng-scope active">
+                    <!-- ngIf: navItem.extra.href -->
+                    <a class="ng-binding" tabindex="2" ng-class="linkClass(navItem)" href="https://docs.angularjs.org/guide/i18n">i18n and l10n</a>
+                  </li><!-- end ngRepeat: navItem in navGroup.navItems --><li ng-repeat="navItem in navGroup.navItems" ng-class="navClass(navItem)" class="nav-index-listing ng-scope active">
+                    <!-- ngIf: navItem.extra.href -->
+                    <a class="ng-binding" tabindex="2" ng-class="linkClass(navItem)" href="https://docs.angularjs.org/guide/ie">Internet Explorer Compatibility</a>
+                  </li><!-- end ngRepeat: navItem in navGroup.navItems --><li ng-repeat="navItem in navGroup.navItems" ng-class="navClass(navItem)" class="nav-index-listing ng-scope active">
+                    <!-- ngIf: navItem.extra.href -->
+                    <a class="ng-binding" tabindex="2" ng-class="linkClass(navItem)" href="https://docs.angularjs.org/guide/introduction">Introduction</a>
+                  </li><!-- end ngRepeat: navItem in navGroup.navItems --><li ng-repeat="navItem in navGroup.navItems" ng-class="navClass(navItem)" class="nav-index-listing ng-scope active">
+                    <!-- ngIf: navItem.extra.href -->
+                    <a class="ng-binding" tabindex="2" ng-class="linkClass(navItem)" href="https://docs.angularjs.org/guide/migration">Migrating from Previous Versions</a>
+                  </li><!-- end ngRepeat: navItem in navGroup.navItems --><li ng-repeat="navItem in navGroup.navItems" ng-class="navClass(navItem)" class="nav-index-listing ng-scope active">
+                    <!-- ngIf: navItem.extra.href -->
+                    <a class="ng-binding" tabindex="2" ng-class="linkClass(navItem)" href="https://docs.angularjs.org/guide/module">Modules</a>
+                  </li><!-- end ngRepeat: navItem in navGroup.navItems --><li ng-repeat="navItem in navGroup.navItems" ng-class="navClass(navItem)" class="nav-index-listing ng-scope active">
+                    <!-- ngIf: navItem.extra.href -->
+                    <a class="ng-binding" tabindex="2" ng-class="linkClass(navItem)" href="https://docs.angularjs.org/guide/providers">Providers</a>
+                  </li><!-- end ngRepeat: navItem in navGroup.navItems --><li ng-repeat="navItem in navGroup.navItems" ng-class="navClass(navItem)" class="nav-index-listing ng-scope active">
+                    <!-- ngIf: navItem.extra.href -->
+                    <a class="ng-binding" tabindex="2" ng-class="linkClass(navItem)" href="https://docs.angularjs.org/guide/scope">Scopes</a>
+                  </li><!-- end ngRepeat: navItem in navGroup.navItems --><li ng-repeat="navItem in navGroup.navItems" ng-class="navClass(navItem)" class="nav-index-listing ng-scope active">
+                    <!-- ngIf: navItem.extra.href -->
+                    <a class="ng-binding" tabindex="2" ng-class="linkClass(navItem)" href="https://docs.angularjs.org/guide/services">Services</a>
+                  </li><!-- end ngRepeat: navItem in navGroup.navItems --><li ng-repeat="navItem in navGroup.navItems" ng-class="navClass(navItem)" class="nav-index-listing ng-scope active">
+                    <!-- ngIf: navItem.extra.href -->
+                    <a class="ng-binding" tabindex="2" ng-class="linkClass(navItem)" href="https://docs.angularjs.org/guide/templates">Templates</a>
+                  </li><!-- end ngRepeat: navItem in navGroup.navItems --><li ng-repeat="navItem in navGroup.navItems" ng-class="navClass(navItem)" class="nav-index-listing ng-scope active">
+                    <!-- ngIf: navItem.extra.href -->
+                    <a class="ng-binding" tabindex="2" ng-class="linkClass(navItem)" href="https://docs.angularjs.org/guide/unit-testing">Unit Testing</a>
+                  </li><!-- end ngRepeat: navItem in navGroup.navItems -->
+                </ul>
+              </li><!-- end ngRepeat: navGroup in currentArea.navGroups track by navGroup.name -->
+            </ul>
+            <a href="" ng-click="toc=false" class="toc-close visible-xs">
+              <span class="glyphicon glyphicon-remove toc-close-icon"></span> Close
+            </a>
+          </div>
+        </div>
+        <div class="grid-right">
+          <div class="ng-hide" id="loading" ng-show="loading">Loading...</div>
+          <!-- ngInclude: currentPage.outputPath || 'Error404.html' --><div class="ng-scope" ng-hide="loading" ng-include="currentPage.outputPath || 'Error404.html'" onload="afterPartialLoaded()" autoscroll=""><a href="http://github.com/angular/angular.js/edit/master/docs/content/guide/forms.ngdoc" class="improve-docs btn btn-primary ng-scope"><i class="glyphicon glyphicon-edit">&nbsp;</i>Improve this doc</a>
+
+
+<p class="ng-scope">Controls (<code><span class="pln">input</span></code>, <code><span class="kwd">select</span></code>, <code><span class="pln">textarea</span></code>) are ways for a user to enter data.
+A Form is a collection of controls for the purpose of grouping related controls together.</p>
+<p class="ng-scope">Form and controls provide validation services, so 
+that the user can be notified of invalid input.
+This provides a better user experience, because the user gets instant 
+feedback on how to correct the error.
+Keep in mind that while client-side validation plays an important role 
+in providing good user experience, it can easily be circumvented and 
+thus can not be trusted.
+Server-side validation is still necessary for a secure application.</p>
+<h1 class="ng-scope" id="simple-form">Simple form</h1>
+<p class="ng-scope">The key directive in understanding two-way data-binding is <a href="https://docs.angularjs.org/api/ng/directive/ngModel">ngModel</a>.
+The <code><span class="pln">ngModel</span></code> directive provides the two-way data-binding by synchronizing the model to the view, as well as view to the model.
+In addition it provides an <a href="https://docs.angularjs.org/api/ng/type/ngModel.NgModelController">API</a> for other directives to augment its behavior.</p>
+<p class="ng-scope">
+
+</p><div class="ng-scope">
+  <a ng-click="openPlunkr('examples/example-example98')" class="btn pull-right">
+    <i class="glyphicon glyphicon-edit">&nbsp;</i>
+    Edit in Plunker</a>
+  <div class="runnable-example ng-scope" path="examples/example-example98" module="formExample"><!-- ngIf: tabs --><nav class="runnable-example-tabs ng-scope" ng-if="tabs">  <!-- ngRepeat: tab in tabs track by $index --><a ng-class="{active:$index==activeTabIndex}" ng-repeat="tab in tabs track by $index" href="" class="btn ng-binding ng-scope active" ng-click="setTab($index)">    index.html  </a><!-- end ngRepeat: tab in tabs track by $index --></nav><!-- end ngIf: tabs -->
+
+   
+    <div style="display: block;" class="runnable-example-file" name="index.html" language="html" type="html">
+      <pre><code><span class="tag">&lt;div</span><span class="pln"> </span><span class="atn">ng-controller</span><span class="pun">=</span><span class="atv">"ExampleController"</span><span class="tag">&gt;</span><span class="pln">
+  </span><span class="tag">&lt;form</span><span class="pln"> </span><span class="atn">novalidate</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"simple-form"</span><span class="tag">&gt;</span><span class="pln">
+    Name: </span><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"text"</span><span class="pln"> </span><span class="atn">ng-model</span><span class="pun">=</span><span class="atv">"user.name"</span><span class="pln"> </span><span class="tag">/&gt;&lt;br</span><span class="pln"> </span><span class="tag">/&gt;</span><span class="pln">
+    E-mail: </span><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"email"</span><span class="pln"> </span><span class="atn">ng-model</span><span class="pun">=</span><span class="atv">"user.email"</span><span class="pln"> </span><span class="tag">/&gt;&lt;br</span><span class="pln"> </span><span class="tag">/&gt;</span><span class="pln">
+    Gender: </span><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"radio"</span><span class="pln"> </span><span class="atn">ng-model</span><span class="pun">=</span><span class="atv">"user.gender"</span><span class="pln"> </span><span class="atn">value</span><span class="pun">=</span><span class="atv">"male"</span><span class="pln"> </span><span class="tag">/&gt;</span><span class="pln">male
+    </span><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"radio"</span><span class="pln"> </span><span class="atn">ng-model</span><span class="pun">=</span><span class="atv">"user.gender"</span><span class="pln"> </span><span class="atn">value</span><span class="pun">=</span><span class="atv">"female"</span><span class="pln"> </span><span class="tag">/&gt;</span><span class="pln">female</span><span class="tag">&lt;br</span><span class="pln"> </span><span class="tag">/&gt;</span><span class="pln">
+    </span><span class="tag">&lt;button</span><span class="pln"> </span><span class="atn">ng-click</span><span class="pun">=</span><span class="atv">"reset()"</span><span class="tag">&gt;</span><span class="pln">RESET</span><span class="tag">&lt;/button&gt;</span><span class="pln">
+    </span><span class="tag">&lt;button</span><span class="pln"> </span><span class="atn">ng-click</span><span class="pun">=</span><span class="atv">"update(user)"</span><span class="tag">&gt;</span><span class="pln">SAVE</span><span class="tag">&lt;/button&gt;</span><span class="pln">
+  </span><span class="tag">&lt;/form&gt;</span><span class="pln">
+  </span><span class="tag">&lt;pre&gt;</span><span class="pln">form = {{user | json}}</span><span class="tag">&lt;/pre&gt;</span><span class="pln">
+  </span><span class="tag">&lt;pre&gt;</span><span class="pln">master = {{master | json}}</span><span class="tag">&lt;/pre&gt;</span><span class="pln">
+</span><span class="tag">&lt;/div&gt;</span><span class="pln">
+
+</span><span class="tag">&lt;script&gt;</span><span class="pln">
+  angular</span><span class="pun">.</span><span class="pln">module</span><span class="pun">(</span><span class="str">'formExample'</span><span class="pun">,</span><span class="pln"> </span><span class="pun">[])</span><span class="pln">
+    </span><span class="pun">.</span><span class="pln">controller</span><span class="pun">(</span><span class="str">'ExampleController'</span><span class="pun">,</span><span class="pln"> </span><span class="pun">[</span><span class="str">'$scope'</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln">$scope</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+      $scope</span><span class="pun">.</span><span class="pln">master </span><span class="pun">=</span><span class="pln"> </span><span class="pun">{};</span><span class="pln">
+
+      $scope</span><span class="pun">.</span><span class="pln">update </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln">user</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+        $scope</span><span class="pun">.</span><span class="pln">master </span><span class="pun">=</span><span class="pln"> angular</span><span class="pun">.</span><span class="pln">copy</span><span class="pun">(</span><span class="pln">user</span><span class="pun">);</span><span class="pln">
+      </span><span class="pun">};</span><span class="pln">
+
+      $scope</span><span class="pun">.</span><span class="pln">reset </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+        $scope</span><span class="pun">.</span><span class="pln">user </span><span class="pun">=</span><span class="pln"> angular</span><span class="pun">.</span><span class="pln">copy</span><span class="pun">(</span><span class="pln">$scope</span><span class="pun">.</span><span class="pln">master</span><span class="pun">);</span><span class="pln">
+      </span><span class="pun">};</span><span class="pln">
+
+      $scope</span><span class="pun">.</span><span class="pln">reset</span><span class="pun">();</span><span class="pln">
+    </span><span class="pun">}]);</span><span class="pln">
+</span><span class="tag">&lt;/script&gt;</span></code></pre>
+    </div>
+  
+
+    <iframe class="runnable-example-frame" src="AngularJS:%20Developer%20Guide:%20Forms_fichiers/index.html" name="example-example98"></iframe>
+  </div>
+</div>
+
+
+<p class="ng-scope"></p>
+<p class="ng-scope">Note that <code><span class="pln">novalidate</span></code> is used to disable browser's native form validation.</p>
+<h1 class="ng-scope" id="using-css-classes">Using CSS classes</h1>
+<p class="ng-scope">To allow styling of form as well as controls, <code><span class="pln">ngModel</span></code>  adds these CSS classes:</p>
+<ul class="ng-scope">
+<li><code><span class="pln">ng</span><span class="pun">-</span><span class="pln">valid</span></code></li>
+<li><code><span class="pln">ng</span><span class="pun">-</span><span class="pln">invalid</span></code></li>
+<li><code><span class="pln">ng</span><span class="pun">-</span><span class="pln">pristine</span></code></li>
+<li><code><span class="pln">ng</span><span class="pun">-</span><span class="pln">dirty</span></code></li>
+<li><code><span class="pln">ng</span><span class="pun">-</span><span class="pln">touched</span></code></li>
+<li><code><span class="pln">ng</span><span class="pun">-</span><span class="pln">untouched</span></code></li>
+</ul>
+<p class="ng-scope">The following example uses the CSS to display validity of each form control.
+In the example both <code><span class="pln">user</span><span class="pun">.</span><span class="pln">name</span></code> and <code><span class="pln">user</span><span class="pun">.</span><span class="pln">email</span></code>
+ are required, but are rendered with red background only when they are 
+dirty.
+This ensures that the user is not distracted with an error until after 
+interacting with the control, and failing to satisfy its validity.</p>
+<p class="ng-scope">
+
+</p><div class="ng-scope">
+  <a ng-click="openPlunkr('examples/example-example99')" class="btn pull-right">
+    <i class="glyphicon glyphicon-edit">&nbsp;</i>
+    Edit in Plunker</a>
+  <div class="runnable-example ng-scope" path="examples/example-example99" module="formExample"><!-- ngIf: tabs --><nav class="runnable-example-tabs ng-scope" ng-if="tabs">  <!-- ngRepeat: tab in tabs track by $index --><a ng-class="{active:$index==activeTabIndex}" ng-repeat="tab in tabs track by $index" href="" class="btn ng-binding ng-scope active" ng-click="setTab($index)">    index.html  </a><!-- end ngRepeat: tab in tabs track by $index --></nav><!-- end ngIf: tabs -->
+
+   
+    <div style="display: block;" class="runnable-example-file" name="index.html" language="html" type="html">
+      <pre><code><span class="tag">&lt;div</span><span class="pln"> </span><span class="atn">ng-controller</span><span class="pun">=</span><span class="atv">"ExampleController"</span><span class="tag">&gt;</span><span class="pln">
+  </span><span class="tag">&lt;form</span><span class="pln"> </span><span class="atn">novalidate</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"css-form"</span><span class="tag">&gt;</span><span class="pln">
+    Name:
+      </span><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"text"</span><span class="pln"> </span><span class="atn">ng-model</span><span class="pun">=</span><span class="atv">"user.name"</span><span class="pln"> </span><span class="atn">required</span><span class="pln"> </span><span class="tag">/&gt;&lt;br</span><span class="pln"> </span><span class="tag">/&gt;</span><span class="pln">
+    E-mail: </span><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"email"</span><span class="pln"> </span><span class="atn">ng-model</span><span class="pun">=</span><span class="atv">"user.email"</span><span class="pln"> </span><span class="atn">required</span><span class="pln"> </span><span class="tag">/&gt;&lt;br</span><span class="pln"> </span><span class="tag">/&gt;</span><span class="pln">
+    Gender: </span><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"radio"</span><span class="pln"> </span><span class="atn">ng-model</span><span class="pun">=</span><span class="atv">"user.gender"</span><span class="pln"> </span><span class="atn">value</span><span class="pun">=</span><span class="atv">"male"</span><span class="pln"> </span><span class="tag">/&gt;</span><span class="pln">male
+    </span><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"radio"</span><span class="pln"> </span><span class="atn">ng-model</span><span class="pun">=</span><span class="atv">"user.gender"</span><span class="pln"> </span><span class="atn">value</span><span class="pun">=</span><span class="atv">"female"</span><span class="pln"> </span><span class="tag">/&gt;</span><span class="pln">female</span><span class="tag">&lt;br</span><span class="pln"> </span><span class="tag">/&gt;</span><span class="pln">
+    </span><span class="tag">&lt;button</span><span class="pln"> </span><span class="atn">ng-click</span><span class="pun">=</span><span class="atv">"reset()"</span><span class="tag">&gt;</span><span class="pln">RESET</span><span class="tag">&lt;/button&gt;</span><span class="pln">
+    </span><span class="tag">&lt;button</span><span class="pln"> </span><span class="atn">ng-click</span><span class="pun">=</span><span class="atv">"update(user)"</span><span class="tag">&gt;</span><span class="pln">SAVE</span><span class="tag">&lt;/button&gt;</span><span class="pln">
+  </span><span class="tag">&lt;/form&gt;</span><span class="pln">
+</span><span class="tag">&lt;/div&gt;</span><span class="pln">
+
+</span><span class="tag">&lt;style</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"text/css"</span><span class="tag">&gt;</span><span class="pln">
+  </span><span class="pun">.</span><span class="pln">css-form input</span><span class="pun">.</span><span class="pln">ng-invalid</span><span class="pun">.</span><span class="pln">ng-dirty </span><span class="pun">{</span><span class="pln">
+    </span><span class="kwd">background-color</span><span class="pun">:</span><span class="pln"> </span><span class="lit">#FA787E</span><span class="pun">;</span><span class="pln">
+  </span><span class="pun">}</span><span class="pln">
+
+  </span><span class="pun">.</span><span class="pln">css-form input</span><span class="pun">.</span><span class="pln">ng-valid</span><span class="pun">.</span><span class="pln">ng-dirty </span><span class="pun">{</span><span class="pln">
+    </span><span class="kwd">background-color</span><span class="pun">:</span><span class="pln"> </span><span class="lit">#78FA89</span><span class="pun">;</span><span class="pln">
+  </span><span class="pun">}</span><span class="pln">
+</span><span class="tag">&lt;/style&gt;</span><span class="pln">
+
+</span><span class="tag">&lt;script&gt;</span><span class="pln">
+  angular</span><span class="pun">.</span><span class="pln">module</span><span class="pun">(</span><span class="str">'formExample'</span><span class="pun">,</span><span class="pln"> </span><span class="pun">[])</span><span class="pln">
+    </span><span class="pun">.</span><span class="pln">controller</span><span class="pun">(</span><span class="str">'ExampleController'</span><span class="pun">,</span><span class="pln"> </span><span class="pun">[</span><span class="str">'$scope'</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln">$scope</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+      $scope</span><span class="pun">.</span><span class="pln">master </span><span class="pun">=</span><span class="pln"> </span><span class="pun">{};</span><span class="pln">
+
+      $scope</span><span class="pun">.</span><span class="pln">update </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln">user</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+        $scope</span><span class="pun">.</span><span class="pln">master </span><span class="pun">=</span><span class="pln"> angular</span><span class="pun">.</span><span class="pln">copy</span><span class="pun">(</span><span class="pln">user</span><span class="pun">);</span><span class="pln">
+      </span><span class="pun">};</span><span class="pln">
+
+      $scope</span><span class="pun">.</span><span class="pln">reset </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+        $scope</span><span class="pun">.</span><span class="pln">user </span><span class="pun">=</span><span class="pln"> angular</span><span class="pun">.</span><span class="pln">copy</span><span class="pun">(</span><span class="pln">$scope</span><span class="pun">.</span><span class="pln">master</span><span class="pun">);</span><span class="pln">
+      </span><span class="pun">};</span><span class="pln">
+
+      $scope</span><span class="pun">.</span><span class="pln">reset</span><span class="pun">();</span><span class="pln">
+    </span><span class="pun">}]);</span><span class="pln">
+</span><span class="tag">&lt;/script&gt;</span></code></pre>
+    </div>
+  
+
+    <iframe class="runnable-example-frame" src="AngularJS:%20Developer%20Guide:%20Forms_fichiers/index_002.html" name="example-example99"></iframe>
+  </div>
+</div>
+
+
+<p class="ng-scope"></p>
+<h1 class="ng-scope" id="binding-to-form-and-control-state">Binding to form and control state</h1>
+<p class="ng-scope">A form is an instance of <a href="https://docs.angularjs.org/api/ng/type/form.FormController">FormController</a>.
+The form instance can optionally be published into the scope using the <code><span class="pln">name</span></code> attribute.</p>
+<p class="ng-scope">Similarly, an input control that has the <a href="https://docs.angularjs.org/api/ng/directive/ngModel">ngModel</a> directive holds an
+instance of <a href="https://docs.angularjs.org/api/ng/type/ngModel.NgModelController">NgModelController</a>.
+Such a control instance can be published as a property of the form instance using the <code><span class="pln">name</span></code> attribute
+on the input control.  The name attribute specifies the name of the property on the form instance.</p>
+<p class="ng-scope">This implies that the internal state of both the form and the control is available for binding in
+the view using the standard binding primitives.</p>
+<p class="ng-scope">This allows us to extend the above example with these features:</p>
+<ul class="ng-scope">
+<li>RESET button is enabled only if form has some changes</li>
+<li>SAVE button is enabled only if form has some changes and is valid</li>
+<li>custom error messages for <code><span class="pln">user</span><span class="pun">.</span><span class="pln">email</span></code> and <code><span class="pln">user</span><span class="pun">.</span><span class="pln">agree</span></code></li>
+</ul>
+<p class="ng-scope">
+
+</p><div class="ng-scope">
+  <a ng-click="openPlunkr('examples/example-example100')" class="btn pull-right">
+    <i class="glyphicon glyphicon-edit">&nbsp;</i>
+    Edit in Plunker</a>
+  <div class="runnable-example ng-scope" path="examples/example-example100" module="formExample"><!-- ngIf: tabs --><nav class="runnable-example-tabs ng-scope" ng-if="tabs">  <!-- ngRepeat: tab in tabs track by $index --><a ng-class="{active:$index==activeTabIndex}" ng-repeat="tab in tabs track by $index" href="" class="btn ng-binding ng-scope active" ng-click="setTab($index)">    index.html  </a><!-- end ngRepeat: tab in tabs track by $index --><a ng-class="{active:$index==activeTabIndex}" ng-repeat="tab in tabs track by $index" href="" class="btn ng-binding ng-scope" ng-click="setTab($index)">    script.js  </a><!-- end ngRepeat: tab in tabs track by $index --></nav><!-- end ngIf: tabs -->
+
+   
+    <div style="display: block;" class="runnable-example-file" name="index.html" language="html" type="html">
+      <pre><code><span class="tag">&lt;div</span><span class="pln"> </span><span class="atn">ng-controller</span><span class="pun">=</span><span class="atv">"ExampleController"</span><span class="tag">&gt;</span><span class="pln">
+  </span><span class="tag">&lt;form</span><span class="pln"> </span><span class="atn">name</span><span class="pun">=</span><span class="atv">"form"</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"css-form"</span><span class="pln"> </span><span class="atn">novalidate</span><span class="tag">&gt;</span><span class="pln">
+    Name:
+      </span><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"text"</span><span class="pln"> </span><span class="atn">ng-model</span><span class="pun">=</span><span class="atv">"user.name"</span><span class="pln"> </span><span class="atn">name</span><span class="pun">=</span><span class="atv">"uName"</span><span class="pln"> </span><span class="atn">required</span><span class="pln"> </span><span class="tag">/&gt;&lt;br</span><span class="pln"> </span><span class="tag">/&gt;</span><span class="pln">
+    E-mail:
+      </span><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"email"</span><span class="pln"> </span><span class="atn">ng-model</span><span class="pun">=</span><span class="atv">"user.email"</span><span class="pln"> </span><span class="atn">name</span><span class="pun">=</span><span class="atv">"uEmail"</span><span class="pln"> </span><span class="atn">required</span><span class="tag">/&gt;&lt;br</span><span class="pln"> </span><span class="tag">/&gt;</span><span class="pln">
+    </span><span class="tag">&lt;div</span><span class="pln"> </span><span class="atn">ng-show</span><span class="pun">=</span><span class="atv">"form.uEmail.$dirty &amp;&amp; form.uEmail.$invalid"</span><span class="tag">&gt;</span><span class="pln">Invalid:
+      </span><span class="tag">&lt;span</span><span class="pln"> </span><span class="atn">ng-show</span><span class="pun">=</span><span class="atv">"form.uEmail.$error.required"</span><span class="tag">&gt;</span><span class="pln">Tell us your email.</span><span class="tag">&lt;/span&gt;</span><span class="pln">
+      </span><span class="tag">&lt;span</span><span class="pln"> </span><span class="atn">ng-show</span><span class="pun">=</span><span class="atv">"form.uEmail.$error.email"</span><span class="tag">&gt;</span><span class="pln">This is not a valid email.</span><span class="tag">&lt;/span&gt;</span><span class="pln">
+    </span><span class="tag">&lt;/div&gt;</span><span class="pln">
+
+    Gender: </span><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"radio"</span><span class="pln"> </span><span class="atn">ng-model</span><span class="pun">=</span><span class="atv">"user.gender"</span><span class="pln"> </span><span class="atn">value</span><span class="pun">=</span><span class="atv">"male"</span><span class="pln"> </span><span class="tag">/&gt;</span><span class="pln">male
+    </span><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"radio"</span><span class="pln"> </span><span class="atn">ng-model</span><span class="pun">=</span><span class="atv">"user.gender"</span><span class="pln"> </span><span class="atn">value</span><span class="pun">=</span><span class="atv">"female"</span><span class="pln"> </span><span class="tag">/&gt;</span><span class="pln">female</span><span class="tag">&lt;br</span><span class="pln"> </span><span class="tag">/&gt;</span><span class="pln">
+
+    </span><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"checkbox"</span><span class="pln"> </span><span class="atn">ng-model</span><span class="pun">=</span><span class="atv">"user.agree"</span><span class="pln"> </span><span class="atn">name</span><span class="pun">=</span><span class="atv">"userAgree"</span><span class="pln"> </span><span class="atn">required</span><span class="pln"> </span><span class="tag">/&gt;</span><span class="pln">
+    I agree: </span><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">ng-show</span><span class="pun">=</span><span class="atv">"user.agree"</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"text"</span><span class="pln"> </span><span class="atn">ng-model</span><span class="pun">=</span><span class="atv">"user.agreeSign"</span><span class="pln">
+              </span><span class="atn">required</span><span class="pln"> </span><span class="tag">/&gt;&lt;br</span><span class="pln"> </span><span class="tag">/&gt;</span><span class="pln">
+    </span><span class="tag">&lt;div</span><span class="pln"> </span><span class="atn">ng-show</span><span class="pun">=</span><span class="atv">"!user.agree || !user.agreeSign"</span><span class="tag">&gt;</span><span class="pln">Please agree and sign.</span><span class="tag">&lt;/div&gt;</span><span class="pln">
+
+    </span><span class="tag">&lt;button</span><span class="pln"> </span><span class="atn">ng-click</span><span class="pun">=</span><span class="atv">"reset()"</span><span class="pln"> </span><span class="atn">ng-disabled</span><span class="pun">=</span><span class="atv">"isUnchanged(user)"</span><span class="tag">&gt;</span><span class="pln">RESET</span><span class="tag">&lt;/button&gt;</span><span class="pln">
+    </span><span class="tag">&lt;button</span><span class="pln"> </span><span class="atn">ng-click</span><span class="pun">=</span><span class="atv">"update(user)"</span><span class="pln">
+            </span><span class="atn">ng-disabled</span><span class="pun">=</span><span class="atv">"form.$invalid || isUnchanged(user)"</span><span class="tag">&gt;</span><span class="pln">SAVE</span><span class="tag">&lt;/button&gt;</span><span class="pln">
+  </span><span class="tag">&lt;/form&gt;</span><span class="pln">
+</span><span class="tag">&lt;/div&gt;</span></code></pre>
+    </div>
+  
+    <div style="display: none;" class="runnable-example-file" name="script.js" language="js" type="js">
+      <pre><code><span class="pln">angular</span><span class="pun">.</span><span class="kwd">module</span><span class="pun">(</span><span class="str">'formExample'</span><span class="pun">,</span><span class="pln"> </span><span class="pun">[])</span><span class="pln">
+  </span><span class="pun">.</span><span class="pln">controller</span><span class="pun">(</span><span class="str">'ExampleController'</span><span class="pun">,</span><span class="pln"> </span><span class="pun">[</span><span class="str">'$scope'</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln">$scope</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+    $scope</span><span class="pun">.</span><span class="pln">master </span><span class="pun">=</span><span class="pln"> </span><span class="pun">{};</span><span class="pln">
+
+    $scope</span><span class="pun">.</span><span class="pln">update </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln">user</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+      $scope</span><span class="pun">.</span><span class="pln">master </span><span class="pun">=</span><span class="pln"> angular</span><span class="pun">.</span><span class="pln">copy</span><span class="pun">(</span><span class="pln">user</span><span class="pun">);</span><span class="pln">
+    </span><span class="pun">};</span><span class="pln">
+
+    $scope</span><span class="pun">.</span><span class="pln">reset </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+      $scope</span><span class="pun">.</span><span class="pln">user </span><span class="pun">=</span><span class="pln"> angular</span><span class="pun">.</span><span class="pln">copy</span><span class="pun">(</span><span class="pln">$scope</span><span class="pun">.</span><span class="pln">master</span><span class="pun">);</span><span class="pln">
+    </span><span class="pun">};</span><span class="pln">
+
+    $scope</span><span class="pun">.</span><span class="pln">isUnchanged </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln">user</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+      </span><span class="kwd">return</span><span class="pln"> angular</span><span class="pun">.</span><span class="pln">equals</span><span class="pun">(</span><span class="pln">user</span><span class="pun">,</span><span class="pln"> $scope</span><span class="pun">.</span><span class="pln">master</span><span class="pun">);</span><span class="pln">
+    </span><span class="pun">};</span><span class="pln">
+
+    $scope</span><span class="pun">.</span><span class="pln">reset</span><span class="pun">();</span><span class="pln">
+  </span><span class="pun">}]);</span></code></pre>
+    </div>
+  
+
+    <iframe class="runnable-example-frame" src="AngularJS:%20Developer%20Guide:%20Forms_fichiers/index_003.html" name="example-example100"></iframe>
+  </div>
+</div>
+
+
+<p class="ng-scope"></p>
+<h1 class="ng-scope" id="custom-triggers">Custom triggers</h1>
+<p class="ng-scope">By default, any change to the content will trigger a model update and form validation. You can
+override this behavior using the <a href="https://docs.angularjs.org/api/ng/directive/ngModelOptions">ngModelOptions</a> directive to
+bind only to specified list of events. I.e. <code><span class="pln">ng</span><span class="pun">-</span><span class="pln">model</span><span class="pun">-</span><span class="pln">options</span><span class="pun">=</span><span class="str">"{ updateOn: 'blur' }"</span></code> will update
+and validate only after the control loses focus. You can set several events using a space delimited
+list. I.e. <code><span class="pln">ng</span><span class="pun">-</span><span class="pln">model</span><span class="pun">-</span><span class="pln">options</span><span class="pun">=</span><span class="str">"{ updateOn: 'mousedown blur' }"</span></code></p>
+<p class="ng-scope">If you want to keep the default behavior and just add new events that may trigger the model update
+and validation, add "default" as one of the specified events.</p>
+<p class="ng-scope">I.e. <code><span class="pln">ng</span><span class="pun">-</span><span class="pln">model</span><span class="pun">-</span><span class="pln">options</span><span class="pun">=</span><span class="str">"{ updateOn: 'default blur' }"</span></code></p>
+<p class="ng-scope">The following example shows how to override immediate updates. Changes on the inputs within the form will update the model
+only when the control loses focus (blur event).</p>
+<p class="ng-scope">
+
+</p><div class="ng-scope">
+  <a ng-click="openPlunkr('examples/example-example101')" class="btn pull-right">
+    <i class="glyphicon glyphicon-edit">&nbsp;</i>
+    Edit in Plunker</a>
+  <div class="runnable-example ng-scope" path="examples/example-example101" module="customTriggerExample"><!-- ngIf: tabs --><nav class="runnable-example-tabs ng-scope" ng-if="tabs">  <!-- ngRepeat: tab in tabs track by $index --><a ng-class="{active:$index==activeTabIndex}" ng-repeat="tab in tabs track by $index" href="" class="btn ng-binding ng-scope active" ng-click="setTab($index)">    index.html  </a><!-- end ngRepeat: tab in tabs track by $index --><a ng-class="{active:$index==activeTabIndex}" ng-repeat="tab in tabs track by $index" href="" class="btn ng-binding ng-scope" ng-click="setTab($index)">    script.js  </a><!-- end ngRepeat: tab in tabs track by $index --></nav><!-- end ngIf: tabs -->
+
+   
+    <div style="display: block;" class="runnable-example-file" name="index.html" language="html" type="html">
+      <pre><code><span class="tag">&lt;div</span><span class="pln"> </span><span class="atn">ng-controller</span><span class="pun">=</span><span class="atv">"ExampleController"</span><span class="tag">&gt;</span><span class="pln">
+  </span><span class="tag">&lt;form&gt;</span><span class="pln">
+    Name:
+    </span><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"text"</span><span class="pln"> </span><span class="atn">ng-model</span><span class="pun">=</span><span class="atv">"user.name"</span><span class="pln"> </span><span class="atn">ng-model-options</span><span class="pun">=</span><span class="atv">"{ updateOn: 'blur' }"</span><span class="pln"> </span><span class="tag">/&gt;&lt;br</span><span class="pln"> </span><span class="tag">/&gt;</span><span class="pln">
+    Other data:
+    </span><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"text"</span><span class="pln"> </span><span class="atn">ng-model</span><span class="pun">=</span><span class="atv">"user.data"</span><span class="pln"> </span><span class="tag">/&gt;&lt;br</span><span class="pln"> </span><span class="tag">/&gt;</span><span class="pln">
+  </span><span class="tag">&lt;/form&gt;</span><span class="pln">
+  </span><span class="tag">&lt;pre&gt;</span><span class="pln">username = "{{user.name}}"</span><span class="tag">&lt;/pre&gt;</span><span class="pln">
+</span><span class="tag">&lt;/div&gt;</span></code></pre>
+    </div>
+  
+    <div style="display: none;" class="runnable-example-file" name="script.js" language="js" type="js">
+      <pre><code><span class="pln">angular</span><span class="pun">.</span><span class="kwd">module</span><span class="pun">(</span><span class="str">'customTriggerExample'</span><span class="pun">,</span><span class="pln"> </span><span class="pun">[])</span><span class="pln">
+ </span><span class="pun">.</span><span class="pln">controller</span><span class="pun">(</span><span class="str">'ExampleController'</span><span class="pun">,</span><span class="pln"> </span><span class="pun">[</span><span class="str">'$scope'</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln">$scope</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+   $scope</span><span class="pun">.</span><span class="pln">user </span><span class="pun">=</span><span class="pln"> </span><span class="pun">{};</span><span class="pln">
+ </span><span class="pun">}]);</span></code></pre>
+    </div>
+  
+
+    <iframe class="runnable-example-frame" src="AngularJS:%20Developer%20Guide:%20Forms_fichiers/index_004.html" name="example-example101"></iframe>
+  </div>
+</div>
+
+
+<p class="ng-scope"></p>
+<h1 class="ng-scope" id="non-immediate-debounced-model-updates">Non-immediate (debounced) model updates</h1>
+<p class="ng-scope">You can delay the model update/validation by using the <code><span class="pln">debounce</span></code> key with the
+<a href="https://docs.angularjs.org/api/ng/directive/ngModelOptions">ngModelOptions</a> directive. This delay will also apply to
+parsers, validators and model flags like <code><span class="pln">$dirty</span></code> or <code><span class="pln">$pristine</span></code>.</p>
+<p class="ng-scope">I.e. <code><span class="pln">ng</span><span class="pun">-</span><span class="pln">model</span><span class="pun">-</span><span class="pln">options</span><span class="pun">=</span><span class="str">"{ debounce: 500 }"</span></code> will wait for half a second since
+the last content change before triggering the model update and form validation.</p>
+<p class="ng-scope">If custom triggers are used, custom debouncing timeouts can be set for each event using an object
+in <code><span class="pln">debounce</span></code>. This can be useful to force immediate updates on some specific circumstances
+(like blur events).</p>
+<p class="ng-scope">I.e. <code><span class="pln">ng</span><span class="pun">-</span><span class="pln">model</span><span class="pun">-</span><span class="pln">options</span><span class="pun">=</span><span class="str">"{ updateOn: 'default blur', debounce: { default: 500, blur: 0 } }"</span></code></p>
+<p class="ng-scope">If those attributes are added to an element, they 
+will be applied to all the child elements and controls that inherit from
+ it unless they are
+overridden.</p>
+<p class="ng-scope">This example shows how to debounce model changes. Model will be updated only 250 milliseconds after last change.</p>
+<p class="ng-scope">
+
+</p><div class="ng-scope">
+  <a ng-click="openPlunkr('examples/example-example102')" class="btn pull-right">
+    <i class="glyphicon glyphicon-edit">&nbsp;</i>
+    Edit in Plunker</a>
+  <div class="runnable-example ng-scope" path="examples/example-example102" module="debounceExample"><!-- ngIf: tabs --><nav class="runnable-example-tabs ng-scope" ng-if="tabs">  <!-- ngRepeat: tab in tabs track by $index --><a ng-class="{active:$index==activeTabIndex}" ng-repeat="tab in tabs track by $index" href="" class="btn ng-binding ng-scope active" ng-click="setTab($index)">    index.html  </a><!-- end ngRepeat: tab in tabs track by $index --><a ng-class="{active:$index==activeTabIndex}" ng-repeat="tab in tabs track by $index" href="" class="btn ng-binding ng-scope" ng-click="setTab($index)">    script.js  </a><!-- end ngRepeat: tab in tabs track by $index --></nav><!-- end ngIf: tabs -->
+
+   
+    <div style="display: block;" class="runnable-example-file" name="index.html" language="html" type="html">
+      <pre><code><span class="tag">&lt;div</span><span class="pln"> </span><span class="atn">ng-controller</span><span class="pun">=</span><span class="atv">"ExampleController"</span><span class="tag">&gt;</span><span class="pln">
+  </span><span class="tag">&lt;form&gt;</span><span class="pln">
+    Name:
+    </span><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"text"</span><span class="pln"> </span><span class="atn">ng-model</span><span class="pun">=</span><span class="atv">"user.name"</span><span class="pln"> </span><span class="atn">ng-model-options</span><span class="pun">=</span><span class="atv">"{ debounce: 250 }"</span><span class="pln"> </span><span class="tag">/&gt;&lt;br</span><span class="pln"> </span><span class="tag">/&gt;</span><span class="pln">
+  </span><span class="tag">&lt;/form&gt;</span><span class="pln">
+  </span><span class="tag">&lt;pre&gt;</span><span class="pln">username = "{{user.name}}"</span><span class="tag">&lt;/pre&gt;</span><span class="pln">
+</span><span class="tag">&lt;/div&gt;</span></code></pre>
+    </div>
+  
+    <div style="display: none;" class="runnable-example-file" name="script.js" language="js" type="js">
+      <pre><code><span class="pln">angular</span><span class="pun">.</span><span class="kwd">module</span><span class="pun">(</span><span class="str">'debounceExample'</span><span class="pun">,</span><span class="pln"> </span><span class="pun">[])</span><span class="pln">
+  </span><span class="pun">.</span><span class="pln">controller</span><span class="pun">(</span><span class="str">'ExampleController'</span><span class="pun">,</span><span class="pln"> </span><span class="pun">[</span><span class="str">'$scope'</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln">$scope</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+    $scope</span><span class="pun">.</span><span class="pln">user </span><span class="pun">=</span><span class="pln"> </span><span class="pun">{};</span><span class="pln">
+  </span><span class="pun">}]);</span></code></pre>
+    </div>
+  
+
+    <iframe class="runnable-example-frame" src="AngularJS:%20Developer%20Guide:%20Forms_fichiers/index_005.html" name="example-example102"></iframe>
+  </div>
+</div>
+
+
+<p class="ng-scope"></p>
+<h1 class="ng-scope" id="custom-validation">Custom Validation</h1>
+<p class="ng-scope">Angular provides basic implementation for most common html5 <a href="https://docs.angularjs.org/api/ng/directive/input">input</a>
+types: (<a href="https://docs.angularjs.org/api/ng/input/input%5Btext%5D">text</a>, <a href="https://docs.angularjs.org/api/ng/input/input%5Bnumber%5D">number</a>, <a href="https://docs.angularjs.org/api/ng/input/input%5Burl%5D">url</a>, <a href="https://docs.angularjs.org/api/ng/input/input%5Bemail%5D">email</a>, <a href="https://docs.angularjs.org/api/ng/input/input%5Bradio%5D">radio</a>, <a href="https://docs.angularjs.org/api/ng/input/input%5Bcheckbox%5D">checkbox</a>), as well as some directives for validation (<code><span class="pln">required</span></code>, <code><span class="pln">pattern</span></code>, <code><span class="pln">minlength</span></code>, <code><span class="pln">maxlength</span></code>, <code><span class="pln">min</span></code>, <code><span class="pln">max</span></code>).</p>
+<p class="ng-scope">Defining your own validator can be done by defining your own directive which adds a custom validation function to the <code><span class="pln">ngModel</span></code> <a href="https://docs.angularjs.org/api/ng/type/ngModel.NgModelController">controller</a>.
+To get a hold of the controller the directive specifies a dependency as shown in the example below.
+The validation can occur in two places:</p>
+<ul class="ng-scope">
+<li><p><strong>Model to View update</strong> -
+Whenever the bound model changes, all functions in <a href="https://docs.angularjs.org/api/ng/type/ngModel.NgModelController#properties_$formatters">NgModelController#$formatters</a>
+ array are pipe-lined, so that each of these functions has an 
+opportunity to format the value and change validity state of the form 
+control through <a href="https://docs.angularjs.org/api/ng/method/$setValidity">NgModelController#$setValidity</a>.</p>
+</li>
+<li><p><strong>View to Model update</strong> -
+In a similar way, whenever a user interacts with a control it calls <a href="https://docs.angularjs.org/api/ng/method/$setViewValue">NgModelController#$setViewValue</a>.
+This in turn pipelines all functions in the <a href="https://docs.angularjs.org/api/ng/type/ngModel.NgModelController#properties_$parsers">NgModelController#$parsers</a>
+ array, so that each of these functions has an opportunity to convert 
+the value and change validity state of the form control through <a href="https://docs.angularjs.org/api/ng/method/$setValidity">NgModelController#$setValidity</a>.</p>
+</li>
+</ul>
+<p class="ng-scope">In the following example we create two directives.</p>
+<ul class="ng-scope">
+<li><p>The first one is <code><span class="pln">integer</span></code> and it validates whether the input is a valid integer.
+For example <code><span class="lit">1.23</span></code> is an invalid 
+value, since it contains a fraction.
+Note that we unshift the array instead of pushing.
+This is because we want to be first parser and consume the control 
+string value, as we need to execute the validation function before a 
+conversion to number occurs.</p>
+</li>
+<li><p>The second directive is a <code><span class="pln">smart</span><span class="pun">-</span><span class="kwd">float</span></code>.
+It parses both <code><span class="lit">1.2</span></code> and <code><span class="lit">1</span><span class="pun">,</span><span class="lit">2</span></code> into a valid float number <code><span class="lit">1.2</span></code>.
+Note that we can't use input type <code><span class="pln">number</span></code> here as HTML5 browsers would not allow the user to type what it would consider an invalid number such as <code><span class="lit">1</span><span class="pun">,</span><span class="lit">2</span></code>.</p>
+</li>
+</ul>
+<p class="ng-scope">
+
+</p><div class="ng-scope">
+  <a ng-click="openPlunkr('examples/example-example103')" class="btn pull-right">
+    <i class="glyphicon glyphicon-edit">&nbsp;</i>
+    Edit in Plunker</a>
+  <div class="runnable-example ng-scope" path="examples/example-example103" module="form-example1"><!-- ngIf: tabs --><nav class="runnable-example-tabs ng-scope" ng-if="tabs">  <!-- ngRepeat: tab in tabs track by $index --><a ng-class="{active:$index==activeTabIndex}" ng-repeat="tab in tabs track by $index" href="" class="btn ng-binding ng-scope active" ng-click="setTab($index)">    index.html  </a><!-- end ngRepeat: tab in tabs track by $index --><a ng-class="{active:$index==activeTabIndex}" ng-repeat="tab in tabs track by $index" href="" class="btn ng-binding ng-scope" ng-click="setTab($index)">    script.js  </a><!-- end ngRepeat: tab in tabs track by $index --></nav><!-- end ngIf: tabs -->
+
+   
+    <div style="display: block;" class="runnable-example-file" name="index.html" language="html" type="html">
+      <pre><code><span class="tag">&lt;form</span><span class="pln"> </span><span class="atn">name</span><span class="pun">=</span><span class="atv">"form"</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"css-form"</span><span class="pln"> </span><span class="atn">novalidate</span><span class="tag">&gt;</span><span class="pln">
+  </span><span class="tag">&lt;div&gt;</span><span class="pln">
+    Size (integer 0 - 10):
+    </span><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"number"</span><span class="pln"> </span><span class="atn">ng-model</span><span class="pun">=</span><span class="atv">"size"</span><span class="pln"> </span><span class="atn">name</span><span class="pun">=</span><span class="atv">"size"</span><span class="pln">
+           </span><span class="atn">min</span><span class="pun">=</span><span class="atv">"0"</span><span class="pln"> </span><span class="atn">max</span><span class="pun">=</span><span class="atv">"10"</span><span class="pln"> </span><span class="atn">integer</span><span class="pln"> </span><span class="tag">/&gt;</span><span class="pln">{{size}}</span><span class="tag">&lt;br</span><span class="pln"> </span><span class="tag">/&gt;</span><span class="pln">
+    </span><span class="tag">&lt;span</span><span class="pln"> </span><span class="atn">ng-show</span><span class="pun">=</span><span class="atv">"form.size.$error.integer"</span><span class="tag">&gt;</span><span class="pln">This is not valid integer!</span><span class="tag">&lt;/span&gt;</span><span class="pln">
+    </span><span class="tag">&lt;span</span><span class="pln"> </span><span class="atn">ng-show</span><span class="pun">=</span><span class="atv">"form.size.$error.min || form.size.$error.max"</span><span class="tag">&gt;</span><span class="pln">
+      The value must be in range 0 to 10!</span><span class="tag">&lt;/span&gt;</span><span class="pln">
+  </span><span class="tag">&lt;/div&gt;</span><span class="pln">
+
+  </span><span class="tag">&lt;div&gt;</span><span class="pln">
+    Length (float):
+    </span><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"text"</span><span class="pln"> </span><span class="atn">ng-model</span><span class="pun">=</span><span class="atv">"length"</span><span class="pln"> </span><span class="atn">name</span><span class="pun">=</span><span class="atv">"length"</span><span class="pln"> </span><span class="atn">smart-float</span><span class="pln"> </span><span class="tag">/&gt;</span><span class="pln">
+    {{length}}</span><span class="tag">&lt;br</span><span class="pln"> </span><span class="tag">/&gt;</span><span class="pln">
+    </span><span class="tag">&lt;span</span><span class="pln"> </span><span class="atn">ng-show</span><span class="pun">=</span><span class="atv">"form.length.$error.float"</span><span class="tag">&gt;</span><span class="pln">
+      This is not a valid float number!</span><span class="tag">&lt;/span&gt;</span><span class="pln">
+  </span><span class="tag">&lt;/div&gt;</span><span class="pln">
+</span><span class="tag">&lt;/form&gt;</span></code></pre>
+    </div>
+  
+    <div style="display: none;" class="runnable-example-file" name="script.js" language="js" type="js">
+      <pre><code><span class="kwd">var</span><span class="pln"> app </span><span class="pun">=</span><span class="pln"> angular</span><span class="pun">.</span><span class="kwd">module</span><span class="pun">(</span><span class="str">'form-example1'</span><span class="pun">,</span><span class="pln"> </span><span class="pun">[]);</span><span class="pln">
+
+</span><span class="kwd">var</span><span class="pln"> INTEGER_REGEXP </span><span class="pun">=</span><span class="pln"> </span><span class="str">/^\-?\d+$/</span><span class="pun">;</span><span class="pln">
+app</span><span class="pun">.</span><span class="pln">directive</span><span class="pun">(</span><span class="str">'integer'</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+  </span><span class="kwd">return</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+    </span><span class="kwd">require</span><span class="pun">:</span><span class="pln"> </span><span class="str">'ngModel'</span><span class="pun">,</span><span class="pln">
+    link</span><span class="pun">:</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln">scope</span><span class="pun">,</span><span class="pln"> elm</span><span class="pun">,</span><span class="pln"> attrs</span><span class="pun">,</span><span class="pln"> ctrl</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+      ctrl</span><span class="pun">.</span><span class="pln">$parsers</span><span class="pun">.</span><span class="pln">unshift</span><span class="pun">(</span><span class="kwd">function</span><span class="pun">(</span><span class="pln">viewValue</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+        </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">INTEGER_REGEXP</span><span class="pun">.</span><span class="pln">test</span><span class="pun">(</span><span class="pln">viewValue</span><span class="pun">))</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+          </span><span class="com">// it is valid</span><span class="pln">
+          ctrl</span><span class="pun">.</span><span class="pln">$setValidity</span><span class="pun">(</span><span class="str">'integer'</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">true</span><span class="pun">);</span><span class="pln">
+          </span><span class="kwd">return</span><span class="pln"> viewValue</span><span class="pun">;</span><span class="pln">
+        </span><span class="pun">}</span><span class="pln"> </span><span class="kwd">else</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+          </span><span class="com">// it is invalid, return undefined (no model update)</span><span class="pln">
+          ctrl</span><span class="pun">.</span><span class="pln">$setValidity</span><span class="pun">(</span><span class="str">'integer'</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">);</span><span class="pln">
+          </span><span class="kwd">return</span><span class="pln"> </span><span class="kwd">undefined</span><span class="pun">;</span><span class="pln">
+        </span><span class="pun">}</span><span class="pln">
+      </span><span class="pun">});</span><span class="pln">
+    </span><span class="pun">}</span><span class="pln">
+  </span><span class="pun">};</span><span class="pln">
+</span><span class="pun">});</span><span class="pln">
+
+</span><span class="kwd">var</span><span class="pln"> FLOAT_REGEXP </span><span class="pun">=</span><span class="pln"> </span><span class="str">/^\-?\d+((\.|\,)\d+)?$/</span><span class="pun">;</span><span class="pln">
+app</span><span class="pun">.</span><span class="pln">directive</span><span class="pun">(</span><span class="str">'smartFloat'</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+  </span><span class="kwd">return</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+    </span><span class="kwd">require</span><span class="pun">:</span><span class="pln"> </span><span class="str">'ngModel'</span><span class="pun">,</span><span class="pln">
+    link</span><span class="pun">:</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln">scope</span><span class="pun">,</span><span class="pln"> elm</span><span class="pun">,</span><span class="pln"> attrs</span><span class="pun">,</span><span class="pln"> ctrl</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+      ctrl</span><span class="pun">.</span><span class="pln">$parsers</span><span class="pun">.</span><span class="pln">unshift</span><span class="pun">(</span><span class="kwd">function</span><span class="pun">(</span><span class="pln">viewValue</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+        </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">FLOAT_REGEXP</span><span class="pun">.</span><span class="pln">test</span><span class="pun">(</span><span class="pln">viewValue</span><span class="pun">))</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+          ctrl</span><span class="pun">.</span><span class="pln">$setValidity</span><span class="pun">(</span><span class="str">'float'</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">true</span><span class="pun">);</span><span class="pln">
+          </span><span class="kwd">return</span><span class="pln"> parseFloat</span><span class="pun">(</span><span class="pln">viewValue</span><span class="pun">.</span><span class="pln">replace</span><span class="pun">(</span><span class="str">','</span><span class="pun">,</span><span class="pln"> </span><span class="str">'.'</span><span class="pun">));</span><span class="pln">
+        </span><span class="pun">}</span><span class="pln"> </span><span class="kwd">else</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+          ctrl</span><span class="pun">.</span><span class="pln">$setValidity</span><span class="pun">(</span><span class="str">'float'</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">);</span><span class="pln">
+          </span><span class="kwd">return</span><span class="pln"> </span><span class="kwd">undefined</span><span class="pun">;</span><span class="pln">
+        </span><span class="pun">}</span><span class="pln">
+      </span><span class="pun">});</span><span class="pln">
+    </span><span class="pun">}</span><span class="pln">
+  </span><span class="pun">};</span><span class="pln">
+</span><span class="pun">});</span></code></pre>
+    </div>
+  
+
+    <iframe class="runnable-example-frame" src="AngularJS:%20Developer%20Guide:%20Forms_fichiers/index_006.html" name="example-example103"></iframe>
+  </div>
+</div>
+
+
+<p class="ng-scope"></p>
+<h1 class="ng-scope" id="implementing-custom-form-controls-using-ngmodel-">Implementing custom form controls (using <code><span class="pln">ngModel</span></code>)</h1>
+<p class="ng-scope">Angular implements all of the basic HTML form controls (<a href="https://docs.angularjs.org/api/ng/directive/input">input</a>, <a href="https://docs.angularjs.org/api/ng/directive/select">select</a>, <a href="https://docs.angularjs.org/api/ng/directive/textarea">textarea</a>), which should be sufficient for most cases.
+However, if you need more flexibility, you can write your own form control as a directive.</p>
+<p class="ng-scope">In order for custom control to work with <code><span class="pln">ngModel</span></code> and to achieve two-way data-binding it needs to:</p>
+<ul class="ng-scope">
+<li>implement <code><span class="pln">$render</span></code> method, which is responsible for rendering the data after it passed the <a href="https://docs.angularjs.org/api/ng.directive:ngModel.NgModelController#properties_$formatters">NgModelController#$formatters</a>,</li>
+<li>call <code><span class="pln">$setViewValue</span></code> method, 
+whenever the user interacts with the control and model needs to be 
+updated. This is usually done inside a DOM Event listener.</li>
+</ul>
+<p class="ng-scope">See <a href="https://docs.angularjs.org/guide/directive">$compileProvider.directive</a> for more info.</p>
+<p class="ng-scope">The following example shows how to add two-way data-binding to contentEditable elements.</p>
+<p class="ng-scope">
+
+</p><div class="ng-scope">
+  <a ng-click="openPlunkr('examples/example-example104')" class="btn pull-right">
+    <i class="glyphicon glyphicon-edit">&nbsp;</i>
+    Edit in Plunker</a>
+  <div class="runnable-example ng-scope" path="examples/example-example104" module="form-example2"><!-- ngIf: tabs --><nav class="runnable-example-tabs ng-scope" ng-if="tabs">  <!-- ngRepeat: tab in tabs track by $index --><a ng-class="{active:$index==activeTabIndex}" ng-repeat="tab in tabs track by $index" href="" class="btn ng-binding ng-scope active" ng-click="setTab($index)">    index.html  </a><!-- end ngRepeat: tab in tabs track by $index --><a ng-class="{active:$index==activeTabIndex}" ng-repeat="tab in tabs track by $index" href="" class="btn ng-binding ng-scope" ng-click="setTab($index)">    script.js  </a><!-- end ngRepeat: tab in tabs track by $index --></nav><!-- end ngIf: tabs -->
+
+   
+    <div style="display: block;" class="runnable-example-file" name="index.html" language="html" type="html">
+      <pre><code><span class="tag">&lt;div</span><span class="pln"> </span><span class="atn">contentEditable</span><span class="pun">=</span><span class="atv">"true"</span><span class="pln"> </span><span class="atn">ng-model</span><span class="pun">=</span><span class="atv">"content"</span><span class="pln"> </span><span class="atn">title</span><span class="pun">=</span><span class="atv">"Click to edit"</span><span class="tag">&gt;</span><span class="pln">Some</span><span class="tag">&lt;/div&gt;</span><span class="pln">
+</span><span class="tag">&lt;pre&gt;</span><span class="pln">model = {{content}}</span><span class="tag">&lt;/pre&gt;</span><span class="pln">
+
+</span><span class="tag">&lt;style</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"text/css"</span><span class="tag">&gt;</span><span class="pln">
+  div</span><span class="pun">[</span><span class="pln">contentEditable</span><span class="pun">]</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+    </span><span class="kwd">cursor</span><span class="pun">:</span><span class="pln"> pointer</span><span class="pun">;</span><span class="pln">
+    </span><span class="kwd">background-color</span><span class="pun">:</span><span class="pln"> </span><span class="lit">#D0D0D0</span><span class="pun">;</span><span class="pln">
+  </span><span class="pun">}</span><span class="pln">
+</span><span class="tag">&lt;/style&gt;</span></code></pre>
+    </div>
+  
+    <div style="display: none;" class="runnable-example-file" name="script.js" language="js" type="js">
+      <pre><code><span class="pln">angular</span><span class="pun">.</span><span class="kwd">module</span><span class="pun">(</span><span class="str">'form-example2'</span><span class="pun">,</span><span class="pln"> </span><span class="pun">[]).</span><span class="pln">directive</span><span class="pun">(</span><span class="str">'contenteditable'</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+  </span><span class="kwd">return</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+    </span><span class="kwd">require</span><span class="pun">:</span><span class="pln"> </span><span class="str">'ngModel'</span><span class="pun">,</span><span class="pln">
+    link</span><span class="pun">:</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln">scope</span><span class="pun">,</span><span class="pln"> elm</span><span class="pun">,</span><span class="pln"> attrs</span><span class="pun">,</span><span class="pln"> ctrl</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+      </span><span class="com">// view -&gt; model</span><span class="pln">
+      elm</span><span class="pun">.</span><span class="pln">on</span><span class="pun">(</span><span class="str">'blur'</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+        scope</span><span class="pun">.</span><span class="pln">$apply</span><span class="pun">(</span><span class="kwd">function</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+          ctrl</span><span class="pun">.</span><span class="pln">$setViewValue</span><span class="pun">(</span><span class="pln">elm</span><span class="pun">.</span><span class="pln">html</span><span class="pun">());</span><span class="pln">
+        </span><span class="pun">});</span><span class="pln">
+      </span><span class="pun">});</span><span class="pln">
+
+      </span><span class="com">// model -&gt; view</span><span class="pln">
+      ctrl</span><span class="pun">.</span><span class="pln">$render </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+        elm</span><span class="pun">.</span><span class="pln">html</span><span class="pun">(</span><span class="pln">ctrl</span><span class="pun">.</span><span class="pln">$viewValue</span><span class="pun">);</span><span class="pln">
+      </span><span class="pun">};</span><span class="pln">
+
+      </span><span class="com">// load init value from DOM</span><span class="pln">
+      ctrl</span><span class="pun">.</span><span class="pln">$setViewValue</span><span class="pun">(</span><span class="pln">elm</span><span class="pun">.</span><span class="pln">html</span><span class="pun">());</span><span class="pln">
+    </span><span class="pun">}</span><span class="pln">
+  </span><span class="pun">};</span><span class="pln">
+</span><span class="pun">});</span></code></pre>
+    </div>
+  
+
+    <iframe class="runnable-example-frame" src="AngularJS:%20Developer%20Guide:%20Forms_fichiers/index_007.html" name="example-example104"></iframe>
+  </div>
+</div>
+
+
+<p class="ng-scope"></p>
+
+
+</div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="container">
+        <p class="pull-right"><a back-to-top="">Back to top</a></p>
+
+        <p>
+          Super-powered by Google  ©2010-2014
+          ( <a href="https://github.com/angular/angular.js/blob/master/CHANGELOG.md#1.3.0-beta.18" class="ng-binding" id="version" ng-href="https://github.com/angular/angular.js/blob/master/CHANGELOG.md#1.3.0-beta.18" ng-bind-template="v1.3.0-beta.18  spontaneous-combustion">v1.3.0-beta.18  spontaneous-combustion</a>
+          )
+        </p>
+        <p>
+          Code licensed under the
+          <a href="https://github.com/angular/angular.js/blob/master/LICENSE" target="_blank">The
+            MIT License</a>. Documentation licensed under <a href="http://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>.
+        </p>
+      </div>
+    </footer>
+  </div>
+
+
+<div title="Cliquez pour ignorer l'info-bulle d'alerte" style="right: 20px ! important; bottom: 15px ! important; background: none repeat scroll 0% 0% rgb(51, 0, 51) ! important; cursor: pointer;" id="zvqdiovvbcjdjurwxazvdtuzjusvgakcnyjxr"><div style="background: none repeat scroll 0% 0% rgb(51, 0, 51) ! important;"><a style="right: 0px ! important; bottom: 0px ! important; border-top-left-radius: 3px ! important; border-bottom-right-radius: 3px ! important;" title="Cliquez pour configurer l'info-bulle d'alerte" id="zvqdiovvbcjdjurwxazvdtuzjusvgakcnyjxr-gear" href="#"> </a><span class="zvqdiovvbcjdjurwxazvdtuzjusvgakcnyjxr-blocked">Google Analytics</span><br></div></div></body></html>

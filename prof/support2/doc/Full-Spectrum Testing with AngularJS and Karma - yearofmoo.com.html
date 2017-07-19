@@ -1,0 +1,2349 @@
+<!DOCTYPE html>
+<!--[if lte IE 6]>     <html lang="en" class="browser-ie   browser-old     browser-ie6   browser-ie-old">  <![endif]-->
+<!--[if IE 7]>         <html lang="en" class="browser-ie   browser-old     browser-ie7   browser-ie-old">  <![endif]-->
+<!--[if IE 8]>         <html lang="en" class="browser-ie   browser-old     browser-ie8   browser-ie-old">  <![endif]-->
+<!--[if IE 9]>         <html lang="en" class="browser-ie   browser-old     browser-ie9   browser-ie-old">  <![endif]-->
+<!--[if IE 10]>        <html lang="en" class="browser-ie   browser-modern  browser-ie10  browser-ie-new">  <![endif]-->
+<!--[if gt IE 10]><!-->
+<html class="browser-noie browser-modern" lang="en"><script id="bug.surrogate.13">var addthis={init:function(){}, layers:function(){}, toolbox:function(){}, button:function(){}, counter:function(){}};</script><script id="bug.surrogate.1">var urchinTracker=function(){},_gaq={push:function(){try {if(arguments[0][0]=='_link')window.location.href=arguments[0][1]}catch(er){}}},_gat={_createTracker:function(){}, _getTracker:function(){return{__noSuchMethod__:function(){},_link:function(o){if(o)location.href=o;},_linkByPost:function(){return true;},_getLinkerUrl:function(o){return o;},_trackEvent:function(){}}}};</script><!--<![endif]--><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"><style type="text/css">@charset "UTF-8";[ng\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide{display:none !important;}ng\:form{display:block;}.ng-animate-start{border-spacing:1px 1px;-ms-zoom:1.0001;}.ng-animate-active{border-spacing:0px 0px;-ms-zoom:1;}</style> 
+<!-- IE nonsence -->
+<!--[if lte IE 8]><script src="/assets/ie-330e12c2796ad5790494bb6e5817fe50.js" type="text/javascript"></script><![endif]-->
+
+<!-- base href="http://www.yearofmoo.com/" -->
+<meta charset="UTF-8">
+
+<!-- Meta Details -->
+<title>Full-Spectrum Testing with AngularJS and Karma - yearofmoo.com</title>
+<meta id="x-description" name="description" content="Learn how to fully test your AngularJS application with Karma in every possible area using E2E, Unit and Midway testing"> 
+<meta id="x-keywords" name="keywords" content="MooTools, JQuery, VIM, Rails, PHP, Ruby on Rails, IOS Development, Internet Explorer, Chrome, Firefox, CSS, CSS3, JavaScript, HTML5, Blog"> 
+<meta id="x-twitter-site" property="twitter:site" content="@yearofmoo">
+<meta id="x-twitter-user" property="twitter:creator" content="@yearofmoo">
+<meta id="x-og-title" property="og:title" content="Full-Spectrum Testing with AngularJS and Karma - yearofmoo.com">
+<meta id="x-og-description" property="og:description" content="Learn how to fully test your AngularJS application with Karma in every possible area using E2E, Unit and Midway testing">
+<meta id="x-og-site-url" property="og:url" content="/2013/01/full-spectrum-testing-with-angularjs-and-karma.html">
+<meta id="x-og-image" property="og:image" content="http://www.yearofmoo.com/images/site/og/13.png">
+<meta id="x-og-site-name" property="og:site_name" content="yearofmoo">
+
+<!-- iOS -->
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<link rel="apple-touch-icon" href="http://www.yearofmoo.com/images/site/meta/ios-57x57.png">
+<link rel="apple-touch-icon" sizes="72x72" href="http://www.yearofmoo.com/images/site/meta/ios-72x72.png">
+<link rel="apple-touch-icon" sizes="114x114" href="http://www.yearofmoo.com/images/site/meta/ios-114x114.png">
+<link rel="apple-touch-icon" sizes="144x144" href="http://www.yearofmoo.com/images/site/meta/ios-144x144.png">
+
+<!-- Extra -->
+<link rel="alternate" type="application/rss+xml" title="RSS Feed" href="http://www.yearofmoo.com/feed.xml">
+<link rel="icon" type="image/png" href="http://www.yearofmoo.com/images/site/favicon.png">
+<link rel="shortcut icon" href="http://www.yearofmoo.com/images/site/favicon.png"> 
+<meta id="x-version" property="yom:version" content="1400543493">
+
+<link href="Full-Spectrum%20Testing%20with%20AngularJS%20and%20Karma%20-%20yearofmoo.com_fichiers/application-df85412ec717da7f6e874ba2d0939b80.css" media="screen" rel="stylesheet" type="text/css">
+<link href="Full-Spectrum%20Testing%20with%20AngularJS%20and%20Karma%20-%20yearofmoo.com_fichiers/print-2ff727d3e0f7f5f949b08bd5e9f082c9.css" media="print" rel="stylesheet" type="text/css">
+<script>try {  for(var lastpass_iter=0; lastpass_iter < document.forms.length; lastpass_iter++){    var lastpass_f = document.forms[lastpass_iter];    if(typeof(lastpass_f.lpsubmitorig)=="undefined"){      if (typeof(lastpass_f.submit) == "function") {        lastpass_f.lpsubmitorig = lastpass_f.submit;        lastpass_f.submit = function(){          var form = this;          try {            if (document.documentElement && 'createEvent' in document)            {              var forms = document.getElementsByTagName('form');              for (var i=0 ; i<forms.length ; ++i)                if (forms[i]==form)                {                  var element = document.createElement('lpformsubmitdataelement');                  element.setAttribute('formnum',i);                  element.setAttribute('from','submithook');                  document.documentElement.appendChild(element);                  var evt = document.createEvent('Events');                  evt.initEvent('lpformsubmit',true,false);                  element.dispatchEvent(evt);                  break;                }            }          } catch (e) {}          try {            form.lpsubmitorig();          } catch (e) {}        }      }    }  }} catch (e) {}</script><style>@-webkit-keyframes popfcmwkzjuiehduwgkkhwebrycqsxavlft {50% {-webkit-transform:scale(1.2);}100% {-webkit-transform:scale(1);}}@keyframes popfcmwkzjuiehduwgkkhwebrycqsxavlft {50% {-webkit-transform:scale(1.2);transform:scale(1.2);}100% {-webkit-transform:scale(1);transform:scale(1);}}#fcmwkzjuiehduwgkkhwebrycqsxavlft{padding:0;margin:0;font:13px Arial,Helvetica;text-transform:none;font-size: 100%;vertical-align:baseline;line-height:normal;color:#fff;border:solid 2px #fff !important;color:#fff !important;display:block !important;height:auto !important;margin:0 !important;opacity:0.9 !important;padding:7px 10px !important;position:fixed !important;visibility:visible !important;width:auto !important;z-index:2147483647 !important;-moz-border-radius:5px !important;border-radius:5px !important;-moz-box-shadow:0px 0px 20px #000 !important;box-shadow:0px 0px 20px #000 !important;}.fcmwkzjuiehduwgkkhwebrycqsxavlft-blocked{padding:0;margin:0;font:13px Arial,Helvetica;text-transform:none;font-size: 100%;vertical-align:baseline;line-height:normal;color:#fff;color:#AAA !important;display:inline !important;text-decoration:line-through !important;}#fcmwkzjuiehduwgkkhwebrycqsxavlft br{display:block !important;padding:0;margin:0;font:13px Arial,Helvetica;text-transform:none;font-size: 100%;vertical-align:baseline;line-height:normal;color:#fff;}#fcmwkzjuiehduwgkkhwebrycqsxavlft span{background:transparent !important;padding:0;margin:0;font:13px Arial,Helvetica;text-transform:none;font-size: 100%;vertical-align:baseline;line-height:normal;color:#fff;}#fcmwkzjuiehduwgkkhwebrycqsxavlft div{padding:0;margin:0;font:13px Arial,Helvetica;text-transform:none;font-size: 100%;vertical-align:baseline;line-height:normal;color:#fff;border:0 !important;margin:0 !important;padding:0 !important;width:auto !important;letter-spacing:normal !important;font:13px Arial,Helvetica !important;text-align:left !important;text-shadow:none !important;text-transform:none !important;word-spacing:normal !important;}#fcmwkzjuiehduwgkkhwebrycqsxavlft a{padding:0;margin:0;font:13px Arial,Helvetica;text-transform:none;font-size: 100%;vertical-align:baseline;line-height:normal;color:#fff;font-weight:normal !important;background:none !important;text-decoration:underline !important;color:#fff !important;}a#fcmwkzjuiehduwgkkhwebrycqsxavlft-gear{padding:0;margin:0;font:13px Arial,Helvetica;text-transform:none;font-size: 100%;vertical-align:baseline;line-height:normal;color:#fff;text-decoration:none !important;position:absolute !important;display:none !important;font-size:20px !important;width:20px !important;height:20px !important;line-height:20px !important;text-align:center !important;background-color:rgba(255,255,255,.8) !important;background-image:url(resource://firefox-at-ghostery-dot-com/ghostery/data/images/gear.svg) !important;background-size:16px 16px !important;background-position:center center !important;background-repeat:no-repeat !important;text-decoration:none !important;}a#fcmwkzjuiehduwgkkhwebrycqsxavlft-gear:hover{-webkit-animation-name:popfcmwkzjuiehduwgkkhwebrycqsxavlft !important;animation-name:popfcmwkzjuiehduwgkkhwebrycqsxavlft !important;-webkit-animation-duration:0.3s !important;animation-duration:0.3s !important;}#fcmwkzjuiehduwgkkhwebrycqsxavlft:hover #fcmwkzjuiehduwgkkhwebrycqsxavlft-gear{text-decoration:none !important;display:inline-block !important;}#fcmwkzjuiehduwgkkhwebrycqsxavlft hr{visibility:hidden !important;padding:0;margin:0;font:13px Arial,Helvetica;text-transform:none;font-size: 100%;vertical-align:baseline;line-height:normal;color:#fff;height:1em;}@media print{#fcmwkzjuiehduwgkkhwebrycqsxavlft{display:none !important;}}</style></head>
+
+<body data-ng-controller="AppCtrl" class="post-layout js ready ng-scope">
+  <div id="wrapper">
+    <div id="clouds-container">
+  <div id="clouds"></div>
+</div>
+
+    <div id="container" class="container">
+      <div id="header" class="container">
+  <div class="row">
+    <h1>
+      <a href="http://www.yearofmoo.com/" data-ng-click="reload()">year of <em>moo</em></a>
+    </h1>
+    <div id="mookin" data-yom-mascot="3" class="i-3">
+      <img src="Full-Spectrum%20Testing%20with%20AngularJS%20and%20Karma%20-%20yearofmoo.com_fichiers/3.png" alt="mookin" height="308" width="458">
+    </div>
+  </div>
+</div>
+<div id="navigation" class="container">
+  <div class="row">
+    <ul>
+      <li id="nav-about" class="page_item">
+        <a href="http://www.yearofmoo.com/about.html">About</a>
+      </li>
+      <li id="nav-blogs" class="page_item">
+        <a href="http://www.yearofmoo.com/">Articles <span class="count">(<span class="em4">31</span>)</span></a>
+      </li>
+      <li id="nav-code" class="page_item">
+        <a href="http://www.yearofmoo.com/code/">Code <span class="count">(<span class="em3">10</span>)</span></a>
+      </li>
+      <li id="nav-contact" class="page_item">
+        <a href="http://www.yearofmoo.com/contact.html">Contact</a>
+      </li>
+    </ul>
+  </div>
+  <div class="social">
+    <div class="inner row">
+      <a href="http://twitter.com/yearofmoo" class="social-1 social-twitter" target="_blank" rel="nofollow" data-yom-tooltip="social-1|Twitter">
+        <span class="icon-twitter"></span>
+        <span class="counter">2.7K</span>
+      </a>
+      <a href="http://www.yearofmoo.com/contact.html" class="social-2 social-mail" data-yom-tooltip="social-2|Contact">
+        <span class="icon-envelope-alt"></span>
+      </a>
+      <a href="http://www.yearofmoo.com/feed.xml" class="social-3 social-rss" target="_blank" rel="nofollow" data-yom-tooltip="social-3|RSS Feed">
+        <span class="icon-rss"></span>
+      </a>
+      <a href="http://www.facebook.com/yearofmoo" class="social-4 social-facebook" target="_blank" rel="nofollow" data-yom-tooltip="social-4|Facebook">
+        <span class="icon-facebook"></span>
+        <span class="counter ng-binding ng-hide" data-ng-show="yomFacebookCount()" data-ng-bind="yomFacebookCount()">0</span>
+      </a>
+      <a href="http://www.github.com/yearofmoo" class="social-5 social-github" target="_blank" rel="nofollow" data-yom-tooltip="social-5|Github">
+        <span class="icon-github"></span>
+      </a>
+    </div>
+  </div>
+</div>
+
+      <div id="stage">
+        <div class="" id="content-loading"></div>
+
+        <div class="row">
+          <nav class="top-side-nav">
+  <a class="btn" href="http://www.yearofmoo.com/archive.html">
+  <span class="icon-caret-right em2"></span>
+  View Archive
+</a>
+<a class="btn" href="http://www.yearofmoo.com/tags/">
+  <span class="icon-caret-right em2"></span>
+  View Tags
+</a>
+
+</nav>
+<form class="yom-search-container ng-pristine ng-valid" data-yom-search="" action="/search/">
+  <input style="display: none;" class="yom-search ng-pristine ng-valid" data-ng-model="search" type="text">
+  <div class="placeholder">
+    Search for
+    <span class="em">Programming</span>,
+    <span class="em2">AngularJS</span>,
+    <span class="em3">Rails</span>,
+    <span class="em4">Testing</span>
+    ...
+  </div>
+</form>
+
+          <section id="content" data-yom-view="">
+            <div class="yom-content">
+              
+                <article>
+  <header class="main">
+    <h2>
+      <a href="http://www.yearofmoo.com/2013/01/full-spectrum-testing-with-angularjs-and-karma.html">Full-Spectrum Testing with AngularJS and Karma</a>
+    </h2>
+  </header>
+
+  <h3>Learn how to fully test your AngularJS application with Karma</h3>
+
+  <p>
+    One of the major areas of AngularJS development which needs to be covered in better detail is <em>how to test your application</em>. But wait,
+    how do you do that? How do you setup your test environment? How should you organize your code? How do you setup a runner
+    and how to automate the process? The bigger question is how do you usually test your JavaScript code?
+    Do you use a <em>browser-independent JavaScript tester</em>
+    like <em>NodeJS</em>, <em>V8</em> or <em>Rhino</em>? Do you use a hidden browser like <em>PhantomJS</em> or <em>Headless Webkit</em>?
+    Or do you go all out and test out your application in a <em>browser</em> or <em>multiple browsers</em>?
+    You may also be wondering <em>what exactly to test</em> in your application? What should my tests really look for? How should I write my specs? As you can see
+    there are <em>many questions to answer</em>.
+  </p>
+
+  <p>
+    It doesn't take much time to realize that <em>testing JavaScript is difficult and finicky</em>.
+    However, if you wish to get a <em>robust understanding</em>
+    of how to <em>properly test</em> your JavaScript code within <em>your AngularJS application</em>, then continue and read along... :)
+  </p>
+
+<div class="share-toolbar" data-yom-share="">
+  <div class="share-toolbox addthis_toolbox addthis_default_style">
+    <a addthis:title="Full-Spectrum Testing with AngularJS and Karma - yearofmoo.com" addthis:url="http://www.yearofmoo.com/2013/01/full-spectrum-testing-with-angularjs-and-karma.html" href="#" class="addthis_button_facebook_like"></a>
+    <a addthis:title="Full-Spectrum Testing with AngularJS and Karma - yearofmoo.com" addthis:url="http://www.yearofmoo.com/2013/01/full-spectrum-testing-with-angularjs-and-karma.html" href="#" class="addthis_button_tweet"></a>
+    <a addthis:title="Full-Spectrum Testing with AngularJS and Karma - yearofmoo.com" addthis:url="http://www.yearofmoo.com/2013/01/full-spectrum-testing-with-angularjs-and-karma.html" href="#" class="addthis_button_google_plusone"></a>
+    <a addthis:title="Full-Spectrum Testing with AngularJS and Karma - yearofmoo.com" addthis:url="http://www.yearofmoo.com/2013/01/full-spectrum-testing-with-angularjs-and-karma.html" href="#" class="addthis_counter addthis_pill_style"></a>
+  </div>
+</div>
+
+
+  <section class="outer">
+    <header>
+      <h3>
+        <a href="#last-updated" id="last-updated" class="anchor-link">Last Updated</a>
+      </h3>
+    </header>
+
+    <p>This page was first published on <em>January 21st 2013</em> and was last updated on <em>November 20th 2013</em>.</p>
+
+    <nav class="jump">
+      <a href="#top" class="top">To Top</a>
+      <a href="https://github.com/yearofmoo-articles/AngularJS-Testing-Article/" target="_blank" class="github">View Github Repo</a>
+      <a href="http://yearofmoo-articles.github.com/angularjs-testing-article/app/" target="_blank" class="demos">View Demo Application</a>
+    </nav>
+  </section>
+
+
+  <section class="outer">
+    <header>
+      <h3>
+          <a href="#table-of-contents" id="table-of-contents" class="anchor-link">Table of Contents</a>
+        </h3>
+      </header>
+
+      <div class="relative">
+        <img src="Full-Spectrum%20Testing%20with%20AngularJS%20and%20Karma%20-%20yearofmoo.com_fichiers/13.png" data-id="13" class="mascot" alt="mookin!" height="500" width="305">
+
+        <ol class="toc">
+          <li><a href="#karma">Karma</a></li>
+          <li><a href="#two-types-of-tests-in-angularjs">Two types of tests in AngularJS (plus one more)</a></li>
+          <li><a href="#installation-and-configuration-of-the-demo-repository">Installation &amp; Configuration of the Demo Repository</a></li>
+          <li><a href="#organizing-your-code">Organizing your Code</a></li>
+          <li><a href="#mochajs-and-chaijs">MochaJS and Chai.js</a></li>
+          <li><a href="#interceptors-and-mocks-in-angularjs">Interceptors &amp; Mocks in AngularJS</a></li>
+          <li><a href="#testing-modules">Testing Modules</a></li>
+          <li><a href="#testing-routes">Testing Routes</a></li>
+          <li><a href="#testing-requests-pages">Testing Requests / Pages</a></li>
+          <li><a href="#testing-controllers">Testing Controllers</a></li>
+          <li><a href="#testing-services-factories">Testing Services / Factories</a></li>
+          <li><a href="#testing-filters">Testing Filters</a></li>
+          <li><a href="#testing-templates-partials-and-views">Testing Templates, Partials &amp; Views</a></li>
+          <li><a href="#testing-directives">Testing Directives</a></li>
+          <li><a href="#testing-resources">Testing Resources</a></li>
+          <li><a href="#testing-animations">Testing Animations</a></li>
+          <li><a href="#testing-3rd-party-code">Testing 3rd Party Code</a></li>
+          <li><a href="#conclusion">Conclusion</a></li>
+        </ol>
+      </div>
+
+      <nav class="jump">
+        <a href="#top" class="top">To Top</a>
+        <a href="https://github.com/yearofmoo-articles/AngularJS-Testing-Article/" target="_blank" class="github">View Github Repo</a>
+        <a href="http://yearofmoo-articles.github.com/angularjs-testing-article/app/" target="_blank" class="demos">View Demo Application</a>
+      </nav>
+    </section>
+
+    <section class="outer">
+      <header>
+        <h3>
+          <a href="#karma" id="karma" class="anchor-link">Karma</a>
+        </h3>
+      </header>
+
+      <p>
+        <a href="http://karma-runner.github.io/" target="_blank" rel="nofollow" class="ignore-xview floater s-right">
+          <img class="floater s-right" src="Full-Spectrum%20Testing%20with%20AngularJS%20and%20Karma%20-%20yearofmoo.com_fichiers/karma.png" alt="karma">
+        </a>
+
+        The major challenge when it comes to testing JavaScript is that 
+it requires you to have a runner setup to test your code.
+        The issue with JavaScript runners is that you must properly set 
+them up to include all of the JavaScript code (source and tests)
+        in your application and then somehow wire that into an automated
+ test suite.
+        After that, you will need to open up each browser and test all 
+the specs to see if they test properly with no errors or run
+        a command line program to test your suite on call.
+        If you run your suite from the command line then you'll need to 
+write an automated browser tester
+        into your test suite and this may require some tricky hacking.
+        As you can see, this is too much of a pain and the time and 
+effort to set this up should be saved for
+        more important things like building your application.
+      </p>
+
+      <p>
+        <a href="http://karma-runner.github.io/" class="em" target="_blank" rel="nofollow">Karma</a>
+        is an amazing testing tool which is designed to take <em>all the frustration out of setting up a working test runner</em>
+        when testing JavaScript code.
+        Karma works by <em>spawning up each browser that is specified within its configuration file</em>
+ and then running JavaScript
+        code against those browsers to see if they pass certain tests. 
+Communication between Karma and each of the browsers is handled
+        with the karma service running in the terminal using
+        <a class="em" target="_blank" rel="nofollow" href="http://socket.io/">socket.io</a>.
+        Each time a test is run, Karma records its status
+        and then tallies up which browsers have failed for each test and
+ which ones passed and timed out. This makes each test work <em>100%
+        natively in each browser</em> without the need to test 
+individually. Also, since the Karma service runs on a port and keeps 
+track of
+        browsers by itself, you can easily hook up other browsers and 
+devices to it just by visiting its broadcasting port. Oh and did I
+        mention that Karma is fast? Yeah it's really fast... :)
+      </p>
+
+      <p>
+        So before we get started with Karma, lets figure out how testing works with AngularJS...
+      </p>
+
+      <nav class="jump">
+        <a href="#top" class="top">To Top</a>
+        <a href="https://github.com/yearofmoo-articles/AngularJS-Testing-Article/" target="_blank" class="github">View Github Repo</a>
+        <a href="http://yearofmoo-articles.github.com/angularjs-testing-article/app/" target="_blank" class="demos">View Demo Application</a>
+      </nav>
+    </section>
+
+
+    <section class="outer">
+      <header>
+        <h3>
+          <a href="#two-types-of-tests-in-angularjs" id="two-types-of-tests-in-angularjs" class="anchor-link">Two types of tests in AngularJS (plus one more)</a>
+        </h3>
+      </header>
+
+      <p>
+        Testing in AngularJS isn't as easy as it looks (but then again 
+testing anything on the front-end is pretty difficult). AngularJS is a 
+great
+        framework for testing your application in all areas, but it 
+requires a bit of configuration to get it to work.
+        AngularJS provides <em>Unit testing</em> and <em>E2E (End-to-End) testing</em> both of
+        which are very different from each other. Unit testing works by <em>isolating small "units" of code</em> so that it can be tested from
+        every angle while E2E testing works by <em>testing full areas of the application</em> by running a test through
+        its <em>entire stack</em> of operations <em>against a special HTTP server</em>
+ from the start to the end (hence end to end).
+        Think about E2E tests as a robot using a browser to run a test 
+and then running an assertion against the page once it's ready.
+        Basically, E2E is is just about the same idea as you refreshing 
+your page and saying "It should say home somewhere" or "it should repeat
+ this
+        list five times".
+      </p>
+
+      <p>
+        The nice thing about AngularJS is that E2E tests are fully covered with use of the
+        <a href="http://docs.angularjs.org/guide/dev_guide.e2e-testing" target="_blank" rel="nofollow" class="em">AngularJS Scenario Runner</a>
+        (which of course is <em>bundled into Karma</em>).
+      </p>
+
+      <p>
+        So that covers two of the major testing approaches, but what 
+about the third?
+        Well the third approach involves using a special AngularJS 
+testing plugin which acts like a whitebox tester. This tester is used to
+        test the raw code of your application and you have access to 
+every level of the JavaScript code.
+        This testing approach <em>falls in between Unit testing and E2E testing</em>.
+        When Unit testing your application it sometimes <em>may get too complicated when
+        you want to test an application-level operation</em> (like a page loading or XHR request)
+        because you will need to use interceptors and mocks to make requests and templating work
+        (basically anything <em>XHR'ish</em>). E2E testing may not also be the best option because it may be too
+        <em>high level to capture to test for certain features</em>. For
+ example, how do you test a controller on your website that performs a 
+XHR request
+        which downloads the user's session details on every page? ... 
+You can't test this with E2E
+        (since it's difficult to access scope members and 
+application-level JavaScript code)
+        and Unit testing requires lots of mocking and fake data which 
+results in more code and more complexity for your tests.
+        What we really need is a third testing approach which fits in 
+the middle. Therefore, the third testing approach for testing AngularJS 
+applications
+        is known as <em>Midway Testing</em>.
+      </p>
+
+      <p>
+        <a href="https://github.com/yearofmoo/ngMidwayTester" class="btn" target="_blank" rel="nofollow">
+          <span class="icon-arrow-right em2"></span> Click here to view the <em>ngMidwayTester plugin</em>
+        </a>
+      </p>
+
+      <p>
+        The midway tester comes bundled along with the demo repository (so there is no need to download it)
+        and all the code below called "<em>Midway Testing</em>" refers to the test
+        spec code which the midway runner executes.
+      </p>
+
+      <p>
+        Here's a quick overview of the three different test approaches when testing AngularJS applications:
+      </p>
+
+      <table class="feature-matrix options-matrix tri-matrix">
+      <thead>
+        <tr>
+          <th>Unit Testing</th>
+          <th>Midway Testing</th>
+          <th>E2E Testing</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="description">
+            <ol class="bullets">
+              <li>Code-level testing</li>
+              <li>Best for testing services, classes and objects</li>
+              <li>Sandboxed &amp; Isolated testing</li>
+              <li>Mocking &amp; Stubbing required</li>
+              <li>Fast</li>
+            </ol>
+            <a target="_blank" class="em" href="https://github.com/yearofmoo-articles/AngularJS-Testing-Article/blob/master/test/karma-unit.conf.js">
+              <span class="icon-arrow-right em2"></span> Click here to view the Unit Karma Configuration
+            </a>
+          </td>
+          <td class="description">
+            <ol class="bullets">
+              <li>Application/Code-level testing</li>
+              <li>Can access all parts of an application</li>
+              <li>Can interact directly with the web application code</li>
+              <li>Not really effective for stubbing &amp; mocks</li>
+              <li>Easily breaks since it relies on application code to operate (but this may be good to catch code-level errors)</li>
+              <li>Not possible to test anything inside of your index.html file</li>
+              <li>Fast, but slow for XHR requests</li>
+            </ol>
+            <a target="_blank" class="em" href="https://github.com/yearofmoo-articles/AngularJS-Testing-Article/blob/master/test/karma-midway.conf.js">
+              <span class="icon-arrow-right em2"></span> Click here to view the Midway Karma Configuration
+            </a>
+          </td>
+          <td class="description">
+            <ol class="bullets">
+              <li>Web-level testing</li>
+              <li>Requires its own special web server</li>
+              <li>The expect and should matchers are specific to AngularJS (MochaJS or Chai won't work)</li>
+              <li>Perfect for integration tests</li>
+              <li>Works really well with assertions against future data</li>
+              <li>Unable to access Application JavaScript code (only rendered HTML and some AngularJS info)</li>
+              <li>Slow</li>
+            </ol>
+            <a target="_blank" class="em" href="https://github.com/yearofmoo-articles/AngularJS-Testing-Article/blob/master/test/karma-e2e.conf.js">
+              <span class="icon-arrow-right em2"></span> Click here to view the E2E Karma Configuration
+            </a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p>
+      So now that we know what each of the testing approaches are, lets 
+figure out how to fully test out an AngularJS application.
+      Inside each testing topic below, the <em>Unit</em>, <em>Midway</em> and/or <em>E2E</em> testing code specs are provided to demonstrate
+      how to test key areas of your AngularJS application.
+    </p>
+
+    <nav class="jump">
+      <a href="#top" class="top">To Top</a>
+      <a href="https://github.com/yearofmoo-articles/AngularJS-Testing-Article/" target="_blank" class="github">View Github Repo</a>
+      <a href="http://yearofmoo-articles.github.com/angularjs-testing-article/app/" target="_blank" class="demos">View Demo Application</a>
+    </nav>
+  </section>
+
+
+  <section class="outer">
+    <header>
+      <h3>
+        <a href="#installation-and-configuration-of-the-demo-repository" id="installation-and-configuration-of-the-demo-repository" class="anchor-link">Installation &amp; Configuration of the Demo Repository</a>
+      </h3>
+    </header>
+
+    <p>
+      Now that you understand the three different testing approaches, lets setup the test environment. It's <em>absolutely essential that you download
+      this repository and follow along with the testing scripts</em> inside which fall inline with the tests featured alongside this article. Before
+      you install it you must have <em>Node JS (with NPM)</em> and <em>Git</em> installed and accessible via the command line.
+    </p>
+
+    <p>
+      The following code below will download the demo repository which 
+is a Youtube video library built with AngularJS. No special software is
+      required since this is a static website.
+    </p>
+
+    <p>
+      <a href="http://yearofmoo-articles.github.com/angularjs-testing-article/app" class="btn" target="_blank" rel="nofollow">
+        <span class="icon-arrow-right em2"></span> Click here to view the <em>online demo website</em>
+      </a>
+    </p>
+
+    <div class="syntax">
+<nav class="syntax-links">
+
+<a href="#" target="_blank" title="View Code" rel="nofollow" class="syntax-link syntax-link-raw" data-yom-tooltip="black|View Code">
+<span class="icon-external-link"></span>
+<em>View Code</em>
+</a>
+</nav>
+
+
+<div class="highlight"><pre><code class="bash"><span class="c"># install via Git</span>
+git clone git://github.com/yearofmoo-articles/AngularJS-Testing-Article.git
+
+<span class="c"># then hop inside that directory</span>
+<span class="nb">cd </span>AngularJS-Testing-Article
+
+<span class="c"># and get the dependencies</span>
+npm install
+</code></pre></div>
+    </div>
+
+    <p>
+      Now the demo application is created, <em>run this script to launch it as a web server</em> on port 8888.
+    </p>
+
+    <div class="syntax">
+<nav class="syntax-links">
+
+<a href="#" target="_blank" title="View Code" rel="nofollow" class="syntax-link syntax-link-raw" data-yom-tooltip="black|View Code">
+<span class="icon-external-link"></span>
+<em>View Code</em>
+</a>
+</nav>
+
+
+<div class="highlight"><pre><code class="bash"><span class="c"># All you need to do is run this command to launch the website</span>
+grunt
+</code></pre></div>
+    </div>
+
+    <p>
+      You can now access the website via <em>http://localhost:8888 (or whatever port you used)</em>.
+    </p>
+
+    <p>
+      Now you're almost ready to to start testing. There is just one 
+more command which is discussed next which you need to run to get
+      karma ready to test your application.
+    </p>
+
+    <nav class="jump">
+      <a href="#top" class="top">To Top</a>
+      <a href="https://github.com/yearofmoo-articles/AngularJS-Testing-Article/" target="_blank" class="github">View Github Repo</a>
+      <a href="http://yearofmoo-articles.github.com/angularjs-testing-article/app/" target="_blank" class="demos">View Demo Application</a>
+    </nav>
+  </section>
+
+  <section class="outer">
+    <header>
+      <h3>
+        <a href="#organizing-your-code" id="organizing-your-code" class="anchor-link">Organizing your Code</a>
+      </h3>
+    </header>
+
+    <p>
+      The demo repo provides a large assortment of directories and files
+ which are organized so that you can test out every aspect
+      of your AngularJS application.
+      Feel free to copy and paste the files from this repo or full out 
+follow the structure of this repository layout for your new projects.
+      The demo application contains the directories for the <em>Application Code</em> as well the directory layout and karma configuration for
+      <em>Unit</em>, <em>Midway</em>, and <em>E2E</em> testing approaches.
+    </p>
+
+    <p>
+      <a href="https://gist.github.com/matsko/7569261/raw/dcb50cbd3f51aea91d9cab7fbb24bf6921abe1f4/gistfile1.txt" target="_blank" rel="nofollow" class="btn">
+        <span class="icon-arrow-right em2"></span> Click here for a full <em>breakdown of the demo repository</em>
+      </a>
+    </p>
+    <p>
+      As you can see there are <em>three karma configuration files</em> which are each designed to handle the testing for
+      the three types of testing approaches mentioned above. The karma.shared.conf.js is just a shared configuration file
+      that all three other karma files read from. The <em>grunt test</em> command (which is mentioned next) runs
+      the required to code to launch all three karma sessions to test the entire application via the testing scripts found
+      within the <span class="em2">test/</span> directory.
+    </p>
+
+    <p>
+      You can now execute each of the tests by running the commands below and leaving them open.
+    </p>
+
+    <div class="syntax">
+<nav class="syntax-links">
+
+<a href="#" target="_blank" title="View Code" rel="nofollow" class="syntax-link syntax-link-raw" data-yom-tooltip="black|View Code">
+<span class="icon-external-link"></span>
+<em>View Code</em>
+</a>
+</nav>
+
+
+<div class="highlight"><pre><code class="bash"><span class="c"># This will test everything</span>
+grunt <span class="nb">test</span>
+</code></pre></div>
+    </div>
+
+    <p>
+      Each time you save any file inside of the <em>test/e2e</em>, <em>test/unit</em> or <em>test/midway</em> directories then
+      run <span class="em2">grunt test</span> to test again. You can also run <em>grunt autotest:SUITE</em>
+      (the SUITE value can unit, e2e or midway) to watch and test each time you update your files.
+    </p>
+
+    <div class="syntax">
+<nav class="syntax-links">
+
+<a href="#" target="_blank" title="View Code" rel="nofollow" class="syntax-link syntax-link-raw" data-yom-tooltip="black|View Code">
+<span class="icon-external-link"></span>
+<em>View Code</em>
+</a>
+</nav>
+
+
+<div class="highlight"><pre><code class="bash">HH:MM:SS unit.1   <span class="p">|</span>  INFO <span class="o">[</span>watcher<span class="o">]</span>: Changed file <span class="s2">"..."</span>.
+                     Chrome 24.0 <span class="o">(</span>Mac<span class="o">)</span>: Executed 16 of 16 SUCCESS <span class="o">(</span>0.366 secs / 0.035 secs<span class="o">)</span>
+HH:MM:SS midway.1 <span class="p">|</span>  INFO <span class="o">[</span>watcher<span class="o">]</span>: Changed file <span class="s2">"..."</span>.
+                     Chrome 24.0 <span class="o">(</span>Mac<span class="o">)</span>: Executed 24 of 24 SUCCESS <span class="o">(</span>5.834 secs / 3.656 secs<span class="o">)</span>
+HH:MM:SS e2e.1    <span class="p">|</span>  INFO <span class="o">[</span>watcher<span class="o">]</span>: Changed file <span class="s2">"..."</span>.
+                     Chrome 24.0 <span class="o">(</span>Mac<span class="o">)</span>: Executed 15 of 15 SUCCESS <span class="o">(</span>7.314 secs / 6.856 secs<span class="o">)</span>
+</code></pre></div>
+    </div>
+    
+    <p>
+      So now that everything is setup, lets start testing some AngularJS components!!
+    </p>
+
+    <nav class="jump">
+      <a href="#top" class="top">To Top</a>
+      <a href="https://github.com/yearofmoo-articles/AngularJS-Testing-Article/" target="_blank" class="github">View Github Repo</a>
+      <a href="http://yearofmoo-articles.github.com/angularjs-testing-article/app/" target="_blank" class="demos">View Demo Application</a>
+    </nav>
+  </section>
+    
+
+  <section class="outer">
+    <header>
+      <h3>
+        <a href="#mochajs-and-chaijs" id="mochajs-and-chaijs" class="anchor-link">MochaJS, Chai.js and AngularJS Scenario Runner</a>
+      </h3>
+    </header>
+
+    <p>
+      For Unit and Midway tests, this demo repository uses
+      <a href="http://visionmedia.github.com/mocha/" rel="nofollow" target="_blank" class="em">MochaJS</a>
+      for running the test specs and
+      <a href="http://chaijs.com/" class="em" target="_blank" rel="nofollow">Chai.js</a>
+      for the matchers and assertions.
+    </p>
+
+    <p>
+      For <em>E2E tests</em> AngularJS provides the AngularJS Scenario 
+runner which is loosely designed around the Jasmine JavaScript
+      Testing framework. Unfortunately, there is no way to use MochaJS 
+or ChaiJS with E2E testing (trust me I tried...) so you need to
+      stick around using the scenario runner. Here is some extra 
+documentation about the runner.
+    </p>
+
+    <p>
+      <a href="http://docs.angularjs.org/guide/dev_guide.e2e-testing" target="_blank" rel="nofollow" class="btn">
+        <span class="icon-arrow-right em2"></span> Click here to view the <em>AngularJS Scenario Runner Documentation</em>
+      </a>
+    </p>
+
+    <p>
+      Isn't the AngularJS Scenario Runner just amazing?!!!
+    </p>
+
+    <nav class="jump">
+      <a href="#top" class="top">To Top</a>
+      <a href="https://github.com/yearofmoo-articles/AngularJS-Testing-Article/" target="_blank" class="github">View Github Repo</a>
+      <a href="http://yearofmoo-articles.github.com/angularjs-testing-article/app/" target="_blank" class="demos">View Demo Application</a>
+    </nav>
+  </section>
+    
+  <section class="outer">
+    <header>
+      <h3>
+        <a href="#interceptors-and-mocks-in-angularjs" id="interceptors-and-mocks-in-angularjs" class="anchor-link">Interceptors &amp; Mocks in AngularJS</a>
+      </h3>
+    </header>
+
+    <p>
+      Interceptors are built-in features in AngularJS where you can hop 
+into a request or chain of callback methods to morph or break the flow 
+of logic
+      between end points. However, when <em>Unit</em> testing AngularJS applications, <em>interceptors are used to catch XHR requests to avoid
+      external requests to services</em> which may occur inside routes 
+(when resolving), controllers, services and even directives (please 
+don't do this
+      with directives :P). This is a really solid approach when testing 
+AngularJS applications since any external request will be caught (so 
+long as you
+      use the $http service when doing them), but it will add more 
+coupling and extra code into your tests. So if you want to avoid doing 
+interceptors
+      and (possibly) mocking then use <em>Midway tests</em> to test your routes, controllers, services and directives when XHR requests are going on
+      in the background.
+    </p>
+
+    <p>
+      Another way to work around and/or avoid catching expensive XHR operations is by use of Mocks.
+      Mocks are used to <em>provide and "stub" fake input and response information to functions and operations</em>
+ inside test specs.
+      So if you have a really
+      expensive operation (like an external API call) that may take a 
+long time to pull data then it's best to use mocks to
+      "trick" your application code into doing its job without any 
+expensive operations going on behind the scenes. Mocks are also a great 
+way to
+      decouple and remove redundant test code for parts of your 
+application. 
+    </p>
+
+    <p>
+      AngularJS provides its own mocking code <em>inside of the angular-mocks.js</em> file which does the trick.
+      Mocks are designed to be used with <em>Unit tests</em> (not Midway or E2E tests). Each of the karma
+      configuration files found under <em>test/</em> have all the files required to run each test. 
+      One thing to keep in mind is that, <del>if you plan
+      on doing Unit testing using MochaJS in the future, be sure to check to see that you have the <em>updated version of the
+      angular-mocks.js file</em> which contains the code...</del>. Bower now properly manages the angular-mocks code so the file used
+      within testing is the most recent and up to date version.
+    </p>
+
+    <nav class="jump">
+      <a href="#top" class="top">To Top</a>
+      <a href="https://github.com/yearofmoo-articles/AngularJS-Testing-Article/" target="_blank" class="github">View Github Repo</a>
+      <a href="http://yearofmoo-articles.github.com/angularjs-testing-article/app/" target="_blank" class="demos">View Demo Application</a>
+    </nav>
+  </section>
+
+
+  <section class="outer">
+    <header>
+      <h3>
+        <a href="#testing-modules" id="testing-modules" class="anchor-link">Testing Modules</a>
+      </h3>
+    </header>
+
+    <div class="goal">
+      <span class="goal-heading">
+        <span class="icon-cloud"></span>
+        What's our <span class="em2">testing</span> goal?
+      </span>
+      <div class="goal-answers">
+        <span class="goal-answer">
+          <span class="icon-ok em2"></span> To test to see that the module is there and it works.
+        </span>
+        <span class="goal-answer">
+          <span class="icon-ok em2"></span> To check to see if the dependencies are set for the module.
+        </span>
+      </div>
+    </div>
+
+    <p>
+      Modules are the topmost container objects for creating directives,
+ controllers, templates, services and resources. Therefore, when testing
+ modules, you are
+      really just checking to see if the module exists. This can be 
+achieved with both <em>Unit and Midway testing</em>. However, it's better to test it within midway testing
+      because the code has already been executed and now you're just checking to see if the module is accessible via angular.
+    </p>
+
+    <div class="tabs s-2">
+      <nav class="tab-navigation">
+        <a class="tab-link" href="#">Midway Testing</a>
+      </nav>
+      <div class="tab-slides">
+        <article class="tab-stage">
+          <div class="syntax">
+<nav class="syntax-links">
+
+  <a href="https://github.com/yearofmoo-articles/AngularJS-Testing-Article/blob/master/test/midway/appSpec.js" target="_blank" title="Github" rel="nofollow" class="syntax-link syntax-link-github" data-yom-tooltip="black|Github">
+<span class="icon-github"></span>
+<em>Github</em>
+</a>
+
+<a href="#" target="_blank" title="View Code" rel="nofollow" class="syntax-link syntax-link-raw" data-yom-tooltip="black|View Code">
+<span class="icon-external-link"></span>
+<em>View Code</em>
+</a>
+</nav>
+
+
+<div class="highlight"><pre><code class="javascript"><span class="c1">//</span>
+<span class="c1">// test/midway/appSpec.js</span>
+<span class="c1">//</span>
+<span class="nx">describe</span><span class="p">(</span><span class="s2">"Midway: Testing Modules"</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+  <span class="nx">describe</span><span class="p">(</span><span class="s2">"App Module:"</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+
+    <span class="kd">var</span> <span class="nx">module</span><span class="p">;</span>
+    <span class="nx">before</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+      <span class="nx">module</span> <span class="o">=</span> <span class="nx">angular</span><span class="p">.</span><span class="nx">module</span><span class="p">(</span><span class="s2">"App"</span><span class="p">);</span>
+    <span class="p">});</span>
+
+    <span class="nx">it</span><span class="p">(</span><span class="s2">"should be registered"</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+      <span class="nx">expect</span><span class="p">(</span><span class="nx">module</span><span class="p">).</span><span class="nx">not</span><span class="p">.</span><span class="nx">to</span><span class="p">.</span><span class="nx">equal</span><span class="p">(</span><span class="kc">null</span><span class="p">);</span>
+    <span class="p">});</span>
+
+    <span class="nx">describe</span><span class="p">(</span><span class="s2">"Dependencies:"</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+
+      <span class="kd">var</span> <span class="nx">deps</span><span class="p">;</span>
+      <span class="kd">var</span> <span class="nx">hasModule</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">m</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="nx">deps</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="nx">m</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">;</span>
+      <span class="p">};</span>
+      <span class="nx">before</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+        <span class="nx">deps</span> <span class="o">=</span> <span class="nx">module</span><span class="p">.</span><span class="nx">value</span><span class="p">(</span><span class="s1">'appName'</span><span class="p">).</span><span class="nx">requires</span><span class="p">;</span>
+      <span class="p">});</span>
+
+      <span class="c1">//you can also test the module's dependencies</span>
+      <span class="nx">it</span><span class="p">(</span><span class="s2">"should have App.Controllers as a dependency"</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+        <span class="nx">expect</span><span class="p">(</span><span class="nx">hasModule</span><span class="p">(</span><span class="s1">'App.Controllers'</span><span class="p">)).</span><span class="nx">to</span><span class="p">.</span><span class="nx">equal</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>
+      <span class="p">});</span>
+
+      <span class="nx">it</span><span class="p">(</span><span class="s2">"should have App.Directives as a dependency"</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+        <span class="nx">expect</span><span class="p">(</span><span class="nx">hasModule</span><span class="p">(</span><span class="s1">'App.Directives'</span><span class="p">)).</span><span class="nx">to</span><span class="p">.</span><span class="nx">equal</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>
+      <span class="p">});</span>
+
+      <span class="nx">it</span><span class="p">(</span><span class="s2">"should have App.Filters as a dependency"</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+        <span class="nx">expect</span><span class="p">(</span><span class="nx">hasModule</span><span class="p">(</span><span class="s1">'App.Filters'</span><span class="p">)).</span><span class="nx">to</span><span class="p">.</span><span class="nx">equal</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>
+      <span class="p">});</span>
+
+      <span class="nx">it</span><span class="p">(</span><span class="s2">"should have App.Routes as a dependency"</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+        <span class="nx">expect</span><span class="p">(</span><span class="nx">hasModule</span><span class="p">(</span><span class="s1">'App.Routes'</span><span class="p">)).</span><span class="nx">to</span><span class="p">.</span><span class="nx">equal</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>
+      <span class="p">});</span>
+
+      <span class="nx">it</span><span class="p">(</span><span class="s2">"should have App.Services as a dependency"</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+        <span class="nx">expect</span><span class="p">(</span><span class="nx">hasModule</span><span class="p">(</span><span class="s1">'App.Services'</span><span class="p">)).</span><span class="nx">to</span><span class="p">.</span><span class="nx">equal</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>
+      <span class="p">});</span>
+    <span class="p">});</span>
+  <span class="p">});</span>
+<span class="p">});</span>
+</code></pre></div>
+          </div>
+        </article>
+      </div>
+    </div>
+
+
+    <nav class="jump">
+      <a href="#top" class="top">To Top</a>
+      <a href="https://github.com/yearofmoo-articles/AngularJS-Testing-Article/" target="_blank" class="github">View Github Repo</a>
+      <a href="http://yearofmoo-articles.github.com/angularjs-testing-article/app/" target="_blank" class="demos">View Demo Application</a>
+    </nav>
+  </section>
+
+
+  <section class="outer">
+    <header>
+      <h3>
+        <a href="#testing-routes" id="testing-routes" class="anchor-link">Testing Routes</a>
+      </h3>
+    </header>
+
+    <div class="goal">
+      <span class="goal-heading">
+        <span class="icon-cloud"></span>
+        What's our <span class="em2">testing</span> goal?
+      </span>
+      <div class="goal-answers">
+        <span class="goal-answer">
+          <span class="icon-ok em2"></span> To check to see that route works, doesn't work or redirects.
+        </span>
+        <span class="goal-answer">
+          <span class="icon-ok em2"></span> To see that the correct controller handles the route.
+        </span>
+      </div>
+    </div>
+
+    <p>
+      When testing routes we want to ensure that the routes we're 
+focussed on are routed properly in our application. Therefore
+      we will need to check where the route is routed to and if the 
+route itself is redirected or not found. A 404 page should be displayed
+      and a $routeChangeError event should be fired if a route is not 
+found.  We should also check to see if the template is loaded for the
+      route within the view. The best types of tests for this are <em>Midway tests</em> and <em>E2E tests</em>.
+    </p>
+
+    <p>
+      So lets get started with testing routes in AngularJS using <em>Midway</em> and <em>E2E</em> testing.
+    </p>
+
+    <div class="tabs s-2">
+      <nav class="tab-navigation">
+        <a class="tab-link" href="#">Midway Testing</a>
+        <a class="tab-link" href="#">E2E Testing</a>
+      </nav>
+      <div class="tab-slides">
+        <article class="tab-stage">
+          <div class="syntax">
+<nav class="syntax-links">
+
+  <a href="https://github.com/yearofmoo-articles/AngularJS-Testing-Article/blob/master/test/midway/routesSpec.js" target="_blank" title="Github" rel="nofollow" class="syntax-link syntax-link-github" data-yom-tooltip="black|Github">
+<span class="icon-github"></span>
+<em>Github</em>
+</a>
+
+<a href="#" target="_blank" title="View Code" rel="nofollow" class="syntax-link syntax-link-raw" data-yom-tooltip="black|View Code">
+<span class="icon-external-link"></span>
+<em>View Code</em>
+</a>
+</nav>
+
+
+<div class="highlight"><pre><code class="javascript"><span class="c1">//</span>
+<span class="c1">// test/midway/routesSpec.js</span>
+<span class="c1">//</span>
+<span class="nx">describe</span><span class="p">(</span><span class="s2">"Midway: Testing Routes"</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+
+  <span class="kd">var</span> <span class="nx">tester</span><span class="p">;</span>
+  <span class="nx">beforeEach</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">tester</span> <span class="o">=</span> <span class="nx">ngMidwayTester</span><span class="p">(</span><span class="s1">'App'</span><span class="p">);</span>
+  <span class="p">});</span>
+
+  <span class="nx">afterEach</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">tester</span><span class="p">.</span><span class="nx">destroy</span><span class="p">();</span>
+    <span class="nx">tester</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
+  <span class="p">});</span>
+
+  <span class="nx">it</span><span class="p">(</span><span class="s2">"should have a working videos_path route"</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">expect</span><span class="p">(</span><span class="nx">ROUTER</span><span class="p">.</span><span class="nx">routeDefined</span><span class="p">(</span><span class="s1">'videos_path'</span><span class="p">)).</span><span class="nx">to</span><span class="p">.</span><span class="nx">equal</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>
+    <span class="kd">var</span> <span class="nx">url</span> <span class="o">=</span> <span class="nx">ROUTER</span><span class="p">.</span><span class="nx">routePath</span><span class="p">(</span><span class="s1">'videos_path'</span><span class="p">);</span>
+    <span class="nx">expect</span><span class="p">(</span><span class="nx">url</span><span class="p">).</span><span class="nx">to</span><span class="p">.</span><span class="nx">equal</span><span class="p">(</span><span class="s1">'/videos'</span><span class="p">);</span>
+  <span class="p">});</span>
+
+  <span class="nx">it</span><span class="p">(</span><span class="s2">"should have a videos_path route that should goto the VideosCtrl controller"</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">route</span> <span class="o">=</span> <span class="nx">ROUTER</span><span class="p">.</span><span class="nx">getRoute</span><span class="p">(</span><span class="s1">'videos_path'</span><span class="p">);</span>
+    <span class="nx">route</span><span class="p">.</span><span class="nx">params</span><span class="p">.</span><span class="nx">controller</span><span class="p">.</span><span class="nx">should</span><span class="p">.</span><span class="nx">equal</span><span class="p">(</span><span class="s1">'VideosCtrl'</span><span class="p">);</span>
+  <span class="p">});</span>
+
+  <span class="nx">it</span><span class="p">(</span><span class="s2">"should have a working video_path route"</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">expect</span><span class="p">(</span><span class="nx">ROUTER</span><span class="p">.</span><span class="nx">routeDefined</span><span class="p">(</span><span class="s1">'video_path'</span><span class="p">)).</span><span class="nx">to</span><span class="p">.</span><span class="nx">equal</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>
+    <span class="kd">var</span> <span class="nx">url</span> <span class="o">=</span> <span class="nx">ROUTER</span><span class="p">.</span><span class="nx">routePath</span><span class="p">(</span><span class="s1">'video_path'</span><span class="p">,</span> <span class="p">{</span> <span class="nx">id</span> <span class="o">:</span> <span class="mi">10</span> <span class="p">});</span>
+    <span class="nx">expect</span><span class="p">(</span><span class="nx">url</span><span class="p">).</span><span class="nx">to</span><span class="p">.</span><span class="nx">equal</span><span class="p">(</span><span class="s1">'/videos/10'</span><span class="p">);</span>
+  <span class="p">});</span>
+
+  <span class="nx">it</span><span class="p">(</span><span class="s2">"should have a videos_path route that should goto the VideoCtrl controller"</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">route</span> <span class="o">=</span> <span class="nx">ROUTER</span><span class="p">.</span><span class="nx">getRoute</span><span class="p">(</span><span class="s1">'video_path'</span><span class="p">);</span>
+    <span class="nx">route</span><span class="p">.</span><span class="nx">params</span><span class="p">.</span><span class="nx">controller</span><span class="p">.</span><span class="nx">should</span><span class="p">.</span><span class="nx">equal</span><span class="p">(</span><span class="s1">'VideoCtrl'</span><span class="p">);</span>
+  <span class="p">});</span>
+
+  <span class="nx">it</span><span class="p">(</span><span class="s2">"should have a working watched_videos_path route"</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">expect</span><span class="p">(</span><span class="nx">ROUTER</span><span class="p">.</span><span class="nx">routeDefined</span><span class="p">(</span><span class="s1">'watched_videos_path'</span><span class="p">)).</span><span class="nx">to</span><span class="p">.</span><span class="nx">equal</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>
+    <span class="kd">var</span> <span class="nx">url</span> <span class="o">=</span> <span class="nx">ROUTER</span><span class="p">.</span><span class="nx">routePath</span><span class="p">(</span><span class="s1">'watched_videos_path'</span><span class="p">);</span>
+    <span class="nx">expect</span><span class="p">(</span><span class="nx">url</span><span class="p">).</span><span class="nx">to</span><span class="p">.</span><span class="nx">equal</span><span class="p">(</span><span class="s1">'/watched-videos'</span><span class="p">);</span>
+  <span class="p">});</span>
+
+  <span class="nx">it</span><span class="p">(</span><span class="s2">"should have a videos_path route that should goto the WatchedVideosCtrl controller"</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">route</span> <span class="o">=</span> <span class="nx">ROUTER</span><span class="p">.</span><span class="nx">getRoute</span><span class="p">(</span><span class="s1">'watched_videos_path'</span><span class="p">);</span>
+    <span class="nx">route</span><span class="p">.</span><span class="nx">params</span><span class="p">.</span><span class="nx">controller</span><span class="p">.</span><span class="nx">should</span><span class="p">.</span><span class="nx">equal</span><span class="p">(</span><span class="s1">'WatchedVideosCtrl'</span><span class="p">);</span>
+  <span class="p">});</span>
+
+  <span class="nx">it</span><span class="p">(</span><span class="s2">"should have a home_path route that should be the same as the videos_path route"</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">expect</span><span class="p">(</span><span class="nx">ROUTER</span><span class="p">.</span><span class="nx">routeDefined</span><span class="p">(</span><span class="s1">'home_path'</span><span class="p">)).</span><span class="nx">to</span><span class="p">.</span><span class="nx">equal</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>
+    <span class="kd">var</span> <span class="nx">url1</span> <span class="o">=</span> <span class="nx">ROUTER</span><span class="p">.</span><span class="nx">routePath</span><span class="p">(</span><span class="s1">'home_path'</span><span class="p">);</span>
+    <span class="kd">var</span> <span class="nx">url2</span> <span class="o">=</span> <span class="nx">ROUTER</span><span class="p">.</span><span class="nx">routePath</span><span class="p">(</span><span class="s1">'videos_path'</span><span class="p">);</span>
+    <span class="nx">expect</span><span class="p">(</span><span class="nx">url1</span><span class="p">).</span><span class="nx">to</span><span class="p">.</span><span class="nx">equal</span><span class="p">(</span><span class="nx">url2</span><span class="p">);</span>
+  <span class="p">});</span>
+
+  <span class="nx">it</span><span class="p">(</span><span class="s2">"should have a home_path route that should goto the VideosCtrl controller"</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">route</span> <span class="o">=</span> <span class="nx">ROUTER</span><span class="p">.</span><span class="nx">getRoute</span><span class="p">(</span><span class="s1">'home_path'</span><span class="p">);</span>
+    <span class="nx">route</span><span class="p">.</span><span class="nx">params</span><span class="p">.</span><span class="nx">controller</span><span class="p">.</span><span class="nx">should</span><span class="p">.</span><span class="nx">equal</span><span class="p">(</span><span class="s1">'VideosCtrl'</span><span class="p">);</span>
+  <span class="p">});</span>
+
+<span class="p">});</span>
+</code></pre></div>
+          </div>
+        </article>
+        <article class="tab-stage">
+          <div class="syntax">
+<nav class="syntax-links">
+
+  <a href="https://github.com/yearofmoo-articles/AngularJS-Testing-Article/blob/master/test/e2e/routesSpec.js" target="_blank" title="Github" rel="nofollow" class="syntax-link syntax-link-github" data-yom-tooltip="black|Github">
+<span class="icon-github"></span>
+<em>Github</em>
+</a>
+
+<a href="#" target="_blank" title="View Code" rel="nofollow" class="syntax-link syntax-link-raw" data-yom-tooltip="black|View Code">
+<span class="icon-external-link"></span>
+<em>View Code</em>
+</a>
+</nav>
+
+
+<div class="highlight"><pre><code class="javascript"><span class="c1">//</span>
+<span class="c1">// test/e2e/routesSpec.js</span>
+<span class="c1">//</span>
+<span class="nx">describe</span><span class="p">(</span><span class="s2">"E2E: Testing Routes"</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+
+  <span class="nx">beforeEach</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">browser</span><span class="p">().</span><span class="nx">navigateTo</span><span class="p">(</span><span class="s1">'/'</span><span class="p">);</span>
+  <span class="p">});</span>
+
+  <span class="nx">it</span><span class="p">(</span><span class="s1">'should jump to the /videos path when / is accessed'</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">browser</span><span class="p">().</span><span class="nx">navigateTo</span><span class="p">(</span><span class="s1">'#/'</span><span class="p">);</span>
+    <span class="nx">expect</span><span class="p">(</span><span class="nx">browser</span><span class="p">().</span><span class="nx">location</span><span class="p">().</span><span class="nx">path</span><span class="p">()).</span><span class="nx">toBe</span><span class="p">(</span><span class="s2">"/videos"</span><span class="p">);</span>
+  <span class="p">});</span>
+
+  <span class="nx">it</span><span class="p">(</span><span class="s1">'should have a working /videos route'</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">browser</span><span class="p">().</span><span class="nx">navigateTo</span><span class="p">(</span><span class="s1">'#/videos'</span><span class="p">);</span>
+    <span class="nx">expect</span><span class="p">(</span><span class="nx">browser</span><span class="p">().</span><span class="nx">location</span><span class="p">().</span><span class="nx">path</span><span class="p">()).</span><span class="nx">toBe</span><span class="p">(</span><span class="s2">"/videos"</span><span class="p">);</span>
+  <span class="p">});</span>
+
+  <span class="nx">it</span><span class="p">(</span><span class="s1">'should have a working /wathced-videos route'</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">browser</span><span class="p">().</span><span class="nx">navigateTo</span><span class="p">(</span><span class="s1">'#/watched-videos'</span><span class="p">);</span>
+    <span class="nx">expect</span><span class="p">(</span><span class="nx">browser</span><span class="p">().</span><span class="nx">location</span><span class="p">().</span><span class="nx">path</span><span class="p">()).</span><span class="nx">toBe</span><span class="p">(</span><span class="s2">"/watched-videos"</span><span class="p">);</span>
+  <span class="p">});</span>
+
+  <span class="nx">it</span><span class="p">(</span><span class="s1">'should have a working /videos/ID route'</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">browser</span><span class="p">().</span><span class="nx">navigateTo</span><span class="p">(</span><span class="s1">'#/videos/10'</span><span class="p">);</span>
+    <span class="nx">expect</span><span class="p">(</span><span class="nx">browser</span><span class="p">().</span><span class="nx">location</span><span class="p">().</span><span class="nx">path</span><span class="p">()).</span><span class="nx">toBe</span><span class="p">(</span><span class="s2">"/videos/10"</span><span class="p">);</span>
+  <span class="p">});</span>
+
+<span class="p">});</span>
+</code></pre></div>
+          </div>
+        </article>
+      </div>
+    </div>
+
+    <nav class="jump">
+      <a href="#top" class="top">To Top</a>
+      <a href="https://github.com/yearofmoo-articles/AngularJS-Testing-Article/" target="_blank" class="github">View Github Repo</a>
+      <a href="http://yearofmoo-articles.github.com/angularjs-testing-article/app/" target="_blank" class="demos">View Demo Application</a>
+    </nav>
+  </section>
+
+  <section class="outer">
+    <header>
+      <h3>
+        <a href="#testing-requests-pages" id="testing-requests-pages" class="anchor-link">Testing Requests / Pages</a>
+      </h3>
+    </header>
+
+    <div class="goal">
+      <span class="goal-heading">
+        <span class="icon-cloud"></span>
+        What's our <span class="em2">testing</span> goal?
+      </span>
+      <div class="goal-answers">
+        <span class="goal-answer">
+          <span class="icon-ok em2"></span> To check to see that the entire page request works from start to end.
+        </span>
+        <span class="goal-answer">
+          <span class="icon-ok em2"></span> To make sure that each page loads the data in the view properly.
+        </span>
+      </div>
+    </div>
+
+    <p>
+      Testing pages and requests involves the same testing approach as testing routes and controllers.
+      However for this particular testing approach
+      <em>you simply want to check to see that the route is accessed that the route works</em>,
+      the controller is executed, the template is
+      downloaded and the view is rendered and marked as ready. Any number of requests and downloads may occur in the background,
+      therefore as long as your controller <em>somehow marks your page as ready</em>
+      (something on the body tag, a html snippet to inside the page, etc...)
+      then you know that the page is
+      functional. This is really great for when you have this across your entire website for every route and every page.
+    </p>
+
+    <p>
+      This special type of testing approach can be accomplished with both <em>Midway Testing</em> and <em>E2E Testing</em>.
+    </p>
+
+    <div class="tabs s-2">
+      <nav class="tab-navigation">
+        <a class="tab-link" href="#">Midway Testing</a>
+        <a class="tab-link" href="#">E2E Testing</a>
+      </nav>
+      <div class="tab-slides">
+        <article class="tab-stage">
+          <div class="syntax">
+<nav class="syntax-links">
+
+  <a href="https://github.com/yearofmoo-articles/AngularJS-Testing-Article/blob/master/test/midway/requestsSpec.js" target="_blank" title="Github" rel="nofollow" class="syntax-link syntax-link-github" data-yom-tooltip="black|Github">
+<span class="icon-github"></span>
+<em>Github</em>
+</a>
+
+<a href="#" target="_blank" title="View Code" rel="nofollow" class="syntax-link syntax-link-raw" data-yom-tooltip="black|View Code">
+<span class="icon-external-link"></span>
+<em>View Code</em>
+</a>
+</nav>
+
+
+<div class="highlight"><pre><code class="javascript"><span class="c1">//</span>
+<span class="c1">// test/midway/requestsSpec.js</span>
+<span class="c1">//</span>
+<span class="nx">describe</span><span class="p">(</span><span class="s2">"Midway: Testing Requests"</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+
+  <span class="kd">var</span> <span class="nx">tester</span><span class="p">;</span>
+  <span class="nx">beforeEach</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">if</span><span class="p">(</span><span class="nx">tester</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">tester</span><span class="p">.</span><span class="nx">destroy</span><span class="p">();</span>
+    <span class="p">}</span>
+    <span class="nx">tester</span> <span class="o">=</span> <span class="nx">ngMidwayTester</span><span class="p">(</span><span class="s1">'App'</span><span class="p">);</span>
+  <span class="p">});</span>
+
+  <span class="nx">it</span><span class="p">(</span><span class="s2">"should goto the videos_path by default"</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">done</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">tester</span><span class="p">.</span><span class="nx">visit</span><span class="p">(</span><span class="s1">'/'</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+      <span class="nx">expect</span><span class="p">(</span><span class="nx">tester</span><span class="p">.</span><span class="nx">viewElement</span><span class="p">().</span><span class="nx">html</span><span class="p">()).</span><span class="nx">to</span><span class="p">.</span><span class="nx">contain</span><span class="p">(</span><span class="s1">'app-youtube-listings'</span><span class="p">);</span>
+      <span class="nx">done</span><span class="p">();</span>
+    <span class="p">});</span>
+  <span class="p">});</span>
+
+  <span class="nx">it</span><span class="p">(</span><span class="s2">"should have a working video_path request"</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">done</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">url</span> <span class="o">=</span> <span class="nx">ROUTER</span><span class="p">.</span><span class="nx">routePath</span><span class="p">(</span><span class="s1">'video_path'</span><span class="p">,</span> <span class="p">{</span> <span class="nx">id</span> <span class="o">:</span> <span class="mi">10</span> <span class="p">});</span>
+    <span class="nx">tester</span><span class="p">.</span><span class="nx">visit</span><span class="p">(</span><span class="nx">url</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+      <span class="kd">var</span> <span class="nx">$params</span> <span class="o">=</span> <span class="nx">tester</span><span class="p">.</span><span class="nx">inject</span><span class="p">(</span><span class="s1">'$routeParams'</span><span class="p">);</span>
+      <span class="nx">expect</span><span class="p">(</span><span class="nb">parseInt</span><span class="p">(</span><span class="nx">$params</span><span class="p">.</span><span class="nx">id</span><span class="p">)).</span><span class="nx">to</span><span class="p">.</span><span class="nx">equal</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
+
+      <span class="nx">expect</span><span class="p">(</span><span class="nx">tester</span><span class="p">.</span><span class="nx">viewElement</span><span class="p">().</span><span class="nx">html</span><span class="p">()).</span><span class="nx">to</span><span class="p">.</span><span class="nx">contain</span><span class="p">(</span><span class="s1">'app-youtube-profile'</span><span class="p">);</span>
+      <span class="nx">done</span><span class="p">();</span>
+    <span class="p">});</span>
+  <span class="p">});</span>
+
+  <span class="nx">it</span><span class="p">(</span><span class="s2">"should have a working other_path request"</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">done</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">url</span> <span class="o">=</span> <span class="nx">ROUTER</span><span class="p">.</span><span class="nx">routePath</span><span class="p">(</span><span class="s1">'other_path'</span><span class="p">);</span>
+    <span class="nx">tester</span><span class="p">.</span><span class="nx">visit</span><span class="p">(</span><span class="nx">url</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+      <span class="nx">expect</span><span class="p">(</span><span class="nx">tester</span><span class="p">.</span><span class="nx">viewElement</span><span class="p">().</span><span class="nx">html</span><span class="p">()).</span><span class="nx">to</span><span class="p">.</span><span class="nx">contain</span><span class="p">(</span><span class="s1">'other page'</span><span class="p">);</span>
+      <span class="nx">done</span><span class="p">();</span>
+    <span class="p">});</span>
+  <span class="p">});</span>
+
+<span class="p">});</span>
+</code></pre></div>
+          </div>
+        </article>
+        <article class="tab-stage">
+          <div class="syntax">
+<nav class="syntax-links">
+
+  <a href="https://github.com/yearofmoo-articles/AngularJS-Testing-Article/blob/master/test/e2e/requestsSpec.js" target="_blank" title="Github" rel="nofollow" class="syntax-link syntax-link-github" data-yom-tooltip="black|Github">
+<span class="icon-github"></span>
+<em>Github</em>
+</a>
+
+<a href="#" target="_blank" title="View Code" rel="nofollow" class="syntax-link syntax-link-raw" data-yom-tooltip="black|View Code">
+<span class="icon-external-link"></span>
+<em>View Code</em>
+</a>
+</nav>
+
+
+<div class="highlight"><pre><code class="javascript"><span class="c1">//</span>
+<span class="c1">// test/e2e/requestsSpec.js</span>
+<span class="c1">//</span>
+<span class="nx">describe</span><span class="p">(</span><span class="s2">"E2E: Testing Requests"</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+
+  <span class="nx">beforeEach</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">browser</span><span class="p">().</span><span class="nx">navigateTo</span><span class="p">(</span><span class="s1">'/'</span><span class="p">);</span>
+  <span class="p">});</span>
+
+  <span class="nx">it</span><span class="p">(</span><span class="s1">'should have a working /videos page'</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">browser</span><span class="p">().</span><span class="nx">navigateTo</span><span class="p">(</span><span class="s1">'#/'</span><span class="p">);</span>
+    <span class="nx">expect</span><span class="p">(</span><span class="nx">browser</span><span class="p">().</span><span class="nx">location</span><span class="p">().</span><span class="nx">path</span><span class="p">()).</span><span class="nx">toBe</span><span class="p">(</span><span class="s2">"/videos"</span><span class="p">);</span>
+    <span class="nx">expect</span><span class="p">(</span><span class="nx">element</span><span class="p">(</span><span class="s1">'#ng-view'</span><span class="p">).</span><span class="nx">html</span><span class="p">()).</span><span class="nx">toContain</span><span class="p">(</span><span class="s1">'data-app-youtube-listings'</span><span class="p">);</span>
+  <span class="p">});</span>
+
+  <span class="nx">it</span><span class="p">(</span><span class="s1">'should have a working /other page'</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">browser</span><span class="p">().</span><span class="nx">navigateTo</span><span class="p">(</span><span class="s1">'#/other'</span><span class="p">);</span>
+    <span class="nx">expect</span><span class="p">(</span><span class="nx">browser</span><span class="p">().</span><span class="nx">location</span><span class="p">().</span><span class="nx">path</span><span class="p">()).</span><span class="nx">toBe</span><span class="p">(</span><span class="s2">"/other"</span><span class="p">);</span>
+
+    <span class="c1">//try removing the controller and this will fail</span>
+    <span class="nx">expect</span><span class="p">(</span><span class="nx">element</span><span class="p">(</span><span class="s1">'#ng-view'</span><span class="p">).</span><span class="nx">html</span><span class="p">()).</span><span class="nx">toContain</span><span class="p">(</span><span class="s1">'success'</span><span class="p">);</span>
+  <span class="p">});</span>
+
+<span class="p">});</span>
+</code></pre></div>
+          </div>
+        </article>
+      </div>
+    </div>
+
+    <nav class="jump">
+      <a href="#top" class="top">To Top</a>
+      <a href="https://github.com/yearofmoo-articles/AngularJS-Testing-Article/" target="_blank" class="github">View Github Repo</a>
+      <a href="http://yearofmoo-articles.github.com/angularjs-testing-article/app/" target="_blank" class="demos">View Demo Application</a>
+    </nav>
+  </section>
+
+  <section class="outer">
+    <header>
+      <h3>
+        <a href="#testing-controllers" id="testing-controllers" class="anchor-link">Testing Controllers</a>
+      </h3>
+    </header>
+
+    <div class="goal">
+      <span class="goal-heading">
+        <span class="icon-cloud"></span>
+        What's our <span class="em2">testing</span> goal?
+      </span>
+      <div class="goal-answers">
+        <span class="goal-answer">
+          <span class="icon-ok em2"></span> To check to see if the controller is executed properly.
+        </span>
+        <span class="goal-answer">
+          <span class="icon-ok em2"></span> To check to see if any important $scope members are set.
+        </span>
+        <span class="goal-answer">
+          <span class="icon-ok em2"></span> To capture any XHR requests in <em>Unit Testing</em> using mocks.
+        </span>
+      </div>
+    </div>
+
+    <p>
+      Testing controllers requires an idea of what data will be passed along from the controller to the template via its scope.
+      Therefore, you will need to first test that the controller itself works and the data has been bound into the template.
+      It's best to have an idea of what you expect the controller to do to the scope when it's run. If you were to use an <em>Unit test</em>
+      then that test would be dependent on the logic of the controller. An <em>E2E test</em> works as well, but you can't guarantee that the
+      controller is doing everything correctly. Therefore, the best approach for this would be to use a <em>Midway Test</em>.
+    </p>
+
+    <div class="tabs s-3">
+      <nav class="tab-navigation">
+        <a class="tab-link" href="#">Unit Testing</a>
+        <a class="tab-link" href="#">Midway Testing</a>
+        <a class="tab-link" href="#">E2E Testing</a>
+      </nav>
+      <div class="tab-slides">
+        <article class="tab-stage">
+          <div class="syntax">
+<nav class="syntax-links">
+
+  <a href="https://github.com/yearofmoo-articles/AngularJS-Testing-Article/blob/master/test/unit/controllers/controllersSpec.js" target="_blank" title="Github" rel="nofollow" class="syntax-link syntax-link-github" data-yom-tooltip="black|Github">
+<span class="icon-github"></span>
+<em>Github</em>
+</a>
+
+<a href="#" target="_blank" title="View Code" rel="nofollow" class="syntax-link syntax-link-raw" data-yom-tooltip="black|View Code">
+<span class="icon-external-link"></span>
+<em>View Code</em>
+</a>
+</nav>
+
+
+<div class="highlight"><pre><code class="javascript"><span class="c1">//</span>
+<span class="c1">// test/unit/controllers/controllersSpec.js</span>
+<span class="c1">//</span>
+<span class="nx">describe</span><span class="p">(</span><span class="s2">"Unit: Testing Controllers"</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+
+  <span class="nx">beforeEach</span><span class="p">(</span><span class="nx">module</span><span class="p">(</span><span class="s1">'App'</span><span class="p">));</span>
+
+  <span class="nx">it</span><span class="p">(</span><span class="s1">'should have a VideosCtrl controller'</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">expect</span><span class="p">(</span><span class="nx">App</span><span class="p">.</span><span class="nx">VideosCtrl</span><span class="p">).</span><span class="nx">not</span><span class="p">.</span><span class="nx">to</span><span class="p">.</span><span class="nx">equal</span><span class="p">(</span><span class="kc">null</span><span class="p">);</span>
+  <span class="p">});</span>
+
+  <span class="nx">it</span><span class="p">(</span><span class="s1">'should have a VideoCtrl controller'</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">expect</span><span class="p">(</span><span class="nx">App</span><span class="p">.</span><span class="nx">VideoCtrl</span><span class="p">).</span><span class="nx">not</span><span class="p">.</span><span class="nx">to</span><span class="p">.</span><span class="nx">equal</span><span class="p">(</span><span class="kc">null</span><span class="p">);</span>
+  <span class="p">});</span>
+
+  <span class="nx">it</span><span class="p">(</span><span class="s1">'should have a WatchedVideosCtrl controller'</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">expect</span><span class="p">(</span><span class="nx">App</span><span class="p">.</span><span class="nx">WatchedVideosCtrl</span><span class="p">).</span><span class="nx">not</span><span class="p">.</span><span class="nx">to</span><span class="p">.</span><span class="nx">equal</span><span class="p">(</span><span class="kc">null</span><span class="p">);</span>
+  <span class="p">});</span>
+
+  <span class="nx">it</span><span class="p">(</span><span class="s1">'should have a properly working VideosCtrl controller'</span><span class="p">,</span> <span class="nx">inject</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">$rootScope</span><span class="p">,</span> <span class="nx">$controller</span><span class="p">,</span> <span class="nx">$httpBackend</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">searchTestAtr</span> <span class="o">=</span> <span class="s1">'cars'</span><span class="p">;</span>
+    <span class="kd">var</span> <span class="nx">response</span> <span class="o">=</span> <span class="nx">$httpBackend</span><span class="p">.</span><span class="nx">expectJSONP</span><span class="p">(</span>
+      <span class="s1">'https://gdata.youtube.com/feeds/api/videos?q='</span> <span class="o">+</span> <span class="nx">searchTestAtr</span> <span class="o">+</span> <span class="s1">'&amp;v=2&amp;alt=json&amp;callback=JSON_CALLBACK'</span><span class="p">);</span>
+    <span class="nx">response</span><span class="p">.</span><span class="nx">respond</span><span class="p">(</span><span class="kc">null</span><span class="p">);</span>
+
+    <span class="kd">var</span> <span class="nx">$scope</span> <span class="o">=</span> <span class="nx">$rootScope</span><span class="p">.</span><span class="nx">$new</span><span class="p">();</span>
+    <span class="kd">var</span> <span class="nx">ctrl</span> <span class="o">=</span> <span class="nx">$controller</span><span class="p">(</span><span class="s1">'VideosCtrl'</span><span class="p">,</span> <span class="p">{</span>
+      <span class="nx">$scope</span> <span class="o">:</span> <span class="nx">$scope</span><span class="p">,</span>
+      <span class="nx">$routeParams</span> <span class="o">:</span> <span class="p">{</span>
+        <span class="nx">q</span> <span class="o">:</span> <span class="nx">searchTestAtr</span>
+      <span class="p">}</span>
+    <span class="p">});</span>
+  <span class="p">}));</span>
+
+  <span class="nx">it</span><span class="p">(</span><span class="s1">'should have a properly working VideoCtrl controller'</span><span class="p">,</span> <span class="nx">inject</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">$rootScope</span><span class="p">,</span> <span class="nx">$controller</span><span class="p">,</span> <span class="nx">$httpBackend</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">searchID</span> <span class="o">=</span> <span class="s1">'cars'</span><span class="p">;</span>
+    <span class="kd">var</span> <span class="nx">response</span> <span class="o">=</span> <span class="nx">$httpBackend</span><span class="p">.</span><span class="nx">expectJSONP</span><span class="p">(</span>
+      <span class="s1">'https://gdata.youtube.com/feeds/api/videos/'</span> <span class="o">+</span> <span class="nx">searchID</span> <span class="o">+</span> <span class="s1">'?v=2&amp;alt=json&amp;callback=JSON_CALLBACK'</span><span class="p">);</span>
+    <span class="nx">response</span><span class="p">.</span><span class="nx">respond</span><span class="p">(</span><span class="kc">null</span><span class="p">);</span>
+
+    <span class="kd">var</span> <span class="nx">$scope</span> <span class="o">=</span> <span class="nx">$rootScope</span><span class="p">.</span><span class="nx">$new</span><span class="p">();</span>
+    <span class="kd">var</span> <span class="nx">ctrl</span> <span class="o">=</span> <span class="nx">$controller</span><span class="p">(</span><span class="s1">'VideoCtrl'</span><span class="p">,</span> <span class="p">{</span>
+      <span class="nx">$scope</span> <span class="o">:</span> <span class="nx">$scope</span><span class="p">,</span>
+      <span class="nx">$routeParams</span> <span class="o">:</span> <span class="p">{</span>
+        <span class="nx">id</span> <span class="o">:</span> <span class="nx">searchID</span>
+      <span class="p">}</span>
+    <span class="p">});</span>
+  <span class="p">}));</span>
+
+  <span class="nx">it</span><span class="p">(</span><span class="s1">'should have a properly working WatchedVideosCtrl controller'</span><span class="p">,</span> <span class="nx">inject</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">$rootScope</span><span class="p">,</span> <span class="nx">$controller</span><span class="p">,</span> <span class="nx">$httpBackend</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">$scope</span> <span class="o">=</span> <span class="nx">$rootScope</span><span class="p">.</span><span class="nx">$new</span><span class="p">();</span>
+
+    <span class="c1">//we're stubbing the onReady event</span>
+    <span class="nx">$scope</span><span class="p">.</span><span class="nx">onReady</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span> <span class="p">};</span>
+    <span class="kd">var</span> <span class="nx">ctrl</span> <span class="o">=</span> <span class="nx">$controller</span><span class="p">(</span><span class="s1">'WatchedVideosCtrl'</span><span class="p">,</span> <span class="p">{</span>
+      <span class="nx">$scope</span> <span class="o">:</span> <span class="nx">$scope</span>
+    <span class="p">});</span>
+  <span class="p">}));</span>
+
+<span class="p">});</span>
+</code></pre></div>
+          </div>
+        </article>
+        <article class="tab-stage">
+    <div class="syntax">
+<nav class="syntax-links">
+
+  <a href="https://github.com/yearofmoo-articles/AngularJS-Testing-Article/blob/master/test/midway/controllers/controllersSpec.js" target="_blank" title="Github" rel="nofollow" class="syntax-link syntax-link-github" data-yom-tooltip="black|Github">
+<span class="icon-github"></span>
+<em>Github</em>
+</a>
+
+<a href="#" target="_blank" title="View Code" rel="nofollow" class="syntax-link syntax-link-raw" data-yom-tooltip="black|View Code">
+<span class="icon-external-link"></span>
+<em>View Code</em>
+</a>
+</nav>
+
+
+<div class="highlight"><pre><code class="javascript"><span class="c1">//</span>
+<span class="c1">// test/midway/controllers/controllersSpec.js</span>
+<span class="c1">//</span>
+<span class="nx">describe</span><span class="p">(</span><span class="s2">"Midway: Testing Controllers"</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+
+  <span class="kd">var</span> <span class="nx">tester</span><span class="p">;</span>
+  <span class="nx">beforeEach</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">if</span><span class="p">(</span><span class="nx">tester</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">tester</span><span class="p">.</span><span class="nx">destroy</span><span class="p">();</span>
+    <span class="p">}</span>
+    <span class="nx">tester</span> <span class="o">=</span> <span class="nx">ngMidwayTester</span><span class="p">(</span><span class="s1">'App'</span><span class="p">);</span>
+  <span class="p">});</span>
+
+  <span class="nx">it</span><span class="p">(</span><span class="s1">'should load the VideosCtrl controller properly when /videos route is accessed'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">done</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">tester</span><span class="p">.</span><span class="nx">visit</span><span class="p">(</span><span class="s1">'/videos'</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+      <span class="nx">tester</span><span class="p">.</span><span class="nx">path</span><span class="p">().</span><span class="nx">should</span><span class="p">.</span><span class="nx">eq</span><span class="p">(</span><span class="s1">'/videos'</span><span class="p">);</span>
+      <span class="kd">var</span> <span class="nx">current</span> <span class="o">=</span> <span class="nx">tester</span><span class="p">.</span><span class="nx">inject</span><span class="p">(</span><span class="s1">'$route'</span><span class="p">).</span><span class="nx">current</span><span class="p">;</span>
+      <span class="kd">var</span> <span class="nx">controller</span> <span class="o">=</span> <span class="nx">current</span><span class="p">.</span><span class="nx">controller</span><span class="p">;</span>
+      <span class="kd">var</span> <span class="nx">scope</span> <span class="o">=</span> <span class="nx">current</span><span class="p">.</span><span class="nx">scope</span><span class="p">;</span>
+      <span class="nx">expect</span><span class="p">(</span><span class="nx">controller</span><span class="p">).</span><span class="nx">to</span><span class="p">.</span><span class="nx">eql</span><span class="p">(</span><span class="s1">'VideosCtrl'</span><span class="p">);</span>
+      <span class="nx">done</span><span class="p">();</span>
+    <span class="p">});</span>
+  <span class="p">});</span>
+
+  <span class="nx">it</span><span class="p">(</span><span class="s1">'should load the WatchedVideosCtrl controller properly when /watched-videos route is accessed'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">done</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">tester</span><span class="p">.</span><span class="nx">visit</span><span class="p">(</span><span class="s1">'/watched-videos'</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+      <span class="nx">tester</span><span class="p">.</span><span class="nx">path</span><span class="p">().</span><span class="nx">should</span><span class="p">.</span><span class="nx">eq</span><span class="p">(</span><span class="s1">'/watched-videos'</span><span class="p">);</span>
+      <span class="kd">var</span> <span class="nx">current</span> <span class="o">=</span> <span class="nx">tester</span><span class="p">.</span><span class="nx">inject</span><span class="p">(</span><span class="s1">'$route'</span><span class="p">).</span><span class="nx">current</span><span class="p">;</span>
+      <span class="kd">var</span> <span class="nx">controller</span> <span class="o">=</span> <span class="nx">current</span><span class="p">.</span><span class="nx">controller</span><span class="p">;</span>
+      <span class="kd">var</span> <span class="nx">params</span> <span class="o">=</span> <span class="nx">current</span><span class="p">.</span><span class="nx">params</span><span class="p">;</span>
+      <span class="kd">var</span> <span class="nx">scope</span> <span class="o">=</span> <span class="nx">current</span><span class="p">.</span><span class="nx">scope</span><span class="p">;</span>
+
+      <span class="nx">expect</span><span class="p">(</span><span class="nx">controller</span><span class="p">).</span><span class="nx">to</span><span class="p">.</span><span class="nx">equal</span><span class="p">(</span><span class="s1">'WatchedVideosCtrl'</span><span class="p">);</span>
+      <span class="nx">done</span><span class="p">();</span>
+    <span class="p">});</span>
+  <span class="p">});</span>
+
+<span class="p">});</span>
+</code></pre></div>
+    </div>
+        </article>
+        <article class="tab-stage">
+    <div class="syntax">
+<nav class="syntax-links">
+
+  <a href="https://github.com/yearofmoo-articles/AngularJS-Testing-Article/blob/master/test/e2e/controllers/controllersSpec.js" target="_blank" title="Github" rel="nofollow" class="syntax-link syntax-link-github" data-yom-tooltip="black|Github">
+<span class="icon-github"></span>
+<em>Github</em>
+</a>
+
+<a href="#" target="_blank" title="View Code" rel="nofollow" class="syntax-link syntax-link-raw" data-yom-tooltip="black|View Code">
+<span class="icon-external-link"></span>
+<em>View Code</em>
+</a>
+</nav>
+
+
+<div class="highlight"><pre><code class="javascript"><span class="c1">//</span>
+<span class="c1">// test/e2e/controllers/controllersSpec.js</span>
+<span class="c1">//</span>
+<span class="nx">describe</span><span class="p">(</span><span class="s2">"E2E: Testing Controllers"</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+
+  <span class="nx">beforeEach</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">browser</span><span class="p">().</span><span class="nx">navigateTo</span><span class="p">(</span><span class="s1">'/'</span><span class="p">);</span>
+  <span class="p">});</span>
+
+  <span class="nx">it</span><span class="p">(</span><span class="s1">'should have a working videos page controller that applies the videos to the scope'</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">browser</span><span class="p">().</span><span class="nx">navigateTo</span><span class="p">(</span><span class="s1">'#/'</span><span class="p">);</span>
+    <span class="nx">expect</span><span class="p">(</span><span class="nx">browser</span><span class="p">().</span><span class="nx">location</span><span class="p">().</span><span class="nx">path</span><span class="p">()).</span><span class="nx">toBe</span><span class="p">(</span><span class="s2">"/videos"</span><span class="p">);</span>
+    <span class="nx">expect</span><span class="p">(</span><span class="nx">element</span><span class="p">(</span><span class="s1">'#ng-view'</span><span class="p">).</span><span class="nx">html</span><span class="p">()).</span><span class="nx">toContain</span><span class="p">(</span><span class="s1">'data-app-youtube-listings'</span><span class="p">);</span>
+  <span class="p">});</span>
+
+  <span class="nx">it</span><span class="p">(</span><span class="s1">'should have a working video page controller that applies the video to the scope'</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">browser</span><span class="p">().</span><span class="nx">navigateTo</span><span class="p">(</span><span class="s1">'#/videos/WuiHuZq_cg4'</span><span class="p">);</span>
+    <span class="nx">expect</span><span class="p">(</span><span class="nx">browser</span><span class="p">().</span><span class="nx">location</span><span class="p">().</span><span class="nx">path</span><span class="p">()).</span><span class="nx">toBe</span><span class="p">(</span><span class="s2">"/videos/WuiHuZq_cg4"</span><span class="p">);</span>
+    <span class="nx">expect</span><span class="p">(</span><span class="nx">element</span><span class="p">(</span><span class="s1">'#ng-view'</span><span class="p">).</span><span class="nx">html</span><span class="p">()).</span><span class="nx">toContain</span><span class="p">(</span><span class="s1">'app-youtube-embed'</span><span class="p">);</span>
+  <span class="p">});</span>
+
+<span class="p">});</span>
+</code></pre></div>
+      </div>
+        </article>
+      </div>
+    </div>
+    <nav class="jump">
+      <a href="#top" class="top">To Top</a>
+      <a href="https://github.com/yearofmoo-articles/AngularJS-Testing-Article/" target="_blank" class="github">View Github Repo</a>
+      <a href="http://yearofmoo-articles.github.com/angularjs-testing-article/app/" target="_blank" class="demos">View Demo Application</a>
+    </nav>
+  </section>
+
+
+  <section class="outer">
+    <header>
+      <h3>
+        <a href="#testing-services-factories" id="testing-services-factories" class="anchor-link">Testing Services / Factories</a>
+      </h3>
+    </header>
+
+
+    <div class="goal">
+      <span class="goal-heading">
+        <span class="icon-cloud"></span>
+        What's our <span class="em2">testing</span> goal?
+      </span>
+      <div class="goal-answers">
+        <span class="goal-answer">
+          <span class="icon-ok em2"></span> To isolate the service to find all bugs and errors.
+        </span>
+        <span class="goal-answer">
+          <span class="icon-ok em2"></span> To check to see that the service can make XHR request without stubbing.
+        </span>
+      </div>
+    </div>
+
+    <p>
+      Services are the easiest blocks of code to test. A <em>Unit test</em> or a <em>Midway Test</em> is ideal
+      when testing services because you can target the areas of the service that need to be tested from all
+      angles (parameters, return types, exceptions, etc...). Keep in mind that a Unit test works similar to a Midway test for
+      this example, but if your service has any XHR requests using the <em>$http</em>
+ service then you will have to
+      capture and intercept those requests and override the response 
+data with mock data to make the Unit test work. Midway testing
+      avoids this entirely.
+    </p>
+
+    <div class="tabs s-2">
+      <nav class="tab-navigation">
+        <a class="tab-link" href="#">Unit Testing</a>
+        <a class="tab-link" href="#">Midway Testing</a>
+      </nav>
+      <div class="tab-slides">
+        <article class="tab-stage">
+    <div class="syntax">
+<nav class="syntax-links">
+
+  <a href="https://github.com/yearofmoo-articles/AngularJS-Testing-Article/blob/master/test/unit/services/servicesSpec.js" target="_blank" title="Github" rel="nofollow" class="syntax-link syntax-link-github" data-yom-tooltip="black|Github">
+<span class="icon-github"></span>
+<em>Github</em>
+</a>
+
+<a href="#" target="_blank" title="View Code" rel="nofollow" class="syntax-link syntax-link-raw" data-yom-tooltip="black|View Code">
+<span class="icon-external-link"></span>
+<em>View Code</em>
+</a>
+</nav>
+
+
+<div class="highlight"><pre><code class="javascript"><span class="c1">//</span>
+<span class="c1">// test/unit/services/servicesSpec.js</span>
+<span class="c1">//</span>
+<span class="nx">describe</span><span class="p">(</span><span class="s2">"Unit: Testing Controllers"</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+
+  <span class="nx">beforeEach</span><span class="p">(</span><span class="nx">module</span><span class="p">(</span><span class="s1">'App'</span><span class="p">));</span>
+
+  <span class="nx">it</span><span class="p">(</span><span class="s1">'should contain an $appStorage service'</span><span class="p">,</span>
+    <span class="nx">inject</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">$appStorage</span><span class="p">)</span> <span class="p">{</span>
+
+    <span class="nx">expect</span><span class="p">(</span><span class="nx">$appStorage</span><span class="p">).</span><span class="nx">not</span><span class="p">.</span><span class="nx">to</span><span class="p">.</span><span class="nx">equal</span><span class="p">(</span><span class="kc">null</span><span class="p">);</span>
+  <span class="p">}));</span>
+
+  <span class="nx">it</span><span class="p">(</span><span class="s1">'should contain an $appYoutubeSearcher service'</span><span class="p">,</span>
+    <span class="nx">inject</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">$appYoutubeSearcher</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">expect</span><span class="p">(</span><span class="nx">$appYoutubeSearcher</span><span class="p">).</span><span class="nx">not</span><span class="p">.</span><span class="nx">to</span><span class="p">.</span><span class="nx">equal</span><span class="p">(</span><span class="kc">null</span><span class="p">);</span>
+  <span class="p">}));</span>
+
+  <span class="nx">it</span><span class="p">(</span><span class="s1">'should have a working $appYoutubeSearcher service'</span><span class="p">,</span>
+    <span class="nx">inject</span><span class="p">([</span><span class="s1">'$appYoutubeSearcher'</span><span class="p">,</span><span class="kd">function</span><span class="p">(</span><span class="nx">$yt</span><span class="p">)</span> <span class="p">{</span>
+
+    <span class="nx">expect</span><span class="p">(</span><span class="nx">$yt</span><span class="p">.</span><span class="nx">prefixKey</span><span class="p">).</span><span class="nx">not</span><span class="p">.</span><span class="nx">to</span><span class="p">.</span><span class="nx">equal</span><span class="p">(</span><span class="kc">null</span><span class="p">);</span>
+    <span class="nx">expect</span><span class="p">(</span><span class="nx">$yt</span><span class="p">.</span><span class="nx">resize</span><span class="p">).</span><span class="nx">not</span><span class="p">.</span><span class="nx">to</span><span class="p">.</span><span class="nx">equal</span><span class="p">(</span><span class="kc">null</span><span class="p">);</span>
+    <span class="nx">expect</span><span class="p">(</span><span class="nx">$yt</span><span class="p">.</span><span class="nx">prepareImage</span><span class="p">).</span><span class="nx">not</span><span class="p">.</span><span class="nx">to</span><span class="p">.</span><span class="nx">equal</span><span class="p">(</span><span class="kc">null</span><span class="p">);</span>
+    <span class="nx">expect</span><span class="p">(</span><span class="nx">$yt</span><span class="p">.</span><span class="nx">getWatchedVideos</span><span class="p">).</span><span class="nx">not</span><span class="p">.</span><span class="nx">to</span><span class="p">.</span><span class="nx">equal</span><span class="p">(</span><span class="kc">null</span><span class="p">);</span>
+  <span class="p">}]));</span>
+
+  <span class="nx">it</span><span class="p">(</span><span class="s1">'should have a working service that resizes dimensions'</span><span class="p">,</span>
+    <span class="nx">inject</span><span class="p">([</span><span class="s1">'$appYoutubeSearcher'</span><span class="p">,</span><span class="kd">function</span><span class="p">(</span><span class="nx">$yt</span><span class="p">)</span> <span class="p">{</span>
+
+    <span class="kd">var</span> <span class="nx">w</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span>
+    <span class="kd">var</span> <span class="nx">h</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span>
+    <span class="kd">var</span> <span class="nx">mw</span> <span class="o">=</span> <span class="mi">50</span><span class="p">;</span>
+    <span class="kd">var</span> <span class="nx">mh</span> <span class="o">=</span> <span class="mi">50</span><span class="p">;</span>
+    <span class="kd">var</span> <span class="nx">sizes</span> <span class="o">=</span> <span class="nx">$yt</span><span class="p">.</span><span class="nx">resize</span><span class="p">(</span><span class="nx">w</span><span class="p">,</span><span class="nx">h</span><span class="p">,</span><span class="nx">mw</span><span class="p">,</span><span class="nx">mh</span><span class="p">);</span>
+    <span class="nx">expect</span><span class="p">(</span><span class="nx">sizes</span><span class="p">.</span><span class="nx">length</span><span class="p">).</span><span class="nx">to</span><span class="p">.</span><span class="nx">equal</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+    <span class="nx">expect</span><span class="p">(</span><span class="nx">sizes</span><span class="p">[</span><span class="mi">0</span><span class="p">]).</span><span class="nx">to</span><span class="p">.</span><span class="nx">equal</span><span class="p">(</span><span class="mi">50</span><span class="p">);</span>
+    <span class="nx">expect</span><span class="p">(</span><span class="nx">sizes</span><span class="p">[</span><span class="mi">1</span><span class="p">]).</span><span class="nx">to</span><span class="p">.</span><span class="nx">equal</span><span class="p">(</span><span class="mi">50</span><span class="p">);</span>
+  <span class="p">}]));</span>
+
+  <span class="nx">it</span><span class="p">(</span><span class="s1">'should store and save data properly'</span><span class="p">,</span>
+    <span class="nx">inject</span><span class="p">([</span><span class="s1">'$appStorage'</span><span class="p">,</span><span class="kd">function</span><span class="p">(</span><span class="nx">$storage</span><span class="p">)</span> <span class="p">{</span>
+
+    <span class="kd">var</span> <span class="nx">key</span> <span class="o">=</span> <span class="s1">'key'</span><span class="p">,</span> <span class="nx">value</span> <span class="o">=</span> <span class="s1">'value'</span><span class="p">;</span>
+    <span class="nx">$storage</span><span class="p">.</span><span class="nx">enableCaching</span><span class="p">();</span>
+    <span class="nx">$storage</span><span class="p">.</span><span class="nx">put</span><span class="p">(</span><span class="nx">key</span><span class="p">,</span> <span class="nx">value</span><span class="p">);</span>
+    <span class="nx">expect</span><span class="p">(</span><span class="nx">$storage</span><span class="p">.</span><span class="nx">isPresent</span><span class="p">(</span><span class="nx">key</span><span class="p">)).</span><span class="nx">to</span><span class="p">.</span><span class="nx">equal</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>
+    <span class="nx">expect</span><span class="p">(</span><span class="nx">$storage</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="nx">key</span><span class="p">)).</span><span class="nx">to</span><span class="p">.</span><span class="nx">equal</span><span class="p">(</span><span class="nx">value</span><span class="p">);</span>
+
+    <span class="nx">$storage</span><span class="p">.</span><span class="nx">erase</span><span class="p">(</span><span class="nx">key</span><span class="p">);</span>
+    <span class="nx">expect</span><span class="p">(</span><span class="nx">$storage</span><span class="p">.</span><span class="nx">isPresent</span><span class="p">(</span><span class="nx">key</span><span class="p">)).</span><span class="nx">to</span><span class="p">.</span><span class="nx">equal</span><span class="p">(</span><span class="kc">false</span><span class="p">);</span>
+
+    <span class="nx">$storage</span><span class="p">.</span><span class="nx">put</span><span class="p">(</span><span class="nx">key</span><span class="p">,</span> <span class="nx">value</span><span class="p">);</span>
+    <span class="nx">$storage</span><span class="p">.</span><span class="nx">flush</span><span class="p">();</span>
+    <span class="nx">expect</span><span class="p">(</span><span class="nx">$storage</span><span class="p">.</span><span class="nx">isPresent</span><span class="p">(</span><span class="nx">key</span><span class="p">)).</span><span class="nx">to</span><span class="p">.</span><span class="nx">equal</span><span class="p">(</span><span class="kc">false</span><span class="p">);</span>
+  <span class="p">}]));</span>
+
+<span class="p">});</span>
+</code></pre></div>
+    </div>
+        </article>
+        <article class="tab-stage">
+    <div class="syntax">
+<nav class="syntax-links">
+
+  <a href="https://github.com/yearofmoo-articles/AngularJS-Testing-Article/blob/master/test/midway/services/serviceSpec.js" target="_blank" title="Github" rel="nofollow" class="syntax-link syntax-link-github" data-yom-tooltip="black|Github">
+<span class="icon-github"></span>
+<em>Github</em>
+</a>
+
+<a href="#" target="_blank" title="View Code" rel="nofollow" class="syntax-link syntax-link-raw" data-yom-tooltip="black|View Code">
+<span class="icon-external-link"></span>
+<em>View Code</em>
+</a>
+</nav>
+
+
+<div class="highlight"><pre><code class="javascript"><span class="c1">//</span>
+<span class="c1">// test/midway/services/servicesSpec.js</span>
+<span class="c1">//</span>
+<span class="nx">describe</span><span class="p">(</span><span class="s2">"Midway: Testing Services"</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+
+  <span class="kd">var</span> <span class="nx">tester</span><span class="p">;</span>
+  <span class="nx">beforeEach</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">if</span><span class="p">(</span><span class="nx">tester</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">tester</span><span class="p">.</span><span class="nx">destroy</span><span class="p">();</span>
+    <span class="p">}</span>
+    <span class="nx">tester</span> <span class="o">=</span> <span class="nx">ngMidwayTester</span><span class="p">(</span><span class="s1">'App'</span><span class="p">);</span>
+  <span class="p">});</span>
+
+  <span class="nx">it</span><span class="p">(</span><span class="s1">'should perform a JSONP operation to youtube and fetch data'</span><span class="p">,</span> 
+    <span class="kd">function</span><span class="p">(</span><span class="nx">done</span><span class="p">)</span> <span class="p">{</span>
+
+    <span class="kd">var</span> <span class="nx">$yt</span> <span class="o">=</span> <span class="nx">tester</span><span class="p">.</span><span class="nx">inject</span><span class="p">(</span><span class="s1">'$appYoutubeSearcher'</span><span class="p">);</span>
+    <span class="nx">expect</span><span class="p">(</span><span class="nx">$yt</span><span class="p">).</span><span class="nx">not</span><span class="p">.</span><span class="nx">to</span><span class="p">.</span><span class="nx">equal</span><span class="p">(</span><span class="kc">null</span><span class="p">);</span>
+
+    <span class="c1">//this is the first video ever uploaded on youtube</span>
+    <span class="c1">//so I doubt it will be removed anytime soon</span>
+    <span class="c1">//and should be a good testing item</span>
+    <span class="kd">var</span> <span class="nx">youtubeID</span> <span class="o">=</span> <span class="s1">'jNQXAC9IVRw'</span><span class="p">;</span>
+
+    <span class="nx">$yt</span><span class="p">.</span><span class="nx">findVideo</span><span class="p">(</span><span class="nx">youtubeID</span><span class="p">,</span> <span class="kc">false</span><span class="p">,</span>
+      <span class="kd">function</span><span class="p">(</span><span class="nx">q</span><span class="p">,</span> <span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">expect</span><span class="p">(</span><span class="nx">data</span><span class="p">).</span><span class="nx">not</span><span class="p">.</span><span class="nx">to</span><span class="p">.</span><span class="nx">equal</span><span class="p">(</span><span class="kc">null</span><span class="p">);</span>
+        <span class="nx">expect</span><span class="p">(</span><span class="nx">data</span><span class="p">.</span><span class="nx">id</span><span class="p">).</span><span class="nx">to</span><span class="p">.</span><span class="nx">equal</span><span class="p">(</span><span class="nx">youtubeID</span><span class="p">);</span>
+        <span class="nx">done</span><span class="p">();</span>
+      <span class="p">}</span>
+    <span class="p">);</span>
+  <span class="p">});</span>
+
+<span class="p">});</span>
+</code></pre></div>
+    </div>
+        </article>
+      </div>
+    </div>
+
+    <nav class="jump">
+      <a href="#top" class="top">To Top</a>
+      <a href="https://github.com/yearofmoo-articles/AngularJS-Testing-Article/" target="_blank" class="github">View Github Repo</a>
+      <a href="http://yearofmoo-articles.github.com/angularjs-testing-article/app/" target="_blank" class="demos">View Demo Application</a>
+    </nav>
+  </section>
+
+
+  <section class="outer">
+    <header>
+      <h3>
+        <a href="#testing-filters" id="testing-filters" class="anchor-link">Testing Filters</a>
+      </h3>
+    </header>
+
+    <div class="goal">
+      <span class="goal-heading">
+        <span class="icon-cloud"></span>
+        What's our <span class="em2">testing</span> goal?
+      </span>
+      <div class="goal-answers">
+        <span class="goal-answer">
+          <span class="icon-ok em2"></span> To isolate all input and output operations with the filter using Unit testing.
+        </span>
+        <span class="goal-answer">
+          <span class="icon-ok em2"></span> To check to see that the filter applies its logic to the scope or to the HTML within the DOM.
+        </span>
+      </div>
+    </div>
+
+    <p>
+      To test AngularJS filters you need to <em>include the $injector service</em>, then get the <em>$filter service from injector</em> and then
+      from there call up each of
+      the services you want to include into your page. Filter testing can be used with <em>all three testing approaches</em>,
+ but each approach
+      is much different from each other. Midway testing, however, falls 
+in between where you can do both Unit testing and E2E testing
+      methods.
+    </p>
+
+    <p>
+      Basically with a filter you want to just make sure that for a 
+given input you get a given output (which in most cases is an array).
+      Your AngularJS code will rely on working filters, so in your E2E 
+tests just make sure to test to see that the filters <em>apply their
+      logic to the page</em>.
+    </p>
+
+    <div class="tabs s-3">
+      <nav class="tab-navigation">
+        <a class="tab-link" href="#">Unit Testing</a>
+        <a class="tab-link" href="#">Midway Testing</a>
+        <a class="tab-link" href="#">E2E Testing</a>
+      </nav>
+      <div class="tab-slides">
+        <article class="tab-stage">
+    <div class="syntax">
+<nav class="syntax-links">
+
+  <a href="https://github.com/yearofmoo-articles/AngularJS-Testing-Article/blob/master/test/unit/filters/filtersSpec.js" target="_blank" title="Github" rel="nofollow" class="syntax-link syntax-link-github" data-yom-tooltip="black|Github">
+<span class="icon-github"></span>
+<em>Github</em>
+</a>
+
+<a href="#" target="_blank" title="View Code" rel="nofollow" class="syntax-link syntax-link-raw" data-yom-tooltip="black|View Code">
+<span class="icon-external-link"></span>
+<em>View Code</em>
+</a>
+</nav>
+
+
+<div class="highlight"><pre><code class="javascript"><span class="c1">//</span>
+<span class="c1">// test/unit/filters/filtersSpec.js</span>
+<span class="c1">//</span>
+<span class="nx">describe</span><span class="p">(</span><span class="s2">"Unit: Testing Filters"</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+
+  <span class="nx">beforeEach</span><span class="p">(</span><span class="nx">module</span><span class="p">(</span><span class="s1">'App'</span><span class="p">));</span>
+
+  <span class="nx">it</span><span class="p">(</span><span class="s1">'should have a range filter'</span><span class="p">,</span> <span class="nx">inject</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">$filter</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">expect</span><span class="p">(</span><span class="nx">$filter</span><span class="p">(</span><span class="s1">'range'</span><span class="p">)).</span><span class="nx">not</span><span class="p">.</span><span class="nx">to</span><span class="p">.</span><span class="nx">equal</span><span class="p">(</span><span class="kc">null</span><span class="p">);</span>
+  <span class="p">}));</span>
+
+  <span class="nx">it</span><span class="p">(</span><span class="s1">'should have a range filter that produces an array of numbers'</span><span class="p">,</span>
+    <span class="nx">inject</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">$filter</span><span class="p">)</span> <span class="p">{</span>
+
+    <span class="kd">var</span> <span class="nx">range</span> <span class="o">=</span> <span class="nx">$filter</span><span class="p">(</span><span class="s1">'range'</span><span class="p">)([],</span> <span class="mi">5</span><span class="p">);</span>
+    <span class="nx">expect</span><span class="p">(</span><span class="nx">range</span><span class="p">.</span><span class="nx">length</span><span class="p">).</span><span class="nx">to</span><span class="p">.</span><span class="nx">equal</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span>
+    <span class="nx">expect</span><span class="p">(</span><span class="nx">range</span><span class="p">[</span><span class="mi">0</span><span class="p">]).</span><span class="nx">to</span><span class="p">.</span><span class="nx">equal</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+    <span class="nx">expect</span><span class="p">(</span><span class="nx">range</span><span class="p">[</span><span class="mi">1</span><span class="p">]).</span><span class="nx">to</span><span class="p">.</span><span class="nx">equal</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+    <span class="nx">expect</span><span class="p">(</span><span class="nx">range</span><span class="p">[</span><span class="mi">2</span><span class="p">]).</span><span class="nx">to</span><span class="p">.</span><span class="nx">equal</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+    <span class="nx">expect</span><span class="p">(</span><span class="nx">range</span><span class="p">[</span><span class="mi">3</span><span class="p">]).</span><span class="nx">to</span><span class="p">.</span><span class="nx">equal</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
+    <span class="nx">expect</span><span class="p">(</span><span class="nx">range</span><span class="p">[</span><span class="mi">4</span><span class="p">]).</span><span class="nx">to</span><span class="p">.</span><span class="nx">equal</span><span class="p">(</span><span class="mi">4</span><span class="p">);</span>
+  <span class="p">}));</span>
+
+  <span class="nx">it</span><span class="p">(</span><span class="s1">'should return null when nothing is set'</span><span class="p">,</span>
+    <span class="nx">inject</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">$filter</span><span class="p">)</span> <span class="p">{</span>
+
+    <span class="kd">var</span> <span class="nx">range</span> <span class="o">=</span> <span class="nx">$filter</span><span class="p">(</span><span class="s1">'range'</span><span class="p">)();</span>
+    <span class="nx">expect</span><span class="p">(</span><span class="nx">range</span><span class="p">).</span><span class="nx">to</span><span class="p">.</span><span class="nx">equal</span><span class="p">(</span><span class="kc">null</span><span class="p">);</span>
+  <span class="p">}));</span>
+
+  <span class="nx">it</span><span class="p">(</span><span class="s1">'should return the input when no number is set'</span><span class="p">,</span>
+    <span class="nx">inject</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">$filter</span><span class="p">)</span> <span class="p">{</span>
+
+    <span class="kd">var</span> <span class="nx">range</span><span class="p">,</span> <span class="nx">input</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">];</span>
+    <span class="nx">range</span> <span class="o">=</span> <span class="nx">$filter</span><span class="p">(</span><span class="s1">'range'</span><span class="p">)(</span><span class="nx">input</span><span class="p">);</span>
+    <span class="nx">expect</span><span class="p">(</span><span class="nx">range</span><span class="p">).</span><span class="nx">to</span><span class="p">.</span><span class="nx">equal</span><span class="p">(</span><span class="nx">input</span><span class="p">);</span>
+
+    <span class="nx">range</span> <span class="o">=</span> <span class="nx">$filter</span><span class="p">(</span><span class="s1">'range'</span><span class="p">)(</span><span class="nx">input</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+    <span class="nx">expect</span><span class="p">(</span><span class="nx">range</span><span class="p">).</span><span class="nx">to</span><span class="p">.</span><span class="nx">equal</span><span class="p">(</span><span class="nx">input</span><span class="p">);</span>
+
+    <span class="nx">range</span> <span class="o">=</span> <span class="nx">$filter</span><span class="p">(</span><span class="s1">'range'</span><span class="p">)(</span><span class="nx">input</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">);</span>
+    <span class="nx">expect</span><span class="p">(</span><span class="nx">range</span><span class="p">).</span><span class="nx">to</span><span class="p">.</span><span class="nx">equal</span><span class="p">(</span><span class="nx">input</span><span class="p">);</span>
+
+    <span class="nx">range</span> <span class="o">=</span> <span class="nx">$filter</span><span class="p">(</span><span class="s1">'range'</span><span class="p">)(</span><span class="nx">input</span><span class="p">,</span> <span class="s1">'Abc'</span><span class="p">);</span>
+    <span class="nx">expect</span><span class="p">(</span><span class="nx">range</span><span class="p">).</span><span class="nx">to</span><span class="p">.</span><span class="nx">equal</span><span class="p">(</span><span class="nx">input</span><span class="p">);</span>
+  <span class="p">}));</span>
+
+<span class="p">});</span>
+</code></pre></div>
+    </div>
+        </article>
+        <article class="tab-stage">
+    <div class="syntax">
+<nav class="syntax-links">
+
+  <a href="https://github.com/yearofmoo-articles/AngularJS-Testing-Article/blob/master/test/midway/filters/filtersSpec.js" target="_blank" title="Github" rel="nofollow" class="syntax-link syntax-link-github" data-yom-tooltip="black|Github">
+<span class="icon-github"></span>
+<em>Github</em>
+</a>
+
+<a href="#" target="_blank" title="View Code" rel="nofollow" class="syntax-link syntax-link-raw" data-yom-tooltip="black|View Code">
+<span class="icon-external-link"></span>
+<em>View Code</em>
+</a>
+</nav>
+
+
+<div class="highlight"><pre><code class="javascript"><span class="c1">//</span>
+<span class="c1">// test/midway/filters/filtersSpec.js</span>
+<span class="c1">//</span>
+<span class="nx">describe</span><span class="p">(</span><span class="s2">"Midway: Testing Filters"</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+
+  <span class="kd">var</span> <span class="nx">tester</span><span class="p">;</span>
+  <span class="nx">beforeEach</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">tester</span> <span class="o">=</span> <span class="nx">ngMidwayTester</span><span class="p">(</span><span class="s1">'App'</span><span class="p">);</span>
+  <span class="p">});</span>
+
+  <span class="nx">afterEach</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">tester</span><span class="p">.</span><span class="nx">destroy</span><span class="p">();</span>
+    <span class="nx">tester</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
+  <span class="p">});</span>
+
+  <span class="nx">it</span><span class="p">(</span><span class="s1">'should have a working range filter'</span><span class="p">,</span>
+    <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+
+    <span class="nx">expect</span><span class="p">(</span><span class="nx">tester</span><span class="p">.</span><span class="nx">inject</span><span class="p">(</span><span class="s1">'$filter'</span><span class="p">)(</span><span class="s1">'range'</span><span class="p">)).</span><span class="nx">not</span><span class="p">.</span><span class="nx">to</span><span class="p">.</span><span class="nx">equal</span><span class="p">(</span><span class="kc">null</span><span class="p">);</span>
+  <span class="p">});</span>
+
+  <span class="nx">it</span><span class="p">(</span><span class="s1">'should have a working filter that updates the DOM'</span><span class="p">,</span>
+    <span class="kd">function</span><span class="p">(</span><span class="nx">done</span><span class="p">)</span> <span class="p">{</span>
+
+    <span class="kd">var</span> <span class="nx">id</span> <span class="o">=</span> <span class="s1">'temp-filter-test-element'</span><span class="p">;</span>
+    <span class="kd">var</span> <span class="nx">html</span> <span class="o">=</span> <span class="s1">'&lt;div id="'</span> <span class="o">+</span> <span class="nx">id</span> <span class="o">+</span> <span class="s1">'"&gt;&lt;div class="repeated" ng-repeat="n in [] | range:10"&gt;...&lt;/div&gt;&lt;/div&gt;'</span><span class="p">;</span>
+    <span class="kd">var</span> <span class="nx">element</span> <span class="o">=</span> <span class="nx">angular</span><span class="p">.</span><span class="nx">element</span><span class="p">(</span><span class="nx">html</span><span class="p">);</span>
+
+    <span class="kd">var</span> <span class="nx">scope</span> <span class="o">=</span> <span class="nx">tester</span><span class="p">.</span><span class="nx">rootScope</span><span class="p">().</span><span class="nx">$new</span><span class="p">();</span>
+    <span class="nx">tester</span><span class="p">.</span><span class="nx">compile</span><span class="p">(</span><span class="nx">element</span><span class="p">,</span> <span class="nx">scope</span><span class="p">);</span>
+    
+    <span class="kd">var</span> <span class="nx">elm</span> <span class="o">=</span> <span class="nx">element</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+    <span class="nx">setTimeout</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+      <span class="kd">var</span> <span class="nx">kids</span> <span class="o">=</span> <span class="nx">elm</span><span class="p">.</span><span class="nx">getElementsByTagName</span><span class="p">(</span><span class="s1">'div'</span><span class="p">);</span>
+      <span class="nx">expect</span><span class="p">(</span><span class="nx">kids</span><span class="p">.</span><span class="nx">length</span><span class="p">).</span><span class="nx">to</span><span class="p">.</span><span class="nx">equal</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
+      <span class="nx">done</span><span class="p">();</span>
+    <span class="p">},</span><span class="mi">1000</span><span class="p">);</span>
+  <span class="p">});</span>
+
+<span class="p">});</span>
+</code></pre></div>
+    </div>
+        </article>
+        <article class="tab-stage">
+    <div class="syntax">
+<nav class="syntax-links">
+
+  <a href="https://github.com/yearofmoo-articles/AngularJS-Testing-Article/blob/master/test/e2e/filters/filtersSpec.js" target="_blank" title="Github" rel="nofollow" class="syntax-link syntax-link-github" data-yom-tooltip="black|Github">
+<span class="icon-github"></span>
+<em>Github</em>
+</a>
+
+<a href="#" target="_blank" title="View Code" rel="nofollow" class="syntax-link syntax-link-raw" data-yom-tooltip="black|View Code">
+<span class="icon-external-link"></span>
+<em>View Code</em>
+</a>
+</nav>
+
+
+<div class="highlight"><pre><code class="javascript"><span class="c1">//</span>
+<span class="c1">// test/e2e/filters/filtersSpec.js</span>
+<span class="c1">//</span>
+<span class="nx">describe</span><span class="p">(</span><span class="s2">"E2E: Testing Filters"</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+
+  <span class="nx">beforeEach</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">browser</span><span class="p">().</span><span class="nx">navigateTo</span><span class="p">(</span><span class="s1">'/'</span><span class="p">);</span>
+  <span class="p">});</span>
+
+  <span class="nx">it</span><span class="p">(</span><span class="s1">'should have a filter that expands the stars properly'</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">browser</span><span class="p">().</span><span class="nx">navigateTo</span><span class="p">(</span><span class="s1">'#/videos/zogrnQjHZAM'</span><span class="p">);</span>
+    <span class="nx">expect</span><span class="p">(</span><span class="nx">repeater</span><span class="p">(</span><span class="s1">'#app-youtube-stars &gt; .app-youtube-star'</span><span class="p">).</span><span class="nx">count</span><span class="p">()).</span><span class="nx">toBeGreaterThan</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+  <span class="p">});</span>
+
+<span class="p">});</span>
+</code></pre></div>
+    </div>
+        </article>
+      </div>
+    </div>
+
+    <nav class="jump">
+      <a href="#top" class="top">To Top</a>
+      <a href="https://github.com/yearofmoo-articles/AngularJS-Testing-Article/" target="_blank" class="github">View Github Repo</a>
+      <a href="http://yearofmoo-articles.github.com/angularjs-testing-article/app/" target="_blank" class="demos">View Demo Application</a>
+    </nav>
+  </section>
+
+
+  <section class="outer">
+    <header>
+      <h3>
+        <a href="#testing-templates-partials-and-views" id="testing-templates-partials-and-views" class="anchor-link">Testing Templates, Partials &amp; Views</a>
+      </h3>
+    </header>
+
+    <div class="goal">
+      <span class="goal-heading">
+        <span class="icon-cloud"></span>
+        What's our <span class="em2">testing</span> goal?
+      </span>
+      <div class="goal-answers">
+        <span class="goal-answer">
+          <span class="icon-ok em2"></span> To check to see that the template is set and is downloaded from the server.
+        </span>
+        <span class="goal-answer">
+          <span class="icon-ok em2"></span> To check to see the correct template is assigned to a specific controller.
+        </span>
+        <span class="goal-answer">
+          <span class="icon-ok em2"></span> To check to see that the template was assigned to the view and/or include.
+        </span>
+      </div>
+    </div>
+
+    <p>
+      Templates, partials and/or views are all essentially bodies of 
+isolated HTML code which are injected into your AngularJS application.
+      Whether templates are rendered with the use of the <em>ngView</em> directive or with <em>ngInclude</em>,
+      templated HTML code can be injected quite easily into your webpage.
+    </p>
+
+    <p>
+      Views and includes work with the caching mechanisms provided inside of the <em>$templateCache</em>
+ service. So if you were to mock template
+      code then this can be achieved with simply adding HTML into the 
+template cache with the cache key being the same as your templateUrl 
+value.
+    </p>
+
+    <div class="tabs s-2">
+      <nav class="tab-navigation">
+        <a class="tab-link" href="#">Midway Testing</a>
+        <a class="tab-link" href="#">E2E Testing</a>
+      </nav>
+      <div class="tab-slides">
+        <article class="tab-stage">
+    <div class="syntax">
+<nav class="syntax-links">
+
+  <a href="https://github.com/yearofmoo-articles/AngularJS-Testing-Article/blob/master/test/midway/templates/templatesSpec.js" target="_blank" title="Github" rel="nofollow" class="syntax-link syntax-link-github" data-yom-tooltip="black|Github">
+<span class="icon-github"></span>
+<em>Github</em>
+</a>
+
+<a href="#" target="_blank" title="View Code" rel="nofollow" class="syntax-link syntax-link-raw" data-yom-tooltip="black|View Code">
+<span class="icon-external-link"></span>
+<em>View Code</em>
+</a>
+</nav>
+
+
+<div class="highlight"><pre><code class="javascript"><span class="c1">//</span>
+<span class="c1">// test/midway/templates/templatesSpec.js</span>
+<span class="c1">//</span>
+<span class="nx">describe</span><span class="p">(</span><span class="s2">"Midway: Testing Templates"</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+
+  <span class="nx">it</span><span class="p">(</span><span class="s2">"should load the template for the videos page properly"</span><span class="p">,</span>
+    <span class="kd">function</span><span class="p">(</span><span class="nx">done</span><span class="p">)</span> <span class="p">{</span>
+
+    <span class="kd">var</span> <span class="nx">tester</span> <span class="o">=</span> <span class="nx">ngMidwayTester</span><span class="p">(</span><span class="s1">'App'</span><span class="p">);</span>
+    <span class="nx">tester</span><span class="p">.</span><span class="nx">visit</span><span class="p">(</span><span class="s1">'/videos?123'</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+      <span class="kd">var</span> <span class="nx">current</span> <span class="o">=</span> <span class="nx">tester</span><span class="p">.</span><span class="nx">inject</span><span class="p">(</span><span class="s1">'$route'</span><span class="p">).</span><span class="nx">current</span><span class="p">;</span>
+      <span class="kd">var</span> <span class="nx">controller</span> <span class="o">=</span> <span class="nx">current</span><span class="p">.</span><span class="nx">controller</span><span class="p">;</span>
+      <span class="kd">var</span> <span class="nx">template</span> <span class="o">=</span> <span class="nx">current</span><span class="p">.</span><span class="nx">templateUrl</span><span class="p">;</span>
+      <span class="nx">expect</span><span class="p">(</span><span class="nx">template</span><span class="p">).</span><span class="nx">to</span><span class="p">.</span><span class="nx">match</span><span class="p">(</span><span class="sr">/templates\/views\/videos\/index_tpl\.html/</span><span class="p">);</span>
+      <span class="nx">tester</span><span class="p">.</span><span class="nx">destroy</span><span class="p">();</span>
+      <span class="nx">done</span><span class="p">();</span>
+    <span class="p">});</span>
+  <span class="p">});</span>
+
+<span class="p">});</span>
+</code></pre></div>
+      </div>
+        </article>
+        <article class="tab-stage">
+    <div class="syntax">
+<nav class="syntax-links">
+
+  <a href="https://github.com/yearofmoo-articles/AngularJS-Testing-Article/blob/master/test/e2e/templates/templatesSpec.js" target="_blank" title="Github" rel="nofollow" class="syntax-link syntax-link-github" data-yom-tooltip="black|Github">
+<span class="icon-github"></span>
+<em>Github</em>
+</a>
+
+<a href="#" target="_blank" title="View Code" rel="nofollow" class="syntax-link syntax-link-raw" data-yom-tooltip="black|View Code">
+<span class="icon-external-link"></span>
+<em>View Code</em>
+</a>
+</nav>
+
+
+<div class="highlight"><pre><code class="javascript"><span class="c1">//</span>
+<span class="c1">// test/e2e/templates/templatesSpec.js</span>
+<span class="c1">//</span>
+<span class="nx">describe</span><span class="p">(</span><span class="s2">"E2E: Testing Templates"</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+
+  <span class="nx">beforeEach</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">browser</span><span class="p">().</span><span class="nx">navigateTo</span><span class="p">(</span><span class="s1">'/'</span><span class="p">);</span>
+  <span class="p">});</span>
+
+  <span class="nx">it</span><span class="p">(</span><span class="s1">'should redirect and setup the videos page template on root'</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">browser</span><span class="p">().</span><span class="nx">navigateTo</span><span class="p">(</span><span class="s1">'#/'</span><span class="p">);</span>
+    <span class="nx">expect</span><span class="p">(</span><span class="nx">element</span><span class="p">(</span><span class="s1">'#ng-view'</span><span class="p">).</span><span class="nx">html</span><span class="p">()).</span><span class="nx">toContain</span><span class="p">(</span><span class="s1">'youtube_listing'</span><span class="p">);</span>
+  <span class="p">});</span>
+
+  <span class="nx">it</span><span class="p">(</span><span class="s1">'should load the watched videos template into view'</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">browser</span><span class="p">().</span><span class="nx">navigateTo</span><span class="p">(</span><span class="s1">'#/watched-videos'</span><span class="p">);</span>
+    <span class="nx">expect</span><span class="p">(</span><span class="nx">element</span><span class="p">(</span><span class="s1">'#ng-view'</span><span class="p">).</span><span class="nx">html</span><span class="p">()).</span><span class="nx">toContain</span><span class="p">(</span><span class="s1">'youtube_listing'</span><span class="p">);</span>
+  <span class="p">});</span>
+
+  <span class="nx">it</span><span class="p">(</span><span class="s1">'should load the watched video template into view'</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">browser</span><span class="p">().</span><span class="nx">navigateTo</span><span class="p">(</span><span class="s1">'#/videos/123'</span><span class="p">);</span>
+    <span class="nx">expect</span><span class="p">(</span><span class="nx">element</span><span class="p">(</span><span class="s1">'#ng-view'</span><span class="p">).</span><span class="nx">html</span><span class="p">()).</span><span class="nx">toContain</span><span class="p">(</span><span class="s1">'profile'</span><span class="p">);</span>
+  <span class="p">});</span>
+
+  <span class="nx">it</span><span class="p">(</span><span class="s1">'should redirect back to the index page if anything fails'</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">browser</span><span class="p">().</span><span class="nx">navigateTo</span><span class="p">(</span><span class="s1">'#/something/else'</span><span class="p">);</span>
+    <span class="nx">expect</span><span class="p">(</span><span class="nx">element</span><span class="p">(</span><span class="s1">'#ng-view'</span><span class="p">).</span><span class="nx">html</span><span class="p">()).</span><span class="nx">toContain</span><span class="p">(</span><span class="s1">'youtube_listing'</span><span class="p">);</span>
+  <span class="p">});</span>
+
+<span class="p">});</span>
+</code></pre></div>
+      </div>
+        </article>
+      </div>
+    </div>
+
+    <nav class="jump">
+      <a href="#top" class="top">To Top</a>
+      <a href="https://github.com/yearofmoo-articles/AngularJS-Testing-Article/" target="_blank" class="github">View Github Repo</a>
+      <a href="http://yearofmoo-articles.github.com/angularjs-testing-article/app/" target="_blank" class="demos">View Demo Application</a>
+    </nav>
+  </section>
+
+
+  <section class="outer">
+    <header>
+      <h3>
+        <a href="#testing-directives" id="testing-directives" class="anchor-link">Testing Directives</a>
+      </h3>
+    </header>
+
+    <div class="goal">
+      <span class="goal-heading">
+        <span class="icon-cloud"></span>
+        What's our <span class="em2">testing</span> goal?
+      </span>
+      <div class="goal-answers">
+        <span class="goal-answer">
+          <span class="icon-ok em2"></span> To check to see that the directive does its work to the view/DOM.
+        </span>
+      </div>
+    </div>
+
+    <p>
+      Directives are a major component of an AngularJS application and 
+testing them is equally as important. When testing directives
+      you want to see that when the directive is executed it does what 
+you <em>expect it to do to the $scope and/or DOM</em>.
+      Directives themselves may also, based on design, fire off XHR 
+requests in the background, but this is quite unlikely and not
+      a good practice to do. Therefore to test directives it's best to <em>test them in all three areas so that you get a full overview</em>
+      to see if they're functioning properly.
+    </p>
+
+    <div class="tabs s-3">
+      <nav class="tab-navigation">
+        <a class="tab-link" href="#">Unit Testing</a>
+        <a class="tab-link" href="#">Midway Testing</a>
+        <a class="tab-link" href="#">E2E Testing</a>
+      </nav>
+      <div class="tab-slides">
+        <article class="tab-stage">
+    <div class="syntax">
+<nav class="syntax-links">
+
+  <a href="https://github.com/yearofmoo-articles/AngularJS-Testing-Article/blob/master/test/unit/directives/directivesSpec.js" target="_blank" title="Github" rel="nofollow" class="syntax-link syntax-link-github" data-yom-tooltip="black|Github">
+<span class="icon-github"></span>
+<em>Github</em>
+</a>
+
+<a href="#" target="_blank" title="View Code" rel="nofollow" class="syntax-link syntax-link-raw" data-yom-tooltip="black|View Code">
+<span class="icon-external-link"></span>
+<em>View Code</em>
+</a>
+</nav>
+
+
+<div class="highlight"><pre><code class="javascript"><span class="c1">//</span>
+<span class="c1">// test/unit/directives/directivesSpec.js</span>
+<span class="c1">//</span>
+<span class="nx">describe</span><span class="p">(</span><span class="s2">"Unit: Testing Directives"</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+
+  <span class="kd">var</span> <span class="nx">$compile</span><span class="p">,</span> <span class="nx">$rootScope</span><span class="p">;</span>
+
+  <span class="nx">beforeEach</span><span class="p">(</span><span class="nx">module</span><span class="p">(</span><span class="s1">'App'</span><span class="p">));</span>
+
+  <span class="nx">beforeEach</span><span class="p">(</span><span class="nx">inject</span><span class="p">(</span>
+    <span class="p">[</span><span class="s1">'$compile'</span><span class="p">,</span><span class="s1">'$rootScope'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">$c</span><span class="p">,</span> <span class="nx">$r</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">$compile</span> <span class="o">=</span> <span class="nx">$c</span><span class="p">;</span>
+      <span class="nx">$rootScope</span> <span class="o">=</span> <span class="nx">$r</span><span class="p">;</span>
+    <span class="p">}]</span>
+  <span class="p">));</span>
+
+  <span class="nx">it</span><span class="p">(</span><span class="s2">"should display the welcome text properly"</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">element</span> <span class="o">=</span> <span class="nx">$compile</span><span class="p">(</span><span class="s1">'&lt;div data-app-welcome&gt;User&lt;/div&gt;'</span><span class="p">)(</span><span class="nx">$rootScope</span><span class="p">);</span>
+    <span class="nx">expect</span><span class="p">(</span><span class="nx">element</span><span class="p">.</span><span class="nx">html</span><span class="p">()).</span><span class="nx">to</span><span class="p">.</span><span class="nx">match</span><span class="p">(</span><span class="sr">/Welcome/i</span><span class="p">);</span>
+  <span class="p">})</span>
+
+<span class="p">});</span>
+</code></pre></div>
+      </div>
+        </article>
+        <article class="tab-stage">
+    <div class="syntax">
+<nav class="syntax-links">
+
+  <a href="https://github.com/yearofmoo-articles/AngularJS-Testing-Article/blob/master/test/midway/directives/directivesSpec.js" target="_blank" title="Github" rel="nofollow" class="syntax-link syntax-link-github" data-yom-tooltip="black|Github">
+<span class="icon-github"></span>
+<em>Github</em>
+</a>
+
+<a href="#" target="_blank" title="View Code" rel="nofollow" class="syntax-link syntax-link-raw" data-yom-tooltip="black|View Code">
+<span class="icon-external-link"></span>
+<em>View Code</em>
+</a>
+</nav>
+
+
+<div class="highlight"><pre><code class="javascript"><span class="c1">//</span>
+<span class="c1">// test/midway/directives/directivesSpec.js</span>
+<span class="c1">//</span>
+<span class="nx">describe</span><span class="p">(</span><span class="s2">"Midway: Testing Directives"</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+
+  <span class="kd">var</span> <span class="nx">tester</span><span class="p">;</span>
+  <span class="nx">beforeEach</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">tester</span> <span class="o">=</span> <span class="nx">ngMidwayTester</span><span class="p">(</span><span class="s1">'App'</span><span class="p">);</span>
+  <span class="p">});</span>
+
+  <span class="nx">afterEach</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">tester</span><span class="p">.</span><span class="nx">destroy</span><span class="p">();</span>
+    <span class="nx">tester</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
+  <span class="p">});</span>
+
+  <span class="nx">it</span><span class="p">(</span><span class="s2">"should properly create the youtube listings with the directive in mind"</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">done</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">$youtube</span> <span class="o">=</span> <span class="nx">tester</span><span class="p">.</span><span class="nx">inject</span><span class="p">(</span><span class="s1">'$appYoutubeSearcher'</span><span class="p">);</span>
+
+    <span class="kd">var</span> <span class="nx">html</span> <span class="o">=</span> <span class="s1">''</span><span class="p">;</span>
+    <span class="nx">html</span> <span class="o">+=</span> <span class="s1">'&lt;div data-app-youtube-listings id="app-youtube-listings"&gt;'</span><span class="p">;</span>
+    <span class="nx">html</span> <span class="o">+=</span> <span class="s1">' &lt;div data-ng-include="\'templates/partials/youtube_listing_tpl.html\'" data-ng-repeat="video in videos"&gt;&lt;/div&gt;'</span><span class="p">;</span>
+    <span class="nx">html</span> <span class="o">+=</span> <span class="s1">'&lt;/div&gt;'</span><span class="p">;</span>
+
+    <span class="nx">$youtube</span><span class="p">.</span><span class="nx">query</span><span class="p">(</span><span class="s1">'latest'</span><span class="p">,</span> <span class="kc">false</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">q</span><span class="p">,</span> <span class="nx">videos</span><span class="p">)</span> <span class="p">{</span>
+      <span class="kd">var</span> <span class="nx">scope</span> <span class="o">=</span> <span class="nx">tester</span><span class="p">.</span><span class="nx">viewScope</span><span class="p">().</span><span class="nx">$new</span><span class="p">();</span>
+      <span class="nx">scope</span><span class="p">.</span><span class="nx">videos</span> <span class="o">=</span> <span class="nx">videos</span><span class="p">;</span>
+      <span class="kd">var</span> <span class="nx">element</span> <span class="o">=</span> <span class="nx">tester</span><span class="p">.</span><span class="nx">compile</span><span class="p">(</span><span class="nx">html</span><span class="p">,</span> <span class="nx">scope</span><span class="p">);</span>
+      <span class="nx">setTimeout</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+        <span class="kd">var</span> <span class="nx">klass</span> <span class="o">=</span> <span class="p">(</span><span class="nx">element</span><span class="p">.</span><span class="nx">attr</span><span class="p">(</span><span class="s1">'class'</span><span class="p">)</span> <span class="o">||</span> <span class="s1">''</span><span class="p">).</span><span class="nx">toString</span><span class="p">();</span>
+        <span class="kd">var</span> <span class="nx">hasClass</span> <span class="o">=</span> <span class="sr">/app-youtube-listings/</span><span class="p">.</span><span class="nx">exec</span><span class="p">(</span><span class="nx">klass</span><span class="p">);</span>
+        <span class="nx">expect</span><span class="p">(</span><span class="nx">hasClass</span><span class="p">.</span><span class="nx">length</span><span class="p">).</span><span class="nx">to</span><span class="p">.</span><span class="nx">equal</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+
+        <span class="kd">var</span> <span class="nx">kids</span> <span class="o">=</span> <span class="nx">element</span><span class="p">.</span><span class="nx">children</span><span class="p">(</span><span class="s1">'.app-youtube-listing'</span><span class="p">);</span>
+        <span class="nx">expect</span><span class="p">(</span><span class="nx">kids</span><span class="p">.</span><span class="nx">length</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">).</span><span class="nx">to</span><span class="p">.</span><span class="nx">equal</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>
+        <span class="nx">done</span><span class="p">();</span>
+      <span class="p">},</span><span class="mi">1000</span><span class="p">);</span>
+    <span class="p">});</span>
+  <span class="p">});</span>
+
+<span class="p">});</span>
+</code></pre></div>
+      </div>
+        </article>
+        <article class="tab-stage">
+    <div class="syntax">
+<nav class="syntax-links">
+
+  <a href="https://github.com/yearofmoo-articles/AngularJS-Testing-Article/blob/master/test/e2e/directives/directivesSpec.js" target="_blank" title="Github" rel="nofollow" class="syntax-link syntax-link-github" data-yom-tooltip="black|Github">
+<span class="icon-github"></span>
+<em>Github</em>
+</a>
+
+<a href="#" target="_blank" title="View Code" rel="nofollow" class="syntax-link syntax-link-raw" data-yom-tooltip="black|View Code">
+<span class="icon-external-link"></span>
+<em>View Code</em>
+</a>
+</nav>
+
+
+<div class="highlight"><pre><code class="javascript"><span class="c1">//</span>
+<span class="c1">// test/e2e/directives/directivesSpec.js</span>
+<span class="c1">//</span>
+<span class="nx">describe</span><span class="p">(</span><span class="s2">"E2E: Testing Directives"</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+
+  <span class="nx">beforeEach</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">browser</span><span class="p">().</span><span class="nx">navigateTo</span><span class="p">(</span><span class="s1">'/'</span><span class="p">);</span>
+  <span class="p">});</span>
+
+  <span class="nx">it</span><span class="p">(</span><span class="s1">'should have a working welcome directive apply it\'s logic to the page'</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">browser</span><span class="p">().</span><span class="nx">navigateTo</span><span class="p">(</span><span class="s1">'#!/videos'</span><span class="p">);</span>
+    <span class="nx">expect</span><span class="p">(</span><span class="nx">browser</span><span class="p">().</span><span class="nx">location</span><span class="p">().</span><span class="nx">path</span><span class="p">()).</span><span class="nx">toBe</span><span class="p">(</span><span class="s2">"/videos"</span><span class="p">);</span>
+    <span class="nx">expect</span><span class="p">(</span><span class="nx">element</span><span class="p">(</span><span class="s1">'#app-welcome-text'</span><span class="p">).</span><span class="nx">html</span><span class="p">()).</span><span class="nx">toContain</span><span class="p">(</span><span class="s1">'Welcome'</span><span class="p">);</span>
+  <span class="p">});</span>
+
+  <span class="nx">it</span><span class="p">(</span><span class="s1">'should have a working youtube listing directive that goes to the right page when clicked'</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">browser</span><span class="p">().</span><span class="nx">navigateTo</span><span class="p">(</span><span class="s1">'#!/videos'</span><span class="p">);</span>
+    <span class="nx">element</span><span class="p">(</span><span class="s1">'.app-youtube-listing'</span><span class="p">).</span><span class="nx">click</span><span class="p">();</span>
+    <span class="nx">expect</span><span class="p">(</span><span class="nx">browser</span><span class="p">().</span><span class="nx">location</span><span class="p">().</span><span class="nx">path</span><span class="p">()).</span><span class="nx">toMatch</span><span class="p">(</span><span class="sr">/\/videos\/.+/</span><span class="p">);</span>
+  <span class="p">});</span>
+
+<span class="p">});</span>
+</code></pre></div>
+      </div>
+        </article>
+      </div>
+    </div>
+
+    <nav class="jump">
+      <a href="#top" class="top">To Top</a>
+      <a href="https://github.com/yearofmoo-articles/AngularJS-Testing-Article/" target="_blank" class="github">View Github Repo</a>
+      <a href="http://yearofmoo-articles.github.com/angularjs-testing-article/app/" target="_blank" class="demos">View Demo Application</a>
+    </nav>
+  </section>
+
+
+  <section class="outer">
+    <header>
+      <h3>
+        <a href="#testing-resources" id="testing-resources" class="anchor-link">Testing Resources</a>
+      </h3>
+    </header>
+
+    <div class="goal">
+      <span class="goal-heading">
+        <span class="icon-cloud"></span>
+        What's our <span class="em2">testing</span> goal?
+      </span>
+      <div class="goal-answers">
+        <span class="goal-answer">
+          <span class="icon-ok em2"></span> To check to see the resource is available and that it is a resource.
+        </span>
+        <span class="goal-answer">
+          <span class="icon-ok em2"></span> To check to see that the resource request methods work and return data.
+        </span>
+        <span class="goal-answer">
+          <span class="icon-ok em2"></span> To check to see that the data is saved and persists between requests.
+        </span>
+      </div>
+    </div>
+
+    <p>
+      Resources are special object instantiations which are crafted together via the
+      <em>$resource service</em> which is <em>provided via dependency injection</em>.
+      Testing a resource requires all levels of testing and is a bit complicated. This particular testing approach can be very <em>low level</em>
+      (testing every possible input and output of the resource)
+      or it can be <em>high level</em> (testing to see that the resource is created and updated and that its
+      data persists between requests).
+    </p>
+
+    <p>
+      Unfortunately, testing resources ties in heavily with your server 
+side setup. Since the Github Repository is a static website, then this 
+means
+      that there is no persistence on the server (no database or 
+back-end).
+      Therefore, testing resources on this code would be pointless.
+    </p>
+      
+    <p>
+      Testing resources itself requires its own article/tutorial and I'll be sure to blog about it in the near future...
+    </p> 
+
+    <nav class="jump">
+      <a href="#top" class="top">To Top</a>
+      <a href="https://github.com/yearofmoo-articles/AngularJS-Testing-Article/" target="_blank" class="github">View Github Repo</a>
+      <a href="http://yearofmoo-articles.github.com/angularjs-testing-article/app/" target="_blank" class="demos">View Demo Application</a>
+    </nav>
+  </section>
+
+  <section class="outer">
+    <header>
+      <h3>
+        <a href="#testing-animations" id="testing-animations" class="anchor-link">Testing Animations</a>
+      </h3>
+    </header>
+
+    <p>
+      Animations can now be tested in AngularJS and this is explained in another yearofmoo article called
+      <a href="http://www.yearofmoo.com/2013/05/enhanced-animations-in-angularjs.html#testing-animations" class="em3 roll" target="_blank">
+        <span data-title="Enhanced Animation in AngularJS">Enhanced Animation in AngularJS</span>
+      </a>.
+    </p>
+
+    <p>
+      <a href="http://www.yearofmoo.com/2013/05/enhanced-animations-in-angularjs.html#testing-animations" class="btn" target="_blank">
+        <span class="icon-arrow-right em2"></span> Click here to view the <em>Animation Article Testing Code</em>
+      </a>
+    </p>
+
+    <nav class="jump">
+      <a href="#top" class="top">To Top</a>
+      <a href="https://github.com/yearofmoo-articles/AngularJS-Testing-Article/" target="_blank" class="github">View Github Repo</a>
+      <a href="http://yearofmoo-articles.github.com/angularjs-testing-article/app/" target="_blank" class="demos">View Demo Application</a>
+    </nav>
+  </section>
+
+  <section class="outer">
+    <header>
+      <h3>
+        <a href="#testing-3rd-party-code" id="testing-3rd-party-code" class="anchor-link">Testing 3rd Party Code (JavaScript)</a>
+      </h3>
+    </header>
+
+    <div class="goal">
+      <span class="goal-heading">
+        <span class="icon-cloud"></span>
+        What's our <span class="em2">testing</span> goal?
+      </span>
+      <div class="goal-answers">
+        <span class="goal-answer">
+          <span class="icon-ok em2"></span> To test all public function calls for all 3rd party code.
+        </span>
+        <span class="goal-answer">
+          <span class="icon-ok em2"></span> To hard code the version of the code into the tests and update that version each time the plugin is updated.
+        </span>
+      </div>
+    </div>
+
+    <p>
+      Testing 3rd party code isn't what is sounds like and doing so 
+isn't a strict requirement for testing AngularJS applications.
+      But it is highly important. Basically whenever you include
+      a plugin or tool into your application and <em>interface with its API</em> you will need to keep track of what <em>public methods/functions you
+      use as well as the type of data you expect to get back</em> (whether that be with JavaScript objects or function calls).
+    </p>
+
+    <p>
+      Why does this matter? Well normally it shouldn't (if you were using a compiled language),
+      however, when it comes to JavaScript applications, there is no type checking or compile-time bind checking
+      going on in the background. Therefore, you will
+      need to keep track of what you use yourself. So lets say that you use a
+      tool for enhancing your forms and integrate it into your application. Then, later on, you
+      (or someone else from your team) updates the plugin to an older or newer
+      version and your code breaks (because of API changes).
+      You, or your client(s), then, sometime down the road, find out that this is broken
+      and now you're in a rush to figure out if it's the plugin
+      that's broken or your website, but then you end up finding out that it is really just your glue code that has failed.
+    </p>
+
+    <p>
+      To avoid this simple problem, <em>just test the inputs and outputs of your 3rd party code</em>.
+    </p>
+
+    <p>
+      To best test for 3rd party code, create a special test runner 
+configuration file for karma inside the config directory of your 
+AngularJS
+      application (something like karma.3rd_party.conf.js). Inside that 
+file include all the code required to emulate
+      the input and output methods and code to run the 3rd party tools. 
+Then just make sure that the API calls do what they
+      should and setup your testing code to test for it.
+    </p>
+
+    <nav class="jump">
+      <a href="#top" class="top">To Top</a>
+      <a href="https://github.com/yearofmoo-articles/AngularJS-Testing-Article/" target="_blank" class="github">View Github Repo</a>
+      <a href="http://yearofmoo-articles.github.com/angularjs-testing-article/app/" target="_blank" class="demos">View Demo Application</a>
+    </nav>
+  </section>
+
+
+
+  <section class="outer">
+    <header>
+      <h3>
+        <a href="#conclusion" id="conclusion" class="anchor-link">Conclusion</a>
+      </h3>
+    </header>
+
+    <p>
+      As you can see, it's not too difficult to test your AngularJS application. <em>E2E</em> and <em>Unit</em> testing is built right in
+      and they both work very well and as expected. <em>Midway</em> 
+testing is more complicated, but provides you with more access to deeper
+ parts
+      of your application and it is very useful for testing external 
+services. Karma is an incredible tool and now you have access to a 
+github
+      repository that provides full out configurations to get it to work
+ 100%.
+    </p>
+
+    <p>
+      Keep testing and let me know how it works for you :) And thank you for taking the
+      time to read the article. Please <em>share this article</em>
+      and <em>spread the word</em>!
+    </p>
+
+    <nav class="jump">
+      <a href="#top" class="top">To Top</a>
+      <a href="https://github.com/yearofmoo-articles/AngularJS-Testing-Article/" target="_blank" class="github">View Github Repo</a>
+      <a href="http://yearofmoo-articles.github.com/angularjs-testing-article/app/" target="_blank" class="demos">View Demo Application</a>
+    </nav>
+  </section>
+
+</article>
+
+              
+            </div>
+
+            
+              <div class="share-toolbar" data-yom-share="">
+  <div class="share-toolbox addthis_toolbox addthis_default_style">
+    <a addthis:title="Full-Spectrum Testing with AngularJS and Karma - yearofmoo.com" addthis:url="http://www.yearofmoo.com/2013/01/full-spectrum-testing-with-angularjs-and-karma.html" href="#" class="addthis_button_facebook_like"></a>
+    <a addthis:title="Full-Spectrum Testing with AngularJS and Karma - yearofmoo.com" addthis:url="http://www.yearofmoo.com/2013/01/full-spectrum-testing-with-angularjs-and-karma.html" href="#" class="addthis_button_tweet"></a>
+    <a addthis:title="Full-Spectrum Testing with AngularJS and Karma - yearofmoo.com" addthis:url="http://www.yearofmoo.com/2013/01/full-spectrum-testing-with-angularjs-and-karma.html" href="#" class="addthis_button_google_plusone"></a>
+    <a addthis:title="Full-Spectrum Testing with AngularJS and Karma - yearofmoo.com" addthis:url="http://www.yearofmoo.com/2013/01/full-spectrum-testing-with-angularjs-and-karma.html" href="#" class="addthis_counter addthis_pill_style"></a>
+  </div>
+</div>
+
+            
+
+            <p class="contact-links lazy">
+  <a href="http://twitter.com/yearofmoo" class="btn" target="_blank">
+    <span class="icon-twitter em2"></span> Yearofmoo <em>Twitter Page</em>
+  </a>
+  <a href="http://www.facebook.com/yearofmoo" class="btn" target="_blank">
+    <span class="icon-facebook em2"></span> Yearofmoo <em>Facebook Page</em>
+  </a>
+  <a href="http://www.yearofmoo.com/contact.html" class="btn last" target="_blank">
+    <span class="icon-envelope em2"></span> <em>Contact</em> Yearofmoo
+  </a>
+</p>
+
+            <div data-yom-disqus="">
+  <div id="disqus_thread"></div>
+  <nav class="jump">
+    <a href="#top" class="top">To Top</a>
+  </nav>
+</div>
+
+          </section>
+        </div>
+      </div>
+    </div>
+    <div id="footer">
+</div>
+
+  </div>
+<script type="text/javascript">document.body.className += ' js';</script>
+
+<script src="Full-Spectrum%20Testing%20with%20AngularJS%20and%20Karma%20-%20yearofmoo.com_fichiers/application-908b67a83c37ed55251312341608c6c6.js" type="text/javascript"></script>
+<script type="text/javascript">
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-21121403-1']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+</script>
+
+
+
+</body></html>

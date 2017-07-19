@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"><style type="text/css">@charset "UTF-8";[ng\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-animate){display:none !important;}ng\:form{display:block;}</style>
+  <meta charset="UTF-8">
+  <title>Example - example-example100</title>
+  
+
+  <script src="index_data/angular.js"></script>
+  <script src="index_data_003/script.js"></script>
+  
+
+  
+<script>try {  for(var lastpass_iter=0; lastpass_iter < document.forms.length; lastpass_iter++){    var lastpass_f = document.forms[lastpass_iter];    if(typeof(lastpass_f.lpsubmitorig)=="undefined"){      if (typeof(lastpass_f.submit) == "function") {        lastpass_f.lpsubmitorig = lastpass_f.submit;        lastpass_f.submit = function(){          var form = this;          try {            if (document.documentElement && 'createEvent' in document)            {              var forms = document.getElementsByTagName('form');              for (var i=0 ; i<forms.length ; ++i)                if (forms[i]==form)                {                  var element = document.createElement('lpformsubmitdataelement');                  element.setAttribute('formnum',i);                  element.setAttribute('from','submithook');                  document.documentElement.appendChild(element);                  var evt = document.createEvent('Events');                  evt.initEvent('lpformsubmit',true,false);                  element.dispatchEvent(evt);                  break;                }            }          } catch (e) {}          try {            form.lpsubmitorig();          } catch (e) {}        }      }    }  }} catch (e) {}</script></head>
+<body class="ng-scope" ng-app="formExample">
+    <div class="ng-scope" ng-controller="ExampleController">
+    <form name="form" class="css-form ng-pristine ng-invalid ng-invalid-required" novalidate="">
+      Name:
+        <input class="ng-pristine ng-untouched ng-invalid ng-invalid-required" ng-model="user.name" name="uName" required="" type="text"><br>
+      E-mail:
+        <input class="ng-pristine ng-untouched ng-invalid ng-invalid-required ng-valid-email" ng-model="user.email" name="uEmail" required="" type="email"><br>
+      <div class="ng-hide" ng-show="form.uEmail.$dirty &amp;&amp; form.uEmail.$invalid">Invalid:
+        <span class="" ng-show="form.uEmail.$error.required">Tell us your email.</span>
+        <span class="ng-hide" ng-show="form.uEmail.$error.email">This is not a valid email.</span>
+      </div>
+
+      Gender: <input name="3" class="ng-pristine ng-untouched ng-valid" ng-model="user.gender" value="male" type="radio">male
+      <input name="4" class="ng-pristine ng-untouched ng-valid" ng-model="user.gender" value="female" type="radio">female<br>
+
+      <input class="ng-pristine ng-untouched ng-invalid ng-invalid-required" ng-model="user.agree" name="userAgree" required="" type="checkbox">
+      I agree: <input class="ng-pristine ng-untouched ng-invalid ng-invalid-required ng-hide" ng-show="user.agree" ng-model="user.agreeSign" required="" type="text"><br>
+      <div class="" ng-show="!user.agree || !user.agreeSign">Please agree and sign.</div>
+
+      <button disabled="disabled" ng-click="reset()" ng-disabled="isUnchanged(user)">RESET</button>
+      <button disabled="disabled" ng-click="update(user)" ng-disabled="form.$invalid || isUnchanged(user)">SAVE</button>
+    </form>
+  </div>
+
+</body></html>

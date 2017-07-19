@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html ng-app='myApp'>
+  <head>
+    <meta charset="utf-8" />
+    <title>
+        Scopes
+    </title>
+</head>
+
+<body >
+
+<script>
+
+function dessus() {
+    variable_globale = "Global foo";
+    var variable_locale = "Local bar";
+
+    function dessous(){
+        alert("Local : " + typeof variable_locale + " - Global : " + typeof variable_globale);
+    }
+
+    dessous()
+}
+
+function ailleurs(){
+    alert("Local : " + typeof variable_locale + " - Global : " + typeof variable_globale);
+}
+
+
+</script>
+
+<p> <button onclick='dessus()'>Scope du dessus</button> </p>
+<p> <button onclick='dessous()'>Scope du dessous</button> </p>
+<p> <button onclick='ailleurs()'>Scope séparé</button> </p>
+
+</html>
+
+</body>
+</html>
+

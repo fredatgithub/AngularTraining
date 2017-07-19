@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html ng-app='myApp'>
+  <head>
+    <meta charset="utf-8" />
+    <title>
+        Exo Callback
+    </title>
+</head>
+
+<body>
+
+<script>
+
+function hello(){
+    alert('hello');
+}
+
+function coucou(){
+    alert('coucou');
+}
+
+function defaut(func){
+    if (func) {
+        return func();
+    }
+    alert("Vous n'avez pas choisit de fonction");
+}
+
+function choisir(func_name){
+    if (func_name === "coucou") {
+        return defaut(coucou);
+    }
+    if (func_name === "hello") {
+        return defaut(hello);
+    }
+    return defaut()
+}
+
+
+</script>
+
+<form>
+    <p>
+        <input type="text" id="source" >
+    </p>
+    <p> <button onclick='choisir(document.forms[0].source.value)'>Ok</button> </p>
+
+</form>
+
+</html>
+
+</body>
+</html>
+

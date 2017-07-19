@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"><style type="text/css">@charset "UTF-8";[ng\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-animate){display:none !important;}ng\:form{display:block;}</style>
+  <meta charset="UTF-8">
+  <title>Example - example-example103</title>
+  
+
+  <script src="index_data/angular.js"></script>
+  <script src="index_data_006/script.js"></script>
+  
+
+  
+<script>try {  for(var lastpass_iter=0; lastpass_iter < document.forms.length; lastpass_iter++){    var lastpass_f = document.forms[lastpass_iter];    if(typeof(lastpass_f.lpsubmitorig)=="undefined"){      if (typeof(lastpass_f.submit) == "function") {        lastpass_f.lpsubmitorig = lastpass_f.submit;        lastpass_f.submit = function(){          var form = this;          try {            if (document.documentElement && 'createEvent' in document)            {              var forms = document.getElementsByTagName('form');              for (var i=0 ; i<forms.length ; ++i)                if (forms[i]==form)                {                  var element = document.createElement('lpformsubmitdataelement');                  element.setAttribute('formnum',i);                  element.setAttribute('from','submithook');                  document.documentElement.appendChild(element);                  var evt = document.createEvent('Events');                  evt.initEvent('lpformsubmit',true,false);                  element.dispatchEvent(evt);                  break;                }            }          } catch (e) {}          try {            form.lpsubmitorig();          } catch (e) {}        }      }    }  }} catch (e) {}</script></head>
+<body class="ng-scope" ng-app="form-example1">
+    <form name="form" class="css-form ng-pristine ng-valid" novalidate="">
+    <div class="ng-binding">
+      Size (integer 0 - 10):
+      <input class="ng-pristine ng-untouched ng-valid ng-valid-number ng-valid-max ng-valid-min" ng-model="size" name="size" min="0" max="10" integer="" type="number"><br>
+      <span class="ng-hide" ng-show="form.size.$error.integer">This is not valid integer!</span>
+      <span class="ng-hide" ng-show="form.size.$error.min || form.size.$error.max">
+        The value must be in range 0 to 10!</span>
+    </div>
+
+    <div class="ng-binding">
+      Length (float):
+      <input class="ng-pristine ng-untouched ng-valid" ng-model="length" name="length" smart-float="" type="text">
+      <br>
+      <span class="ng-hide" ng-show="form.length.$error.float">
+        This is not a valid float number!</span>
+    </div>
+  </form>
+
+</body></html>

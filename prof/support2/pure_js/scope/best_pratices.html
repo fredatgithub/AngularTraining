@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html ng-app='myApp'>
+  <head>
+    <meta charset="utf-8" />
+    <title>
+        Best pratices
+    </title>
+</head>
+
+<body >
+
+<script>
+
+(function(){
+    // Ici on peut mettre tout le code encapsulé qu'on le souhaite.
+    var cette_variable_n_est_pas_exposee = true;
+    function cette_fonction_n_est_pas_exposee_non_plus(){
+        alert('rouge');
+    }
+
+    // Si on a besoin d'exposer du code à l'extérieur, on créer un namespace.
+    window.app = {};
+    app.attribut = "Un attribut";
+    app.une_fonction = function() {
+        alert(app.attribut);
+    };
+    // Le mécanisme d'angular d'injection de dépendance à pour but de permettre
+    // d'avoir cette encapsulation, mais en évitant la présence d'un objet
+    // central.
+})();
+
+
+</script>
+
+<p> <button onclick='app.une_fonction()'>Fonction exposée</button> </p>
+<p> <button onclick='cette_fonction_n_est_pas_exposee_non_plus()'>Fonction non exposée</button> </p>
+
+</html>
+
+</body>
+</html>
+

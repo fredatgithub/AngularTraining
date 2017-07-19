@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html class="   " lang="en"><script id="bug.surrogate.1">var urchinTracker=function(){},_gaq={push:function(){try {if(arguments[0][0]=='_link')window.location.href=arguments[0][1]}catch(er){}}},_gat={_createTracker:function(){}, _getTracker:function(){return{__noSuchMethod__:function(){},_link:function(o){if(o)location.href=o;},_linkByPost:function(){return true;},_getLinkerUrl:function(o){return o;},_trackEvent:function(){}}}};</script><head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# object: http://ogp.me/ns/object# article: http://ogp.me/ns/article# profile: http://ogp.me/ns/profile#">
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Language" content="en">
+    
+    
+    <title>The Components · angular-ui/ui-router Wiki · GitHub</title>
+    <link rel="search" type="application/opensearchdescription+xml" href="https://github.com/opensearch.xml" title="GitHub">
+    <link rel="fluid-icon" href="https://github.com/fluidicon.png" title="GitHub">
+    <link rel="apple-touch-icon" sizes="57x57" href="https://github.com/apple-touch-icon-114.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="https://github.com/apple-touch-icon-114.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="https://github.com/apple-touch-icon-144.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="https://github.com/apple-touch-icon-144.png">
+    <meta property="fb:app_id" content="1401488693436528">
+
+      <meta content="@github" name="twitter:site"><meta content="summary" name="twitter:card"><meta content="angular-ui/ui-router" name="twitter:title"><meta content="ui-router - The de-facto solution to flexible routing with nested views" name="twitter:description"><meta content="https://avatars0.githubusercontent.com/u/1530011?v=2&amp;s=400" name="twitter:image:src">
+<meta content="GitHub" property="og:site_name"><meta content="object" property="og:type"><meta content="https://avatars0.githubusercontent.com/u/1530011?v=2&amp;s=400" property="og:image"><meta content="angular-ui/ui-router" property="og:title"><meta content="https://github.com/angular-ui/ui-router" property="og:url"><meta content="ui-router - The de-facto solution to flexible routing with nested views" property="og:description">
+
+    <link rel="assets" href="https://assets-cdn.github.com/">
+    <link rel="conduit-xhr" href="https://ghconduit.com:25035/">
+    
+
+    <meta name="msapplication-TileImage" content="/windows-tile.png">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="selected-link" value="repo_wiki" data-pjax-transient="">
+      <meta name="google-analytics" content="UA-3769691-2">
+
+    <meta content="collector.githubapp.com" name="octolytics-host"><meta content="collector-cdn.github.com" name="octolytics-script-host"><meta content="github" name="octolytics-app-id"><meta content="58A893A7:0871:6317C29:53F1A7B5" name="octolytics-dimension-request_id">
+    
+
+    
+    
+    <link rel="icon" type="image/x-icon" href="https://assets-cdn.github.com/favicon.ico">
+
+
+    <meta content="authenticity_token" name="csrf-param">
+<meta content="pTJq9b4lq7nU618Dfjk/EBoHwTm7x4UpFas25mD/OHXRKeB6OTDMZ9B7njXVtSNkyK953uRTF+AuWmTV5iK5RA==" name="csrf-token">
+
+    <link href="The%20Components%20%C2%B7%20angular-ui_ui-router%20Wiki%20%C2%B7%20GitHub_fichiers/github-5efa7b0b8a55ddcee56e5aee3fa56109d1d2781c.css" media="all" rel="stylesheet" type="text/css">
+    <link href="The%20Components%20%C2%B7%20angular-ui_ui-router%20Wiki%20%C2%B7%20GitHub_fichiers/github2-97fd69f3a3771e25d14b434fa06478cc54fb9bf3.css" media="all" rel="stylesheet" type="text/css">
+    
+
+
+    <meta http-equiv="x-pjax-version" content="48f4828d889e064d2d5d273971fb3850">
+
+      
+  <meta name="description" content="ui-router - The de-facto solution to flexible routing with nested views">
+
+
+  <meta content="1530011" name="octolytics-dimension-user_id"><meta content="angular-ui" name="octolytics-dimension-user_login"><meta content="7693799" name="octolytics-dimension-repository_id"><meta content="angular-ui/ui-router" name="octolytics-dimension-repository_nwo"><meta content="true" name="octolytics-dimension-repository_public"><meta content="false" name="octolytics-dimension-repository_is_fork"><meta content="7693799" name="octolytics-dimension-repository_network_root_id"><meta content="angular-ui/ui-router" name="octolytics-dimension-repository_network_root_nwo">
+  <link href="https://github.com/angular-ui/ui-router/commits/master.atom" rel="alternate" title="Recent Commits to ui-router:master" type="application/atom+xml">
+
+  <script src="The%20Components%20%C2%B7%20angular-ui_ui-router%20Wiki%20%C2%B7%20GitHub_fichiers/api.js" async="" type="text/javascript"></script><script>try {  for(var lastpass_iter=0; lastpass_iter < document.forms.length; lastpass_iter++){    var lastpass_f = document.forms[lastpass_iter];    if(typeof(lastpass_f.lpsubmitorig)=="undefined"){      if (typeof(lastpass_f.submit) == "function") {        lastpass_f.lpsubmitorig = lastpass_f.submit;        lastpass_f.submit = function(){          var form = this;          try {            if (document.documentElement && 'createEvent' in document)            {              var forms = document.getElementsByTagName('form');              for (var i=0 ; i<forms.length ; ++i)                if (forms[i]==form)                {                  var element = document.createElement('lpformsubmitdataelement');                  element.setAttribute('formnum',i);                  element.setAttribute('from','submithook');                  document.documentElement.appendChild(element);                  var evt = document.createEvent('Events');                  evt.initEvent('lpformsubmit',true,false);                  element.dispatchEvent(evt);                  break;                }            }          } catch (e) {}          try {            form.lpsubmitorig();          } catch (e) {}        }      }    }  }} catch (e) {}</script></head>
+
+
+  <body class="logged_out  env-production linux vis-public">
+    <a href="#start-of-content" tabindex="1" class="accessibility-aid js-skip-to-content">Skip to content</a>
+    <div class="wrapper">
+      
+      
+      
+      
+
+
+      
+      <div class="header header-logged-out">
+  <div class="container clearfix">
+
+    <a class="header-logo-wordmark" href="https://github.com/">
+      <span class="mega-octicon octicon-logo-github"></span>
+    </a>
+
+    <div class="header-actions">
+        <a class="button primary" href="https://github.com/join">Sign up</a>
+      <a class="button signin" href="https://github.com/login?return_to=%2Fangular-ui%2Fui-router%2Fwiki%2FThe-Components">Sign in</a>
+    </div>
+
+    <div class="command-bar js-command-bar  in-repository">
+
+      <ul class="top-nav">
+          <li class="explore"><a href="https://github.com/explore">Explore</a></li>
+          <li class="features"><a href="https://github.com/features">Features</a></li>
+          <li class="enterprise"><a href="https://enterprise.github.com/">Enterprise</a></li>
+          <li class="blog"><a href="https://github.com/blog">Blog</a></li>
+      </ul>
+        <form accept-charset="UTF-8" action="/search" class="command-bar-form" id="top_search_form" method="get"><div style="margin:0;padding:0;display:inline"><input name="utf8" value="✓" type="hidden"></div>
+
+<div class="commandbar">
+  <span class="message"></span>
+  <input data-hotkey="s" name="q" id="js-command-bar-field" placeholder="Search or type a command" tabindex="1" autocapitalize="off" data-repo="angular-ui/ui-router" type="text">
+  <div class="display hidden"></div>
+</div>
+
+    <input name="nwo" value="angular-ui/ui-router" type="hidden">
+
+    <div class="select-menu js-menu-container js-select-menu search-context-select-menu">
+      <span class="minibutton select-menu-button js-menu-target" role="button" aria-haspopup="true">
+        <span class="js-select-button">This repository</span>
+      </span>
+
+      <div class="select-menu-modal-holder js-menu-content js-navigation-container" aria-hidden="true">
+        <div class="select-menu-modal">
+
+          <div class="select-menu-item js-navigation-item js-this-repository-navigation-item selected">
+            <span class="select-menu-item-icon octicon octicon-check"></span>
+            <input class="js-search-this-repository" name="search_target" value="repository" checked="checked" type="radio">
+            <div class="select-menu-item-text js-select-button-text">This repository</div>
+          </div> <!-- /.select-menu-item -->
+
+          <div class="select-menu-item js-navigation-item js-all-repositories-navigation-item">
+            <span class="select-menu-item-icon octicon octicon-check"></span>
+            <input name="search_target" value="global" type="radio">
+            <div class="select-menu-item-text js-select-button-text">All repositories</div>
+          </div> <!-- /.select-menu-item -->
+
+        </div>
+      </div>
+    </div>
+
+  <span class="help tooltipped tooltipped-s" aria-label="Show command bar help">
+    <span class="octicon octicon-question"></span>
+  </span>
+
+
+  <input name="ref" value="cmdform" type="hidden">
+
+</form>
+    </div>
+
+  </div>
+</div>
+
+
+
+      <div id="start-of-content" class="accessibility-aid"></div>
+          <div class="site" itemscope="" itemtype="http://schema.org/WebPage">
+    <div id="js-flash-container">
+      
+    </div>
+    <div class="pagehead repohead instapaper_ignore readability-menu">
+      <div class="container">
+        
+<ul class="pagehead-actions">
+
+
+  <li>
+      <a href="https://github.com/login?return_to=%2Fangular-ui%2Fui-router" class="minibutton with-count star-button tooltipped tooltipped-n" aria-label="You must be signed in to star a repository" rel="nofollow">
+    <span class="octicon octicon-star"></span>
+    Star
+  </a>
+
+    <a class="social-count js-social-count" href="https://github.com/angular-ui/ui-router/stargazers">
+      3,929
+    </a>
+
+  </li>
+
+    <li>
+      <a href="https://github.com/login?return_to=%2Fangular-ui%2Fui-router" class="minibutton with-count js-toggler-target fork-button tooltipped tooltipped-n" aria-label="You must be signed in to fork a repository" rel="nofollow">
+        <span class="octicon octicon-repo-forked"></span>
+        Fork
+      </a>
+      <a href="https://github.com/angular-ui/ui-router/network" class="social-count">
+        955
+      </a>
+    </li>
+</ul>
+
+        <h1 itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb" class="entry-title public">
+          <span class="mega-octicon octicon-repo"></span>
+          <span class="author"><a href="https://github.com/angular-ui" class="url fn" itemprop="url" rel="author"><span itemprop="title">angular-ui</span></a></span><!--
+       --><span class="path-divider">/</span><!--
+       --><strong><a href="https://github.com/angular-ui/ui-router" class="js-current-repository js-repo-home-link">ui-router</a></strong>
+
+          <span class="page-context-loader">
+            <img alt="" src="The%20Components%20%C2%B7%20angular-ui_ui-router%20Wiki%20%C2%B7%20GitHub_fichiers/octocat-spinner-32.gif" height="16" width="16">
+          </span>
+
+        </h1>
+      </div><!-- /.container -->
+    </div><!-- /.repohead -->
+
+    <div class="container">
+      <div class="repository-with-sidebar repo-container new-discussion-timeline">
+        <div class="repository-sidebar clearfix">
+            
+<div class="sunken-menu vertical-right repo-nav js-repo-nav js-repository-container-pjax js-octicon-loaders" data-issue-count-url="/angular-ui/ui-router/issues/counts">
+  <div class="sunken-menu-contents">
+    <ul class="sunken-menu-group">
+      <li class="tooltipped tooltipped-w" aria-label="Code">
+        <a href="https://github.com/angular-ui/ui-router" aria-label="Code" class="js-selected-navigation-item sunken-menu-item" data-hotkey="g c" data-pjax="true" data-selected-links="repo_source repo_downloads repo_commits repo_releases repo_tags repo_branches /angular-ui/ui-router">
+          <span class="octicon octicon-code"></span> <span class="full-word">Code</span>
+          <img alt="" class="mini-loader" src="The%20Components%20%C2%B7%20angular-ui_ui-router%20Wiki%20%C2%B7%20GitHub_fichiers/octocat-spinner-32.gif" height="16" width="16">
+</a>      </li>
+
+        <li class="tooltipped tooltipped-w" aria-label="Issues">
+          <a href="https://github.com/angular-ui/ui-router/issues" aria-label="Issues" class="js-selected-navigation-item sunken-menu-item js-disable-pjax" data-hotkey="g i" data-selected-links="repo_issues repo_labels repo_milestones /angular-ui/ui-router/issues">
+            <span class="octicon octicon-issue-opened"></span> <span class="full-word">Issues</span>
+            <span class="js-issue-replace-counter"></span>
+            <img alt="" class="mini-loader" src="The%20Components%20%C2%B7%20angular-ui_ui-router%20Wiki%20%C2%B7%20GitHub_fichiers/octocat-spinner-32.gif" height="16" width="16">
+</a>        </li>
+
+      <li class="tooltipped tooltipped-w" aria-label="Pull Requests">
+        <a href="https://github.com/angular-ui/ui-router/pulls" aria-label="Pull Requests" class="js-selected-navigation-item sunken-menu-item js-disable-pjax" data-hotkey="g p" data-selected-links="repo_pulls /angular-ui/ui-router/pulls">
+            <span class="octicon octicon-git-pull-request"></span> <span class="full-word">Pull Requests</span>
+            <span class="js-pull-replace-counter"></span>
+            <img alt="" class="mini-loader" src="The%20Components%20%C2%B7%20angular-ui_ui-router%20Wiki%20%C2%B7%20GitHub_fichiers/octocat-spinner-32.gif" height="16" width="16">
+</a>      </li>
+
+
+        <li class="tooltipped tooltipped-w" aria-label="Wiki">
+          <a href="https://github.com/angular-ui/ui-router/wiki" aria-label="Wiki" class="selected js-selected-navigation-item sunken-menu-item js-disable-pjax" data-hotkey="g w" data-selected-links="repo_wiki /angular-ui/ui-router/wiki">
+            <span class="octicon octicon-book"></span> <span class="full-word">Wiki</span>
+            <img alt="" class="mini-loader" src="The%20Components%20%C2%B7%20angular-ui_ui-router%20Wiki%20%C2%B7%20GitHub_fichiers/octocat-spinner-32.gif" height="16" width="16">
+</a>        </li>
+    </ul>
+    <div class="sunken-menu-separator"></div>
+    <ul class="sunken-menu-group">
+
+      <li class="tooltipped tooltipped-w" aria-label="Pulse">
+        <a href="https://github.com/angular-ui/ui-router/pulse/weekly" aria-label="Pulse" class="js-selected-navigation-item sunken-menu-item" data-pjax="true" data-selected-links="pulse /angular-ui/ui-router/pulse/weekly">
+          <span class="octicon octicon-pulse"></span> <span class="full-word">Pulse</span>
+          <img alt="" class="mini-loader" src="The%20Components%20%C2%B7%20angular-ui_ui-router%20Wiki%20%C2%B7%20GitHub_fichiers/octocat-spinner-32.gif" height="16" width="16">
+</a>      </li>
+
+      <li class="tooltipped tooltipped-w" aria-label="Graphs">
+        <a href="https://github.com/angular-ui/ui-router/graphs" aria-label="Graphs" class="js-selected-navigation-item sunken-menu-item" data-pjax="true" data-selected-links="repo_graphs repo_contributors /angular-ui/ui-router/graphs">
+          <span class="octicon octicon-graph"></span> <span class="full-word">Graphs</span>
+          <img alt="" class="mini-loader" src="The%20Components%20%C2%B7%20angular-ui_ui-router%20Wiki%20%C2%B7%20GitHub_fichiers/octocat-spinner-32.gif" height="16" width="16">
+</a>      </li>
+    </ul>
+
+
+  </div>
+</div>
+
+              <div class="only-with-full-nav">
+                
+  
+<div class="clone-url open" data-protocol-type="http" data-url="/users/set_protocol?protocol_selector=http&amp;protocol_type=clone">
+  <h3><strong>HTTPS</strong> clone URL</h3>
+  <div class="input-group">
+    <input class="input-mini input-monospace js-url-field" value="https://github.com/angular-ui/ui-router.git" readonly="readonly" type="text">
+    <span class="input-group-button">
+      <button aria-label="Copy to clipboard" class="js-zeroclipboard minibutton zeroclipboard-button" data-clipboard-text="https://github.com/angular-ui/ui-router.git" data-copied-hint="Copied!" type="button"><span class="octicon octicon-clippy"></span></button>
+    </span>
+  </div>
+</div>
+
+  
+<div class="clone-url " data-protocol-type="subversion" data-url="/users/set_protocol?protocol_selector=subversion&amp;protocol_type=clone">
+  <h3><strong>Subversion</strong> checkout URL</h3>
+  <div class="input-group">
+    <input class="input-mini input-monospace js-url-field" value="https://github.com/angular-ui/ui-router" readonly="readonly" type="text">
+    <span class="input-group-button">
+      <button aria-label="Copy to clipboard" class="js-zeroclipboard minibutton zeroclipboard-button" data-clipboard-text="https://github.com/angular-ui/ui-router" data-copied-hint="Copied!" type="button"><span class="octicon octicon-clippy"></span></button>
+    </span>
+  </div>
+</div>
+
+
+<p class="clone-options">You can clone with
+      <a href="#" class="js-clone-selector" data-protocol="http">HTTPS</a>
+      or <a href="#" class="js-clone-selector" data-protocol="subversion">Subversion</a>.
+  <a href="https://help.github.com/articles/which-remote-url-should-i-use" class="help tooltipped tooltipped-n" aria-label="Get help on which URL is right for you.">
+    <span class="octicon octicon-question"></span>
+  </a>
+</p>
+
+
+
+                <a href="https://github.com/angular-ui/ui-router/archive/master.zip" class="minibutton sidebar-button" aria-label="Download angular-ui/ui-router as a zip file" title="Download angular-ui/ui-router as a zip file" rel="nofollow">
+                  <span class="octicon octicon-cloud-download"></span>
+                  Download ZIP
+                </a>
+              </div>
+        </div><!-- /.repository-sidebar -->
+
+        <div id="js-repo-pjax-container" class="repository-content context-loader-container" data-pjax-container="">
+          
+
+<div id="wiki-wrapper" class="wiki-wrapper page">
+<div class="gh-header">
+  <div class="gh-header-show">
+      <div class="gh-header-actions">
+      </div>
+    <h1 class="gh-header-title instapaper_title">The Components&nbsp;</h1>
+      <div class="gh-header-meta">
+        <a href="https://github.com/timkindberg" class="author">timkindberg</a> edited this page <time title="27 juin 2013 18:10 UTC+2" datetime="2013-06-27T09:10:34-07:00" is="relative-time">on 27 Jun 2013</time>
+        ·
+        <a href="https://github.com/angular-ui/ui-router/wiki/The-Components/_history" class="history">
+          5 revisions
+        </a>
+      </div>
+  </div>
+</div>
+<div id="wiki-content">
+  <div class="wrap has-rightbar">
+
+  <div id="wiki-rightbar">
+    <div class="wiki-pages-box readability-sidebar boxed-group flush js-wiki-pages-box collapsed">
+      
+
+  <h3 class="js-wiki-toggle-collapse wiki-auxiliary-content">
+    <span class="octicon octicon-triangle-down caret-expanded"></span>
+    <span class="octicon octicon-triangle-right caret-collapsed"></span>
+    Pages <span class="counter">13</span>
+  </h3>
+  <div class="boxed-group-inner wiki-auxiliary-content wiki-auxiliary-content-no-bg">
+
+    <ul class="wiki-pages" data-filterable-for="wiki-pages-filter" data-filterable-type="substring">
+      <li>
+        <strong><a href="https://github.com/angular-ui/ui-router/wiki/Backwards-Compatibility">Backwards Compatibility</a></strong>
+      </li>
+      <li>
+        <strong><a href="https://github.com/angular-ui/ui-router/wiki/Blog-Posts-&amp;-Forks">Blog Posts &amp; Forks</a></strong>
+      </li>
+      <li>
+        <strong><a href="https://github.com/angular-ui/ui-router/wiki/Frequently-Asked-Questions">Frequently Asked Questions</a></strong>
+      </li>
+      <li>
+        <strong><a href="https://github.com/angular-ui/ui-router/wiki">Home</a></strong>
+      </li>
+      <li>
+        <strong><a href="https://github.com/angular-ui/ui-router/wiki/Important-Concepts">Important Concepts</a></strong>
+      </li>
+      <li>
+        <strong><a href="https://github.com/angular-ui/ui-router/wiki/Multiple-Named-Views">Multiple Named Views</a></strong>
+      </li>
+      <li>
+        <strong><a href="https://github.com/angular-ui/ui-router/wiki/Nested-States-&amp;-Nested-Views">Nested States &amp; Nested Views</a></strong>
+      </li>
+      <li>
+        <strong><a href="https://github.com/angular-ui/ui-router/wiki/Quick-Reference">Quick Reference</a></strong>
+      </li>
+      <li>
+        <strong><a href="https://github.com/angular-ui/ui-router/wiki/Roadmap">Roadmap</a></strong>
+      </li>
+      <li>
+        <strong><a href="https://github.com/angular-ui/ui-router/wiki/State-manager">State manager</a></strong>
+      </li>
+      <li>
+        <strong><a href="https://github.com/angular-ui/ui-router/wiki/The-Components">The Components</a></strong>
+      </li>
+      <li>
+        <strong><a href="https://github.com/angular-ui/ui-router/wiki/URL-Routing">URL Routing</a></strong>
+      </li>
+      <li>
+        <strong><a href="https://github.com/angular-ui/ui-router/wiki/Votes-on-Router-Specs-%28old%29">Votes on Router Specs (old)</a></strong>
+      </li>
+    </ul>
+  </div>
+
+    </div>
+
+      <div class="gollum-markdown-content readability-sidebar box box-small">
+        <div class="boxed-group flush wiki-custom-sidebar wiki-auxiliary-content wiki-auxiliary-content-no-bg  markdown-body">
+          <p><strong>In-Depth Guide</strong></p>
+
+<ul class="task-list">
+<li><a class="internal present" href="https://github.com/angular-ui/ui-router/wiki/Home">State Manager</a></li>
+<li><a class="internal present" href="https://github.com/angular-ui/ui-router/wiki/Nested-States-%26-Nested-Views">Nested States &amp; Nested Views</a></li>
+<li><a class="internal present" href="https://github.com/angular-ui/ui-router/wiki/Multiple-Named-Views">Multiple Named Views</a></li>
+<li><a class="internal present" href="https://github.com/angular-ui/ui-router/wiki/URL-Routing">URL Routing</a></li>
+<li><a class="internal present" href="https://github.com/angular-ui/ui-router/wiki/The-Components">The Components</a></li>
+</ul><p><strong>Reference Docs</strong></p>
+
+<ul class="task-list">
+<li><a href="http://angular-ui.github.io/ui-router/site">API Reference</a></li>
+<li><a href="http://angular-ui.github.io/ui-router/sample">Sample App</a></li>
+<li><a class="internal present" href="https://github.com/angular-ui/ui-router/wiki/Frequently-Asked-Questions">FAQ</a></li>
+<li><a class="internal present" href="https://github.com/angular-ui/ui-router/wiki/Blog-Posts-%26-Forks">Blog Posts &amp; Forks</a></li>
+</ul>
+        </div>
+      </div>
+
+    <div class="clone-url" data-protocol-type="" data-url="https://github.com/angular-ui/ui-router.wiki.git">
+      <h5>Clone this wiki locally</h5>
+      <div class="input-group">
+        <input class="input-mini input-monospace js-url-field" value="https://github.com/angular-ui/ui-router.wiki.git" readonly="readonly" type="text">
+        <span class="input-group-button">
+          <button aria-label="Copy to clipboard" class="js-zeroclipboard minibutton zeroclipboard-button" data-clipboard-text="https://github.com/angular-ui/ui-router.wiki.git" data-copied-hint="Copied!" type="button"><span class="octicon octicon-clippy"></span></button>
+        </span>
+      </div>
+
+
+    </div>
+  </div>
+
+  <div id="wiki-body" class="gollum-markdown-content instapaper_body">
+    <div class="markdown-body">
+      <ul class="task-list">
+<li>
+<strong>$state</strong> / <strong>$stateProvider</strong>: Manages state
+ definitions, the current state, and state transitions. This includes 
+triggering transition-related events and callbacks, asynchronously 
+resolving any dependencies of the target state, and updating $location 
+to reflect the current state. For states that have URLs, a rule is 
+automatically registered with $urlRouterProvider that performs a 
+transition to that state.</li>
+<li>
+<strong>ui-view</strong> directive: Renders views defined in the current
+ state. Essentially ui-view directives are (optionally named) 
+placeholders that gets filled with views defined in the current state. </li>
+<li>
+<strong>$urlRouter</strong> / <strong>$urlRouterProvider</strong>: Manages a list of <em>rules</em>
+ that are matched against $location whenever it changes. At the lowest 
+level, a rule can be an arbitrary function that inspects $location and 
+returns true if it was handled. Support is provided on top of this for 
+RegExp rules and URL patterns that are compiled into UrlMatcher objects 
+via $urlMatcherFactory.</li>
+<li>
+<strong>$urlMatcherFactory</strong>: Compiles URL patterns with 
+placeholders into UrlMatcher objects. In addition to the placeholder 
+syntax supported by $routeProvider, it also supports an extended syntax 
+that allows a regexp to be specified for the placeholder, and has the 
+ability to extract named parameters from the query part of the URL.</li>
+<li>
+<strong>$templateFactory</strong>: Loads templates via $http / $templateCache. Used by $state.</li>
+</ul><p><a class="internal present" href="https://github.com/angular-ui/ui-router/wiki/URL-Routing">◄ Back (URL Routing)</a> <code>&nbsp;  &nbsp;</code> <a class="internal present" href="https://github.com/angular-ui/ui-router/wiki/Quick-Reference">Next (API Quick Reference) ►</a></p>
+    </div>
+
+      <div id="wiki-footer" class="gollum-markdown-content boxed-group">
+        <div class="boxed-group-inner wiki-auxiliary-content  markdown-body">
+          <p>Use the table of contents to the top right to navigate to other wiki sections.</p>
+        </div>
+      </div>
+  </div>
+  </div>
+</div>
+</div>
+
+
+        </div>
+
+      </div><!-- /.repo-container -->
+      <div class="modal-backdrop"></div>
+    </div><!-- /.container -->
+  </div><!-- /.site -->
+
+
+    </div><!-- /.wrapper -->
+
+      <div class="container">
+  <div class="site-footer">
+    <ul class="site-footer-links right">
+      <li><a href="https://status.github.com/">Status</a></li>
+      <li><a href="http://developer.github.com/">API</a></li>
+      <li><a href="http://training.github.com/">Training</a></li>
+      <li><a href="http://shop.github.com/">Shop</a></li>
+      <li><a href="https://github.com/blog">Blog</a></li>
+      <li><a href="https://github.com/about">About</a></li>
+
+    </ul>
+
+    <a href="https://github.com/" aria-label="Homepage">
+      <span class="mega-octicon octicon-mark-github" title="GitHub"></span>
+    </a>
+
+    <ul class="site-footer-links">
+      <li>© 2014 <span title="0.03241s from github-fe126-cp1-prd.iad.github.net">GitHub</span>, Inc.</li>
+        <li><a href="https://github.com/site/terms">Terms</a></li>
+        <li><a href="https://github.com/site/privacy">Privacy</a></li>
+        <li><a href="https://github.com/security">Security</a></li>
+        <li><a href="https://github.com/contact">Contact</a></li>
+    </ul>
+  </div><!-- /.site-footer -->
+</div><!-- /.container -->
+
+
+    <div class="fullscreen-overlay js-fullscreen-overlay" id="fullscreen_overlay">
+  <div class="fullscreen-container js-suggester-container">
+    <div class="textarea-wrap">
+      <textarea name="fullscreen-contents" id="fullscreen-contents" class="fullscreen-contents js-fullscreen-contents js-suggester-field" placeholder=""></textarea>
+    </div>
+  </div>
+  <div class="fullscreen-sidebar">
+    <a href="#" class="exit-fullscreen js-exit-fullscreen tooltipped tooltipped-w" aria-label="Exit Zen Mode">
+      <span class="mega-octicon octicon-screen-normal"></span>
+    </a>
+    <a href="#" class="theme-switcher js-theme-switcher tooltipped tooltipped-w" aria-label="Switch themes">
+      <span class="octicon octicon-color-mode"></span>
+    </a>
+  </div>
+</div>
+
+
+
+    <div id="ajax-error-message" class="flash flash-error">
+      <span class="octicon octicon-alert"></span>
+      <a href="#" class="octicon octicon-x close js-ajax-error-dismiss" aria-label="Dismiss error"></a>
+      Something went wrong with that request. Please try again.
+    </div>
+
+
+      <script crossorigin="anonymous" src="The%20Components%20%C2%B7%20angular-ui_ui-router%20Wiki%20%C2%B7%20GitHub_fichiers/frameworks-12d5fda141e78e513749dddbc56445fe172cbd9a.js" type="text/javascript"></script>
+      <script async="async" crossorigin="anonymous" src="The%20Components%20%C2%B7%20angular-ui_ui-router%20Wiki%20%C2%B7%20GitHub_fichiers/github-f10c35fa6ed31fb604881f1bd1f36d8cafda2f66.js" type="text/javascript"></script>
+      
+        <script crossorigin="anonymous" src="The%20Components%20%C2%B7%20angular-ui_ui-router%20Wiki%20%C2%B7%20GitHub_fichiers/wiki-b10d565822b64cd2cfc7f4b832b4b1177118461b.js" type="text/javascript"></script>
+
+        
+  
+
+
+<div style="position: absolute; left: 0px; top: -9999px; width: 1px; height: 1px; z-index: 999999999;" class="global-zeroclipboard-container" id="global-zeroclipboard-html-bridge"><object id="global-zeroclipboard-flash-bridge" name="global-zeroclipboard-flash-bridge" type="application/x-shockwave-flash" data="The%20Components%20%C2%B7%20angular-ui_ui-router%20Wiki%20%C2%B7%20GitHub_fichiers/ZeroClipboard.swf" height="100%" width="100%"><param name="allowScriptAccess" value="always"><param name="allowNetworking" value="all"><param name="menu" value="false"><param name="wmode" value="transparent"><param name="flashvars" value="trustedOrigins=github.com%2C%2F%2Fgithub.com%2Chttps%3A%2F%2Fgithub.com&amp;swfObjectId=global-zeroclipboard-flash-bridge"></object></div></body></html>

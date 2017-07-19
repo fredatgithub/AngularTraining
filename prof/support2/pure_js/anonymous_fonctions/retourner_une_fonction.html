@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html ng-app='myApp'>
+  <head>
+    <meta charset="utf-8" />
+    <title>
+        Retourner une fonction
+    </title>
+</head>
+
+<body>
+
+<script>
+
+// Ceci est une fonction dite "factory", c'est à dire qu'elle fabrique
+// d'autres fonctions et qu'elle les retourne.
+function creer_fonction_parler(type){
+    if (type === "crier") {
+        return function(phrase){
+            alert(phrase.toUpperCase() + " !!!");
+        };
+    }
+    return function(phrase){
+        alert(phrase.toLowerCase());
+    };
+}
+
+// on fabrique deux fonctions différentes
+var parler = creer_fonction_parler()
+var crier = creer_fonction_parler("crier")
+
+</script>
+
+<form>
+    <p><input id="phrase" value="Hello"></p>
+
+    <p> <button onclick='parler(document.forms[0].phrase.value)'>Parler</button> </p>
+    <p> <button onclick='crier(document.forms[0].phrase.value)'>Crier</button> </p>
+</form>
+
+</html>
+
+</body>
+</html>
+

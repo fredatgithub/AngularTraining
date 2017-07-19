@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html class="ng-scope" ng-app="docsApp" ng-controller="DocsController" lang="en"><script id="bug.surrogate.1">var urchinTracker=function(){},_gaq={push:function(){try {if(arguments[0][0]=='_link')window.location.href=arguments[0][1]}catch(er){}}},_gat={_createTracker:function(){}, _getTracker:function(){return{__noSuchMethod__:function(){},_link:function(o){if(o)location.href=o;},_linkByPost:function(){return true;},_getLinkerUrl:function(o){return o;},_trackEvent:function(){}}}};</script><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"><style type="text/css">@charset "UTF-8";[ng\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-animate){display:none !important;}ng\:form{display:block;}</style>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="Description" content="AngularJS is what HTML would have been, had it been designed for building web-apps.
+                 Declarative templates with data-binding, MVC, dependency injection and great
+                 testability story all implemented with pure client-side JavaScript!">
+  <meta name="fragment" content="!">
+  <title class="ng-binding" ng-bind-template="AngularJS: Developer Guide: Unit Testing">AngularJS: Developer Guide: Unit Testing</title>
+
+  <script type="text/javascript">
+    // dynamically add base tag as well as css and javascript files.
+    // we can't add css/js the usual way, because some browsers (FF) eagerly prefetch resources
+    // before the base attribute is added, causing 404 and terribly slow loading of the docs app.
+    (function() {
+      var indexFile = (location.pathname.match(/\/(index[^\.]*\.html)/) || ['', ''])[1],
+          rUrl = /(#!\/|api|guide|misc|tutorial|error|index[^\.]*\.html).*$/,
+          baseUrl = location.href.replace(rUrl, indexFile),
+          production = location.hostname === 'docs.angularjs.org',
+          headEl = document.getElementsByTagName('head')[0],
+          sync = true;
+
+      addTag('base', {href: baseUrl});
+
+
+      addTag('link', {rel: 'stylesheet', href: 'components/bootstrap-3.1.1/css/bootstrap.min.css', type: 'text/css'});
+      addTag('link', {rel: 'stylesheet', href: 'components/open-sans-fontface-1.0.4/open-sans.css', type: 'text/css'});
+      addTag('link', {rel: 'stylesheet', href: 'css/prettify-theme.css', type: 'text/css'});
+      addTag('link', {rel: 'stylesheet', href: 'css/docs.css', type: 'text/css'});
+      addTag('link', {rel: 'stylesheet', href: 'css/animations.css', type: 'text/css'});
+      
+
+      addTag('script', {src: '//ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.18/angular.min.js' }, sync);
+      addTag('script', {src: '//ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.18/angular-resource.min.js' }, sync);
+      addTag('script', {src: '//ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.18/angular-route.min.js' }, sync);
+      addTag('script', {src: '//ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.18/angular-cookies.min.js' }, sync);
+      addTag('script', {src: '//ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.18/angular-sanitize.min.js' }, sync);
+      addTag('script', {src: '//ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.18/angular-touch.min.js' }, sync);
+      addTag('script', {src: '//ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.18/angular-animate.min.js' }, sync);
+      addTag('script', {src: 'components/marked-0.3.1/lib/marked.js' }, sync);
+      addTag('script', {src: 'js/angular-bootstrap/bootstrap.js' }, sync);
+      addTag('script', {src: 'js/angular-bootstrap/bootstrap-prettify.js' }, sync);
+      addTag('script', {src: 'js/angular-bootstrap/dropdown-toggle.js' }, sync);
+      addTag('script', {src: 'components/lunr.js-0.4.2/lunr.min.js' }, sync);
+      addTag('script', {src: 'components/google-code-prettify-1.0.1/src/prettify.js' }, sync);
+      addTag('script', {src: 'components/google-code-prettify-1.0.1/src/lang-css.js' }, sync);
+      addTag('script', {src: 'js/versions-data.js' }, sync);
+      addTag('script', {src: 'js/pages-data.js' }, sync);
+      addTag('script', {src: 'js/docs.js' }, sync);
+      
+
+      function addTag(name, attributes, sync) {
+        var el = document.createElement(name),
+            attrName;
+
+        for (attrName in attributes) {
+          el.setAttribute(attrName, attributes[attrName]);
+        }
+
+        sync ? document.write(outerHTML(el)) : headEl.appendChild(el);
+      }
+
+      function outerHTML(node){
+        // if IE, Chrome take the internal method otherwise build one
+        return node.outerHTML || (
+            function(n){
+                var div = document.createElement('div'), h;
+                div.appendChild(n);
+                h = div.innerHTML;
+                div = null;
+                return h;
+            })(node);
+      }
+    })();
+
+
+    // force page reload when new update is available
+    window.applicationCache && window.applicationCache.addEventListener('updateready', function(e) {
+      if (window.applicationCache.status == window.applicationCache.UPDATEREADY) {
+        window.applicationCache.swapCache();
+        window.location.reload();
+      }
+    }, false);
+
+    // GA asynchronous tracker
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-8594346-3']);
+    _gaq.push(['_setDomainName', '.angularjs.org']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script><!-- base href="https://docs.angularjs.org/" --><link type="text/css" href="AngularJS:%20Developer%20Guide:%20Unit%20Testing_fichiers/bootstrap.css" rel="stylesheet"><link type="text/css" href="AngularJS:%20Developer%20Guide:%20Unit%20Testing_fichiers/open-sans.css" rel="stylesheet"><link type="text/css" href="AngularJS:%20Developer%20Guide:%20Unit%20Testing_fichiers/prettify-theme.css" rel="stylesheet"><link type="text/css" href="AngularJS:%20Developer%20Guide:%20Unit%20Testing_fichiers/docs.css" rel="stylesheet"><link type="text/css" href="AngularJS:%20Developer%20Guide:%20Unit%20Testing_fichiers/animations.css" rel="stylesheet"><script src="AngularJS:%20Developer%20Guide:%20Unit%20Testing_fichiers/angular.js"></script><script src="AngularJS:%20Developer%20Guide:%20Unit%20Testing_fichiers/angular-resource.js"></script><script src="AngularJS:%20Developer%20Guide:%20Unit%20Testing_fichiers/angular-route.js"></script><script src="AngularJS:%20Developer%20Guide:%20Unit%20Testing_fichiers/angular-cookies.js"></script><script src="AngularJS:%20Developer%20Guide:%20Unit%20Testing_fichiers/angular-sanitize.js"></script><script src="AngularJS:%20Developer%20Guide:%20Unit%20Testing_fichiers/angular-touch.js"></script><script src="AngularJS:%20Developer%20Guide:%20Unit%20Testing_fichiers/angular-animate.js"></script><script src="AngularJS:%20Developer%20Guide:%20Unit%20Testing_fichiers/marked.js"></script><script src="AngularJS:%20Developer%20Guide:%20Unit%20Testing_fichiers/bootstrap.js"></script><script src="AngularJS:%20Developer%20Guide:%20Unit%20Testing_fichiers/bootstrap-prettify.js"></script><script src="AngularJS:%20Developer%20Guide:%20Unit%20Testing_fichiers/dropdown-toggle.js"></script><script src="AngularJS:%20Developer%20Guide:%20Unit%20Testing_fichiers/lunr.js"></script><script src="AngularJS:%20Developer%20Guide:%20Unit%20Testing_fichiers/prettify.js"></script><script src="AngularJS:%20Developer%20Guide:%20Unit%20Testing_fichiers/lang-css.js"></script><script src="AngularJS:%20Developer%20Guide:%20Unit%20Testing_fichiers/versions-data.js"></script><script src="AngularJS:%20Developer%20Guide:%20Unit%20Testing_fichiers/pages-data.js"></script><script src="AngularJS:%20Developer%20Guide:%20Unit%20Testing_fichiers/docs.js"></script>
+<script>try {  for(var lastpass_iter=0; lastpass_iter < document.forms.length; lastpass_iter++){    var lastpass_f = document.forms[lastpass_iter];    if(typeof(lastpass_f.lpsubmitorig)=="undefined"){      if (typeof(lastpass_f.submit) == "function") {        lastpass_f.lpsubmitorig = lastpass_f.submit;        lastpass_f.submit = function(){          var form = this;          try {            if (document.documentElement && 'createEvent' in document)            {              var forms = document.getElementsByTagName('form');              for (var i=0 ; i<forms.length ; ++i)                if (forms[i]==form)                {                  var element = document.createElement('lpformsubmitdataelement');                  element.setAttribute('formnum',i);                  element.setAttribute('from','submithook');                  document.documentElement.appendChild(element);                  var evt = document.createEvent('Events');                  evt.initEvent('lpformsubmit',true,false);                  element.dispatchEvent(evt);                  break;                }            }          } catch (e) {}          try {            form.lpsubmitorig();          } catch (e) {}        }      }    }  }} catch (e) {}</script></head>
+<body>
+  <div id="wrapper">
+    <header class="header header-fixed">
+      <section class="navbar navbar-inverse docs-navbar-primary ng-scope" ng-controller="DocsSearchCtrl">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-9 header-branding">
+              <a class="brand navbar-brand" href="http://angularjs.org/">
+                <img class="logo" src="AngularJS:%20Developer%20Guide:%20Unit%20Testing_fichiers/angularjs-for-header-only.svg">
+              </a>
+              <ul class="nav navbar-nav">
+                <li class="divider-vertical"></li>
+                <li><a href="http://angularjs.org/"><i class="icon-home icon-white"></i> Home</a></li>
+                <li class="divider-vertical"></li>
+                <li class="dropdown ng-isolate-scope">
+                  <a aria-expanded="false" aria-haspopup="true" href="#" class="dropdown-toggle" data-toggle="dropdown">
+                    <i class="icon-eye-open icon-white"></i> Learn <b class="caret"></b>
+                  </a>
+                  <ul class="dropdown-menu">
+                    <li class="disabled"><a href="http://angularjs.org/">Why AngularJS?</a></li>
+                    <li><a href="http://www.youtube.com/user/angularjs">Watch</a></li>
+                    <li><a href="https://docs.angularjs.org/tutorial">Tutorial</a></li>
+                    <li><a href="http://builtwith.angularjs.org/">Case Studies</a></li>
+                    <li><a href="https://github.com/angular/angular-seed">Seed App project template</a></li>
+                    <li><a href="https://docs.angularjs.org/misc/faq">FAQ</a></li>
+                  </ul>
+                </li>
+                <li class="divider-vertical"></li>
+                <li class="dropdown active ng-isolate-scope">
+                  <a aria-expanded="false" aria-haspopup="true" href="#" class="dropdown-toggle" data-toggle="dropdown">
+                    <i class="icon-book icon-white"></i> Develop <b class="caret"></b>
+                  </a>
+                  <ul class="dropdown-menu">
+                    <li><a href="https://docs.angularjs.org/tutorial">Tutorial</a></li>
+                    <li><a href="https://docs.angularjs.org/guide">Developer Guide</a></li>
+                    <li><a href="https://docs.angularjs.org/api">API Reference</a></li>
+                    <li><a href="https://docs.angularjs.org/error">Error Reference</a></li>
+                    <li><a href="https://docs.angularjs.org/misc/contribute">Contribute</a></li>
+                    <li><a href="http://code.angularjs.org/">Download</a></li>
+                  </ul>
+                </li>
+                <li class="divider-vertical"></li>
+                <li class="dropdown ng-isolate-scope">
+                  <a aria-expanded="false" aria-haspopup="true" href="#" class="dropdown-toggle" data-toggle="dropdown">
+                    <i class="icon-comment icon-white"></i> Discuss <b class="caret"></b>
+                  </a>
+                  <ul class="dropdown-menu">
+                    <li><a href="http://blog.angularjs.org/">Blog</a></li>
+                    <li><a href="http://groups.google.com/group/angular">Mailing List</a></li>
+                    <li><a href="http://webchat.freenode.net/?channels=angularjs&amp;uio=d4">Chat Room</a></li>
+                    <li class="divider"></li>
+                    <li><a href="https://twitter.com/#%21/angularjs">Twitter</a></li>
+                    <li><a href="https://plus.google.com/110323587230527980117">Google+</a></li>
+                    <li class="divider"></li>
+                    <li><a href="https://github.com/angular/angular.js">GitHub</a></li>
+                    <li><a href="https://github.com/angular/angular.js/issues">Issue Tracker</a></li>
+                  </ul>
+                </li>
+                <li class="divider-vertical"></li>
+              </ul>
+            </div>
+            <form ng-class="{focus:focus}" class="navbar-search col-md-3 docs-search ng-pristine ng-valid" ng-submit="submit()">
+              <span class="glyphicon glyphicon-search search-icon"></span>
+              <input name="as_q" class="search-query ng-pristine ng-untouched ng-valid" placeholder="Click or press / to search" ng-focus="focus=true" ng-blur="focus=false" ng-change="search(q)" ng-model="q" docs-search-input="" autocomplete="off" type="text">
+            </form>
+          </div>
+        </div>
+        <div class="search-results-container ng-hide" ng-show="hasResults">
+          <div class="container">
+            <a href="" ng-click="hideResults()" class="search-close">
+              <span class="glyphicon glyphicon-remove search-close-icon"></span> Close
+            </a>
+            <div class="search-results-frame">
+              <!-- ngRepeat: (key, value) in results -->
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="sup-header">
+        <div class="container main-grid main-header-grid">
+          <div class="grid-left">
+            <div ng-controller="DocsVersionsCtrl" class="picker version-picker ng-scope">
+              <select ng-options="v as ('v' + v.version + (v.isSnapshot ? ' (snapshot)' : '')) group by getGroupName(v) for v in docs_versions" ng-model="docs_version" ng-change="jumpToDocsVersion(docs_version)" class="docs-version-jump ng-pristine ng-untouched ng-valid"><optgroup label="Latest"><option selected="selected" value="0">v1.3.0-build.3056 (snapshot)</option><option value="19">v1.2.22</option><option value="44">v1.1.5</option><option value="50">v1.0.8</option></optgroup><optgroup label="Unstable"><option value="1">v1.3.0-beta.18</option><option value="2">v1.3.0-beta.17</option><option value="3">v1.3.0-beta.16</option><option value="4">v1.3.0-beta.15</option><option value="5">v1.3.0-beta.14</option><option value="6">v1.3.0-beta.13</option><option value="7">v1.3.0-beta.12</option><option value="8">v1.3.0-beta.11</option><option value="9">v1.3.0-beta.10</option><option value="10">v1.3.0-beta.9</option><option value="11">v1.3.0-beta.8</option><option value="12">v1.3.0-beta.7</option><option value="13">v1.3.0-beta.6</option><option value="14">v1.3.0-beta.5</option><option value="15">v1.3.0-beta.4</option><option value="16">v1.3.0-beta.3</option><option value="17">v1.3.0-beta.2</option><option value="18">v1.3.0-beta.1</option><option value="42">v1.2.0-rc.3</option><option value="43">v1.2.0-rc.2</option><option value="45">v1.1.4</option><option value="46">v1.1.3</option><option value="47">v1.1.2</option><option value="48">v1.1.1</option><option value="49">v1.1.0</option><option value="59">v1.0.0-rc2</option></optgroup><optgroup label="Stable"><option value="20">v1.2.21</option><option value="21">v1.2.20</option><option value="22">v1.2.19</option><option value="23">v1.2.18</option><option value="24">v1.2.17</option><option value="25">v1.2.16</option><option value="26">v1.2.15</option><option value="27">v1.2.14</option><option value="28">v1.2.13</option><option value="29">v1.2.12</option><option value="30">v1.2.11</option><option value="31">v1.2.10</option><option value="32">v1.2.9</option><option value="33">v1.2.8</option><option value="34">v1.2.7</option><option value="35">v1.2.6</option><option value="36">v1.2.5</option><option value="37">v1.2.4</option><option value="38">v1.2.3</option><option value="39">v1.2.2</option><option value="40">v1.2.1</option><option value="41">v1.2.0</option><option value="51">v1.0.7</option><option value="52">v1.0.6</option><option value="53">v1.0.5</option><option value="54">v1.0.4</option><option value="55">v1.0.3</option><option value="56">v1.0.2</option><option value="57">v1.0.1</option><option value="58">v1.0.0</option></optgroup></select>
+            </div>
+          </div>
+          <div class="grid-right">
+            <ul class="nav-breadcrumb">
+              <!-- ngRepeat: crumb in breadcrumb --><li ng-repeat="crumb in breadcrumb" class="nav-breadcrumb-entry naked-list ng-scope">
+                <span class="divider"> /</span>
+                <a href="https://docs.angularjs.org/guide" class="ng-binding" ng-href="guide">Developer Guide</a>
+              </li><!-- end ngRepeat: crumb in breadcrumb --><li ng-repeat="crumb in breadcrumb" class="nav-breadcrumb-entry naked-list ng-scope">
+                <span class="divider"> /</span>
+                <a href="https://docs.angularjs.org/guide/unit-testing" class="ng-binding" ng-href="guide/unit-testing">Unit Testing</a>
+              </li><!-- end ngRepeat: crumb in breadcrumb -->
+            </ul>
+          </div>
+        </div>
+      </section>
+    </header>
+
+    <section role="main" class="container main-body">
+      <div class="main-grid main-body-grid">
+        <div class="grid-left">
+          <a class="btn toc-toggle visible-xs" ng-click="toc=!toc">Show / Hide Table of Contents</a>
+          <div class="side-navigation ng-hide" ng-show="toc==true">
+            <ul class="nav-list naked-list">
+              <!-- ngRepeat: navGroup in currentArea.navGroups track by navGroup.name --><li ng-repeat="navGroup in currentArea.navGroups track by navGroup.name" class="nav-index-group ng-scope">
+                <a href="https://docs.angularjs.org/guide" ng-class="navClass(navGroup)" class="nav-index-group-heading ng-binding active">Developer Guide</a>
+                <ul class="aside-nav">
+                  <!-- ngRepeat: navItem in navGroup.navItems --><li ng-repeat="navItem in navGroup.navItems" ng-class="navClass(navItem)" class="nav-index-listing ng-scope active">
+                    <!-- ngIf: navItem.extra.href -->
+                    <a class="ng-binding" tabindex="2" ng-class="linkClass(navItem)" href="https://docs.angularjs.org/guide/$location">Using $location</a>
+                  </li><!-- end ngRepeat: navItem in navGroup.navItems --><li ng-repeat="navItem in navGroup.navItems" ng-class="navClass(navItem)" class="nav-index-listing ng-scope active">
+                    <!-- ngIf: navItem.extra.href -->
+                    <a class="ng-binding" tabindex="2" ng-class="linkClass(navItem)" href="https://docs.angularjs.org/guide/animations">Animations</a>
+                  </li><!-- end ngRepeat: navItem in navGroup.navItems --><li ng-repeat="navItem in navGroup.navItems" ng-class="navClass(navItem)" class="nav-index-listing ng-scope active">
+                    <!-- ngIf: navItem.extra.href -->
+                    <a class="ng-binding" tabindex="2" ng-class="linkClass(navItem)" href="https://docs.angularjs.org/guide/bootstrap">Bootstrap</a>
+                  </li><!-- end ngRepeat: navItem in navGroup.navItems --><li ng-repeat="navItem in navGroup.navItems" ng-class="navClass(navItem)" class="nav-index-listing ng-scope active">
+                    <!-- ngIf: navItem.extra.href -->
+                    <a class="ng-binding" tabindex="2" ng-class="linkClass(navItem)" href="https://docs.angularjs.org/guide/compiler">HTML Compiler</a>
+                  </li><!-- end ngRepeat: navItem in navGroup.navItems --><li ng-repeat="navItem in navGroup.navItems" ng-class="navClass(navItem)" class="nav-index-listing ng-scope active">
+                    <!-- ngIf: navItem.extra.href -->
+                    <a class="ng-binding" tabindex="2" ng-class="linkClass(navItem)" href="https://docs.angularjs.org/guide/concepts">Conceptual Overview</a>
+                  </li><!-- end ngRepeat: navItem in navGroup.navItems --><li ng-repeat="navItem in navGroup.navItems" ng-class="navClass(navItem)" class="nav-index-listing ng-scope active">
+                    <!-- ngIf: navItem.extra.href -->
+                    <a class="ng-binding" tabindex="2" ng-class="linkClass(navItem)" href="https://docs.angularjs.org/guide/controller">Controllers</a>
+                  </li><!-- end ngRepeat: navItem in navGroup.navItems --><li ng-repeat="navItem in navGroup.navItems" ng-class="navClass(navItem)" class="nav-index-listing ng-scope active">
+                    <!-- ngIf: navItem.extra.href -->
+                    <a class="ng-binding" tabindex="2" ng-class="linkClass(navItem)" href="https://docs.angularjs.org/guide/css-styling">Working With CSS</a>
+                  </li><!-- end ngRepeat: navItem in navGroup.navItems --><li ng-repeat="navItem in navGroup.navItems" ng-class="navClass(navItem)" class="nav-index-listing ng-scope active">
+                    <!-- ngIf: navItem.extra.href -->
+                    <a class="ng-binding" tabindex="2" ng-class="linkClass(navItem)" href="https://docs.angularjs.org/guide/databinding">Data Binding</a>
+                  </li><!-- end ngRepeat: navItem in navGroup.navItems --><li ng-repeat="navItem in navGroup.navItems" ng-class="navClass(navItem)" class="nav-index-listing ng-scope active">
+                    <!-- ngIf: navItem.extra.href -->
+                    <a class="ng-binding" tabindex="2" ng-class="linkClass(navItem)" href="https://docs.angularjs.org/guide/di">Dependency Injection</a>
+                  </li><!-- end ngRepeat: navItem in navGroup.navItems --><li ng-repeat="navItem in navGroup.navItems" ng-class="navClass(navItem)" class="nav-index-listing ng-scope active">
+                    <!-- ngIf: navItem.extra.href -->
+                    <a class="ng-binding" tabindex="2" ng-class="linkClass(navItem)" href="https://docs.angularjs.org/guide/directive">Directives</a>
+                  </li><!-- end ngRepeat: navItem in navGroup.navItems --><li ng-repeat="navItem in navGroup.navItems" ng-class="navClass(navItem)" class="nav-index-listing ng-scope active">
+                    <!-- ngIf: navItem.extra.href -->
+                    <a class="ng-binding" tabindex="2" ng-class="linkClass(navItem)" href="https://docs.angularjs.org/guide/e2e-testing">E2E Testing</a>
+                  </li><!-- end ngRepeat: navItem in navGroup.navItems --><li ng-repeat="navItem in navGroup.navItems" ng-class="navClass(navItem)" class="nav-index-listing ng-scope active">
+                    <!-- ngIf: navItem.extra.href -->
+                    <a class="ng-binding" tabindex="2" ng-class="linkClass(navItem)" href="https://docs.angularjs.org/guide/expression">Expressions</a>
+                  </li><!-- end ngRepeat: navItem in navGroup.navItems --><li ng-repeat="navItem in navGroup.navItems" ng-class="navClass(navItem)" class="nav-index-listing ng-scope active">
+                    <!-- ngIf: navItem.extra.href -->
+                    <a class="ng-binding" tabindex="2" ng-class="linkClass(navItem)" href="https://docs.angularjs.org/guide/filter">Filters</a>
+                  </li><!-- end ngRepeat: navItem in navGroup.navItems --><li ng-repeat="navItem in navGroup.navItems" ng-class="navClass(navItem)" class="nav-index-listing ng-scope active">
+                    <!-- ngIf: navItem.extra.href -->
+                    <a class="ng-binding" tabindex="2" ng-class="linkClass(navItem)" href="https://docs.angularjs.org/guide/forms">Forms</a>
+                  </li><!-- end ngRepeat: navItem in navGroup.navItems --><li ng-repeat="navItem in navGroup.navItems" ng-class="navClass(navItem)" class="nav-index-listing ng-scope active">
+                    <!-- ngIf: navItem.extra.href -->
+                    <a class="ng-binding" tabindex="2" ng-class="linkClass(navItem)" href="https://docs.angularjs.org/guide/i18n">i18n and l10n</a>
+                  </li><!-- end ngRepeat: navItem in navGroup.navItems --><li ng-repeat="navItem in navGroup.navItems" ng-class="navClass(navItem)" class="nav-index-listing ng-scope active">
+                    <!-- ngIf: navItem.extra.href -->
+                    <a class="ng-binding" tabindex="2" ng-class="linkClass(navItem)" href="https://docs.angularjs.org/guide/ie">Internet Explorer Compatibility</a>
+                  </li><!-- end ngRepeat: navItem in navGroup.navItems --><li ng-repeat="navItem in navGroup.navItems" ng-class="navClass(navItem)" class="nav-index-listing ng-scope active">
+                    <!-- ngIf: navItem.extra.href -->
+                    <a class="ng-binding" tabindex="2" ng-class="linkClass(navItem)" href="https://docs.angularjs.org/guide/introduction">Introduction</a>
+                  </li><!-- end ngRepeat: navItem in navGroup.navItems --><li ng-repeat="navItem in navGroup.navItems" ng-class="navClass(navItem)" class="nav-index-listing ng-scope active">
+                    <!-- ngIf: navItem.extra.href -->
+                    <a class="ng-binding" tabindex="2" ng-class="linkClass(navItem)" href="https://docs.angularjs.org/guide/migration">Migrating from Previous Versions</a>
+                  </li><!-- end ngRepeat: navItem in navGroup.navItems --><li ng-repeat="navItem in navGroup.navItems" ng-class="navClass(navItem)" class="nav-index-listing ng-scope active">
+                    <!-- ngIf: navItem.extra.href -->
+                    <a class="ng-binding" tabindex="2" ng-class="linkClass(navItem)" href="https://docs.angularjs.org/guide/module">Modules</a>
+                  </li><!-- end ngRepeat: navItem in navGroup.navItems --><li ng-repeat="navItem in navGroup.navItems" ng-class="navClass(navItem)" class="nav-index-listing ng-scope active">
+                    <!-- ngIf: navItem.extra.href -->
+                    <a class="ng-binding" tabindex="2" ng-class="linkClass(navItem)" href="https://docs.angularjs.org/guide/providers">Providers</a>
+                  </li><!-- end ngRepeat: navItem in navGroup.navItems --><li ng-repeat="navItem in navGroup.navItems" ng-class="navClass(navItem)" class="nav-index-listing ng-scope active">
+                    <!-- ngIf: navItem.extra.href -->
+                    <a class="ng-binding" tabindex="2" ng-class="linkClass(navItem)" href="https://docs.angularjs.org/guide/scope">Scopes</a>
+                  </li><!-- end ngRepeat: navItem in navGroup.navItems --><li ng-repeat="navItem in navGroup.navItems" ng-class="navClass(navItem)" class="nav-index-listing ng-scope active">
+                    <!-- ngIf: navItem.extra.href -->
+                    <a class="ng-binding" tabindex="2" ng-class="linkClass(navItem)" href="https://docs.angularjs.org/guide/services">Services</a>
+                  </li><!-- end ngRepeat: navItem in navGroup.navItems --><li ng-repeat="navItem in navGroup.navItems" ng-class="navClass(navItem)" class="nav-index-listing ng-scope active">
+                    <!-- ngIf: navItem.extra.href -->
+                    <a class="ng-binding" tabindex="2" ng-class="linkClass(navItem)" href="https://docs.angularjs.org/guide/templates">Templates</a>
+                  </li><!-- end ngRepeat: navItem in navGroup.navItems --><li ng-repeat="navItem in navGroup.navItems" ng-class="navClass(navItem)" class="nav-index-listing ng-scope active">
+                    <!-- ngIf: navItem.extra.href -->
+                    <a class="ng-binding" tabindex="2" ng-class="linkClass(navItem)" href="https://docs.angularjs.org/guide/unit-testing">Unit Testing</a>
+                  </li><!-- end ngRepeat: navItem in navGroup.navItems -->
+                </ul>
+              </li><!-- end ngRepeat: navGroup in currentArea.navGroups track by navGroup.name -->
+            </ul>
+            <a href="" ng-click="toc=false" class="toc-close visible-xs">
+              <span class="glyphicon glyphicon-remove toc-close-icon"></span> Close
+            </a>
+          </div>
+        </div>
+        <div class="grid-right">
+          <div class="ng-hide" id="loading" ng-show="loading">Loading...</div>
+          <!-- ngInclude: currentPage.outputPath || 'Error404.html' --><div class="ng-scope" ng-hide="loading" ng-include="currentPage.outputPath || 'Error404.html'" onload="afterPartialLoaded()" autoscroll=""><a href="http://github.com/angular/angular.js/edit/master/docs/content/guide/unit-testing.ngdoc" class="improve-docs btn btn-primary ng-scope"><i class="glyphicon glyphicon-edit">&nbsp;</i>Improve this doc</a>
+
+
+<p class="ng-scope">JavaScript is a dynamically typed language which comes with great power of expression, but it also
+comes with almost no help from the compiler. For this reason we feel very strongly that any code
+written in JavaScript needs to come with a strong set of tests. We have built many features into
+Angular which makes testing your Angular applications easy. So there is no excuse for not testing.</p>
+<h1 class="ng-scope" id="separation-of-concerns">Separation of Concerns</h1>
+<p class="ng-scope">Unit testing as the name implies is about testing individual units of code. Unit tests try to
+answer questions such as "Did I think about the logic correctly?" or "Does the sort function order
+the list in the right order?"</p>
+<p class="ng-scope">In order to answer such a question it is very important that we can isolate the unit of code under test.
+That is because when we are testing the sort function we don't want to be forced into creating
+related pieces such as the DOM elements, or making any XHR calls in getting the data to sort.</p>
+<p class="ng-scope">While this may seem obvious it can be very difficult to call an individual function on a
+typical project. The reason is that the developers often mix concerns resulting in a
+piece of code which does everything. It makes an XHR request, it sorts the response data and then it
+manipulates the DOM.</p>
+<p class="ng-scope">With Angular we try to make it easy for you to do the right thing, and so we
+provide dependency injection for your XHR (which you can mock out) and we created abstractions which
+allow you to sort your model without having to resort to manipulating the DOM. So that in the end,
+it is easy to write a sort function which sorts some data, so that your test can create a data set,
+apply the function, and assert that the resulting model is in the correct order. The test does not
+have to wait for the XHR response to arrive, create the right kind of test DOM, nor assert that your
+function has mutated the DOM in the right way.</p>
+<h2 class="ng-scope" id="with-great-power-comes-great-responsibility">With great power comes great responsibility</h2>
+<p class="ng-scope">Angular is written with testability in mind, but it still requires that you do the right thing.
+We tried to make the right thing easy, but if you ignore these guidelines you may end up with an
+untestable application.</p>
+<h2 class="ng-scope" id="dependency-injection">Dependency Injection</h2>
+<p class="ng-scope">There are several ways in which you can get a hold of a dependency. You can:</p>
+<ol class="ng-scope">
+<li>Create it using the <code><span class="kwd">new</span></code> operator.</li>
+<li>Look for it in a well-known place, also known as a global singleton.</li>
+<li>Ask a registry (also known as service registry) for it. (But how do you get a hold of
+the registry? Most likely by looking it up in a well known place. See #2.)</li>
+<li>Expect it to be handed to you.</li>
+</ol>
+<p class="ng-scope">Out of the four options in the list above, only the last one is testable. Let's look at why:</p>
+<h3 class="ng-scope" id="using-the-new-operator">Using the <code><span class="kwd">new</span></code> operator</h3>
+<p class="ng-scope">While there is nothing wrong with the <code><span class="kwd">new</span></code> operator fundamentally, a problem arises when calling <code><span class="kwd">new</span></code>
+on a constructor. This permanently binds the call site to the type. For example, let's say that we try to
+instantiate an <code><span class="pln">XHR</span></code> that will retrieve data from the server.</p>
+<pre class="ng-scope"><code class="lang-js"><span class="kwd">function</span><span class="pln"> </span><span class="typ">MyClass</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+  </span><span class="kwd">this</span><span class="pun">.</span><span class="pln">doWork </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+    </span><span class="kwd">var</span><span class="pln"> xhr </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> XHR</span><span class="pun">();</span><span class="pln">
+    xhr</span><span class="pun">.</span><span class="pln">open</span><span class="pun">(</span><span class="pln">method</span><span class="pun">,</span><span class="pln"> url</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">true</span><span class="pun">);</span><span class="pln">
+    xhr</span><span class="pun">.</span><span class="pln">onreadystatechange </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{...}</span><span class="pln">
+    xhr</span><span class="pun">.</span><span class="pln">send</span><span class="pun">();</span><span class="pln">
+  </span><span class="pun">}</span><span class="pln">
+</span><span class="pun">}</span></code></pre>
+<p class="ng-scope">A problem surfaces in tests when we would like to instantiate a <code><span class="typ">MockXHR</span></code> that would
+allow us to return fake data and simulate network failures. By calling <code><span class="kwd">new</span><span class="pln"> XHR</span><span class="pun">()</span></code> we are
+permanently bound to the actual XHR and there is no way to replace it. Yes, we could monkey
+patch, but that is a bad idea for many reasons which are outside the scope of this document.</p>
+<p class="ng-scope">Here's an example of how the class above becomes hard to test when resorting to monkey patching:</p>
+<pre class="ng-scope"><code class="lang-js"><span class="kwd">var</span><span class="pln"> oldXHR </span><span class="pun">=</span><span class="pln"> XHR</span><span class="pun">;</span><span class="pln">
+XHR </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pln"> </span><span class="typ">MockXHR</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{};</span><span class="pln">
+</span><span class="kwd">var</span><span class="pln"> myClass </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">MyClass</span><span class="pun">();</span><span class="pln">
+myClass</span><span class="pun">.</span><span class="pln">doWork</span><span class="pun">();</span><span class="pln">
+</span><span class="com">// assert that MockXHR got called with the right arguments</span><span class="pln">
+XHR </span><span class="pun">=</span><span class="pln"> oldXHR</span><span class="pun">;</span><span class="pln"> </span><span class="com">// if you forget this bad things will happen</span></code></pre>
+<h3 class="ng-scope" id="global-look-up-">Global look-up:</h3>
+<p class="ng-scope">Another way to approach the problem is to look for the service in a well-known location.</p>
+<pre class="ng-scope"><code class="lang-js"><span class="kwd">function</span><span class="pln"> </span><span class="typ">MyClass</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+  </span><span class="kwd">this</span><span class="pun">.</span><span class="pln">doWork </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+    global</span><span class="pun">.</span><span class="pln">xhr</span><span class="pun">({</span><span class="pln">
+      method</span><span class="pun">:</span><span class="str">'...'</span><span class="pun">,</span><span class="pln">
+      url</span><span class="pun">:</span><span class="str">'...'</span><span class="pun">,</span><span class="pln">
+      complete</span><span class="pun">:</span><span class="kwd">function</span><span class="pun">(</span><span class="pln">response</span><span class="pun">){</span><span class="pln"> </span><span class="pun">...</span><span class="pln"> </span><span class="pun">}</span><span class="pln">
+    </span><span class="pun">})</span><span class="pln">
+  </span><span class="pun">}</span><span class="pln">
+</span><span class="pun">}</span></code></pre>
+<p class="ng-scope">While no new dependency instance is created, it is fundamentally the same as <code><span class="kwd">new</span></code> in
+that no way exists to intercept the call to <code><span class="kwd">global</span><span class="pun">.</span><span class="pln">xhr</span></code> for testing purposes, other than
+through monkey patching. The basic issue for testing is that a global variable needs to be mutated in
+order to replace it with call to a mock method. For further explanation of why this is bad see: <a href="http://misko.hevery.com/code-reviewers-guide/flaw-brittle-global-state-singletons/">Brittle Global
+State &amp; Singletons</a></p>
+<p class="ng-scope">The class above is hard to test since we have to change the global state:</p>
+<pre class="ng-scope"><code class="lang-js"><span class="kwd">var</span><span class="pln"> oldXHR </span><span class="pun">=</span><span class="pln"> global</span><span class="pun">.</span><span class="pln">xhr</span><span class="pun">;</span><span class="pln">
+global</span><span class="pun">.</span><span class="pln">xhr </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pln"> mockXHR</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{};</span><span class="pln">
+</span><span class="kwd">var</span><span class="pln"> myClass </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">MyClass</span><span class="pun">();</span><span class="pln">
+myClass</span><span class="pun">.</span><span class="pln">doWork</span><span class="pun">();</span><span class="pln">
+</span><span class="com">// assert that mockXHR got called with the right arguments</span><span class="pln">
+global</span><span class="pun">.</span><span class="pln">xhr </span><span class="pun">=</span><span class="pln"> oldXHR</span><span class="pun">;</span><span class="pln"> </span><span class="com">// if you forget this bad things will happen</span></code></pre>
+<h3 class="ng-scope" id="service-registry-">Service Registry:</h3>
+<p class="ng-scope">It may seem that this can be solved by having a registry of all the services and then
+having the tests replace the services as needed.</p>
+<pre class="ng-scope"><code class="lang-js"><span class="kwd">function</span><span class="pln"> </span><span class="typ">MyClass</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+  </span><span class="kwd">var</span><span class="pln"> serviceRegistry </span><span class="pun">=</span><span class="pln"> </span><span class="pun">????;</span><span class="pln">
+  </span><span class="kwd">this</span><span class="pun">.</span><span class="pln">doWork </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+    </span><span class="kwd">var</span><span class="pln"> xhr </span><span class="pun">=</span><span class="pln"> serviceRegistry</span><span class="pun">.</span><span class="kwd">get</span><span class="pun">(</span><span class="str">'xhr'</span><span class="pun">);</span><span class="pln">
+    xhr</span><span class="pun">({</span><span class="pln">
+      method</span><span class="pun">:</span><span class="str">'...'</span><span class="pun">,</span><span class="pln">
+      url</span><span class="pun">:</span><span class="str">'...'</span><span class="pun">,</span><span class="pln">
+      complete</span><span class="pun">:</span><span class="kwd">function</span><span class="pun">(</span><span class="pln">response</span><span class="pun">){</span><span class="pln"> </span><span class="pun">...</span><span class="pln"> </span><span class="pun">}</span><span class="pln">
+    </span><span class="pun">})</span><span class="pln">
+</span><span class="pun">}</span></code></pre>
+<p class="ng-scope">However, where does the serviceRegistry come from? If it is:</p>
+<ul class="ng-scope">
+<li><code><span class="kwd">new</span></code>-ed up, the test has no chance to reset the services for testing.</li>
+<li>a global look-up then the service returned is global as well (but resetting is easier, since
+only one global variable exists to be reset).</li>
+</ul>
+<p class="ng-scope">The class above is hard to test since we have to change the global state:</p>
+<pre class="ng-scope"><code class="lang-js"><span class="kwd">var</span><span class="pln"> oldServiceLocator </span><span class="pun">=</span><span class="pln"> global</span><span class="pun">.</span><span class="pln">serviceLocator</span><span class="pun">;</span><span class="pln">
+global</span><span class="pun">.</span><span class="pln">serviceLocator</span><span class="pun">.</span><span class="kwd">set</span><span class="pun">(</span><span class="str">'xhr'</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">function</span><span class="pln"> mockXHR</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{});</span><span class="pln">
+</span><span class="kwd">var</span><span class="pln"> myClass </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">MyClass</span><span class="pun">();</span><span class="pln">
+myClass</span><span class="pun">.</span><span class="pln">doWork</span><span class="pun">();</span><span class="pln">
+</span><span class="com">// assert that mockXHR got called with the right arguments</span><span class="pln">
+global</span><span class="pun">.</span><span class="pln">serviceLocator </span><span class="pun">=</span><span class="pln"> oldServiceLocator</span><span class="pun">;</span><span class="pln"> </span><span class="com">// if you forget this bad things will happen</span></code></pre>
+<h3 class="ng-scope" id="passing-in-dependencies-">Passing in Dependencies:</h3>
+<p class="ng-scope">Last, the dependency can be passed in.</p>
+<pre class="ng-scope"><code class="lang-js"><span class="kwd">function</span><span class="pln"> </span><span class="typ">MyClass</span><span class="pun">(</span><span class="pln">xhr</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+  </span><span class="kwd">this</span><span class="pun">.</span><span class="pln">doWork </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+    xhr</span><span class="pun">({</span><span class="pln">
+      method</span><span class="pun">:</span><span class="str">'...'</span><span class="pun">,</span><span class="pln">
+      url</span><span class="pun">:</span><span class="str">'...'</span><span class="pun">,</span><span class="pln">
+      complete</span><span class="pun">:</span><span class="kwd">function</span><span class="pun">(</span><span class="pln">response</span><span class="pun">){</span><span class="pln"> </span><span class="pun">...</span><span class="pln"> </span><span class="pun">}</span><span class="pln">
+    </span><span class="pun">})</span><span class="pln">
+</span><span class="pun">}</span></code></pre>
+<p class="ng-scope">This is the preferred method since the code makes no assumptions about the origin of <code><span class="pln">xhr</span></code> and cares
+instead about whoever created the class  responsible for passing it in. Since the creator of the
+class should be different code than the user of the class, it separates the responsibility of
+creation from the logic. This is dependency-injection in a nutshell.</p>
+<p class="ng-scope">The class above is testable, since in the test we can write:</p>
+<pre class="ng-scope"><code class="lang-js"><span class="kwd">function</span><span class="pln"> xhrMock</span><span class="pun">(</span><span class="pln">args</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{...}</span><span class="pln">
+</span><span class="kwd">var</span><span class="pln"> myClass </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">MyClass</span><span class="pun">(</span><span class="pln">xhrMock</span><span class="pun">);</span><span class="pln">
+myClass</span><span class="pun">.</span><span class="pln">doWork</span><span class="pun">();</span><span class="pln">
+</span><span class="com">// assert that xhrMock got called with the right arguments</span></code></pre>
+<p class="ng-scope">Notice that no global variables were harmed in the writing of this test.</p>
+<p class="ng-scope">Angular comes with <a href="https://docs.angularjs.org/guide/di">dependency injection</a> built-in, making the right thing
+easy to do, but you still need to do it if you wish to take advantage of the testability story.</p>
+<h2 class="ng-scope" id="controllers">Controllers</h2>
+<p class="ng-scope">What makes each application unique is its logic, and the logic is what we would like to test. If the logic
+for your application contains DOM manipulation, it will be hard to test. See the example
+below:</p>
+<pre class="ng-scope"><code class="lang-js"><span class="kwd">function</span><span class="pln"> </span><span class="typ">PasswordCtrl</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+  </span><span class="com">// get references to DOM elements</span><span class="pln">
+  </span><span class="kwd">var</span><span class="pln"> msg </span><span class="pun">=</span><span class="pln"> $</span><span class="pun">(</span><span class="str">'.ex1 span'</span><span class="pun">);</span><span class="pln">
+  </span><span class="kwd">var</span><span class="pln"> input </span><span class="pun">=</span><span class="pln"> $</span><span class="pun">(</span><span class="str">'.ex1 input'</span><span class="pun">);</span><span class="pln">
+  </span><span class="kwd">var</span><span class="pln"> strength</span><span class="pun">;</span><span class="pln">
+
+  </span><span class="kwd">this</span><span class="pun">.</span><span class="pln">grade </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+    msg</span><span class="pun">.</span><span class="pln">removeClass</span><span class="pun">(</span><span class="pln">strength</span><span class="pun">);</span><span class="pln">
+    </span><span class="kwd">var</span><span class="pln"> pwd </span><span class="pun">=</span><span class="pln"> input</span><span class="pun">.</span><span class="pln">val</span><span class="pun">();</span><span class="pln">
+    password</span><span class="pun">.</span><span class="pln">text</span><span class="pun">(</span><span class="pln">pwd</span><span class="pun">);</span><span class="pln">
+    </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">pwd</span><span class="pun">.</span><span class="pln">length </span><span class="pun">&gt;</span><span class="pln"> </span><span class="lit">8</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+      strength </span><span class="pun">=</span><span class="pln"> </span><span class="str">'strong'</span><span class="pun">;</span><span class="pln">
+    </span><span class="pun">}</span><span class="pln"> </span><span class="kwd">else</span><span class="pln"> </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">pwd</span><span class="pun">.</span><span class="pln">length </span><span class="pun">&gt;</span><span class="pln"> </span><span class="lit">3</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+      strength </span><span class="pun">=</span><span class="pln"> </span><span class="str">'medium'</span><span class="pun">;</span><span class="pln">
+    </span><span class="pun">}</span><span class="pln"> </span><span class="kwd">else</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+      strength </span><span class="pun">=</span><span class="pln"> </span><span class="str">'weak'</span><span class="pun">;</span><span class="pln">
+    </span><span class="pun">}</span><span class="pln">
+    msg
+     </span><span class="pun">.</span><span class="pln">addClass</span><span class="pun">(</span><span class="pln">strength</span><span class="pun">)</span><span class="pln">
+     </span><span class="pun">.</span><span class="pln">text</span><span class="pun">(</span><span class="pln">strength</span><span class="pun">);</span><span class="pln">
+  </span><span class="pun">}</span><span class="pln">
+</span><span class="pun">}</span></code></pre>
+<p class="ng-scope">The code above is problematic from a testability point of view since it requires your test to have the right kind
+of DOM present when the code executes. The test would look like this:</p>
+<pre class="ng-scope"><code class="lang-js"><span class="kwd">var</span><span class="pln"> input </span><span class="pun">=</span><span class="pln"> $</span><span class="pun">(</span><span class="str">'&lt;input type="text"/&gt;'</span><span class="pun">);</span><span class="pln">
+</span><span class="kwd">var</span><span class="pln"> span </span><span class="pun">=</span><span class="pln"> $</span><span class="pun">(</span><span class="str">'&lt;span&gt;'</span><span class="pun">);</span><span class="pln">
+$</span><span class="pun">(</span><span class="str">'body'</span><span class="pun">).</span><span class="pln">html</span><span class="pun">(</span><span class="str">'&lt;div class="ex1"&gt;'</span><span class="pun">)</span><span class="pln">
+  </span><span class="pun">.</span><span class="pln">find</span><span class="pun">(</span><span class="str">'div'</span><span class="pun">)</span><span class="pln">
+    </span><span class="pun">.</span><span class="pln">append</span><span class="pun">(</span><span class="pln">input</span><span class="pun">)</span><span class="pln">
+    </span><span class="pun">.</span><span class="pln">append</span><span class="pun">(</span><span class="pln">span</span><span class="pun">);</span><span class="pln">
+</span><span class="kwd">var</span><span class="pln"> pc </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">PasswordCtrl</span><span class="pun">();</span><span class="pln">
+input</span><span class="pun">.</span><span class="pln">val</span><span class="pun">(</span><span class="str">'abc'</span><span class="pun">);</span><span class="pln">
+pc</span><span class="pun">.</span><span class="pln">grade</span><span class="pun">();</span><span class="pln">
+expect</span><span class="pun">(</span><span class="pln">span</span><span class="pun">.</span><span class="pln">text</span><span class="pun">()).</span><span class="pln">toEqual</span><span class="pun">(</span><span class="str">'weak'</span><span class="pun">);</span><span class="pln">
+$</span><span class="pun">(</span><span class="str">'body'</span><span class="pun">).</span><span class="pln">empty</span><span class="pun">();</span></code></pre>
+<p class="ng-scope">In angular the controllers are strictly separated from the DOM manipulation logic and this results in
+a much easier testability story as the following example shows:</p>
+<pre class="ng-scope"><code class="lang-js"><span class="kwd">function</span><span class="pln"> </span><span class="typ">PasswordCtrl</span><span class="pun">(</span><span class="pln">$scope</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+  $scope</span><span class="pun">.</span><span class="pln">password </span><span class="pun">=</span><span class="pln"> </span><span class="str">''</span><span class="pun">;</span><span class="pln">
+  $scope</span><span class="pun">.</span><span class="pln">grade </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+    </span><span class="kwd">var</span><span class="pln"> size </span><span class="pun">=</span><span class="pln"> $scope</span><span class="pun">.</span><span class="pln">password</span><span class="pun">.</span><span class="pln">length</span><span class="pun">;</span><span class="pln">
+    </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">size </span><span class="pun">&gt;</span><span class="pln"> </span><span class="lit">8</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+      $scope</span><span class="pun">.</span><span class="pln">strength </span><span class="pun">=</span><span class="pln"> </span><span class="str">'strong'</span><span class="pun">;</span><span class="pln">
+    </span><span class="pun">}</span><span class="pln"> </span><span class="kwd">else</span><span class="pln"> </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">size </span><span class="pun">&gt;</span><span class="pln"> </span><span class="lit">3</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+      $scope</span><span class="pun">.</span><span class="pln">strength </span><span class="pun">=</span><span class="pln"> </span><span class="str">'medium'</span><span class="pun">;</span><span class="pln">
+    </span><span class="pun">}</span><span class="pln"> </span><span class="kwd">else</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+      $scope</span><span class="pun">.</span><span class="pln">strength </span><span class="pun">=</span><span class="pln"> </span><span class="str">'weak'</span><span class="pun">;</span><span class="pln">
+    </span><span class="pun">}</span><span class="pln">
+  </span><span class="pun">};</span><span class="pln">
+</span><span class="pun">}</span></code></pre>
+<p class="ng-scope">and the test is straight forward:</p>
+<pre class="ng-scope"><code class="lang-js"><span class="kwd">var</span><span class="pln"> $scope </span><span class="pun">=</span><span class="pln"> </span><span class="pun">{};</span><span class="pln">
+</span><span class="kwd">var</span><span class="pln"> pc </span><span class="pun">=</span><span class="pln"> $controller</span><span class="pun">(</span><span class="str">'PasswordCtrl'</span><span class="pun">,</span><span class="pln"> </span><span class="pun">{</span><span class="pln"> $scope</span><span class="pun">:</span><span class="pln"> $scope </span><span class="pun">});</span><span class="pln">
+$scope</span><span class="pun">.</span><span class="pln">password </span><span class="pun">=</span><span class="pln"> </span><span class="str">'abc'</span><span class="pun">;</span><span class="pln">
+$scope</span><span class="pun">.</span><span class="pln">grade</span><span class="pun">();</span><span class="pln">
+expect</span><span class="pun">(</span><span class="pln">$scope</span><span class="pun">.</span><span class="pln">strength</span><span class="pun">).</span><span class="pln">toEqual</span><span class="pun">(</span><span class="str">'weak'</span><span class="pun">);</span></code></pre>
+<p class="ng-scope">Notice that the test is not only much shorter, it is also easier to follow what is happening. We say
+that such a test tells a story, rather than asserting random bits which don't seem to be related.</p>
+<h2 class="ng-scope" id="filters">Filters</h2>
+<p class="ng-scope"><a href="https://docs.angularjs.org/api/ng/provider/$filterProvider">Filters</a> are functions which transform the data into a user readable
+format. They are important because they remove the formatting responsibility from the application
+logic, further simplifying the application logic.</p>
+<pre class="ng-scope"><code class="lang-js"><span class="pln">myModule</span><span class="pun">.</span><span class="pln">filter</span><span class="pun">(</span><span class="str">'length'</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+  </span><span class="kwd">return</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln">text</span><span class="pun">){</span><span class="pln">
+    </span><span class="kwd">return</span><span class="pln"> </span><span class="pun">(</span><span class="str">''</span><span class="pun">+(</span><span class="pln">text</span><span class="pun">||</span><span class="str">''</span><span class="pun">)).</span><span class="pln">length</span><span class="pun">;</span><span class="pln">
+  </span><span class="pun">}</span><span class="pln">
+</span><span class="pun">});</span><span class="pln">
+
+</span><span class="kwd">var</span><span class="pln"> length </span><span class="pun">=</span><span class="pln"> $filter</span><span class="pun">(</span><span class="str">'length'</span><span class="pun">);</span><span class="pln">
+expect</span><span class="pun">(</span><span class="pln">length</span><span class="pun">(</span><span class="kwd">null</span><span class="pun">)).</span><span class="pln">toEqual</span><span class="pun">(</span><span class="lit">0</span><span class="pun">);</span><span class="pln">
+expect</span><span class="pun">(</span><span class="pln">length</span><span class="pun">(</span><span class="str">'abc'</span><span class="pun">)).</span><span class="pln">toEqual</span><span class="pun">(</span><span class="lit">3</span><span class="pun">);</span></code></pre>
+<h2 class="ng-scope" id="directives">Directives</h2>
+<p class="ng-scope">Directives in angular are responsible for encapsulating complex functionality within custom HTML tags,
+attributes, classes or comments. Unit tests are very important for directives because the components
+you create with directives may be used throughout your application and in many different contexts.</p>
+<h3 class="ng-scope" id="simple-html-element-directive">Simple HTML Element Directive</h3>
+<p class="ng-scope">Let's start with an angular app with no dependencies.</p>
+<pre class="ng-scope"><code class="lang-js"><span class="kwd">var</span><span class="pln"> app </span><span class="pun">=</span><span class="pln"> angular</span><span class="pun">.</span><span class="pln">module</span><span class="pun">(</span><span class="str">'myApp'</span><span class="pun">,</span><span class="pln"> </span><span class="pun">[]);</span></code></pre>
+<p class="ng-scope">Now we can add a directive to our app.</p>
+<pre class="ng-scope"><code class="lang-js"><span class="pln">app</span><span class="pun">.</span><span class="pln">directive</span><span class="pun">(</span><span class="str">'aGreatEye'</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">function</span><span class="pln"> </span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+    </span><span class="kwd">return</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+        restrict</span><span class="pun">:</span><span class="pln"> </span><span class="str">'E'</span><span class="pun">,</span><span class="pln">
+        replace</span><span class="pun">:</span><span class="pln"> </span><span class="kwd">true</span><span class="pun">,</span><span class="pln">
+        template</span><span class="pun">:</span><span class="pln"> </span><span class="str">'&lt;h1&gt;lidless, wreathed in flame, {{1 + 1}} times&lt;/h1&gt;'</span><span class="pln">
+    </span><span class="pun">};</span><span class="pln">
+</span><span class="pun">});</span></code></pre>
+<p class="ng-scope">This directive is used as a tag <code><span class="tag">&lt;a-great-eye&gt;&lt;/a-great-eye&gt;</span></code>. It replaces the entire tag with the
+template <code><span class="tag">&lt;h1&gt;</span><span class="pln">lidless, wreathed in flame, {{1 + 1}} times</span><span class="tag">&lt;/h1&gt;</span></code>. Now we are going to write a jasmine unit test to
+verify this functionality. Note that the expression <code><span class="pun">{{</span><span class="lit">1</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> </span><span class="lit">1</span><span class="pun">}}</span></code> times will also be evaluated in the rendered content.</p>
+<pre class="ng-scope"><code class="lang-js"><span class="pln">describe</span><span class="pun">(</span><span class="str">'Unit testing great quotes'</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+    </span><span class="kwd">var</span><span class="pln"> $compile</span><span class="pun">;</span><span class="pln">
+    </span><span class="kwd">var</span><span class="pln"> $rootScope</span><span class="pun">;</span><span class="pln">
+
+    </span><span class="com">// Load the myApp module, which contains the directive</span><span class="pln">
+    beforeEach</span><span class="pun">(</span><span class="pln">module</span><span class="pun">(</span><span class="str">'myApp'</span><span class="pun">));</span><span class="pln">
+
+    </span><span class="com">// Store references to $rootScope and $compile</span><span class="pln">
+    </span><span class="com">// so they are available to all tests in this describe block</span><span class="pln">
+    beforeEach</span><span class="pun">(</span><span class="pln">inject</span><span class="pun">(</span><span class="kwd">function</span><span class="pun">(</span><span class="pln">_$compile_</span><span class="pun">,</span><span class="pln"> _$rootScope_</span><span class="pun">){</span><span class="pln">
+      </span><span class="com">// The injector unwraps the underscores (_) from around the parameter names when matching</span><span class="pln">
+      $compile </span><span class="pun">=</span><span class="pln"> _$compile_</span><span class="pun">;</span><span class="pln">
+      $rootScope </span><span class="pun">=</span><span class="pln"> _$rootScope_</span><span class="pun">;</span><span class="pln">
+    </span><span class="pun">}));</span><span class="pln">
+
+    it</span><span class="pun">(</span><span class="str">'Replaces the element with the appropriate content'</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+        </span><span class="com">// Compile a piece of HTML containing the directive</span><span class="pln">
+        </span><span class="kwd">var</span><span class="pln"> element </span><span class="pun">=</span><span class="pln"> $compile</span><span class="pun">(</span><span class="str">"&lt;a-great-eye&gt;&lt;/a-great-eye&gt;"</span><span class="pun">)(</span><span class="pln">$rootScope</span><span class="pun">);</span><span class="pln">
+        </span><span class="com">// fire all the watches, so the scope expression {{1 + 1}} will be evaluated</span><span class="pln">
+        $rootScope</span><span class="pun">.</span><span class="pln">$digest</span><span class="pun">();</span><span class="pln">
+        </span><span class="com">// Check that the compiled element contains the templated content</span><span class="pln">
+        expect</span><span class="pun">(</span><span class="pln">element</span><span class="pun">.</span><span class="pln">html</span><span class="pun">()).</span><span class="pln">toContain</span><span class="pun">(</span><span class="str">"lidless, wreathed in flame, 2 times"</span><span class="pun">);</span><span class="pln">
+    </span><span class="pun">});</span><span class="pln">
+</span><span class="pun">});</span></code></pre>
+<p class="ng-scope">We inject the $compile service and $rootScope before each jasmine test. The $compile service is used
+to render the aGreatEye directive. After rendering the directive we ensure that the directive has
+replaced the content and "lidless, wreathed in flame, 2 times" is present.</p>
+<h3 class="ng-scope" id="testing-transclusion-directives">Testing Transclusion Directives</h3>
+<p class="ng-scope">Directives that use transclusion are treated specially by the compiler.  Before their compile
+function is called, the contents of the directive's element are removed from the element and
+provided via a transclusion function.  The directive's template is then appended to the directive's
+element, to which it can then insert the transcluded content into its template.</p>
+<p class="ng-scope">Before compilation:</p>
+<pre class="ng-scope"><code class="lang-html"><span class="tag">&lt;div</span><span class="pln"> </span><span class="atn">translude-directive</span><span class="tag">&gt;</span><span class="pln">
+  Some transcluded content
+</span><span class="tag">&lt;/div&gt;</span></code></pre>
+<p class="ng-scope">After transclusion extraction:</p>
+<pre class="ng-scope"><code class="lang-html"><span class="tag">&lt;div</span><span class="pln"> </span><span class="atn">transclude-directive</span><span class="tag">&gt;&lt;/div&gt;</span></code></pre>
+<p class="ng-scope">After compilation:</p>
+<pre class="ng-scope"><code class="lang-html"><span class="tag">&lt;div</span><span class="pln"> </span><span class="atn">transclude-directive</span><span class="tag">&gt;</span><span class="pln">
+  Some Template
+  </span><span class="tag">&lt;span</span><span class="pln"> </span><span class="atn">ng-transclude</span><span class="tag">&gt;</span><span class="pln">Some transcluded content</span><span class="tag">&lt;/span&gt;</span><span class="pln">
+</span><span class="tag">&lt;/div&gt;</span></code></pre>
+<p class="ng-scope">If the directive is using 'element' transclusion, the compiler will actually remove the
+directive's entire element from the DOM and replace it with a comment node. The compiler then
+inserts the directive's template "after" this comment node, as a sibling.</p>
+<p class="ng-scope">Before compilation</p>
+<pre class="ng-scope"><code class="lang-html"><span class="tag">&lt;div</span><span class="pln"> </span><span class="atn">element-transclude</span><span class="tag">&gt;</span><span class="pln">
+  Some Content
+</span><span class="tag">&lt;/div&gt;</span></code></pre>
+<p class="ng-scope">After transclusion extraction</p>
+<pre class="ng-scope"><code class="lang-html"><span class="com">&lt;!-- elementTransclude --&gt;</span></code></pre>
+<p class="ng-scope">After compilation:</p>
+<pre class="ng-scope"><code class="lang-html"><span class="com">&lt;!-- elementTransclude --&gt;</span><span class="pln">
+</span><span class="tag">&lt;div</span><span class="pln"> </span><span class="atn">element-transclude</span><span class="tag">&gt;</span><span class="pln">
+  Some Template
+  </span><span class="tag">&lt;span</span><span class="pln"> </span><span class="atn">ng-transclude</span><span class="tag">&gt;</span><span class="pln">Some transcluded content</span><span class="tag">&lt;/span&gt;</span><span class="pln">
+</span><span class="tag">&lt;/div&gt;</span></code></pre>
+<p class="ng-scope">It is important to be aware of this when writing tests for directives that use 'element'
+transclusion.  If you place the directive on the root element of the DOM fragment that you
+pass to <a href="https://docs.angularjs.org/api/ng/service/$compile"><code><span class="pln">$compile</span></code></a>, then the DOM node returned from the linking function will be the
+comment node and you will lose the ability to access the template and transcluded content.</p>
+<pre class="ng-scope"><code class="lang-javascript"><span class="kwd">var</span><span class="pln"> node </span><span class="pun">=</span><span class="pln"> $compile</span><span class="pun">(</span><span class="str">'&lt;div element-transclude&gt;&lt;/div&gt;'</span><span class="pun">)(</span><span class="pln">$rootScope</span><span class="pun">);</span><span class="pln">
+expect</span><span class="pun">(</span><span class="pln">node</span><span class="pun">[</span><span class="lit">0</span><span class="pun">].</span><span class="pln">nodeType</span><span class="pun">).</span><span class="pln">toEqual</span><span class="pun">(</span><span class="pln">node</span><span class="pun">.</span><span class="pln">COMMENT_NODE</span><span class="pun">);</span><span class="pln">
+expect</span><span class="pun">(</span><span class="pln">node</span><span class="pun">[</span><span class="lit">1</span><span class="pun">]).</span><span class="pln">toBeUndefined</span><span class="pun">();</span></code></pre>
+<p class="ng-scope">To cope with this you simply ensure that your 'element' transclude directive is wrapped in an
+element, such as a <code><span class="tag">&lt;div&gt;</span></code>.</p>
+<pre class="ng-scope"><code class="lang-javascript"><span class="kwd">var</span><span class="pln"> node </span><span class="pun">=</span><span class="pln"> $compile</span><span class="pun">(</span><span class="str">'&lt;div&gt;&lt;div element-transclude&gt;&lt;/div&gt;&lt;/div&gt;'</span><span class="pun">)(</span><span class="pln">$rootScope</span><span class="pun">);</span><span class="pln">
+</span><span class="kwd">var</span><span class="pln"> contents </span><span class="pun">=</span><span class="pln"> node</span><span class="pun">.</span><span class="pln">contents</span><span class="pun">();</span><span class="pln">
+expect</span><span class="pun">(</span><span class="pln">contents</span><span class="pun">[</span><span class="lit">0</span><span class="pun">].</span><span class="pln">nodeType</span><span class="pun">).</span><span class="pln">toEqual</span><span class="pun">(</span><span class="pln">node</span><span class="pun">.</span><span class="pln">COMMENT_NODE</span><span class="pun">);</span><span class="pln">
+expect</span><span class="pun">(</span><span class="pln">contents</span><span class="pun">[</span><span class="lit">1</span><span class="pun">].</span><span class="pln">nodeType</span><span class="pun">).</span><span class="pln">toEqual</span><span class="pun">(</span><span class="pln">node</span><span class="pun">.</span><span class="pln">ELEMENT_NODE</span><span class="pun">);</span></code></pre>
+<h3 class="ng-scope" id="testing-directives-with-external-templates">Testing Directives With External Templates</h3>
+<p class="ng-scope">If your directive uses <code><span class="pln">templateUrl</span></code>, consider using
+<a href="https://github.com/karma-runner/karma-ng-html2js-preprocessor">karma-ng-html2js-preprocessor</a>
+to pre-compile HTML templates and thus avoid having to load them over HTTP during test execution.
+Otherwise you may run into issues if the test directory hierarchy differs from the application's.</p>
+<h2 class="ng-scope" id="sample-project">Sample project</h2>
+<p class="ng-scope">See the <a href="https://github.com/angular/angular-seed">angular-seed</a> project for an example.</p>
+
+
+</div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="container">
+        <p class="pull-right"><a back-to-top="">Back to top</a></p>
+
+        <p>
+          Super-powered by Google  ©2010-2014
+          ( <a href="https://github.com/angular/angular.js/blob/master/CHANGELOG.md#1.3.0-beta.18" class="ng-binding" id="version" ng-href="https://github.com/angular/angular.js/blob/master/CHANGELOG.md#1.3.0-beta.18" ng-bind-template="v1.3.0-beta.18  spontaneous-combustion">v1.3.0-beta.18  spontaneous-combustion</a>
+          )
+        </p>
+        <p>
+          Code licensed under the
+          <a href="https://github.com/angular/angular.js/blob/master/LICENSE" target="_blank">The
+            MIT License</a>. Documentation licensed under <a href="http://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>.
+        </p>
+      </div>
+    </footer>
+  </div>
+
+
+</body></html>

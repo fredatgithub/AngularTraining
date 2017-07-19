@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html ng-app='myApp'>
+  <head>
+    <meta charset="utf-8" />
+    <title>
+        Scope
+    </title>
+    <script src="../js/angular.js"></script>
+
+    <script>
+
+    var app = angular.module('myApp', []);
+
+    // Tous les arguments déclarés dans la signature du callback du controlleur
+    // (ici "$scope") sont analysés par angular. Si ce nom est enregitré
+    // quelque part dans la machinerie du framework, il va le récupérer, et le
+    // passer automatiquement au controlleur au moment de l'exécution. C'est
+    // ce qu'on appelle l'injection de dépendance.
+    //
+    // ATTENTION :  le controlleur est juste déclaré ici, le code du callback
+    // n'est pas exécuté tant que la directive ng-controller portant le nom
+    // de ce controlleur n'est pas rencontré. Dans notre cas, la fonction
+    // sera appelée au moment où on lit :
+    // <body ng-controller="ControlleurBasique">
+    // A ce moment donc, $scope sera injecté automatiquement.
+    //
+    // Bien entendu, si on met un nom de variable qui n'est enregistré nul part
+    // (comme "$scoubidou"), cela provoquera une erreur. Le $ est le signe
+    // des éléments fournis par angular.
+    app.controller('ControlleurBasique', function($scope) {
+        "use strict";
+
+      // Le scope est une conteneur. Son but est de permettre de rendre des
+      // valeur disponibles dans la parties de HTML gérée par le controlleur.
+      // Ainsi, tout attribut attaché au scope devient accessible dans ce HTML
+      // sous forme de variable.
+      $scope.une_variable = "Contenu de la variable";
+    });
+
+    </script>
+
+</head>
+
+<!-- Cette partie du HTML est gérée par ControlleurBasique, donc tous les attributs
+    du $scope de ce controlleur son disponibles en tant que variables dans ce
+    bloc. En dehors du bloc (après la balise </body>), ça ne marche plus. -->
+<body ng-controller="ControlleurBasique">
+    <!-- $scope.une_variable nous permet d'utiliser "une_variable" ici -->
+    {{ une_variable }}
+</body>
+
+</html>
+
+</body>
+</html>
+

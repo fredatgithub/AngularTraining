@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html ng-app='myApp'>
+  <head>
+    <meta charset="utf-8" />
+    <title>
+        Hello angular
+    </title>
+    <script src="../js/angular.js"></script>
+</head>
+
+<body>
+
+</body>
+
+<script>
+
+// Le deuxième paramètre est la liste de dépendances du module. Si vide, un
+// nouveau module est créé. Si absent, angular essaye de récupérer la référence
+// à un module existant portant ce nom.
+
+var dependance = angular.module('dependance', []);
+
+
+var app = angular.module('myApp', ['dependance']);
+
+app.config(function(){
+    // On met ici du code que l'on veut voir s'exécuter avant que les methodes
+    // un de tous les modules soient lancés. Rarement utilisé.
+    alert('myApp');
+});
+
+dependance.config(function(){
+    alert('dependance');
+})
+
+
+// Chaque module verra sa méthode run() lancée une fois, et une seule, après
+// que tous les modules soient chargés et configurés.
+app.run(function(){
+    "use strict";
+
+    alert('Hello');
+
+});
+
+</script>
+
+</html>
+
+
+</body>
+</html>
+

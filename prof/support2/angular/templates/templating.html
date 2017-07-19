@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html ng-app='myApp'>
+  <head>
+    <meta charset="utf-8" />
+    <title>
+        Directives
+    </title>
+    <script src="../js/angular.js"></script>
+
+    <script>
+
+    angular.module('myApp', [])
+
+    .controller('Controlleur', function($scope) {
+        "use strict";
+        $scope.frameworks = ['Amber', 'Backbone', "Spine", "Knockout", "Angular"]
+    });
+
+    </script>
+
+    <script type="text/ng-template" id="framework.html">
+    <h1>local</h1>
+              {{ framework }}
+    <hr/>
+    </script>
+
+</head>
+
+<body  ng-controller="Controlleur">
+
+    <div ng-repeat="framework in frameworks" ng-include="'framework.html'"></div>
+
+    <div ng-repeat="framework in frameworks" ng-include="'_partial.html'"></li>
+    </div>
+
+</body>
+
+</html>
+
+
+

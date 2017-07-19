@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html ng-app='myApp'>
+  <head>
+    <meta charset="utf-8" />
+    <title>
+        Data binding
+    </title>
+    <script src="../js/angular.js"></script>
+
+    <script>
+
+    angular.module('myApp', [])
+
+    .controller('Controlleur', function($scope, $interval) {
+        "use strict";
+        $scope.nom = "Anonymous";
+        $scope.counter = 0;
+
+
+        $interval(function(){
+                $scope.counter++;
+        }, 1000);
+    });
+
+    </script>
+
+</head>
+
+<body ng-controller="Controlleur">
+
+<form>
+    <p>
+        <input type="text" id="source" ng-model="nom">
+        <input type="checkbox" ng-model="cacher">
+    </p>
+    <p ng-hide="cacher">Nom attaché au scope : {{ nom }}</p>
+
+    <p><input type="text" ng-model="counter"></p>
+
+</form>
+
+</body>
+
+</html>
+
+</body>
+</html>
+

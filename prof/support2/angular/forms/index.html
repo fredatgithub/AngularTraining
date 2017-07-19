@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html ng-app='myApp'>
+  <head>
+    <meta charset="utf-8" />
+    <title>
+        Forms
+    </title>
+    <script src="../js/angular.js"></script>
+</head>
+
+<body ng-controller="FormCtrl" >
+
+<form name="myForm" ng-submit="submit()"
+      novalidate> <!-- novalidate désactive la validation HTML5 -->
+
+    <p>
+        <!-- Le champ de formulaire à vérifier. ng-pattern est spécifique à
+        angular, alors que required fait parti du standar HTML5 -->
+        <label>Username:</label>
+        <input type="text" name="usernameField" ng-model="username"
+               ng-pattern="/^[^\s]+$/" required >
+
+        <!-- On ne fait apparaitre ces message que si le formulaire a été
+        manipulé -->
+        <span ng-if="myForm.$dirty && myForm.usernameField.$error.required">
+            Ce champ est obligatoire
+        </span>
+        <span ng-if="myForm.$dirty && myForm.usernameField.$error.pattern">
+            Les espaces sont interdits
+        </span>
+    </p>
+
+    <p><button>Ok</button></p>
+</form>
+
+<pre>
+
+
+
+Ce qui se passe dans le controlleur :
+    <!-- Le modèle et le champ pourrait s'appeler tous les deux "username" sans
+    conflit, et on le fait généralement. Mais pour bien les distinguer ici,
+    j'ai appelé le champ de formulaire *_field -->
+    $scope.username = {{username}}
+    $scope.myForm.usernameField.$valid = {{myForm.usernameField.$valid}}
+    $scope.myForm.usernameField.$error = {{myForm.usernameField.$error}}
+	$scope.myForm.usernameField.$dirty = {{myForm.usernameField.$dirty}}
+    $scope.myForm.$valid = {{myForm.$valid}}
+    $scope.myForm.$error.required = {{!!myForm.$error.required}}
+</pre>
+
+</body>
+
+<script>
+var app = angular.module('myApp', []);
+app.controller('FormCtrl', ['$scope', function($scope) {
+'use strict';
+
+$scope.submit = function(){
+    if ($scope.myForm.$invalid){
+        alert("Nope !");
+        // Angular marquera le formulaire comme dirty si on le manipule,
+        // mais pas en cas de soumission. Donc on le fait manuellement.
+        $scope.myForm.$setDirty();
+        // Ici on peut mettre une logique de validation supplémentaire,
+        // un appel ajax, etc.
+    } else {
+        alert("Formulaire envoyé avec la valeur : " + $scope.username);
+    }
+};
+
+}]);
+</script>
+
+
+</html>
+
+
+
+
+
+
+
+</body>
+</html>
+

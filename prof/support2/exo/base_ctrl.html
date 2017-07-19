@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html ng-app='myApp'>
+  <head>
+    <meta charset="utf-8" />
+    <title>
+        Base de controlleur
+    </title>
+    <script src="js/angular.js"></script>
+
+    <script>
+
+    angular.module('myApp', [])
+
+
+    .controller('BaseCtrl', function($scope) {
+        "use strict";
+
+        $scope.vehicules = [
+            {'nom': 'moto', 'couleur': "bleue"},
+            {'nom': 'voiture', 'couleur': 'rouge'},
+            {'nom': 'avion', 'couleur': 'jaune'},
+        ];
+
+
+    });
+
+    </script>
+
+</head>
+
+<body>
+<div ng-controller="BaseCtrl">
+    <p>{{vehicules[1].nom}} : couleur {{ vehicules[1].couleur }}</p>
+    <p><input ng-disabled="true" value="{{vehicules[0].nom}}"></p>
+</div>
+</body>
+
+</html>
+
+</body>
+</html>
+

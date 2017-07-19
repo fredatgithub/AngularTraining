@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html ng-app='myApp'>
+  <head>
+    <meta charset="utf-8" />
+    <title>
+        Provider
+    </title>
+    <script src="../js/angular.js"></script>
+
+    <script>
+
+    angular.module('myApp', [])
+
+    .factory("emitter", function($rootScope){
+        "use strict";
+
+        return {
+            "hey": function(){
+                $rootScope.$broadcast('heyEvent', [1, 2, 3, 4])
+            }
+        }
+
+    })
+
+    .factory("receiver", function($rootScope){
+        "use strict";
+
+        var service =  {
+            "reactToHey": function(event, data){
+                alert(event.name + " : " + data);
+            }
+        };
+
+        $rootScope.$on('heyEvent', service.reactToHey);
+
+        return service;
+
+    })
+
+    .controller('Controlleur', function($scope, emitter, receiver) {
+        "use strict";
+        $scope.emitter = emitter;
+    });
+
+
+    </script>
+
+</head>
+
+<body  ng-controller="Controlleur">
+
+
+<form>
+    <p>
+        <button ng-click="emitter.hey()">Envoyer event</button>
+    </p>
+</form>
+
+</body>
+
+</html>
+
+</body>
+</html>
+

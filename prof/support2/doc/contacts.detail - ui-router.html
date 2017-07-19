@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<!-- Our uiRouterSample module defined here -->
+<html class="ng-scope" ng-app="uiRouterSample" lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"><style type="text/css">@charset "UTF-8";[ng\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide{display:none !important;}ng\:form{display:block;}.ng-animate-block-transitions{transition:0s all!important;-webkit-transition:0s all!important;}</style>
+    <meta charset="utf-8">
+
+    <!-- using twitter bootstrap, but of course -->
+    <link rel="stylesheet" type="text/css" href="contacts.detail%20-%20ui-router_fichiers/bootstrap.css">
+    <!-- styles for ng-animate are located here -->
+    <link rel="stylesheet" type="text/css" href="contacts.detail%20-%20ui-router_fichiers/styles.css">
+
+    <!-- Include both angular.js and angular-ui-router.js-->
+    <script src="contacts.detail%20-%20ui-router_fichiers/angular.js"></script>
+    <script src="contacts.detail%20-%20ui-router_fichiers/angular-animate.js"></script>
+    <script src="contacts.detail%20-%20ui-router_fichiers/angular-ui-router.js"></script>
+
+    <!-- module.js declares the uiRouterSample module and adds items to $rootScope-->
+    <script src="contacts.detail%20-%20ui-router_fichiers/module.js"></script>
+    <!-- factory.js defines a 'contacts' http service and a 'utils' global functions service -->
+    <script src="contacts.detail%20-%20ui-router_fichiers/factory.js"></script>
+    <!-- state.js takes care of all the state configuration, where all the magic's at-->
+    <script src="contacts.detail%20-%20ui-router_fichiers/states.js"></script>
+
+    <!-- could easily use a custom property of the state here instead of 'name' -->
+    <title class="ng-binding" ng-bind="$state.current.name + ' - ui-router'">contacts.detail - ui-router</title>
+  </head>
+  <body>
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner"><div class="container">
+
+        <!-- ui-sref is a great directive for linking a state location with an anchor link.
+             You should almost always use ui-sref instead of href on your links when you want
+             then to navigate to a state. When this link is clicked it will take the application
+             to the 'home' state. Behind the scenes the directive also adds the correct href attr
+             and url. -->
+        <a href="#/" class="brand" ui-sref="home">ui-router</a>
+        <ul class="nav">
+
+        <!-- Here you can see ui-sref in action again. Also notice the use of $state.includes, which
+             will set the links to 'active' if, for example on the first link, 'contacts' or any of
+             its descendant states are activated. -->
+          <li class="active" ng-class="{active: $state.includes('contacts')}"><a href="#/contacts" ui-sref="contacts.list">Contacts</a></li>
+          <li class="" ui-sref-active="active"><a href="#/about" ui-sref="about">About</a></li>
+        </ul>
+
+        <!-- Here is a named ui-view. ui-views don't have to be named, but we'll be populate this
+             on from various different child states and we want a name to help us target. -->
+        <!-- uiView: hint --><p ui-view="hint" class="navbar-text pull-right ng-scope"><span class="ng-scope">This is contacts.detail populating the "hint" ui-view</span></p>
+      </div></div>
+    </div>
+
+    <!-- Here is the main ui-view (unnamed) and will be populate by its immediate children's templates
+         unless otherwise explicitly named views are targeted. It's also employing ng-animate. -->
+    <!-- uiView:  --><div ui-view="" class="container slide ng-scope" style="padding-top: 80px;"><div class="row ng-scope">
+  <div class="span3">
+    <div class="pa-sidebar well well-small">
+      <ul class="nav nav-list">
+        <li ng-class="{ active: $state.includes('contacts.list') }"><a href="#/contacts" ui-sref="contacts.list">All Contacts</a></li>
+        <li class="nav-header">Top Contacts</li>
+
+        <!-- This <li> will only add the 'active' class if 'contacts.detail' or its descendants are active
+             AND if it is the link for the active contact (aka contactId) -->
+        <!-- ngRepeat: contact in contacts | limitTo:2 --><li class="ng-scope" ng-repeat="contact in contacts | limitTo:2" ui-sref-active="active">
+
+          <!-- Here's a ui-sref that is also providing necessary parameters -->
+          <a href="#/contacts/1" class="ng-binding" ui-sref="contacts.detail({contactId:contact.id})">Alice</a>
+        </li><!-- end ngRepeat: contact in contacts | limitTo:2 --><li class="ng-scope" ng-repeat="contact in contacts | limitTo:2" ui-sref-active="active">
+
+          <!-- Here's a ui-sref that is also providing necessary parameters -->
+          <a href="#/contacts/42" class="ng-binding" ui-sref="contacts.detail({contactId:contact.id})">Bob</a>
+        </li><!-- end ngRepeat: contact in contacts | limitTo:2 -->
+      </ul>
+      <hr>
+      <button class="btn" ng-click="goToRandom()">Show random contact</button>
+
+      <!-- Another named view -->
+      <!-- uiView: menuTip --><div style="" ui-view="menuTip" class="slide ng-scope"><hr class="ng-scope"><small class="muted ng-scope">Contact ID: 123</small></div>
+    </div>
+  </div>
+
+  <!-- Our unnamed main ui-view for this template -->
+  <!-- uiView:  --><div style="" ui-view="" class="span9 slide ng-scope"><div class="ng-scope">
+  <h2 class="ng-binding">Eve</h2>
+  <ul>
+    <!-- ngRepeat: item in contact.items --><li class="ng-scope" ng-repeat="item in contact.items">
+
+      <!-- Here's another ui-sref except THIS time we are passing parameters
+           AND inheriting parameters from active ancestor states. So we don't
+           need to resupply the contactId parameter. -->
+      <a href="#/contacts/123/item/a" class="ng-binding" ui-sref="contacts.detail.item({itemId:item.id})">full name</a>
+    </li><!-- end ngRepeat: item in contact.items -->
+  </ul>
+  <!-- uiView:  --><div ui-view="" class="slide ng-scope">
+    <!-- Example of default content. This content will be replace as soon as
+         this ui-view is populate with a template -->
+    <small class="muted">Click on a contact item to view and/or edit it.</small>
+  </div>
+</div>
+</div>
+</div>
+</div>
+
+
+    <hr>
+    <pre class="ng-binding">      <!-- Here's some values to keep an eye on in the sample in order to understand $state and $stateParams -->
+      $state = contacts.detail
+      $stateParams = {"contactId":"123"}
+      $state full url = /contacts/{contactId:[0-9]{1,4}}
+      <!-- $state.$current is not a public api, we are using it to
+           display the full url for learning purposes-->
+    </pre>
+  
+
+</body></html>

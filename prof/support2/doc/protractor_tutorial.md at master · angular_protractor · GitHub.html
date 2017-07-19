@@ -1,0 +1,925 @@
+<!DOCTYPE html>
+<html class="   " lang="en"><script id="bug.surrogate.1">var urchinTracker=function(){},_gaq={push:function(){try {if(arguments[0][0]=='_link')window.location.href=arguments[0][1]}catch(er){}}},_gat={_createTracker:function(){}, _getTracker:function(){return{__noSuchMethod__:function(){},_link:function(o){if(o)location.href=o;},_linkByPost:function(){return true;},_getLinkerUrl:function(o){return o;},_trackEvent:function(){}}}};</script><head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# object: http://ogp.me/ns/object# article: http://ogp.me/ns/article# profile: http://ogp.me/ns/profile#">
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Language" content="en">
+    
+    
+    <title>protractor/tutorial.md at master · angular/protractor · GitHub</title>
+    <link rel="search" type="application/opensearchdescription+xml" href="https://github.com/opensearch.xml" title="GitHub">
+    <link rel="fluid-icon" href="https://github.com/fluidicon.png" title="GitHub">
+    <link rel="apple-touch-icon" sizes="57x57" href="https://github.com/apple-touch-icon-114.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="https://github.com/apple-touch-icon-114.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="https://github.com/apple-touch-icon-144.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="https://github.com/apple-touch-icon-144.png">
+    <meta property="fb:app_id" content="1401488693436528">
+
+      <meta content="@github" name="twitter:site"><meta content="summary" name="twitter:card"><meta content="angular/protractor" name="twitter:title"><meta content="protractor - E2E test framework for Angular apps" name="twitter:description"><meta content="https://avatars0.githubusercontent.com/u/139426?v=2&amp;s=400" name="twitter:image:src">
+<meta content="GitHub" property="og:site_name"><meta content="object" property="og:type"><meta content="https://avatars0.githubusercontent.com/u/139426?v=2&amp;s=400" property="og:image"><meta content="angular/protractor" property="og:title"><meta content="https://github.com/angular/protractor" property="og:url"><meta content="protractor - E2E test framework for Angular apps" property="og:description">
+
+    <link rel="assets" href="https://assets-cdn.github.com/">
+    <link rel="conduit-xhr" href="https://ghconduit.com:25035/">
+    
+
+    <meta name="msapplication-TileImage" content="/windows-tile.png">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="selected-link" value="repo_source" data-pjax-transient="">
+      <meta name="google-analytics" content="UA-3769691-2">
+
+    <meta content="collector.githubapp.com" name="octolytics-host"><meta content="collector-cdn.github.com" name="octolytics-script-host"><meta content="github" name="octolytics-app-id"><meta content="58A893A7:7B5E:142C78C6:53F1A59A" name="octolytics-dimension-request_id">
+    
+
+    
+    
+    <link rel="icon" type="image/x-icon" href="https://assets-cdn.github.com/favicon.ico">
+
+
+    <meta content="authenticity_token" name="csrf-param">
+<meta content="NSw1UCOpRky0JetduuJFEwLVUn1HXl6LwHa/0wZV8KhI8/O72bruDkK0dr7y+Ch9Z3Qu3A/E5EPWrs5GMgn9sg==" name="csrf-token">
+
+    <link href="protractor_tutorial.md%20at%20master%20%C2%B7%20angular_protractor%20%C2%B7%20GitHub_fichiers/github-5efa7b0b8a55ddcee56e5aee3fa56109d1d2781c.css" media="all" rel="stylesheet" type="text/css">
+    <link href="protractor_tutorial.md%20at%20master%20%C2%B7%20angular_protractor%20%C2%B7%20GitHub_fichiers/github2-97fd69f3a3771e25d14b434fa06478cc54fb9bf3.css" media="all" rel="stylesheet" type="text/css">
+    
+
+
+    <meta http-equiv="x-pjax-version" content="48f4828d889e064d2d5d273971fb3850">
+
+      
+  <meta name="description" content="protractor - E2E test framework for Angular apps">
+
+
+  <meta content="139426" name="octolytics-dimension-user_id"><meta content="angular" name="octolytics-dimension-user_login"><meta content="7639232" name="octolytics-dimension-repository_id"><meta content="angular/protractor" name="octolytics-dimension-repository_nwo"><meta content="true" name="octolytics-dimension-repository_public"><meta content="false" name="octolytics-dimension-repository_is_fork"><meta content="7639232" name="octolytics-dimension-repository_network_root_id"><meta content="angular/protractor" name="octolytics-dimension-repository_network_root_nwo">
+  <link href="https://github.com/angular/protractor/commits/master.atom" rel="alternate" title="Recent Commits to protractor:master" type="application/atom+xml">
+
+  <script src="protractor_tutorial.md%20at%20master%20%C2%B7%20angular_protractor%20%C2%B7%20GitHub_fichiers/api.js" async="" type="text/javascript"></script><style>@-webkit-keyframes popxpivmxlyyhgixsnneatbntoddwknpatnul {50% {-webkit-transform:scale(1.2);}100% {-webkit-transform:scale(1);}}@keyframes popxpivmxlyyhgixsnneatbntoddwknpatnul {50% {-webkit-transform:scale(1.2);transform:scale(1.2);}100% {-webkit-transform:scale(1);transform:scale(1);}}#xpivmxlyyhgixsnneatbntoddwknpatnul{padding:0;margin:0;font:13px Arial,Helvetica;text-transform:none;font-size: 100%;vertical-align:baseline;line-height:normal;color:#fff;border:solid 2px #fff !important;color:#fff !important;display:block !important;height:auto !important;margin:0 !important;opacity:0.9 !important;padding:7px 10px !important;position:fixed !important;visibility:visible !important;width:auto !important;z-index:2147483647 !important;-moz-border-radius:5px !important;border-radius:5px !important;-moz-box-shadow:0px 0px 20px #000 !important;box-shadow:0px 0px 20px #000 !important;}.xpivmxlyyhgixsnneatbntoddwknpatnul-blocked{padding:0;margin:0;font:13px Arial,Helvetica;text-transform:none;font-size: 100%;vertical-align:baseline;line-height:normal;color:#fff;color:#AAA !important;display:inline !important;text-decoration:line-through !important;}#xpivmxlyyhgixsnneatbntoddwknpatnul br{display:block !important;padding:0;margin:0;font:13px Arial,Helvetica;text-transform:none;font-size: 100%;vertical-align:baseline;line-height:normal;color:#fff;}#xpivmxlyyhgixsnneatbntoddwknpatnul span{background:transparent !important;padding:0;margin:0;font:13px Arial,Helvetica;text-transform:none;font-size: 100%;vertical-align:baseline;line-height:normal;color:#fff;}#xpivmxlyyhgixsnneatbntoddwknpatnul div{padding:0;margin:0;font:13px Arial,Helvetica;text-transform:none;font-size: 100%;vertical-align:baseline;line-height:normal;color:#fff;border:0 !important;margin:0 !important;padding:0 !important;width:auto !important;letter-spacing:normal !important;font:13px Arial,Helvetica !important;text-align:left !important;text-shadow:none !important;text-transform:none !important;word-spacing:normal !important;}#xpivmxlyyhgixsnneatbntoddwknpatnul a{padding:0;margin:0;font:13px Arial,Helvetica;text-transform:none;font-size: 100%;vertical-align:baseline;line-height:normal;color:#fff;font-weight:normal !important;background:none !important;text-decoration:underline !important;color:#fff !important;}a#xpivmxlyyhgixsnneatbntoddwknpatnul-gear{padding:0;margin:0;font:13px Arial,Helvetica;text-transform:none;font-size: 100%;vertical-align:baseline;line-height:normal;color:#fff;text-decoration:none !important;position:absolute !important;display:none !important;font-size:20px !important;width:20px !important;height:20px !important;line-height:20px !important;text-align:center !important;background-color:rgba(255,255,255,.8) !important;background-image:url(resource://firefox-at-ghostery-dot-com/ghostery/data/images/gear.svg) !important;background-size:16px 16px !important;background-position:center center !important;background-repeat:no-repeat !important;text-decoration:none !important;}a#xpivmxlyyhgixsnneatbntoddwknpatnul-gear:hover{-webkit-animation-name:popxpivmxlyyhgixsnneatbntoddwknpatnul !important;animation-name:popxpivmxlyyhgixsnneatbntoddwknpatnul !important;-webkit-animation-duration:0.3s !important;animation-duration:0.3s !important;}#xpivmxlyyhgixsnneatbntoddwknpatnul:hover #xpivmxlyyhgixsnneatbntoddwknpatnul-gear{text-decoration:none !important;display:inline-block !important;}#xpivmxlyyhgixsnneatbntoddwknpatnul hr{visibility:hidden !important;padding:0;margin:0;font:13px Arial,Helvetica;text-transform:none;font-size: 100%;vertical-align:baseline;line-height:normal;color:#fff;height:1em;}@media print{#xpivmxlyyhgixsnneatbntoddwknpatnul{display:none !important;}}</style><script>try {  for(var lastpass_iter=0; lastpass_iter < document.forms.length; lastpass_iter++){    var lastpass_f = document.forms[lastpass_iter];    if(typeof(lastpass_f.lpsubmitorig)=="undefined"){      if (typeof(lastpass_f.submit) == "function") {        lastpass_f.lpsubmitorig = lastpass_f.submit;        lastpass_f.submit = function(){          var form = this;          try {            if (document.documentElement && 'createEvent' in document)            {              var forms = document.getElementsByTagName('form');              for (var i=0 ; i<forms.length ; ++i)                if (forms[i]==form)                {                  var element = document.createElement('lpformsubmitdataelement');                  element.setAttribute('formnum',i);                  element.setAttribute('from','submithook');                  document.documentElement.appendChild(element);                  var evt = document.createEvent('Events');                  evt.initEvent('lpformsubmit',true,false);                  element.dispatchEvent(evt);                  break;                }            }          } catch (e) {}          try {            form.lpsubmitorig();          } catch (e) {}        }      }    }  }} catch (e) {}</script></head>
+
+
+  <body class="logged_out  env-production linux vis-public page-blob">
+    <a href="#start-of-content" tabindex="1" class="accessibility-aid js-skip-to-content">Skip to content</a>
+    <div class="wrapper">
+      
+      
+      
+      
+
+
+      
+      <div class="header header-logged-out">
+  <div class="container clearfix">
+
+    <a class="header-logo-wordmark" href="https://github.com/">
+      <span class="mega-octicon octicon-logo-github"></span>
+    </a>
+
+    <div class="header-actions">
+        <a class="button primary" href="https://github.com/join">Sign up</a>
+      <a class="button signin" href="https://github.com/login?return_to=%2Fangular%2Fprotractor%2Fblob%2Fmaster%2Fdocs%2Ftutorial.md">Sign in</a>
+    </div>
+
+    <div class="command-bar js-command-bar  in-repository">
+
+      <ul class="top-nav">
+          <li class="explore"><a href="https://github.com/explore">Explore</a></li>
+          <li class="features"><a href="https://github.com/features">Features</a></li>
+          <li class="enterprise"><a href="https://enterprise.github.com/">Enterprise</a></li>
+          <li class="blog"><a href="https://github.com/blog">Blog</a></li>
+      </ul>
+        <form accept-charset="UTF-8" action="/search" class="command-bar-form" id="top_search_form" method="get"><div style="margin:0;padding:0;display:inline"><input name="utf8" value="✓" type="hidden"></div>
+
+<div class="commandbar">
+  <span class="message"></span>
+  <input data-hotkey="s" name="q" id="js-command-bar-field" placeholder="Search or type a command" tabindex="1" autocapitalize="off" data-repo="angular/protractor" type="text">
+  <div class="display hidden"></div>
+</div>
+
+    <input name="nwo" value="angular/protractor" type="hidden">
+
+    <div class="select-menu js-menu-container js-select-menu search-context-select-menu">
+      <span class="minibutton select-menu-button js-menu-target" role="button" aria-haspopup="true">
+        <span class="js-select-button">This repository</span>
+      </span>
+
+      <div class="select-menu-modal-holder js-menu-content js-navigation-container" aria-hidden="true">
+        <div class="select-menu-modal">
+
+          <div class="select-menu-item js-navigation-item js-this-repository-navigation-item selected">
+            <span class="select-menu-item-icon octicon octicon-check"></span>
+            <input class="js-search-this-repository" name="search_target" value="repository" checked="checked" type="radio">
+            <div class="select-menu-item-text js-select-button-text">This repository</div>
+          </div> <!-- /.select-menu-item -->
+
+          <div class="select-menu-item js-navigation-item js-all-repositories-navigation-item">
+            <span class="select-menu-item-icon octicon octicon-check"></span>
+            <input name="search_target" value="global" type="radio">
+            <div class="select-menu-item-text js-select-button-text">All repositories</div>
+          </div> <!-- /.select-menu-item -->
+
+        </div>
+      </div>
+    </div>
+
+  <span class="help tooltipped tooltipped-s" aria-label="Show command bar help">
+    <span class="octicon octicon-question"></span>
+  </span>
+
+
+  <input name="ref" value="cmdform" type="hidden">
+
+</form>
+    </div>
+
+  </div>
+</div>
+
+
+
+      <div id="start-of-content" class="accessibility-aid"></div>
+          <div class="site" itemscope="" itemtype="http://schema.org/WebPage">
+    <div id="js-flash-container">
+      
+    </div>
+    <div class="pagehead repohead instapaper_ignore readability-menu">
+      <div class="container">
+        
+<ul class="pagehead-actions">
+
+
+  <li>
+      <a href="https://github.com/login?return_to=%2Fangular%2Fprotractor" class="minibutton with-count star-button tooltipped tooltipped-n" aria-label="You must be signed in to star a repository" rel="nofollow">
+    <span class="octicon octicon-star"></span>
+    Star
+  </a>
+
+    <a class="social-count js-social-count" href="https://github.com/angular/protractor/stargazers">
+      2,191
+    </a>
+
+  </li>
+
+    <li>
+      <a href="https://github.com/login?return_to=%2Fangular%2Fprotractor" class="minibutton with-count js-toggler-target fork-button tooltipped tooltipped-n" aria-label="You must be signed in to fork a repository" rel="nofollow">
+        <span class="octicon octicon-repo-forked"></span>
+        Fork
+      </a>
+      <a href="https://github.com/angular/protractor/network" class="social-count">
+        452
+      </a>
+    </li>
+</ul>
+
+        <h1 itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb" class="entry-title public">
+          <span class="mega-octicon octicon-repo"></span>
+          <span class="author"><a href="https://github.com/angular" class="url fn" itemprop="url" rel="author"><span itemprop="title">angular</span></a></span><!--
+       --><span class="path-divider">/</span><!--
+       --><strong><a href="https://github.com/angular/protractor" class="js-current-repository js-repo-home-link">protractor</a></strong>
+
+          <span class="page-context-loader">
+            <img alt="" src="protractor_tutorial.md%20at%20master%20%C2%B7%20angular_protractor%20%C2%B7%20GitHub_fichiers/octocat-spinner-32.gif" height="16" width="16">
+          </span>
+
+        </h1>
+      </div><!-- /.container -->
+    </div><!-- /.repohead -->
+
+    <div class="container">
+      <div class="repository-with-sidebar repo-container new-discussion-timeline">
+        <div class="repository-sidebar clearfix">
+            
+<div class="sunken-menu vertical-right repo-nav js-repo-nav js-repository-container-pjax js-octicon-loaders" data-issue-count-url="/angular/protractor/issues/counts">
+  <div class="sunken-menu-contents">
+    <ul class="sunken-menu-group">
+      <li class="tooltipped tooltipped-w" aria-label="Code">
+        <a href="https://github.com/angular/protractor" aria-label="Code" class="selected js-selected-navigation-item sunken-menu-item" data-hotkey="g c" data-pjax="true" data-selected-links="repo_source repo_downloads repo_commits repo_releases repo_tags repo_branches /angular/protractor">
+          <span class="octicon octicon-code"></span> <span class="full-word">Code</span>
+          <img alt="" class="mini-loader" src="protractor_tutorial.md%20at%20master%20%C2%B7%20angular_protractor%20%C2%B7%20GitHub_fichiers/octocat-spinner-32.gif" height="16" width="16">
+</a>      </li>
+
+        <li class="tooltipped tooltipped-w" aria-label="Issues">
+          <a href="https://github.com/angular/protractor/issues" aria-label="Issues" class="js-selected-navigation-item sunken-menu-item js-disable-pjax" data-hotkey="g i" data-selected-links="repo_issues repo_labels repo_milestones /angular/protractor/issues">
+            <span class="octicon octicon-issue-opened"></span> <span class="full-word">Issues</span>
+            <span class="js-issue-replace-counter"></span>
+            <img alt="" class="mini-loader" src="protractor_tutorial.md%20at%20master%20%C2%B7%20angular_protractor%20%C2%B7%20GitHub_fichiers/octocat-spinner-32.gif" height="16" width="16">
+</a>        </li>
+
+      <li class="tooltipped tooltipped-w" aria-label="Pull Requests">
+        <a href="https://github.com/angular/protractor/pulls" aria-label="Pull Requests" class="js-selected-navigation-item sunken-menu-item js-disable-pjax" data-hotkey="g p" data-selected-links="repo_pulls /angular/protractor/pulls">
+            <span class="octicon octicon-git-pull-request"></span> <span class="full-word">Pull Requests</span>
+            <span class="js-pull-replace-counter"></span>
+            <img alt="" class="mini-loader" src="protractor_tutorial.md%20at%20master%20%C2%B7%20angular_protractor%20%C2%B7%20GitHub_fichiers/octocat-spinner-32.gif" height="16" width="16">
+</a>      </li>
+
+
+        <li class="tooltipped tooltipped-w" aria-label="Wiki">
+          <a href="https://github.com/angular/protractor/wiki" aria-label="Wiki" class="js-selected-navigation-item sunken-menu-item js-disable-pjax" data-hotkey="g w" data-selected-links="repo_wiki /angular/protractor/wiki">
+            <span class="octicon octicon-book"></span> <span class="full-word">Wiki</span>
+            <img alt="" class="mini-loader" src="protractor_tutorial.md%20at%20master%20%C2%B7%20angular_protractor%20%C2%B7%20GitHub_fichiers/octocat-spinner-32.gif" height="16" width="16">
+</a>        </li>
+    </ul>
+    <div class="sunken-menu-separator"></div>
+    <ul class="sunken-menu-group">
+
+      <li class="tooltipped tooltipped-w" aria-label="Pulse">
+        <a href="https://github.com/angular/protractor/pulse/weekly" aria-label="Pulse" class="js-selected-navigation-item sunken-menu-item" data-pjax="true" data-selected-links="pulse /angular/protractor/pulse/weekly">
+          <span class="octicon octicon-pulse"></span> <span class="full-word">Pulse</span>
+          <img alt="" class="mini-loader" src="protractor_tutorial.md%20at%20master%20%C2%B7%20angular_protractor%20%C2%B7%20GitHub_fichiers/octocat-spinner-32.gif" height="16" width="16">
+</a>      </li>
+
+      <li class="tooltipped tooltipped-w" aria-label="Graphs">
+        <a href="https://github.com/angular/protractor/graphs" aria-label="Graphs" class="js-selected-navigation-item sunken-menu-item" data-pjax="true" data-selected-links="repo_graphs repo_contributors /angular/protractor/graphs">
+          <span class="octicon octicon-graph"></span> <span class="full-word">Graphs</span>
+          <img alt="" class="mini-loader" src="protractor_tutorial.md%20at%20master%20%C2%B7%20angular_protractor%20%C2%B7%20GitHub_fichiers/octocat-spinner-32.gif" height="16" width="16">
+</a>      </li>
+    </ul>
+
+
+  </div>
+</div>
+
+              <div class="only-with-full-nav">
+                
+  
+<div class="clone-url open" data-protocol-type="http" data-url="/users/set_protocol?protocol_selector=http&amp;protocol_type=clone">
+  <h3><strong>HTTPS</strong> clone URL</h3>
+  <div class="input-group">
+    <input class="input-mini input-monospace js-url-field" value="https://github.com/angular/protractor.git" readonly="readonly" type="text">
+    <span class="input-group-button">
+      <button aria-label="Copy to clipboard" class="js-zeroclipboard minibutton zeroclipboard-button" data-clipboard-text="https://github.com/angular/protractor.git" data-copied-hint="Copied!" type="button"><span class="octicon octicon-clippy"></span></button>
+    </span>
+  </div>
+</div>
+
+  
+<div class="clone-url " data-protocol-type="subversion" data-url="/users/set_protocol?protocol_selector=subversion&amp;protocol_type=clone">
+  <h3><strong>Subversion</strong> checkout URL</h3>
+  <div class="input-group">
+    <input class="input-mini input-monospace js-url-field" value="https://github.com/angular/protractor" readonly="readonly" type="text">
+    <span class="input-group-button">
+      <button aria-label="Copy to clipboard" class="js-zeroclipboard minibutton zeroclipboard-button" data-clipboard-text="https://github.com/angular/protractor" data-copied-hint="Copied!" type="button"><span class="octicon octicon-clippy"></span></button>
+    </span>
+  </div>
+</div>
+
+
+<p class="clone-options">You can clone with
+      <a href="#" class="js-clone-selector" data-protocol="http">HTTPS</a>
+      or <a href="#" class="js-clone-selector" data-protocol="subversion">Subversion</a>.
+  <a href="https://help.github.com/articles/which-remote-url-should-i-use" class="help tooltipped tooltipped-n" aria-label="Get help on which URL is right for you.">
+    <span class="octicon octicon-question"></span>
+  </a>
+</p>
+
+
+
+                <a href="https://github.com/angular/protractor/archive/master.zip" class="minibutton sidebar-button" aria-label="Download angular/protractor as a zip file" title="Download angular/protractor as a zip file" rel="nofollow">
+                  <span class="octicon octicon-cloud-download"></span>
+                  Download ZIP
+                </a>
+              </div>
+        </div><!-- /.repository-sidebar -->
+
+        <div id="js-repo-pjax-container" class="repository-content context-loader-container" data-pjax-container="">
+          
+
+<a href="https://github.com/angular/protractor/blob/e340ff92782740ca39af18118f73835e2d964597/docs/tutorial.md" class="hidden js-permalink-shortcut" data-hotkey="y">Permalink</a>
+
+<!-- blob contrib key: blob_contributors:v21:a2ee1b9d7497164517d54b18698c7fd8 -->
+
+<div class="file-navigation">
+  
+<div class="select-menu js-menu-container js-select-menu left">
+  <span class="minibutton select-menu-button js-menu-target css-truncate" data-hotkey="w" data-master-branch="master" data-ref="master" title="master" role="button" aria-label="Switch branches or tags" tabindex="0" aria-haspopup="true">
+    <span class="octicon octicon-git-branch"></span>
+    <i>branch:</i>
+    <span class="js-select-button css-truncate-target">master</span>
+  </span>
+
+  <div class="select-menu-modal-holder js-menu-content js-navigation-container" data-pjax="" aria-hidden="true">
+
+    <div class="select-menu-modal">
+      <div class="select-menu-header">
+        <span class="select-menu-title">Switch branches/tags</span>
+        <span class="octicon octicon-x js-menu-close" role="button" aria-label="Close"></span>
+      </div> <!-- /.select-menu-header -->
+
+      <div class="select-menu-filters">
+        <div class="select-menu-text-filter">
+          <input aria-label="Filter branches/tags" id="context-commitish-filter-field" class="js-filterable-field js-navigation-enable" placeholder="Filter branches/tags" type="text">
+        </div>
+        <div class="select-menu-tabs">
+          <ul>
+            <li class="select-menu-tab">
+              <a href="#" data-tab-filter="branches" class="js-select-menu-tab">Branches</a>
+            </li>
+            <li class="select-menu-tab">
+              <a href="#" data-tab-filter="tags" class="js-select-menu-tab">Tags</a>
+            </li>
+          </ul>
+        </div><!-- /.select-menu-tabs -->
+      </div><!-- /.select-menu-filters -->
+
+      <div class="select-menu-list select-menu-tab-bucket js-select-menu-tab-bucket" data-tab-filter="branches">
+
+        <div data-filterable-for="context-commitish-filter-field" data-filterable-type="substring">
+
+
+            <div class="select-menu-item js-navigation-item ">
+              <span class="select-menu-item-icon octicon octicon-check"></span>
+              <a href="https://github.com/angular/protractor/blob/gh-pages/docs/tutorial.md" data-name="gh-pages" data-skip-pjax="true" rel="nofollow" class="js-navigation-open select-menu-item-text css-truncate-target" title="gh-pages">gh-pages</a>
+            </div> <!-- /.select-menu-item -->
+            <div class="select-menu-item js-navigation-item ">
+              <span class="select-menu-item-icon octicon octicon-check"></span>
+              <a href="https://github.com/angular/protractor/blob/inbrowser/docs/tutorial.md" data-name="inbrowser" data-skip-pjax="true" rel="nofollow" class="js-navigation-open select-menu-item-text css-truncate-target" title="inbrowser">inbrowser</a>
+            </div> <!-- /.select-menu-item -->
+            <div class="select-menu-item js-navigation-item selected">
+              <span class="select-menu-item-icon octicon octicon-check"></span>
+              <a href="https://github.com/angular/protractor/blob/master/docs/tutorial.md" data-name="master" data-skip-pjax="true" rel="nofollow" class="js-navigation-open select-menu-item-text css-truncate-target" title="master">master</a>
+            </div> <!-- /.select-menu-item -->
+            <div class="select-menu-item js-navigation-item ">
+              <span class="select-menu-item-icon octicon octicon-check"></span>
+              <a href="https://github.com/angular/protractor/blob/testability/docs/tutorial.md" data-name="testability" data-skip-pjax="true" rel="nofollow" class="js-navigation-open select-menu-item-text css-truncate-target" title="testability">testability</a>
+            </div> <!-- /.select-menu-item -->
+        </div>
+
+          <div class="select-menu-no-results">Nothing to show</div>
+      </div> <!-- /.select-menu-list -->
+
+      <div class="select-menu-list select-menu-tab-bucket js-select-menu-tab-bucket" data-tab-filter="tags">
+        <div data-filterable-for="context-commitish-filter-field" data-filterable-type="substring">
+
+
+            <div class="select-menu-item js-navigation-item ">
+              <span class="select-menu-item-icon octicon octicon-check"></span>
+              <a href="https://github.com/angular/protractor/tree/1.0.0-rc6/docs/tutorial.md" data-name="1.0.0-rc6" data-skip-pjax="true" rel="nofollow" class="js-navigation-open select-menu-item-text css-truncate-target" title="1.0.0-rc6">1.0.0-rc6</a>
+            </div> <!-- /.select-menu-item -->
+            <div class="select-menu-item js-navigation-item ">
+              <span class="select-menu-item-icon octicon octicon-check"></span>
+              <a href="https://github.com/angular/protractor/tree/1.0.0-rc5/docs/tutorial.md" data-name="1.0.0-rc5" data-skip-pjax="true" rel="nofollow" class="js-navigation-open select-menu-item-text css-truncate-target" title="1.0.0-rc5">1.0.0-rc5</a>
+            </div> <!-- /.select-menu-item -->
+            <div class="select-menu-item js-navigation-item ">
+              <span class="select-menu-item-icon octicon octicon-check"></span>
+              <a href="https://github.com/angular/protractor/tree/1.0.0-rc4/docs/tutorial.md" data-name="1.0.0-rc4" data-skip-pjax="true" rel="nofollow" class="js-navigation-open select-menu-item-text css-truncate-target" title="1.0.0-rc4">1.0.0-rc4</a>
+            </div> <!-- /.select-menu-item -->
+            <div class="select-menu-item js-navigation-item ">
+              <span class="select-menu-item-icon octicon octicon-check"></span>
+              <a href="https://github.com/angular/protractor/tree/1.0.0-rc3/docs/tutorial.md" data-name="1.0.0-rc3" data-skip-pjax="true" rel="nofollow" class="js-navigation-open select-menu-item-text css-truncate-target" title="1.0.0-rc3">1.0.0-rc3</a>
+            </div> <!-- /.select-menu-item -->
+            <div class="select-menu-item js-navigation-item ">
+              <span class="select-menu-item-icon octicon octicon-check"></span>
+              <a href="https://github.com/angular/protractor/tree/1.0.0-rc2/docs/tutorial.md" data-name="1.0.0-rc2" data-skip-pjax="true" rel="nofollow" class="js-navigation-open select-menu-item-text css-truncate-target" title="1.0.0-rc2">1.0.0-rc2</a>
+            </div> <!-- /.select-menu-item -->
+            <div class="select-menu-item js-navigation-item ">
+              <span class="select-menu-item-icon octicon octicon-check"></span>
+              <a href="https://github.com/angular/protractor/tree/1.0.0-rc1/docs/tutorial.md" data-name="1.0.0-rc1" data-skip-pjax="true" rel="nofollow" class="js-navigation-open select-menu-item-text css-truncate-target" title="1.0.0-rc1">1.0.0-rc1</a>
+            </div> <!-- /.select-menu-item -->
+            <div class="select-menu-item js-navigation-item ">
+              <span class="select-menu-item-icon octicon octicon-check"></span>
+              <a href="https://github.com/angular/protractor/tree/1.0.0/docs/tutorial.md" data-name="1.0.0" data-skip-pjax="true" rel="nofollow" class="js-navigation-open select-menu-item-text css-truncate-target" title="1.0.0">1.0.0</a>
+            </div> <!-- /.select-menu-item -->
+            <div class="select-menu-item js-navigation-item ">
+              <span class="select-menu-item-icon octicon octicon-check"></span>
+              <a href="https://github.com/angular/protractor/tree/0.24.2/docs/tutorial.md" data-name="0.24.2" data-skip-pjax="true" rel="nofollow" class="js-navigation-open select-menu-item-text css-truncate-target" title="0.24.2">0.24.2</a>
+            </div> <!-- /.select-menu-item -->
+            <div class="select-menu-item js-navigation-item ">
+              <span class="select-menu-item-icon octicon octicon-check"></span>
+              <a href="https://github.com/angular/protractor/tree/0.24.1/docs/tutorial.md" data-name="0.24.1" data-skip-pjax="true" rel="nofollow" class="js-navigation-open select-menu-item-text css-truncate-target" title="0.24.1">0.24.1</a>
+            </div> <!-- /.select-menu-item -->
+            <div class="select-menu-item js-navigation-item ">
+              <span class="select-menu-item-icon octicon octicon-check"></span>
+              <a href="https://github.com/angular/protractor/tree/0.24.0/docs/tutorial.md" data-name="0.24.0" data-skip-pjax="true" rel="nofollow" class="js-navigation-open select-menu-item-text css-truncate-target" title="0.24.0">0.24.0</a>
+            </div> <!-- /.select-menu-item -->
+            <div class="select-menu-item js-navigation-item ">
+              <span class="select-menu-item-icon octicon octicon-check"></span>
+              <a href="https://github.com/angular/protractor/tree/0.23.1/docs/tutorial.md" data-name="0.23.1" data-skip-pjax="true" rel="nofollow" class="js-navigation-open select-menu-item-text css-truncate-target" title="0.23.1">0.23.1</a>
+            </div> <!-- /.select-menu-item -->
+            <div class="select-menu-item js-navigation-item ">
+              <span class="select-menu-item-icon octicon octicon-check"></span>
+              <a href="https://github.com/angular/protractor/tree/0.23.0/docs/tutorial.md" data-name="0.23.0" data-skip-pjax="true" rel="nofollow" class="js-navigation-open select-menu-item-text css-truncate-target" title="0.23.0">0.23.0</a>
+            </div> <!-- /.select-menu-item -->
+            <div class="select-menu-item js-navigation-item ">
+              <span class="select-menu-item-icon octicon octicon-check"></span>
+              <a href="https://github.com/angular/protractor/tree/0.22.0/docs/tutorial.md" data-name="0.22.0" data-skip-pjax="true" rel="nofollow" class="js-navigation-open select-menu-item-text css-truncate-target" title="0.22.0">0.22.0</a>
+            </div> <!-- /.select-menu-item -->
+            <div class="select-menu-item js-navigation-item ">
+              <span class="select-menu-item-icon octicon octicon-check"></span>
+              <a href="https://github.com/angular/protractor/tree/0.21.0/docs/tutorial.md" data-name="0.21.0" data-skip-pjax="true" rel="nofollow" class="js-navigation-open select-menu-item-text css-truncate-target" title="0.21.0">0.21.0</a>
+            </div> <!-- /.select-menu-item -->
+            <div class="select-menu-item js-navigation-item ">
+              <span class="select-menu-item-icon octicon octicon-check"></span>
+              <a href="https://github.com/angular/protractor/tree/0.20.1/docs/tutorial.md" data-name="0.20.1" data-skip-pjax="true" rel="nofollow" class="js-navigation-open select-menu-item-text css-truncate-target" title="0.20.1">0.20.1</a>
+            </div> <!-- /.select-menu-item -->
+            <div class="select-menu-item js-navigation-item ">
+              <span class="select-menu-item-icon octicon octicon-check"></span>
+              <a href="https://github.com/angular/protractor/tree/0.20.0/docs/tutorial.md" data-name="0.20.0" data-skip-pjax="true" rel="nofollow" class="js-navigation-open select-menu-item-text css-truncate-target" title="0.20.0">0.20.0</a>
+            </div> <!-- /.select-menu-item -->
+            <div class="select-menu-item js-navigation-item ">
+              <span class="select-menu-item-icon octicon octicon-check"></span>
+              <a href="https://github.com/angular/protractor/tree/0.19.0/docs/tutorial.md" data-name="0.19.0" data-skip-pjax="true" rel="nofollow" class="js-navigation-open select-menu-item-text css-truncate-target" title="0.19.0">0.19.0</a>
+            </div> <!-- /.select-menu-item -->
+            <div class="select-menu-item js-navigation-item ">
+              <span class="select-menu-item-icon octicon octicon-check"></span>
+              <a href="https://github.com/angular/protractor/tree/0.18.1/docs/tutorial.md" data-name="0.18.1" data-skip-pjax="true" rel="nofollow" class="js-navigation-open select-menu-item-text css-truncate-target" title="0.18.1">0.18.1</a>
+            </div> <!-- /.select-menu-item -->
+            <div class="select-menu-item js-navigation-item ">
+              <span class="select-menu-item-icon octicon octicon-check"></span>
+              <a href="https://github.com/angular/protractor/tree/0.18.0/docs/tutorial.md" data-name="0.18.0" data-skip-pjax="true" rel="nofollow" class="js-navigation-open select-menu-item-text css-truncate-target" title="0.18.0">0.18.0</a>
+            </div> <!-- /.select-menu-item -->
+            <div class="select-menu-item js-navigation-item ">
+              <span class="select-menu-item-icon octicon octicon-check"></span>
+              <a href="https://github.com/angular/protractor/tree/0.17.0/docs/tutorial.md" data-name="0.17.0" data-skip-pjax="true" rel="nofollow" class="js-navigation-open select-menu-item-text css-truncate-target" title="0.17.0">0.17.0</a>
+            </div> <!-- /.select-menu-item -->
+            <div class="select-menu-item js-navigation-item ">
+              <span class="select-menu-item-icon octicon octicon-check"></span>
+              <a href="https://github.com/angular/protractor/tree/0.16.1/docs/tutorial.md" data-name="0.16.1" data-skip-pjax="true" rel="nofollow" class="js-navigation-open select-menu-item-text css-truncate-target" title="0.16.1">0.16.1</a>
+            </div> <!-- /.select-menu-item -->
+            <div class="select-menu-item js-navigation-item ">
+              <span class="select-menu-item-icon octicon octicon-check"></span>
+              <a href="https://github.com/angular/protractor/tree/0.15.0/docs/tutorial.md" data-name="0.15.0" data-skip-pjax="true" rel="nofollow" class="js-navigation-open select-menu-item-text css-truncate-target" title="0.15.0">0.15.0</a>
+            </div> <!-- /.select-menu-item -->
+            <div class="select-menu-item js-navigation-item ">
+              <span class="select-menu-item-icon octicon octicon-check"></span>
+              <a href="https://github.com/angular/protractor/tree/0.14.0/docs/tutorial.md" data-name="0.14.0" data-skip-pjax="true" rel="nofollow" class="js-navigation-open select-menu-item-text css-truncate-target" title="0.14.0">0.14.0</a>
+            </div> <!-- /.select-menu-item -->
+            <div class="select-menu-item js-navigation-item ">
+              <span class="select-menu-item-icon octicon octicon-check"></span>
+              <a href="https://github.com/angular/protractor/tree/0.13.0/docs/tutorial.md" data-name="0.13.0" data-skip-pjax="true" rel="nofollow" class="js-navigation-open select-menu-item-text css-truncate-target" title="0.13.0">0.13.0</a>
+            </div> <!-- /.select-menu-item -->
+            <div class="select-menu-item js-navigation-item ">
+              <span class="select-menu-item-icon octicon octicon-check"></span>
+              <a href="https://github.com/angular/protractor/tree/0.12.1/docs/tutorial.md" data-name="0.12.1" data-skip-pjax="true" rel="nofollow" class="js-navigation-open select-menu-item-text css-truncate-target" title="0.12.1">0.12.1</a>
+            </div> <!-- /.select-menu-item -->
+            <div class="select-menu-item js-navigation-item ">
+              <span class="select-menu-item-icon octicon octicon-check"></span>
+              <a href="https://github.com/angular/protractor/tree/0.12.0/docs/tutorial.md" data-name="0.12.0" data-skip-pjax="true" rel="nofollow" class="js-navigation-open select-menu-item-text css-truncate-target" title="0.12.0">0.12.0</a>
+            </div> <!-- /.select-menu-item -->
+            <div class="select-menu-item js-navigation-item ">
+              <span class="select-menu-item-icon octicon octicon-check"></span>
+              <a href="https://github.com/angular/protractor/tree/0.11.0/docs/tutorial.md" data-name="0.11.0" data-skip-pjax="true" rel="nofollow" class="js-navigation-open select-menu-item-text css-truncate-target" title="0.11.0">0.11.0</a>
+            </div> <!-- /.select-menu-item -->
+            <div class="select-menu-item js-navigation-item ">
+              <span class="select-menu-item-icon octicon octicon-check"></span>
+              <a href="https://github.com/angular/protractor/tree/0.10.0/docs/tutorial.md" data-name="0.10.0" data-skip-pjax="true" rel="nofollow" class="js-navigation-open select-menu-item-text css-truncate-target" title="0.10.0">0.10.0</a>
+            </div> <!-- /.select-menu-item -->
+            <div class="select-menu-item js-navigation-item ">
+              <span class="select-menu-item-icon octicon octicon-check"></span>
+              <a href="https://github.com/angular/protractor/tree/0.9.0/docs/tutorial.md" data-name="0.9.0" data-skip-pjax="true" rel="nofollow" class="js-navigation-open select-menu-item-text css-truncate-target" title="0.9.0">0.9.0</a>
+            </div> <!-- /.select-menu-item -->
+            <div class="select-menu-item js-navigation-item ">
+              <span class="select-menu-item-icon octicon octicon-check"></span>
+              <a href="https://github.com/angular/protractor/tree/0.8.0/docs/tutorial.md" data-name="0.8.0" data-skip-pjax="true" rel="nofollow" class="js-navigation-open select-menu-item-text css-truncate-target" title="0.8.0">0.8.0</a>
+            </div> <!-- /.select-menu-item -->
+            <div class="select-menu-item js-navigation-item ">
+              <span class="select-menu-item-icon octicon octicon-check"></span>
+              <a href="https://github.com/angular/protractor/tree/0.7.0/docs/tutorial.md" data-name="0.7.0" data-skip-pjax="true" rel="nofollow" class="js-navigation-open select-menu-item-text css-truncate-target" title="0.7.0">0.7.0</a>
+            </div> <!-- /.select-menu-item -->
+            <div class="select-menu-item js-navigation-item ">
+              <span class="select-menu-item-icon octicon octicon-check"></span>
+              <a href="https://github.com/angular/protractor/tree/0.6.0/docs/tutorial.md" data-name="0.6.0" data-skip-pjax="true" rel="nofollow" class="js-navigation-open select-menu-item-text css-truncate-target" title="0.6.0">0.6.0</a>
+            </div> <!-- /.select-menu-item -->
+            <div class="select-menu-item js-navigation-item ">
+              <span class="select-menu-item-icon octicon octicon-check"></span>
+              <a href="https://github.com/angular/protractor/tree/0.3.0/docs/tutorial.md" data-name="0.3.0" data-skip-pjax="true" rel="nofollow" class="js-navigation-open select-menu-item-text css-truncate-target" title="0.3.0">0.3.0</a>
+            </div> <!-- /.select-menu-item -->
+            <div class="select-menu-item js-navigation-item ">
+              <span class="select-menu-item-icon octicon octicon-check"></span>
+              <a href="https://github.com/angular/protractor/tree/0.2.0/docs/tutorial.md" data-name="0.2.0" data-skip-pjax="true" rel="nofollow" class="js-navigation-open select-menu-item-text css-truncate-target" title="0.2.0">0.2.0</a>
+            </div> <!-- /.select-menu-item -->
+        </div>
+
+        <div class="select-menu-no-results">Nothing to show</div>
+      </div> <!-- /.select-menu-list -->
+
+    </div> <!-- /.select-menu-modal -->
+  </div> <!-- /.select-menu-modal-holder -->
+</div> <!-- /.select-menu -->
+
+  <div class="button-group right">
+    <a href="https://github.com/angular/protractor/find/master" class="js-show-file-finder minibutton empty-icon tooltipped tooltipped-s" data-pjax="" data-hotkey="t" aria-label="Quickly jump between files">
+      <span class="octicon octicon-list-unordered"></span>
+    </a>
+    <button class="js-zeroclipboard minibutton zeroclipboard-button" data-clipboard-text="docs/tutorial.md" aria-label="Copy to clipboard" data-copied-hint="Copied!">
+      <span class="octicon octicon-clippy"></span>
+    </button>
+  </div>
+
+  <div class="breadcrumb">
+    <span class="repo-root js-repo-root"><span itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb"><a href="https://github.com/angular/protractor" class="" data-branch="master" data-direction="back" data-pjax="true" itemscope="url"><span itemprop="title">protractor</span></a></span></span><span class="separator"> / </span><span itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb"><a href="https://github.com/angular/protractor/tree/master/docs" class="" data-branch="master" data-direction="back" data-pjax="true" itemscope="url"><span itemprop="title">docs</span></a></span><span class="separator"> / </span><strong class="final-path">tutorial.md</strong>
+  </div>
+</div>
+
+
+  <div class="commit file-history-tease">
+      <img alt="Julie Ralph" class="main-avatar" data-user="2081709" src="protractor_tutorial.md%20at%20master%20%C2%B7%20angular_protractor%20%C2%B7%20GitHub_fichiers/2081709_002.png" height="24" width="24">
+      <span class="author"><a href="https://github.com/juliemr" rel="contributor">juliemr</a></span>
+      <time title="31 juil. 2014 07:44 UTC+2" datetime="2014-07-30T22:44:14-07:00" is="relative-time">18 days ago</time>
+      <div class="commit-title">
+          <a href="https://github.com/angular/protractor/commit/fcd973b8f8b0164bd44c4438905bf3e54b2815bc" class="message" data-pjax="true" title="docs(various): more documentation reorg and rewrite">docs(various): more documentation reorg and rewrite</a>
+      </div>
+
+    <div class="participation">
+      <p class="quickstat"><a href="#blob_contributors_box" rel="facebox"><strong>2</strong>  contributors</a></p>
+          <a class="avatar tooltipped tooltipped-s" aria-label="juliemr" href="https://github.com/angular/protractor/commits/master/docs/tutorial.md?author=juliemr"><img alt="Julie Ralph" data-user="2081709" src="protractor_tutorial.md%20at%20master%20%C2%B7%20angular_protractor%20%C2%B7%20GitHub_fichiers/2081709.png" height="20" width="20"></a>
+    <a class="avatar tooltipped tooltipped-s" aria-label="xelan" href="https://github.com/angular/protractor/commits/master/docs/tutorial.md?author=xelan"><img alt="xelan" data-user="5080535" src="protractor_tutorial.md%20at%20master%20%C2%B7%20angular_protractor%20%C2%B7%20GitHub_fichiers/5080535_002.png" height="20" width="20"></a>
+
+
+    </div>
+    <div id="blob_contributors_box" style="display:none">
+      <h2 class="facebox-header">Users who have contributed to this file</h2>
+      <ul class="facebox-user-list">
+          <li class="facebox-user-list-item">
+            <img alt="Julie Ralph" data-user="2081709" src="protractor_tutorial.md%20at%20master%20%C2%B7%20angular_protractor%20%C2%B7%20GitHub_fichiers/2081709_002.png" height="24" width="24">
+            <a href="https://github.com/juliemr">juliemr</a>
+          </li>
+          <li class="facebox-user-list-item">
+            <img alt="xelan" data-user="5080535" src="protractor_tutorial.md%20at%20master%20%C2%B7%20angular_protractor%20%C2%B7%20GitHub_fichiers/5080535.png" height="24" width="24">
+            <a href="https://github.com/xelan">xelan</a>
+          </li>
+      </ul>
+    </div>
+  </div>
+
+<div class="file-box">
+  <div class="file">
+    <div class="meta clearfix">
+      <div class="info file-name">
+          <span>248 lines (173 sloc)</span>
+          <span class="meta-divider"></span>
+        <span>10.309 kb</span>
+      </div>
+      <div class="actions">
+        <div class="button-group">
+          <a href="https://github.com/angular/protractor/raw/master/docs/tutorial.md" class="minibutton " id="raw-url">Raw</a>
+            <a href="https://github.com/angular/protractor/blame/master/docs/tutorial.md" class="minibutton js-update-url-with-hash">Blame</a>
+          <a href="https://github.com/angular/protractor/commits/master/docs/tutorial.md" class="minibutton " rel="nofollow">History</a>
+        </div><!-- /.button-group -->
+
+
+            <a class="octicon-button disabled tooltipped tooltipped-w" href="#" aria-label="You must be signed in to make or propose changes"><span class="octicon octicon-pencil"></span></a>
+
+          <a class="octicon-button danger disabled tooltipped tooltipped-w" href="#" aria-label="You must be signed in to make or propose changes">
+          <span class="octicon octicon-trashcan"></span>
+        </a>
+      </div><!-- /.actions -->
+    </div>
+      
+  <div id="readme" class="blob instapaper_body">
+    <article class="markdown-body entry-content" itemprop="mainContentOfPage"><h1>
+<a name="user-content-tutorial" class="anchor" href="#tutorial" aria-hidden="true"><span class="octicon octicon-link"></span></a>Tutorial</h1>
+
+<p>This is a simple tutorial that shows you how to set up Protractor and start running tests.</p>
+
+<h2>
+<a name="user-content-prerequisites" class="anchor" href="#prerequisites" aria-hidden="true"><span class="octicon octicon-link"></span></a>Prerequisites</h2>
+
+<p>Protractor is a <a href="http://nodejs.org/">Node.js</a> program. To run, you will need to have Node.js installed. You will download Protractor package using <a href="https://www.npmjs.org/">npm</a>, which comes with Node.js. Check the version of Node.js you have by running <code>node --version</code>. It should be greater than v0.10.0.</p>
+
+<p>By default, Protractor uses the <a href="http://jasmine.github.io/1.3/introduction.html">Jasmine</a> test framework for its testing interface. This tutorial assumes some familiarity with Jasmine.</p>
+
+<p>This tutorial will set up a test using a local standalone Selenium Server to control browsers. You will need to have the <a href="http://www.oracle.com/technetwork/java/javase/downloads/index.html">Java Development Kit (JDK)</a> installed to run the standalone Selenium Server. Check this by running <code>java -version</code> from the command line.</p>
+
+<h2>
+<a name="user-content-setup" class="anchor" href="#setup" aria-hidden="true"><span class="octicon octicon-link"></span></a>Setup</h2>
+
+<p>Use npm to install Protractor globally with:</p>
+
+<pre><code>npm install -g protractor
+</code></pre>
+
+<p>This will install two command line tools, <code>protractor</code> and <code>webdriver-manager</code>. Try running <code>protractor --version</code> to make sure it's working.</p>
+
+<p>The <code>webdriver-manager</code> is a helper tool to easily get an instance of a Selenium Server running. Use it to download the necessary binaries with:</p>
+
+<pre><code>webdriver-manager update
+</code></pre>
+
+<p>Now start up a server with:</p>
+
+<pre><code>webdriver-manager start
+</code></pre>
+
+<p>This will start up a Selenium Server and will output a bunch of info 
+logs. Your Protractor test will send requests to this server to control a
+ local browser. Leave this server running throughout the tutorial. You 
+can see information about the status of the server at <code>http://localhost:4444/wd/hub</code>.</p>
+
+<h2>
+<a name="user-content-step-0---write-a-test" class="anchor" href="#step-0---write-a-test" aria-hidden="true"><span class="octicon octicon-link"></span></a>Step 0 - write a test</h2>
+
+<p>Open a new command line or terminal window and create a clean folder for testing.</p>
+
+<p>Protractor needs two files to run, a <strong>spec file</strong> and a <strong>configuration file</strong>. </p>
+
+<p>Let's start with a simple test that navigates to an example AngluarJS
+ application and checks its title. We’ll use the Super Calculator 
+application at <a href="http://juliemr.github.io/protractor-demo/">http://juliemr.github.io/protractor-demo/</a>.</p>
+
+<p>Copy the following into spec.js:</p>
+
+<div class="highlight highlight-javascript"><pre><span class="c1">// spec.js</span>
+<span class="nx">describe</span><span class="p">(</span><span class="s1">'angularjs homepage'</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+  <span class="nx">it</span><span class="p">(</span><span class="s1">'should have a title'</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">browser</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">'http://juliemr.github.io/protractor-demo/'</span><span class="p">);</span>
+
+    <span class="nx">expect</span><span class="p">(</span><span class="nx">browser</span><span class="p">.</span><span class="nx">getTitle</span><span class="p">()).</span><span class="nx">toEqual</span><span class="p">(</span><span class="s1">'Super Calculator'</span><span class="p">);</span>
+  <span class="p">});</span>
+<span class="p">});</span>
+</pre></div>
+
+<p>The <code>describe</code> and <code>it</code> syntax is from the Jasmine framework. <code>browser</code> is a global created by Protractor, which is used for browser-level commands such as navigation with <code>browser.get</code>.</p>
+
+<p>Now create the configuration file. Copy the following into conf.js:</p>
+
+<div class="highlight highlight-js"><pre><span class="c1">// conf.js</span>
+<span class="nx">exports</span><span class="p">.</span><span class="nx">config</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="nx">seleniumAddress</span><span class="o">:</span> <span class="s1">'http://localhost:4444/wd/hub'</span><span class="p">,</span>
+  <span class="nx">specs</span><span class="o">:</span> <span class="p">[</span><span class="s1">'spec.js'</span><span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+
+<p>This configuration tells Protractor where your test files (<code>specs</code>) are, and where to talk to your Selenium Server (<code>seleniumAddress</code>). It will use the defaults for all other configuration. Chrome is the default browser.</p>
+
+<p>Now run the test with</p>
+
+<pre><code>protractor conf.js
+</code></pre>
+
+<p>You should see a Chrome browser window open up and navigate to the 
+Calculator, then close itself (this should be very fast!). The test 
+output should be <code>1 tests, 1 assertion, 0 failures</code>. Congratulations, you've run your first Protractor test!</p>
+
+<h2>
+<a name="user-content-step-1---interacting-with-elements" class="anchor" href="#step-1---interacting-with-elements" aria-hidden="true"><span class="octicon octicon-link"></span></a>Step 1 - interacting with elements</h2>
+
+<p>Now let's modify the test to interact with elements on the page. Change spec.js to the following:</p>
+
+<div class="highlight highlight-js"><pre><span class="c1">// spec.js</span>
+<span class="nx">describe</span><span class="p">(</span><span class="s1">'angularjs homepage'</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+  <span class="nx">it</span><span class="p">(</span><span class="s1">'should add one and two'</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">browser</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">'http://juliemr.github.io/protractor-demo/'</span><span class="p">);</span>
+    <span class="nx">element</span><span class="p">(</span><span class="nx">by</span><span class="p">.</span><span class="nx">model</span><span class="p">(</span><span class="s1">'first'</span><span class="p">)).</span><span class="nx">sendKeys</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+    <span class="nx">element</span><span class="p">(</span><span class="nx">by</span><span class="p">.</span><span class="nx">model</span><span class="p">(</span><span class="s1">'second'</span><span class="p">)).</span><span class="nx">sendKeys</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+
+    <span class="nx">element</span><span class="p">(</span><span class="nx">by</span><span class="p">.</span><span class="nx">id</span><span class="p">(</span><span class="s1">'gobutton'</span><span class="p">)).</span><span class="nx">click</span><span class="p">();</span>
+
+    <span class="nx">expect</span><span class="p">(</span><span class="nx">element</span><span class="p">(</span><span class="nx">by</span><span class="p">.</span><span class="nx">binding</span><span class="p">(</span><span class="s1">'latest'</span><span class="p">)).</span><span class="nx">getText</span><span class="p">()).</span>
+        <span class="nx">toEqual</span><span class="p">(</span><span class="s1">'5'</span><span class="p">);</span> <span class="c1">// This is wrong!</span>
+  <span class="p">});</span>
+<span class="p">});</span>
+</pre></div>
+
+<p>This uses the globals <code>element</code> and <code>by</code>, which are also created by Protractor. The <code>element</code>
+ function is used for finding HTML elements on your webpage. It returns 
+an ElementFinder object, which can be used to interact with the element 
+or get information from it. In this test, we use <code>sendKeys</code> to type into <code>&lt;input&gt;</code>s, <code>click</code> to click a button, and <code>getText</code> to return the content of an element.</p>
+
+<p><code>element</code> takes one parameter, a Locator, which describes how to find the element. The <code>by</code> object creates Locators. Here, we're using three types of Locators:</p>
+
+<ul class="task-list">
+<li>
+<code>by.model('first')</code> to find the element with <code>ng-model="first"</code>. If you inspect the Calculator page source, you will see this is <code>&lt;input type=text ng-model="first"&gt;</code>.</li>
+<li>
+<code>by.id('gobutton')</code> to find the element with the given id. This finds <code>&lt;button id="gobutton"&gt;</code>.</li>
+<li>
+<p><code>by.binding('latest')</code> to find the element bound to the variable <code>latest</code>. This finds the span containing <code>{{latest}}</code></p>
+
+<p><a href="https://github.com/angular/protractor/blob/master/docs/locators.md">Learn more about locators and ElementFinders</a>.</p>
+</li>
+</ul><p>Run the tests with</p>
+
+<pre><code>protractor conf.js
+</code></pre>
+
+<p>You should see the page enter two numbers and wait for the result to 
+be displayed. Because the result is 3, not 5, our test fails. Fix the 
+test and try running it again.</p>
+
+<h2>
+<a name="user-content-step-2---writing-multiple-scenarios" class="anchor" href="#step-2---writing-multiple-scenarios" aria-hidden="true"><span class="octicon octicon-link"></span></a>Step 2 - writing multiple scenarios</h2>
+
+<p>Let's put these two tests together and clean them up a bit. Change spec.js to the following:</p>
+
+<div class="highlight highlight-js"><pre><span class="c1">// spec.js</span>
+<span class="nx">describe</span><span class="p">(</span><span class="s1">'angularjs homepage'</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">firstNumber</span> <span class="o">=</span> <span class="nx">element</span><span class="p">(</span><span class="nx">by</span><span class="p">.</span><span class="nx">model</span><span class="p">(</span><span class="s1">'first'</span><span class="p">));</span>
+  <span class="kd">var</span> <span class="nx">secondNumber</span> <span class="o">=</span> <span class="nx">element</span><span class="p">(</span><span class="nx">by</span><span class="p">.</span><span class="nx">model</span><span class="p">(</span><span class="s1">'second'</span><span class="p">));</span>
+  <span class="kd">var</span> <span class="nx">goButton</span> <span class="o">=</span> <span class="nx">element</span><span class="p">(</span><span class="nx">by</span><span class="p">.</span><span class="nx">id</span><span class="p">(</span><span class="s1">'gobutton'</span><span class="p">));</span>
+  <span class="kd">var</span> <span class="nx">latestResult</span> <span class="o">=</span> <span class="nx">element</span><span class="p">(</span><span class="nx">by</span><span class="p">.</span><span class="nx">binding</span><span class="p">(</span><span class="s1">'latest'</span><span class="p">));</span>
+
+  <span class="nx">beforeEach</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">browser</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">'http://juliemr.github.io/protractor-demo/'</span><span class="p">);</span>
+  <span class="p">});</span>
+
+  <span class="nx">it</span><span class="p">(</span><span class="s1">'should have a title'</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">expect</span><span class="p">(</span><span class="nx">browser</span><span class="p">.</span><span class="nx">getTitle</span><span class="p">()).</span><span class="nx">toEqual</span><span class="p">(</span><span class="s1">'Super Calculator'</span><span class="p">);</span>
+  <span class="p">});</span>
+
+  <span class="nx">it</span><span class="p">(</span><span class="s1">'should add one and two'</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">firstNumber</span><span class="p">.</span><span class="nx">sendKeys</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+    <span class="nx">secondNumber</span><span class="p">.</span><span class="nx">sendKeys</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+
+    <span class="nx">goButton</span><span class="p">.</span><span class="nx">click</span><span class="p">();</span>
+
+    <span class="nx">expect</span><span class="p">(</span><span class="nx">latestResult</span><span class="p">.</span><span class="nx">getText</span><span class="p">()).</span><span class="nx">toEqual</span><span class="p">(</span><span class="s1">'3'</span><span class="p">);</span>
+  <span class="p">});</span>
+
+  <span class="nx">it</span><span class="p">(</span><span class="s1">'should add four and six'</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="c1">// Fill this in.</span>
+    <span class="nx">expect</span><span class="p">(</span><span class="nx">latestResult</span><span class="p">.</span><span class="nx">getText</span><span class="p">()).</span><span class="nx">toEqual</span><span class="p">(</span><span class="s1">'10'</span><span class="p">);</span>
+  <span class="p">});</span>
+<span class="p">});</span>
+</pre></div>
+
+<p>Here, we've pulled the navigation out into a <code>beforeEach</code> function which is run before every <code>it</code>
+ block. We've also stored the ElementFinders for the first and second 
+input in nice variables that can be reused. Fill out the second test 
+using those variables, and run the tests again to ensure they pass.</p>
+
+<h2>
+<a name="user-content-step-3---changing-the-configuration" class="anchor" href="#step-3---changing-the-configuration" aria-hidden="true"><span class="octicon octicon-link"></span></a>Step 3 - changing the configuration</h2>
+
+<p>Now that we've written some basic tests, let's take a look at the 
+configuration file. The configuration file lets you change things like 
+which browsers are used and how to connect to the Selenium Server. Let's
+ change the browser. Change conf.js to the following:</p>
+
+<div class="highlight highlight-js"><pre><span class="c1">// conf.js</span>
+<span class="nx">exports</span><span class="p">.</span><span class="nx">config</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="nx">seleniumAddress</span><span class="o">:</span> <span class="s1">'http://localhost:4444/wd/hub'</span><span class="p">,</span>
+  <span class="nx">specs</span><span class="o">:</span> <span class="p">[</span><span class="s1">'spec.js'</span><span class="p">],</span>
+  <span class="nx">capabilities</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nx">browserName</span><span class="o">:</span> <span class="s1">'firefox'</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+<p>Try running the tests again. You should see the tests running on Firefox instead of Chrome. The <code>capabilities</code> object describes the browser to be tested against. For a full list of options, see <a href="https://github.com/angular/protractor/blob/master/docs/referenceConf.js">the reference config file</a>.</p>
+
+<p>You can also run tests on more than one browser at once. Change conf.js to:</p>
+
+<div class="highlight highlight-js"><pre><span class="c1">// conf.js</span>
+<span class="nx">exports</span><span class="p">.</span><span class="nx">config</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="nx">seleniumAddress</span><span class="o">:</span> <span class="s1">'http://localhost:4444/wd/hub'</span><span class="p">,</span>
+  <span class="nx">specs</span><span class="o">:</span> <span class="p">[</span><span class="s1">'spec.js'</span><span class="p">],</span>
+  <span class="nx">multiCapabilities</span><span class="o">:</span> <span class="p">[{</span>
+    <span class="nx">browserName</span><span class="o">:</span> <span class="s1">'firefox'</span>
+  <span class="p">},</span> <span class="p">{</span>
+    <span class="nx">browserName</span><span class="o">:</span> <span class="s1">'chrome'</span>
+  <span class="p">}]</span>
+<span class="p">}</span>
+</pre></div>
+
+<p>Try running once again. You should see the tests running on Chrome 
+and Firefox simultaneously, and the results reported separately on the 
+command line.</p>
+
+<h2>
+<a name="user-content-step-4---lists-of-elements" class="anchor" href="#step-4---lists-of-elements" aria-hidden="true"><span class="octicon octicon-link"></span></a>Step 4 - lists of elements</h2>
+
+<p>Let's go back to the test files. Feel free to change the configuration back to using only one browser.</p>
+
+<p>Sometimes, you will want to deal with a list of multiple elements. You can do this with <code>element.all</code>,
+ which returns an ElementArrayFinder. In our calculator application, 
+every operation is logged in the history, which is implemented on the 
+site as a table with <code>ng-repeat</code>. Let's do a couple of operations, then test that they're in the history. Change spec.js to:</p>
+
+<div class="highlight highlight-js"><pre><span class="c1">// spec.js</span>
+<span class="nx">describe</span><span class="p">(</span><span class="s1">'angularjs homepage'</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">firstNumber</span> <span class="o">=</span> <span class="nx">element</span><span class="p">(</span><span class="nx">by</span><span class="p">.</span><span class="nx">model</span><span class="p">(</span><span class="s1">'first'</span><span class="p">));</span>
+  <span class="kd">var</span> <span class="nx">secondNumber</span> <span class="o">=</span> <span class="nx">element</span><span class="p">(</span><span class="nx">by</span><span class="p">.</span><span class="nx">model</span><span class="p">(</span><span class="s1">'second'</span><span class="p">));</span>
+  <span class="kd">var</span> <span class="nx">goButton</span> <span class="o">=</span> <span class="nx">element</span><span class="p">(</span><span class="nx">by</span><span class="p">.</span><span class="nx">id</span><span class="p">(</span><span class="s1">'gobutton'</span><span class="p">));</span>
+  <span class="kd">var</span> <span class="nx">latestResult</span> <span class="o">=</span> <span class="nx">element</span><span class="p">(</span><span class="nx">by</span><span class="p">.</span><span class="nx">binding</span><span class="p">(</span><span class="s1">'latest'</span><span class="p">));</span>
+  <span class="kd">var</span> <span class="nx">history</span> <span class="o">=</span> <span class="nx">element</span><span class="p">.</span><span class="nx">all</span><span class="p">(</span><span class="nx">by</span><span class="p">.</span><span class="nx">repeater</span><span class="p">(</span><span class="s1">'result in memory'</span><span class="p">));</span>
+
+  <span class="kd">function</span> <span class="nx">add</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">firstNumber</span><span class="p">.</span><span class="nx">sendKeys</span><span class="p">(</span><span class="nx">a</span><span class="p">);</span>
+    <span class="nx">secondNumber</span><span class="p">.</span><span class="nx">sendKeys</span><span class="p">(</span><span class="nx">b</span><span class="p">);</span>
+    <span class="nx">goButton</span><span class="p">.</span><span class="nx">click</span><span class="p">();</span>
+  <span class="p">}</span>
+
+  <span class="nx">beforeEach</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">browser</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">'http://juliemr.github.io/protractor-demo/'</span><span class="p">);</span>
+  <span class="p">});</span>
+
+  <span class="nx">it</span><span class="p">(</span><span class="s1">'should have a history'</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">add</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span>
+    <span class="nx">add</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">);</span>
+
+    <span class="nx">expect</span><span class="p">(</span><span class="nx">history</span><span class="p">.</span><span class="nx">count</span><span class="p">()).</span><span class="nx">toEqual</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+
+    <span class="nx">add</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">);</span>
+
+    <span class="nx">expect</span><span class="p">(</span><span class="nx">history</span><span class="p">.</span><span class="nx">count</span><span class="p">()).</span><span class="nx">toEqual</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span> <span class="c1">// This is wrong!</span>
+  <span class="p">});</span>
+<span class="p">});</span>
+</pre></div>
+
+<p>We've done a couple things here - first, we created a helper function, <code>add</code>. We've added the variable <code>history</code>. We use <code>element.all</code> with the <code>by.repeater</code> Locator to get an ElementArrayFinder. In our spec, we assert that the history has the expected length using the <code>count</code> method. Fix the test so that the second expectation passes.</p>
+
+<p><code>ElementArrayFinder</code> has many methods in addition to <code>count</code>. Let's use <code>last</code> to get an ElementFinder that matches the last element found by the Locator. Change the test to:</p>
+
+<div class="highlight highlight-js"><pre>  <span class="nx">it</span><span class="p">(</span><span class="s1">'should have a history'</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">add</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span>
+    <span class="nx">add</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">);</span>
+
+    <span class="nx">expect</span><span class="p">(</span><span class="nx">history</span><span class="p">.</span><span class="nx">last</span><span class="p">().</span><span class="nx">getText</span><span class="p">()).</span><span class="nx">toContain</span><span class="p">(</span><span class="s1">'1 + 2'</span><span class="p">);</span>
+    <span class="nx">expect</span><span class="p">(</span><span class="nx">history</span><span class="p">.</span><span class="nx">first</span><span class="p">().</span><span class="nx">getText</span><span class="p">()).</span><span class="nx">toContain</span><span class="p">(</span><span class="s1">'foo'</span><span class="p">);</span> <span class="c1">// This is wrong!</span>
+  <span class="p">});</span>
+</pre></div>
+
+<p>Since the Calculator reports the oldest result at the bottom, the 
+oldest addition (1 + 2) be the last history entry. We're using the <code>toContain</code>
+ Jasmine matcher to assert that the element text contains "1 + 2". The 
+full element text will also contain the timestamp and the result. </p>
+
+<p>Fix the test so that it correctly expects the first history entry to contain the text "3 + 4".</p>
+
+<p>ElementArrayFinder also has methods <code>each</code>, <code>map</code>, <code>filter</code>, and <code>reduce</code> which are analogous to JavaScript Array methods. <a href="https://github.com/angular/protractor/blob/master/docs/api.md#api-elementarrayfinder">Read the API for more details</a>.</p>
+
+<h2>
+<a name="user-content-where-to-go-next" class="anchor" href="#where-to-go-next" aria-hidden="true"><span class="octicon octicon-link"></span></a>Where to go next</h2>
+
+<p>This should get you started writing tests. To learn more, see the documentation <a href="https://github.com/angular/protractor/blob/master/docs/toc.md">Table of Contents</a>.</p></article>
+  </div>
+
+  </div>
+</div>
+
+<a href="#jump-to-line" rel="facebox[.linejump]" data-hotkey="l" style="display:none">Jump to Line</a>
+<div id="jump-to-line" style="display:none">
+  <form accept-charset="UTF-8" class="js-jump-to-line-form">
+    <input class="linejump-input js-jump-to-line-field" placeholder="Jump to line…" autofocus="" type="text">
+    <button type="submit" class="button">Go</button>
+  </form>
+</div>
+
+        </div>
+
+      </div><!-- /.repo-container -->
+      <div class="modal-backdrop"></div>
+    </div><!-- /.container -->
+  </div><!-- /.site -->
+
+
+    </div><!-- /.wrapper -->
+
+      <div class="container">
+  <div class="site-footer">
+    <ul class="site-footer-links right">
+      <li><a href="https://status.github.com/">Status</a></li>
+      <li><a href="http://developer.github.com/">API</a></li>
+      <li><a href="http://training.github.com/">Training</a></li>
+      <li><a href="http://shop.github.com/">Shop</a></li>
+      <li><a href="https://github.com/blog">Blog</a></li>
+      <li><a href="https://github.com/about">About</a></li>
+
+    </ul>
+
+    <a href="https://github.com/" aria-label="Homepage">
+      <span class="mega-octicon octicon-mark-github" title="GitHub"></span>
+    </a>
+
+    <ul class="site-footer-links">
+      <li>© 2014 <span title="0.06347s from github-fe135-cp1-prd.iad.github.net">GitHub</span>, Inc.</li>
+        <li><a href="https://github.com/site/terms">Terms</a></li>
+        <li><a href="https://github.com/site/privacy">Privacy</a></li>
+        <li><a href="https://github.com/security">Security</a></li>
+        <li><a href="https://github.com/contact">Contact</a></li>
+    </ul>
+  </div><!-- /.site-footer -->
+</div><!-- /.container -->
+
+
+    <div class="fullscreen-overlay js-fullscreen-overlay" id="fullscreen_overlay">
+  <div class="fullscreen-container js-suggester-container">
+    <div class="textarea-wrap">
+      <textarea name="fullscreen-contents" id="fullscreen-contents" class="fullscreen-contents js-fullscreen-contents js-suggester-field" placeholder=""></textarea>
+    </div>
+  </div>
+  <div class="fullscreen-sidebar">
+    <a href="#" class="exit-fullscreen js-exit-fullscreen tooltipped tooltipped-w" aria-label="Exit Zen Mode">
+      <span class="mega-octicon octicon-screen-normal"></span>
+    </a>
+    <a href="#" class="theme-switcher js-theme-switcher tooltipped tooltipped-w" aria-label="Switch themes">
+      <span class="octicon octicon-color-mode"></span>
+    </a>
+  </div>
+</div>
+
+
+
+    <div id="ajax-error-message" class="flash flash-error">
+      <span class="octicon octicon-alert"></span>
+      <a href="#" class="octicon octicon-x close js-ajax-error-dismiss" aria-label="Dismiss error"></a>
+      Something went wrong with that request. Please try again.
+    </div>
+
+
+      <script crossorigin="anonymous" src="protractor_tutorial.md%20at%20master%20%C2%B7%20angular_protractor%20%C2%B7%20GitHub_fichiers/frameworks-12d5fda141e78e513749dddbc56445fe172cbd9a.js" type="text/javascript"></script>
+      <script async="async" crossorigin="anonymous" src="protractor_tutorial.md%20at%20master%20%C2%B7%20angular_protractor%20%C2%B7%20GitHub_fichiers/github-f10c35fa6ed31fb604881f1bd1f36d8cafda2f66.js" type="text/javascript"></script>
+      
+      
+        
+  
+
+
+<div style="position: absolute; left: 0px; top: -9999px; width: 1px; height: 1px; z-index: 999999999;" class="global-zeroclipboard-container" id="global-zeroclipboard-html-bridge"><object id="global-zeroclipboard-flash-bridge" name="global-zeroclipboard-flash-bridge" type="application/x-shockwave-flash" data="protractor_tutorial.md%20at%20master%20%C2%B7%20angular_protractor%20%C2%B7%20GitHub_fichiers/ZeroClipboard.swf" height="100%" width="100%"><param name="allowScriptAccess" value="always"><param name="allowNetworking" value="all"><param name="menu" value="false"><param name="wmode" value="transparent"><param name="flashvars" value="trustedOrigins=github.com%2C%2F%2Fgithub.com%2Chttps%3A%2F%2Fgithub.com&amp;swfObjectId=global-zeroclipboard-flash-bridge"></object></div>    <div class="facebox" id="facebox" style="display:none;">       <div class="facebox-popup">         <div class="facebox-content">         </div>         <button type="button" class="facebox-close js-facebox-close" aria-label="Close modal">           <span class="octicon octicon-remove-close"></span>         </button>       </div>     </div></body></html>

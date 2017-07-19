@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html ng-app='myApp'>
+  <head>
+    <meta charset="utf-8" />
+    <title>
+        Filtre custo
+    </title>
+    <script src="../js/angular.js"></script>
+
+    <script>
+
+    angular.module('myApp', [])
+
+    .filter('slice', function() {
+      "use strict";
+
+      return function(input, from, to) {
+        return input.slice(from, to);
+      };
+
+    })
+
+    .controller('Controlleur', function($scope) {
+        "use strict";
+        $scope.frameworks = ['Amber', 'Backbone', "Spine", "Knockout", "Angular"]
+        $scope.start = 0;
+        $scope.end = $scope.frameworks.length;
+    });
+
+    </script>
+
+</head>
+
+<body  ng-controller="Controlleur">
+
+    <form>
+        <p>Start <input type="number" ng-model="start" min="0" max="{{end}}"></p>
+        <p>End <input type="number" ng-model="end" min="{{start}}" max="{{frameworks.length}}"></p>
+        <ul>
+            <li ng-repeat="framework in frameworks|slice:start:end">{{framework}}</li>
+        </ul>
+    </form>
+
+</body>
+
+</html>
+
+</body>
+</html>
+

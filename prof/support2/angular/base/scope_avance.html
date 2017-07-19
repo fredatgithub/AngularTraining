@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html ng-app='myApp'>
+  <head>
+    <meta charset="utf-8" />
+    <title>
+        Scope avancé
+    </title>
+    <script src="../js/angular.js"></script>
+
+    <script>
+
+    angular.module('myApp', [])
+
+    // il n'est pas nécessaire de sauvegarder une référence à l'app si on
+    // fait du chaining.
+
+    .controller('Controlleur1', function($scope) {
+
+        // on peut stocker n'importe quel type de données en attribut de code,
+        // y compris des objets, des arrays, ou des combinaisons des deux
+        $scope.un_objet = {
+            "champ": "lina",
+            "moto": "it's fire time !"
+        };
+
+        $scope.un_array = [1, 2, 3, 4, 5];
+
+    })
+
+    // Les dernières version d'angular permettent de masquer la notion de scope
+    // et attacher directement les variables au controlleur lui-même. Dans
+    // ce cas, on utilise la syntaxe "as" pour obtenir sa référence.
+    .controller('Controlleur2', function() {
+
+        this.ceci_est_attache_au_controlleur_et_non_au_scope = true;
+
+    });
+
+    </script>
+
+</head>
+
+<body>
+<!-- Notez qu'on peut avoir plusieurs controlleurs sur une page, gérant chacun
+    sa partie de HTML. On peut même les avoir imbriqués.-->
+<div  ng-controller="Controlleur1">
+    <p><strong>Un controlleur avec un scope explicite :</strong></p>
+    <p>{{ un_objet.champ }}: « {{ un_objet.moto }} »</p>
+    <p>Un élément de l'array: « {{ un_array[0] }} »</p>
+</div>
+<!-- la nouvelle syntaxe est pratique si l'on souhaite bien distinguer plusieurs
+    controlleurs de la pages et ne pas s'emméler les pinceaux avec les scopes.
+    C'est particulièrement utile avec les controlleurs imbriqués -->
+<div  ng-controller="Controlleur2 as ctrl2">
+    <p><strong>Un controlleur sur lequel on a attaché directement des attributs :</strong></p>
+    <p>On accède à la variable via "ctrl2.attribut": {{ctrl2.ceci_est_attache_au_controlleur_et_non_au_scope}}</p>
+</div>
+</body>
+
+</html>
+
+</body>
+</html>
+

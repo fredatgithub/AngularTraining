@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html ng-app='myApp'>
+  <head>
+    <meta charset="utf-8" />
+    <title>
+        Fonctions anonymes
+    </title>
+</head>
+
+<body >
+
+<script>
+
+function fonction_nommee(){
+    alert("J'ai un nom");
+}
+
+var une_variable = function(){
+    alert("Je n'ai pas de nom");
+}
+
+</script>
+
+<p>
+    <button onclick='fonction_nommee()'>Fonction nommée</button>
+    <a href="#" onclick='alert(fonction_nommee)'>Vérifier</a>
+</p>
+
+<p>
+    <button onclick='une_variable()'>Fonction anonyme</button>
+    <a href="#" onclick='alert(une_variable)'>Verifier</a>
+</p>
+
+<p>
+    <button onclick="(function(){alert('Je suis à usage unique');})()">Fonction à usage unique</button>
+</p>
+
+</html>
+
+</body>
+</html>
+

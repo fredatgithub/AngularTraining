@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html ng-app='fdj'>
+  <head>
+    <meta charset="utf-8" />
+    <title>
+        Agenda
+    </title>
+    <script src="./js/angular.js"></script>
+
+    <script>
+
+    angular.module('fdj', [])
+
+    .filter('uniq', function() {
+        // exercice: ajouter un filtre uniq à la liste de lecture du player
+        "use strict";
+        return function(input, attr) {
+            var uniqueNames = [];
+            angular.forEach(input, function(elem){
+                var found = false;
+                angular.forEach(uniqueNames, function(uniqueElem){
+                    if (uniqueElem[attr] === elem[attr]){
+                        found = true;
+                        return;
+                    }
+                });
+                if (!found){
+                    uniqueNames.push(elem);
+                }
+            });
+            return uniqueNames;
+        };
+    })
+
+    .directive('onWheel', function() {
+    "use strict";
+
+          /* On définit sur quels attributs on va mettre les callbacks */
+          var directive = {
+              scope: {
+                  'onWheel': '&',
+              },
+
+              /* On limite la directive aux attributs */
+              restrict : 'A',
+
+              /* Le code qu'active la directive quand on la pose sur l'élément */
+              link: function($scope, element, attrs) {
+
+                  /* On attache un callback à tous les événements de scrolling */
+                  element.bind('mousewheel wheel', function(e) {
+                    $scope.onWheel();
+                    /* On évite que la page scrolle */
+                    e.preventDefault();
+                });
+
+             }
+
+          };
+
+          return directive;
+
+      })
+
+
+
+    .directive('myCurrentTime', function($interval, dateFilter) {
+
+      return {
+
+            scope: {
+                format: "@",
+            },
+
+            link:  function link(scope, element, attrs) {
+                var timeoutId;
+
+
+                function updateTime() {
+                  element.text(dateFilter(new Date(), scope.format));
+                }
+
+                element.on('$destroy', function() {
+                  $interval.cancel(timeoutId);
+                });
+
+                // start the UI update process; save the timeoutId for canceling
+                timeoutId = $interval(function() {
+                  updateTime(); // update DOM
+                }, 1000);
+
+                updateTime();
+            },
+
+
+
+        };
+
+    })
+
+    .directive("hello", function(){
+          return {
+            template: 'Hello',
+            "restrict": "E"
+          };
+    })
+
+    .factory('fdj.agenda', function($rootScope, $http){
+
+        var service = {
+            people: [],
+            addPerson: function(name, phone){
+                console.log('add personne')
+                var person = {
+                    'name':name,'phone': service.normalizePhone(phone)
+                };
+                console.log("add", person)
+                $http.post('http://127.0.0.1:8080/contacts/', person).success(function(){
+                    service.people.push(person);
+                });
+
+            },
+            normalizePhone: function(phone){
+                return phone.replace(/^\+/, "00").replace(/\D/g, "");
+            },
+            remove: function(person){
+                console.log('delete :(');
+                // angular.forEach(service.people, function(pers, i){
+                //     if (angular.equals(person, pers)){
+                //         console.log("delete", pers, 'stop')
+                //         $http.delete("http://127.0.0.1:8080/contacts/", pers).success(function(){
+                //             service.people.splice(i, 1);
+                //         });
+
+                //     }
+                // });
+            }
+        };
+        $http.get('http://127.0.0.1:8080/contacts').success(function(data){
+            service.people = data.results;
+        });
+
+        return service;
+
+    })
+
+    .controller('AgendaCtrl', ["$scope", "fdj.agenda", function($scope, agenda) {
+        $scope.agenda = agenda;
+        $scope.submit = function(name, phone, e){
+            agenda.addPerson(name, phone);
+            e.target.reset();
+            $scope.addForm.$setPristine();
+        };
+    }]);
+
+    </script>
+
+</head>
+
+<body  ng-controller="AgendaCtrl">
+
+    <p my-current-time format="M/d/yy h:mm:ss">fdsqf</p>
+
+    <p><hello></hello></p>
+
+    <form novalidate name="addForm" ng-submit="addForm.$valid && submit(newPersonName, newPersonPhone, $event)">
+
+        <p ng-if="newPersonName && addForm.phone.$error.pattern">
+            Le numéro ne peut contenir que des espaces, des nombres, ou un de ces caractères suivant : + / . -
+            Il doit contenir au moins 2 chiffres.
+        </p>
+        <p>
+            <label>Add person</label>
+            <input name="name" ng-model="newPersonName" required>
+            <input name="phone" ng-model="newPersonPhone"
+                   required ng-pattern="/^\+?[\d\.\-\s\/]{2,}$/">
+            <button>Add</button>
+        </p>
+    </form>
+    <ul>
+        <li on-wheel="agenda.remove(person)"
+            ng-repeat='person in agenda.people|uniq:"phone"|filter:filterAgenda'>
+            <strong>{{ person.name}}</strong> : {{ person.phone }}
+        </li>
+    </ul>
+
+    <p>
+        <label>Filtrer</label> : <input ng-model="filterAgenda">
+    </p>
+
+</body>
+
+</html>
+
+</body>
+</html>
+
