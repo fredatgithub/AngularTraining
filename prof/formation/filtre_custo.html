@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html ng-app='myApp'>
+  <head>
+    <meta charset="utf-8" />
+    <title>
+        Filtre custom
+    </title>
+    <script src="angular.js"></script>
+    <script>
+    angular.module('myApp', [])
+
+    .filter('random', function($interval) {
+
+        var cache = {};
+        $interval(function(){
+            cache.random = undefined;
+        }, 1000);
+
+        return function(input) {
+
+            if (cache.random){
+                return cache.random;
+            }
+         
+            var a = Math.floor(Math.random()*input.length);
+            var b = Math.floor(Math.random()*input.length);
+
+            cache.random = input.filter(function(element, i){
+                if (i !== a && i !== b){
+                    return element;
+                }
+            });
+
+            return cache.random;
+        };
+
+    })
+
+    .controller('Controlleur', function($scope) {
+        $scope.contacts = [
+            {"name": "donatello", "tel": 12456},
+            {"name": "michaelangelo", "tel": 12456},
+            {"name": "leonardo", "tel": 12456},
+            {"name": "raphael", "tel": 12456},
+            {"name": "robert", "tel": 12456},
+        ]
+    });
+    </script>
+</head>
+<body  ng-controller="Controlleur">
+        <ul>
+            <li ng-repeat="contact in contacts|random track by contact.name ">
+                <strong>{{contact.name}}</strong>: {{contact.tel}}
+            </li>
+        </ul>
+</body>
+</html>

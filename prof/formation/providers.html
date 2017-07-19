@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html ng-app='myApp'>
+  <head>
+    <meta charset="utf-8" />
+    <title>
+        Provider
+    </title>
+    <script src="angular.js"></script>
+    <script>
+  angular.module('myApp', [])
+  
+  .config(function(todoProvider){
+    todoProvider.setUpperMode(false);
+  })
+  
+  .provider("todo", function(){
+
+    var upperMode = false;
+    this.setUpperMode = function(val){
+      upperMode = val;
+    };
+
+    this.$get = function() {
+      return {
+        tasks: [],
+        addTask: function(task){
+          if (upperMode) {
+            task = task.toUpperCase();
+          }
+          this.tasks.push(task);
+        }
+      };
+    }
+  })
+  
+
+  // .factory("todo", function(){
+  //   return {
+  //       tasks: [],
+  //       addTask: function(task){
+  //         this.tasks.push(task);
+  //     }
+  //   };
+  // })
+  
+
+  // .service("todo", function(){
+  //     var service = this;
+  //     service.tasks = [];
+  //     service.addTask = function (task) {
+  //       service.tasks.push(task);
+  //     }
+  // })
+
+  .controller('Controlleur', function($scope, todo) {
+    $scope.todo = todo;
+    $scope.processNewTask = function(){
+      if (!$scope.newTask){ return; }
+        $scope.todo.addTask($scope.newTask);
+        $scope.newTask = "";
+    
+    }
+  });
+    </script>
+</head>
+<body ng-controller="Controlleur">
+    <form ng-submit="processNewTask()">
+        <p> <input ng-model="newTask"> <button>Add</button> </p>
+    </form>
+    <ul>
+        <li ng-repeat="task in todo.tasks">{{ task }}</li>
+    </ul>
+</body>
+</html>
