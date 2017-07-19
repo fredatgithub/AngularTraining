@@ -1,0 +1,11 @@
+AJAX
+verb : GET/POST/PUT/DELETE
+GET = lecture
+POST = create
+PUT = update
+DELETE = suppression
+
+promise = deferred = future
+
+les promises se construisent avec l'objet $q
+

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html ng-app='myApp'>
+  <head>
+    <meta charset="utf-8" />
+    <title>
+        Horloge simple
+    </title>
+    <script src="angular.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="style.css">
+
+    <script>
+
+    angular.module('myApp', [])
+
+    .service("horloge", function($interval){
+      var service = this;
+        service.decalage = 0;
+        service.datetime = new Date();
+        $interval(function(){
+           var timestamp = (new Date()).getTime() + (3600000 * service.decalage);
+           service.datetime.setTime(timestamp);
+        }, 1000);
+    })
+
+
+    .controller('Clock', function(horloge) {
+        'use strict';
+
+        var vm = this;
+        vm.horloge = horloge;
+
+
+    });
+
+    </script>
+
+</head>
+
+<body>
+<div ng-controller="Clock as vm">
+    <h1>{{ vm.horloge.datetime.getHours() }}:{{ vm.horloge.datetime.getMinutes() }}:{{ vm.horloge.datetime.getSeconds() }} </h1>
+    <p>Décalage : <input type="number" ng-model="vm.horloge.decalage"></p>
+</div>
+</body>
+
+</html>
+
+</body>
+</html>
+

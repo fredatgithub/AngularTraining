@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html ng-app='myApp'>
+  <head>
+    <meta charset="utf-8" />
+    <title>
+        Promises
+    </title>
+    <script src="angular.js"></script>
+    <script>
+  angular.module('myApp', [])
+
+  .controller('Controlleur', function($scope, $q) {
+        function asyncCoucou(name) {
+       
+            var promise = $q(function(resolve, reject) {
+                setTimeout(function() {
+                    resolve('Hello, ' + name + '!');
+                }, 4000);
+            });
+
+            return promise;
+        }
+
+        var promise = asyncCoucou("toi");
+
+        promise.then(function(msg){
+            alert(msg)
+        })
+  });
+    </script>
+</head>
+<body ng-controller="Controlleur">
+
+<form>
+
+</form>
+
+</body>
+
+</html>
+
+</body>
+</html>
+

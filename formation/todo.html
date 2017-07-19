@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Todo !</title>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+      <h1>Todo</h1>
+      <form name="todoform">
+        <p>
+          <input type="text" name="task">
+          <button type="submit" name="add">Add</button>
+        </p>
+        <ul id="tasks">
+        </ul>
+      </form>
+
+      <script>
+        var form = document.forms.todoform;
+        var todolist = document.getElementById('tasks');
+        form.addEventListener('submit', function(e){
+          e.preventDefault();
+          var li = document.createElement('li');
+          li.innerHTML = form.task.value;
+          todolist.appendChild(li);
+          form.task.value = "";
+        })
+      </script>
+    </body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="fr" ng-app="moduleSignatureMail">
+    <head>
+        <title>Email with partial template !</title>
+        <meta charset="UTF-8">
+    </head>
+    <body ng-controller="controller">
+      <h1>Email with template with AngularJS</h1>
+      <label>Nom       : </label><input type="text" id="inputNom"><br/><br/>
+      <label>Tél       : </label><input type="text" id="inputTel"><br/><br/>
+      <label>Mail      : </label><input type="text" id="inputMail"><br/><br/><br/><br/>
+      <label>Recherche : </label><input type="text" id="inputRecherche">
+       <select>
+        <option value="alternative">Alternative</option>
+        <option value="classic">Classic</option>
+      </select> 
+      <br/><br/><br/><br/>
+      <!-- <img src="ninja.png" alt="sa tronche" style="width:100px;height:100px;"> -->
+      <div ng-include ="'partials/_classic.html'"></div>
+            
+      <script src="angular.js"></script>
+      <script>
+        var app = angular.module('moduleSignatureMail', []);
+
+        app.controller('controller', function($scope, providerSignatureMail){ 
+          $scope.photoUrl = "";
+          $scope.nom = "";
+          $scope.tel = "";
+          $scope.mail = "";
+          $scope.signatureList = [
+            {photoUrl: "ninja.png", nom: 'SuperKevin', tel: '123456789', mail: "tryToCatchMe@nowhere.com"},
+                {photoUrl: "ninja.png", name: 'Melinda',   tel: '911', mail: "melinda.Gates@microsoft.com"},
+                {photoUrl: "ninja.png", name: 'Billou',  tel: '911911911', mail: "bill.Gates@microsoft.com"},
+                {photoUrl: "ninja.png", name: 'zorro',  tel: '123654987', mail: "bernardo@mexicano.com"},
+                {photoUrl: "ninja.png", name: 'Alibaba',  tel: '123654987', mail: "voleur@grotte.com"}
+                ];
+        });
+                      
+        app.provider("providerSignatureMail", function(){
+          
+          this.$get = function(){
+            //debugger
+            return {
+              contacts: [
+                {photoUrl: "ninja.png", nom: 'SuperKevin', tel: '123456789', mail: "tryToCatchMe@nowhere.com"},
+                {photoUrl: "ninja.png", name: 'Melinda',   tel: '911', mail: "melinda.Gates@microsoft.com"},
+                {photoUrl: "ninja.png", name: 'Billou',  tel: '911911911', mail: "bill.Gates@microsoft.com"},
+                {photoUrl: "ninja.png", name: 'zorro',  tel: '123654987', mail: "bernardo@mexicano.com"},
+                {photoUrl: "ninja.png", name: 'Alibaba',  tel: '123654987', mail: "voleur@grotte.com"}
+              ],
+              
+            };
+          };
+        });
+        
+      </script>
+    </body>
+</html>

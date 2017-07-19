@@ -1,0 +1,21 @@
+<div>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Photo</th>
+            <th>Nom</th>
+            <th>Téléphone</th>
+            <th>E-mail</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <tr ng-repeat="aSignature in signatureList">
+            <td>{{aSignature.photoUrl }}</td>
+            <td>{{aSignature.nom }}</td>
+            <td>{{aSignature.tel }}</td>
+            <td>{{aSignature.mail }}</td>
+        </tr>
+    </tbody>
+</table>
+</div>

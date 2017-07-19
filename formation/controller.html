@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html ng-app="formation">
+  <head>
+    <title>Controller</title>
+    <meta charset="UTF-8">
+    <script src="angular.js"></script>
+  </head>
+  <body>
+
+    <div ng-controller="MonPremierController">
+      <p>Je suis un super paragraphe de la mort qui tue.</p>
+
+      <p>{{ proverbe }}</p>
+
+      <p>Compteur: {{ counter }}</p>
+    </div>
+
+
+    <div ng-controller="MonSecondController">
+
+      <p>Username: {{ user.username }}</p>
+
+      <p>Fruits:</p>
+
+      <ul>
+        <li ng-repeat="fruit in fruits">{{ fruit }}</li>
+      </ul>
+
+    </div>
+
+    <script>
+
+        var app = angular.module('formation', []);
+
+        app.run(function(){
+          console.log('Run app !');
+        });
+
+        app.config(function(){
+          console.log('Config app !');
+        });
+
+        app.controller('MonPremierController', function($scope, $interval){
+           console.log('Lancement du premier controlleur');
+           
+           $scope.proverbe = "Une petite puce pique plus qu'une grosse puce ne pique";
+
+           $scope.counter = 0;
+           
+           $interval(function(){
+            $scope.counter += 1;
+           }, 1000);
+        });
+
+        app.controller('MonSecondController', function($scope){
+          $scope.fruits = [
+            'pomme',
+            'banane',
+            'kiwi',
+            'cerise'
+          ];
+
+          $scope.user = {
+            username: "toto"
+          };
+
+        })
+
+    </script>
+  
+  </body>
+</html>
