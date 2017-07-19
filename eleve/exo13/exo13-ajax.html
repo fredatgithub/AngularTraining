@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="fr" ng-app="ajax">
+    <head>
+        <title>Email with partial template !</title>
+        <meta charset="UTF-8">
+    </head>
+    <body ng-controller="AjaxCtrl">
+      <h1>Ajax with AngularJS</h1>
+      <div ng-if="response">
+      <p>{{response}}</p>
+      <ul>
+        <li ng-repeat="arret in response.arrets">{{arret}}</li>
+      </ul>
+      </div>
+      <button ng-click="load()">Load</button>
+
+      <script src="angular.js"></script>
+      <script>
+        var app = angular.module('ajax', []);
+
+        app.controller('AjaxCtrl', function($scope, $http){
+          $scope.load = function(){ 
+            var promise = $http.get('/example/servicehttp/');
+            promise.then(function(response){
+              $scope.response = response.data;
+          })
+          }
+        });
+                      
+               
+      </script>
+    </body>
+</html>
